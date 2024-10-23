@@ -1,10 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
+import '../../styles/footer.css';
+import { FaLinkedin, FaGithub } from "react-icons/fa";  // Usamos react-icons para los iconos
 
-export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
-	</footer>
-);
+export const Footer = () => {
+  const currentYear = new Date().getFullYear(); // Obtener el año actual
+
+  return (
+    <footer className="footer mt-auto py-3 text-center footer-container">
+      <div className="social-icons">
+        <a href="https://www.linkedin.com/in/tuperfil" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin className="icon linkedin-icon" />
+        </a>
+        <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer">
+          <FaGithub className="icon github-icon" />
+        </a>
+      </div>
+      <p className="footer-text">
+        © {currentYear} Nelson Valero Barcelona - Full Stack Developer
+      </p>
+    </footer>
+  );
+};
