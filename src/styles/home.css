@@ -6,77 +6,32 @@
   height: 100vh;
   background: linear-gradient(to right, #090909, #b3b3b3);
   position: relative;
-  padding-top: 130px;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-bottom: 60px;
+  padding: 2vh 2vw;
   box-sizing: border-box;
-}
-
-/* Texto "Full Stack Developer" */
-.title-text {
-  font-family: 'Oooh Baby', cursive;
-  font-size: 6rem;
-  color: white;
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  z-index: 3;
-  padding: 0 10px;
-  text-align: center;
-}
-
-/* Links de navegación */
-.navigation-links {
-  position: absolute;
-  font-family: 'Oooh Baby', cursive;
-  font-size: 1.5rem;
-  color: white;
-  top: 140px;
-  left: 90px;
-}
-
-.navigation-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.navigation-links li {
-  margin-bottom: 10px;
-}
-
-.navigation-links a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  transition: all 0.3s ease-in-out; /* Transición suave para hover */
-}
-
-.navigation-links a:hover {
-  color: #c0c0c0; /* Cambia el color a plata brillante */
-  font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
-  text-decoration: none; /* Sin subrayado */
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* Marco interno con borde degradado */
 .inner-frame {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 2rem); /* Aproximadamente 1 cm de margen */
+  height: calc(100% - 6vh); /* Ajuste de altura para que se acerque al borde inferior */
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border-left: 2px solid transparent;
   border-right: 2px solid transparent;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
   box-sizing: border-box;
+  padding: 20px;
+  margin-top: 10vh; /* Mantiene la separación desde el borde superior */
+  margin-bottom: 6vh;
   position: relative;
 }
 
-
-/* Borde superior */
+/* Línea superior en el marco */
 .inner-frame::before {
   content: '';
   position: absolute;
@@ -88,105 +43,175 @@
   z-index: 2;
 }
 
+/* Texto "Full Stack Developer" */
+.title-text {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(2.5rem, 5vw, 6rem); /* Tamaño flexible */
+  color: white;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  position: absolute;
+  top: -6vh; /* Ajuste para posicionar el título por encima del inner-frame */
+  z-index: 3;
+}
+
+/* Enlaces de navegación */
+.navigation-links {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(1.2rem, 2vw, 1.5rem); /* Tamaño flexible */
+  color: white;
+  text-align: left;
+  position: absolute;
+  top: 20vh;
+  left: 5vw;
+}
+
+.navigation-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.navigation-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.navigation-links a:hover {
+  color: #c0c0c0;
+}
+
 /* Contenedor del logo */
 .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute; /* Hacemos el contenedor absoluto */
-  top: 50%; /* Centramos verticalmente */
-  left: 50%; /* Centramos horizontalmente */
-  transform: translate(-50%, -70%); /* Ajustamos la posición al centro exacto */
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 2vh;
+  position: absolute;
+  top: 9vh;
+  z-index: 2;
 }
 
 /* Imagen del logo */
 .logo-image {
-  max-width: 450px;
   width: 100%;
   height: auto;
+  max-width: 240px; /* Tamaño mínimo en pantallas pequeñas */
 }
 
-@media screen and (max-width: 1603px) {
-  .inner-frame::before {
-    top: -15px;
+/* Media Queries para ajustar la posición y tamaño del logo */
+@media screen and (min-width: 1000px) {
+  .logo-image {
+    max-width: 300px; /* Tamaño mayor en pantallas medianas */
+  }
+  .title-text {
+    font-size: 5.6rem; /* Aumenta el tamaño del título en pantallas grandes */
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo-image {
+    max-width: 300px; /* Tamaño mayor en pantallas medianas */
+  }
+  .title-text {
+    font-size: 5.8rem; /* Aumenta el tamaño del título en pantallas grandes */
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .title-text {
+    font-size: 6rem; /* Aumenta el tamaño del título en pantallas grandes */
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .logo-image {
+    max-width: 400px; /* Tamaño mayor en pantallas grandes */
+  }
+   .title-text {
+    font-size: 6.5rem; /* Aumenta el tamaño del título aún más */
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .title-text {
+    font-size: 7.5rem;
   }
   .logo-image {
-    max-width: 440px;
+    max-width: 430px; /* Tamaño mayor en pantallas extra grandes */
   }
+}
+
+/* Media Queries para reorganizar los elementos en pantallas más pequeñas */
+@media screen and (max-width: 1000px) {
   .title-text {
     font-size: 5.3rem;
-  }
-}
-
-@media screen and (max-width: 1436px) {
-  .inner-frame::before {
-    top: -15px;
-  }
-  .logo-image {
-    max-width: 430px;
-  }
-  .title-text {
-    font-size: 5rem;
-  }
-}
-
-@media screen and (max-width: 1364px) {
-  .inner-frame::before {
-    top: -15px;
-  }
-  .logo-image {
-    max-width: 427px;
-  }
-  .title-text {
-    font-size: 4.8rem;
-  }
-}
-
-@media screen and (max-width: 1316px) {
-  .inner-frame::before {
-    top: -15px;
-  }
-  .logo-image {
-    max-width: 418px;
-  }
-  .title-text {
-    font-size: 4.4rem;
-  }
-}
-
-@media screen and (max-width: 1220px) {
-  .inner-frame::before {
-    top: -25px;
-  }
-  .logo-image {
-    max-width: 414px;
-  }
-  .title-text {
-    font-size: 4.1rem;
-  }
-}
-
-@media screen and (max-width: 1136px) {
-  .inner-frame::before {
-    top: -25px;
-  }
-  .logo-image {
-    max-width: 400px;
-  }
-  .title-text {
-    font-size: 4.1rem;
+    position: static;
+    margin-top: -24vh;
+    order: 1;
   }
 
-  /* Ajuste de los links de navegación */
+  .logo-container {
+    position: static;
+    margin: 20px 0;
+    order: 2;
+  }
+
   .navigation-links {
-    top: auto; /* Elimina la posición superior */
-    bottom: 30px; /* Posiciona los enlaces cerca del final */
-    left: 50%; /* Centra los enlaces horizontalmente */
-    transform: translateX(-50%); /* Ajusta para que queden centrados */
-    font-size: 1.3rem; /* Reduce el tamaño de la letra de los links */
+    position: static;
+    text-align: center;
+    margin-top: 2vh;
+    order: 3;
   }
-  
-  .navigation-links a {
-    font-size: 1rem; /* Ajusta el tamaño de los links */
+
+  .navigation-links ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Media Query para dividir el título en dos líneas en pantallas de hasta 840px */
+@media screen and (max-width: 840px) {
+  .title-text {
+    font-size: 5rem; /* Mantiene el tamaño para buena visibilidad */
+    max-width: 70vw; /* Limita el ancho para forzar el salto de línea */
+    text-align: center;
+    line-height: 1.2; /* Espaciado entre las dos líneas */
+    white-space: normal; /* Permite que el texto se divida en varias líneas */
+    margin-top: -12vh; /* Ajuste para mantener alineación con el contenido */
+  }
+}
+
+/* Media Query para pantallas de hasta 500px */
+@media screen and (max-width: 500px) {
+  .title-text {
+    font-size: 4rem; /* Tamaño reducido en pantallas muy pequeñas */
+    max-width: 80vw; /* Mantiene el título en dos líneas */
+    margin-top: -14vh; /* Ajuste para alineación en pantallas pequeñas */
+    line-height: 1.2; /* Espaciado adecuado entre líneas */
+  }
+}
+
+/* Ajustes adicionales para modo horizontal en móviles */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .home-container {
+    height: auto;
+    padding: 4vh 2vw;
+  }
+  .title-text {
+    font-size: 3.5rem; /* Reduce el tamaño en orientación horizontal */
+    margin-top: -10vh;
+  }
+  .logo-container {
+    top: 6vh;
+  }
+  .navigation-links {
+    top: 30vh;
   }
 }

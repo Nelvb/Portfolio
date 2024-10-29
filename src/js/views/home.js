@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";  // Asume que estás usando React Router
+import { Link } from "react-router-dom"; // Asume que estás usando React Router
 import "../../styles/home.css";
-import logoNel from "../../img/logo Nel sin fondo 2(1).png"; 
+import logoNel from "../../img/logosinfondo_5.png"; // Nueva ruta de la imagen
 
 export const Home = () => (
   <div className="home-container">
