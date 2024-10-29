@@ -10,10 +10,10 @@
     box-sizing: border-box;
     flex-direction: column;
     overflow: hidden;
-}
+  }
   
-/* Marco interno con borde degradado */
-.inner-frame {
+  /* Marco interno con borde degradado */
+  .about-inner-frame {
     width: calc(100% - 2rem);
     height: calc(100% - 6vh);
     display: flex;
@@ -28,8 +28,8 @@
     position: relative;
   }
   
-/* Título alineado a la izquierda */
-.title-text {
+  /* Título alineado a la izquierda */
+  .about-title-text {
     font-family: 'Oooh Baby', cursive;
     font-size: clamp(2.5rem, 5vw, 6rem);
     color: white;
@@ -38,14 +38,15 @@
     margin: 0;
     padding: 0;
     margin-bottom: 20px; /* Espacio entre el título y el texto */
-}
+  }
   
-/* Texto del contenido en About Me */
-.about-text {
+  /* Texto del contenido en About Me */
+  .about-text {
     font-family: Arial, sans-serif;
     color: white;
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: left; /* Alineado a la izquierda */
     margin: 0;
-}
+  }
+  
