@@ -8,10 +8,10 @@ export const Footer = () => {
   return (
     <footer className="footer mt-auto py-3 text-center footer-container">
       <div className="social-icons">
-        <a href="https://www.linkedin.com/in/tuperfil" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/nelvb" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="icon linkedin-icon" />
         </a>
-        <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Nelvb" target="_blank" rel="noopener noreferrer">
           <FaGithub className="icon github-icon" />
         </a>
       </div>

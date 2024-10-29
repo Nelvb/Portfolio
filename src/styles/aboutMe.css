@@ -1,0 +1,51 @@
+/* Contenedor principal de About Me */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #090909, #b3b3b3);
+    position: relative;
+    padding: 2vh 2vw;
+    box-sizing: border-box;
+    flex-direction: column;
+    overflow: hidden;
+}
+  
+/* Marco interno con borde degradado */
+.inner-frame {
+    width: calc(100% - 2rem);
+    height: calc(100% - 6vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 10vh;
+    margin-bottom: 6vh;
+    position: relative;
+  }
+  
+/* Título alineado a la izquierda */
+.title-text {
+    font-family: 'Oooh Baby', cursive;
+    font-size: clamp(2.5rem, 5vw, 6rem);
+    color: white;
+    text-align: left; /* Alineado a la izquierda */
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px; /* Espacio entre el título y el texto */
+}
+  
+/* Texto del contenido en About Me */
+.about-text {
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left; /* Alineado a la izquierda */
+    margin: 0;
+}

@@ -1,60 +1,83 @@
-/* Contenedor del footer con fondo oscuro y neón */
+/* Contenedor del footer con fondo oscuro y textura*/
 .footer-container {
-    background: 
-      repeating-linear-gradient(
-        45deg, 
-        #3a3a3a,  /* Gris oscuro */
-        #3a3a3a 10px, 
-        #4a4a4a 10px,  /* Gris intermedio oscuro */
-        #4a4a4a 20px
-      ),
-      repeating-linear-gradient(
-        -45deg, 
-        #3a3a3a, 
-        #3a3a3a 10px, 
-        #4a4a4a 10px, 
-        #4a4a4a 20px
-      );
-    background-blend-mode: multiply;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  
-  
-  
-  
-  
-  /* Iconos de redes sociales */
-  .social-icons {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 10px;
-  }
-  
-  /* Estilos de los iconos */
+  background: 
+    repeating-linear-gradient(
+      45deg, 
+      #3a3a3a,
+      #3a3a3a 10px, 
+      #4a4a4a 10px,
+      #4a4a4a 20px
+    ),
+    repeating-linear-gradient(
+      -45deg, 
+      #3a3a3a, 
+      #3a3a3a 10px, 
+      #4a4a4a 10px, 
+      #4a4a4a 20px
+    );
+  background-blend-mode: multiply;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Iconos de redes sociales */
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+/* Estilos de los iconos */
+.icon {
+  font-size: 2rem;
+  color: white;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icon:hover {
+  color: black; 
+  background-color: white; 
+  transform: scale(1.1); 
+}
+
+/* Texto del footer con brillo */
+.footer-text {
+  font-family: 'Oooh Baby', cursive;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.4);
+  text-align: center;
+}
+
+/* Media Queries para pantallas medianas */
+@media screen and (max-width: 768px) {
   .icon {
-    font-size: 2rem; /* Ajusta el tamaño del icono */
-    color: white;
-    transition: transform 0.3s, color 0.3s;
+      font-size: 1.5rem;
   }
   
-  .icon:hover {
-    color: black;  /* Cambiar el logo a blanco */
-    background-color: white;  /* Cambiar el fondo a negro */
-    transform: scale(1.1);  /* Hacer crecer el icono */
-  }
-  
-  /* Texto del footer con brillo */
   .footer-text {
-    font-family: 'Oooh Baby', cursive;
-    font-size: 1.5rem;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.4);
-    text-align: center;
+      font-size: 1.2rem;
   }
   
+  .social-icons {
+      gap: 15px; 
+  }
+}
+
+/* Media Queries para pantallas pequeñas */
+@media screen and (max-width: 480px) {
+  .icon {
+      font-size: 1.2rem;
+  }
+  
+  .footer-text {
+      font-size: 1rem;
+  }
+  
+  .social-icons {
+      gap: 10px;
+  }
+}
