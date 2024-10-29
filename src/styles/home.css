@@ -15,9 +15,7 @@
 /* Marco interno con borde degradado */
 .inner-frame {
   width: calc(100% - 2rem);
-  /* Aproximadamente 1 cm de margen */
   height: calc(100% - 6vh);
-  /* Ajuste de altura para que se acerque al borde inferior */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,6 +78,7 @@
   /* Mantiene el texto en una línea */
   margin: 0;
   padding: 0;
+  opacity: 0;
 }
 
 /* Enlaces de navegación */
@@ -266,3 +265,4 @@
     /* Reduce un poco más el tamaño de la letra */
   }
 }
+
