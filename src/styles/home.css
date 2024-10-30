@@ -51,41 +51,59 @@
   transition: background 0.3s ease;
 }
 
+/* Efecto de brillo para el borde con sombra */
+.inner-frame.glow-effect {
+  animation: borderGlowShadow 5s ease-in-out forwards; /* Aumenta la duración para suavidad */
+}
+
+/* Definición de la animación de sombra */
+@keyframes borderGlowShadow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  }
+}
+
+/* Configuración inicial para animaciones */
+.logo-image,
+.title-text,
+.navigation-links li {
+  opacity: 0; /* Oculta el logo, título y enlaces */
+}
+
 /* Contenedor del título superpuesto sobre la línea */
 .title-container {
   position: absolute;
   top: 0;
-  /* Alinea el contenedor con el borde superior del inner-frame */
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  /* Asegura que el título esté superpuesto sobre la línea */
   padding: 0;
   background: transparent;
   width: 100%;
-  /* Asegura que ocupe todo el ancho necesario */
 }
 
 /* Texto "Full Stack Developer" */
 .title-text {
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(2.5rem, 5vw, 6rem);
-  /* Tamaño flexible */
   color: white;
   text-align: center;
   line-height: 1;
   white-space: nowrap;
-  /* Mantiene el texto en una línea */
   margin: 0;
   padding: 0;
-  opacity: 0;
 }
 
 /* Enlaces de navegación */
 .navigation-links {
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  /* Tamaño flexible */
   color: white;
   text-align: left;
   position: absolute;
@@ -138,7 +156,6 @@
   .logo-image {
     max-width: 300px;
   }
-
   .title-text {
     font-size: 5.6rem;
   }
@@ -148,7 +165,6 @@
   .logo-image {
     max-width: 300px;
   }
-
   .title-text {
     font-size: 5.8rem;
   }
@@ -164,7 +180,6 @@
   .logo-image {
     max-width: 400px;
   }
-
   .title-text {
     font-size: 6.5rem;
   }
@@ -174,7 +189,6 @@
   .title-text {
     font-size: 7.5rem;
   }
-
   .logo-image {
     max-width: 430px;
   }
@@ -186,23 +200,19 @@
     font-size: 4.5rem;
     text-align: center;
   }
-
   .logo-container {
     margin-top: 5vh;
   }
-
   .navigation-links {
     position: static;
     text-align: center;
     margin-top: 40vh;
     order: 3;
   }
-
   .navigation-links ul {
     flex-direction: column;
     align-items: center;
   }
-
   .inner-frame::before {
     background: linear-gradient(to right,
         #b3b3b3 5%,
@@ -215,7 +225,6 @@
     z-index: 1;
     transition: background 0.3s ease;
   }
-
 }
 
 @media screen and (max-width: 840px) {
@@ -247,22 +256,17 @@
     z-index: 1;
     transition: background 0.3s ease;
   }
-
 }
 
 /* Ajustes de tamaño de fuente para pantallas de hasta 440px */
 @media screen and (max-width: 440px) {
   .title-text {
     font-size: 2.2rem;
-    /* Reduce el tamaño de la letra ligeramente */
   }
 }
 
-/* Ajustes de tamaño de fuente para pantallas de hasta 340px */
 @media screen and (max-width: 340px) {
   .title-text {
     font-size: 2rem;
-    /* Reduce un poco más el tamaño de la letra */
   }
 }
-
