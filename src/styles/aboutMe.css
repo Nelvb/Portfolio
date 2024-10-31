@@ -1,52 +1,182 @@
-/* Contenedor principal de About Me */
+/* Contenedor principal */
 .about-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to right, #090909, #b3b3b3);
-    position: relative;
-    padding: 2vh 2vw;
-    box-sizing: border-box;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  /* Marco interno con borde degradado */
-  .about-inner-frame {
-    width: calc(100% - 2rem);
-    height: calc(100% - 6vh);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
-    box-sizing: border-box;
-    padding: 20px;
-    margin-top: 10vh;
-    margin-bottom: 6vh;
-    position: relative;
-  }
-  
-  /* Título alineado a la izquierda */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #090909, #b3b3b3);
+  position: relative;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Marco interno con borde degradado */
+.inner-frame {
+  width: calc(100% - 2rem);
+  height: calc(100% - 6vh);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 10vh;
+  margin-bottom: 6vh;
+  position: relative;
+}
+
+/* Línea superior con degradado en el centro */
+.inner-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    #b3b3b3 5%,
+    rgba(179, 179, 179, 0.5) 25%,
+    rgba(179, 179, 179, 0.1) 30%,
+    transparent 50%,
+    rgba(9, 9, 9, 0.1) 70%,
+    rgba(9, 9, 9, 0.5) 85%,
+    #090909 95%
+  );
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+/* Contenedor del título superpuesto sobre la línea */
+.title-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+}
+
+/* Texto "Sobre Mí" */
+.about-title-text {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  color: white;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para la card */
+.card {
+  width: 300px; /* Ajusta el tamaño según tus necesidades */
+  height: 393px; /* Ajusta el tamaño según tus necesidades */
+  perspective: 1000px; /* Perspectiva para el efecto 3D */
+  background-color: transparent;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Front y back de la card con borde plateado */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0e0d0d;
+}
+
+/* Aplicar marco plateado brillante en ambos lados */
+.card-front::before, .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: shine 3s linear infinite;
+  pointer-events: none;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Logo en el centro del frente de la card */
+.card-logo {
+  width: 250px;
+  height: auto;
+  background-color: transparent;
+}
+
+/* Imagen personal */
+.about-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Animación de brillo */
+@keyframes shine {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Media Queries para ajustar el tamaño del título */
+@media screen and (min-width: 1000px) {
   .about-title-text {
-    font-family: 'Oooh Baby', cursive;
-    font-size: clamp(2.5rem, 5vw, 6rem);
-    color: white;
-    text-align: left; /* Alineado a la izquierda */
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 20px; /* Espacio entre el título y el texto */
+    font-size: 5.6rem;
   }
-  
-  /* Texto del contenido en About Me */
-  .about-text {
-    font-family: Arial, sans-serif;
-    color: white;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: left; /* Alineado a la izquierda */
-    margin: 0;
+}
+
+@media screen and (min-width: 1200px) {
+  .about-title-text {
+    font-size: 5.8rem;
   }
-  
+}
+
+@media screen and (min-width: 1400px) {
+  .about-title-text {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .about-title-text {
+    font-size: 6.5rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .about-title-text {
+    font-size: 7.5rem;
+  }
+}
