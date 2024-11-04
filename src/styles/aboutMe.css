@@ -12,6 +12,8 @@
   overflow: hidden;
 }
 
+
+
 /* Marco interno con borde degradado */
 .inner-frame {
   width: calc(100% - 2rem);
@@ -76,12 +78,70 @@
   padding: 0;
 }
 
+.about-description-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 60%;
+  max-width: 800px;
+  color: #dcdcdc;
+  text-align: justify;
+  line-height: 1.6;
+  padding-left: 2%; /* Ajuste en porcentaje para el padding */
+  margin-left: 5%; /* Ajuste en porcentaje para mantener el espacio */
+}
+
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+/* Estilos para los encabezados y párrafos en la sección "Sobre mí" */
+.about-heading-poppins {
+  font-family: 'Poppins', sans-serif; /* Fuente para encabezados tipo h3 */
+}
+
+.about-title {
+  font-family: 'Poppins', sans-serif; /* Fuente para el h2 */
+  font-size: 3rem; /* Tamaño del h2 */
+  color: #d1d1d1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 0px 0px 3px rgba(255, 255, 255, 0.2);
+}
+
+.about-heading-large {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: #d1d1d1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 0px 0px 3px rgba(255, 255, 255, 0.2); /* Sombra más profunda y definida */
+}
+
+
+.about-paragraph {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: white;
+}
+
+.highlight {
+  color: #b8bdbf; /* O algún color que contraste suavemente */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* O un color que combine con el fondo */
+  padding-bottom: 2px;
+  text-shadow: 0 0 5px rgba(39, 41, 42, 0.4);
+  font-weight: bold;
+}
+
+
+
+
 /* Estilos para la card */
 .card {
-  width: 300px; /* Ajusta el tamaño según tus necesidades */
-  height: 393px; /* Ajusta el tamaño según tus necesidades */
-  perspective: 1000px; /* Perspectiva para el efecto 3D */
+  width: 300px;
+  height: 393px;
+  perspective: 1000px;
   background-color: transparent;
+  position: absolute;
 }
 
 .card-inner {
@@ -144,11 +204,33 @@
   object-fit: cover;
 }
 
-/* Animación de brillo */
-@keyframes shine {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
+
+
+/* Estilos para el enlace "Volver", igual que en la sección de navegación del home */
+.back-link {
+  opacity: 0; /* Inicialmente oculto */
+  position: absolute;
+  bottom: 2vh; /* Ajusta según tu preferencia para colocarlo en la parte inferior */
+  left: 5vw; /* Ajusta para alinear con el contenido principal */
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: white;
+  text-align: left;
+  z-index: 2;
 }
+
+.back-link a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.back-link a:hover {
+  color: #c0c0c0;
+  font-size: 1.6rem; /* Efecto de aumento en hover */
+}
+
+
 
 /* Media Queries para ajustar el tamaño del título */
 @media screen and (min-width: 1000px) {

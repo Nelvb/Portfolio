@@ -8,9 +8,15 @@ import "../styles/index.css";
 //import your own components
 import Layout from './layout.js'
 
+import { LoadingProvider } from './component/loadingContext';
+
 //
 const root = createRoot(document.querySelector("#app"))
 
 //render your react application
-root.render(<Layout/>)
+root.render(
+    <LoadingProvider>
+      <Layout />
+    </LoadingProvider>
+  );
 

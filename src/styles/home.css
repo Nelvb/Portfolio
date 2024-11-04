@@ -12,6 +12,7 @@
   overflow: hidden;
 }
 
+
 /* Marco interno con borde degradado */
 .inner-frame {
   width: calc(100% - 2rem);
