@@ -12,14 +12,12 @@
   overflow: hidden;
 }
 
-
-
 /* Marco interno con borde degradado */
 .inner-frame {
   width: calc(100% - 2rem);
   height: calc(100% - 6vh);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-left: 2px solid transparent;
   border-right: 2px solid transparent;
@@ -30,6 +28,7 @@
   margin-top: 10vh;
   margin-bottom: 6vh;
   position: relative;
+  flex-direction: column;
 }
 
 /* Línea superior con degradado en el centro */
@@ -41,15 +40,15 @@
   width: 100%;
   height: 2px;
   background: linear-gradient(
-    to right,
-    #b3b3b3 5%,
-    rgba(179, 179, 179, 0.5) 25%,
-    rgba(179, 179, 179, 0.1) 30%,
-    transparent 50%,
-    rgba(9, 9, 9, 0.1) 70%,
-    rgba(9, 9, 9, 0.5) 85%,
-    #090909 95%
-  );
+      to right,
+      #b3b3b3 5%,
+      rgba(179, 179, 179, 0.5) 25%,
+      rgba(179, 179, 179, 0.1) 30%,
+      transparent 50%,
+      rgba(9, 9, 9, 0.1) 70%,
+      rgba(9, 9, 9, 0.5) 85%,
+      #090909 95%
+    );
   z-index: 1;
   transition: background 0.3s ease;
 }
@@ -78,43 +77,59 @@
   padding: 0;
 }
 
+/* Contenedor para la descripción, tarjeta y botón */
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+/* Contenedor de la descripción a la izquierda */
 .about-description-container {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 60%;
-  max-width: 800px;
+  width: 70%;
   color: #dcdcdc;
   text-align: justify;
   line-height: 1.6;
-  padding-left: 2%; /* Ajuste en porcentaje para el padding */
-  margin-left: 5%; /* Ajuste en porcentaje para mantener el espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
-.invisible {
-  opacity: 0;
-  visibility: hidden;
-}
-
 
 /* Estilos para los encabezados y párrafos en la sección "Sobre mí" */
 .about-heading-poppins {
-  font-family: 'Poppins', sans-serif; /* Fuente para encabezados tipo h3 */
+  font-family: 'Poppins', sans-serif;
 }
 
 .about-title {
-  font-family: 'Poppins', sans-serif; /* Fuente para el h2 */
-  font-size: 3rem; /* Tamaño del h2 */
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
   color: #d1d1d1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 0px 0px 3px rgba(255, 255, 255, 0.2);
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.7),  /* Sombra de borde */
+    4px 4px 8px rgba(0, 0, 0, 0.6),  /* Sombra secundaria */
+    6px 6px 12px rgba(0, 0, 0, 0.5); /* Sombra más profunda para el relieve */
 }
 
 .about-heading-large {
   font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  color: #d1d1d1;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.7),  /* Sombra de borde */
+    4px 4px 8px rgba(0, 0, 0, 0.6),  /* Sombra secundaria */
+    6px 6px 12px rgba(0, 0, 0, 0.5); /* Sombra más profunda para el relieve */
+}
+
+
+h5 {
+  font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   color: #d1d1d1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 0px 0px 3px rgba(255, 255, 255, 0.2); /* Sombra más profunda y definida */
 }
 
 
@@ -125,39 +140,43 @@
 }
 
 .highlight {
-  color: #b8bdbf; /* O algún color que contraste suavemente */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* O un color que combine con el fondo */
+  color: #b8bdbf;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 2px;
   text-shadow: 0 0 5px rgba(39, 41, 42, 0.4);
   font-weight: bold;
 }
 
+/* Estilos para la tarjeta */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
+}
 
-
-
-/* Estilos para la card */
 .card {
   width: 300px;
   height: 393px;
   perspective: 1000px;
   background-color: transparent;
-  position: absolute;
 }
 
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
   transform-style: preserve-3d;
+  transition: transform 0.6s; /* Asegúrate de que esta línea esté aquí */
 }
 
-/* Front y back de la card con borde plateado */
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.7);
 }
 
 .card-front {
@@ -167,30 +186,11 @@
   background: #0e0d0d;
 }
 
-/* Aplicar marco plateado brillante en ambos lados */
-.card-front::before, .card-back::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid transparent;
-  background: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  animation: shine 3s linear infinite;
-  pointer-events: none;
-}
-
 .card-back {
   transform: rotateY(180deg);
 }
 
-/* Logo en el centro del frente de la card */
+/* Logo en el centro de la tarjeta */
 .card-logo {
   width: 250px;
   height: auto;
@@ -204,19 +204,13 @@
   object-fit: cover;
 }
 
-
-
-/* Estilos para el enlace "Volver", igual que en la sección de navegación del home */
+/* Enlace "Volver" */
 .back-link {
-  opacity: 0; /* Inicialmente oculto */
-  position: absolute;
-  bottom: 2vh; /* Ajusta según tu preferencia para colocarlo en la parte inferior */
-  left: 5vw; /* Ajusta para alinear con el contenido principal */
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: white;
-  text-align: left;
-  z-index: 2;
+  align-self: flex-start;
+  padding-left: 5rem;
 }
 
 .back-link a {
@@ -227,12 +221,18 @@
 
 .back-link a:hover {
   color: #c0c0c0;
-  font-size: 1.6rem; /* Efecto de aumento en hover */
+  font-size: 1.6rem;
+}
+
+/* Efecto de rotación al hacer clic */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
 }
 
 
+/* MEDIAS QUERIES */
 
-/* Media Queries para ajustar el tamaño del título */
+/* Media Queries para tamaños grandes */
 @media screen and (min-width: 1000px) {
   .about-title-text {
     font-size: 5.6rem;
@@ -260,5 +260,169 @@
 @media screen and (min-width: 2000px) {
   .about-title-text {
     font-size: 7.5rem;
+  }
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 1000px) {
+  .about-title-text {
+    font-size: 4.5rem;
+  }
+
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    margin: 1rem 0.5rem;
+  }
+
+  .about-description-container {
+    width: 100%;
+  }
+
+  .about-paragraph {
+    font-size: 1.1rem;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-heading-large {
+    font-size: 2rem;
+  }
+
+  h5 {
+    font-size: 1.6rem;
+  }
+
+  .card-container {
+    margin-top: 1rem;
+    padding-left: 0;
+  }
+
+  .back-link {
+    align-self: center;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-title-text {
+    font-size: 3.5rem;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-heading-large {
+    font-size: 1.8rem;
+  }
+
+  h5 {
+    font-size: 1.4rem;
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+  }
+
+  .info-container {
+    flex-direction: column;
+    padding: 0.5rem 0.3rem;
+    align-items: center;
+  }
+
+  .card-container {
+    margin-top: 1rem;
+  }
+  .about-container {
+    height: auto; /* Permite que el contenedor principal crezca con el contenido */
+    overflow-y: auto; /* Agrega scroll si el contenido supera la pantalla */
+  }
+
+  .about-inner-frame {
+    height: auto; /* Permite que el inner-frame del about crezca con el contenido */
+    min-height: unset; /* Quita cualquier altura mínima */
+    margin-top: 5vh; /* Ajusta el margen superior si es necesario */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title-text {
+    font-size: 3rem;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-heading-large {
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  .about-paragraph {
+    font-size: 0.9rem;
+  }
+
+  .info-container {
+    padding: 0.3rem 0.2rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .about-title-text {
+    font-size: 2.2rem;
+  }
+
+  .about-title {
+    font-size: 1.6rem;
+  }
+
+  .about-heading-large {
+    font-size: 1.3rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  .about-paragraph {
+    font-size: 0.8rem;
+  }
+
+  .info-container {
+    padding: 0.3rem 0.1rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .about-title-text {
+    font-size: 2rem;
+  }
+
+  .about-title {
+    font-size: 1.4rem;
+  }
+
+  .about-heading-large {
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    font-size: 0.9rem;
+  }
+
+  .about-paragraph {
+    font-size: 0.7rem;
+  }
+
+  .info-container {
+    padding: 0.2rem 0.1rem;
   }
 }
