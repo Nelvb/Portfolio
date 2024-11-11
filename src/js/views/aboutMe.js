@@ -1,3 +1,4 @@
+// src/js/views/AboutMe.js
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import logoNel from "../../img/logosinfondo_5.png";
@@ -83,15 +84,17 @@ export const AboutMe = () => {
                           duration: animationDuration,
                           delay: 200,
                         }).finished.then(() => {
+                          // Animación para "Ver CV" tras el párrafo
                           anime({
-                            targets: ".back-link",
+                            targets: ".download-cv-link",
                             opacity: [0, 1],
                             translateX: [-50, 0],
                             easing: "easeInOutQuad",
                             duration: animationDuration,
                           }).finished.then(() => {
+                            // Animación para "Volver" después de "Ver CV"
                             anime({
-                              targets: ".download-cv-link",
+                              targets: ".back-link",
                               opacity: [0, 1],
                               translateX: [-50, 0],
                               easing: "easeInOutQuad",
@@ -160,14 +163,13 @@ export const AboutMe = () => {
 
         <div className="link-container">
           <a 
-            href="/CV Nelson FS.pdf" 
-            download="Nelson_Valero_CV" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="download-cv-link"
-            style={{ opacity: animationState.about ? 0 : 1 }}
+            href="/NelsonValeroCV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-cv-link" // Oculto inicialmente y animado
+            style={{ opacity: 0 }}
           >
-            Descargar CV
+            Ver CV
           </a>
           <div className="back-link" style={{ opacity: animationState.about ? 0 : 1 }}>
             <Link to="/">Volver</Link>
