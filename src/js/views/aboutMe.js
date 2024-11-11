@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import logoNel from "../../img/logosinfondo_5.png";
 import nelAnimation from "../../img/imagen Nel_animation.gif";
@@ -9,6 +9,8 @@ import "../../styles/aboutMe.css";
 export const AboutMe = () => {
   const { animationState, setAnimationState } = useAnimation();
   const [isFlipped, setIsFlipped] = useState(false);
+  const infoContainerRef = useRef(null);
+  const cardContainerRef = useRef(null);
 
   const animationDuration = animationState.about ? 2000 : 0;
   const staggerDelay = animationState.about ? 200 : 0;
@@ -23,55 +25,89 @@ export const AboutMe = () => {
         duration: animationDuration,
         delay: 2000,
       }).finished.then(() => {
+        const infoContainer = infoContainerRef.current.getBoundingClientRect();
+        const cardContainer = cardContainerRef.current.getBoundingClientRect();
+        
+        const translateXToCenter = (infoContainer.width - cardContainer.width) / 2 - cardContainer.x + infoContainer.x;
+
+        // Movimiento inicial al centro sin visibilidad
         anime({
-          targets: ".card-container",
-          opacity: [0, 1],
+          targets: cardContainerRef.current,
+          translateX: translateXToCenter,
+          opacity: 0,
           easing: "easeInOutQuad",
           duration: animationDuration,
         }).finished.then(() => {
-          const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
           anime({
-            targets: headings,
+            targets: cardContainerRef.current,
             opacity: [0, 1],
-            translateX: [-50, 0],
             easing: "easeInOutQuad",
-            duration: animationDuration,
-            delay: anime.stagger(staggerDelay),
+            duration: 1000,
           }).finished.then(() => {
-            const devElement = document.querySelector(".about-heading-large");
-            if (devElement) {
-              const text = " Desarrollador Full Stack.";
-              devElement.innerHTML = "";
-              let index = 0;
+            setTimeout(() => {
+              setIsFlipped(true);
+              anime({
+                targets: cardContainerRef.current,
+                translateX: 0,
+                easing: "easeInOutQuad",
+                duration: animationDuration,
+              }).finished.then(() => {
+                setIsFlipped(false);
 
-              const typeEffect = () => {
-                if (index < text.length) {
-                  devElement.innerHTML += text[index];
-                  index++;
-                  setTimeout(typeEffect, 50);
-                } else {
-                  anime({
-                    targets: ".about-paragraph",
-                    opacity: [0, 1],
-                    translateX: [-50, 0],
-                    easing: "easeInOutQuad",
-                    duration: animationDuration,
-                    delay: 200,
-                  }).finished.then(() => {
-                    anime({
-                      targets: ".back-link",
-                      opacity: [0, 1],
-                      translateX: [-50, 0],
-                      easing: "easeInOutQuad",
-                      duration: animationDuration,
-                    }).finished.then(() => {
-                      setAnimationState((prev) => ({ ...prev, about: false }));
-                    });
-                  });
-                }
-              };
-              typeEffect();
-            }
+                const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
+                anime({
+                  targets: headings,
+                  opacity: [0, 1],
+                  translateX: [-50, 0],
+                  easing: "easeInOutQuad",
+                  duration: animationDuration,
+                  delay: anime.stagger(staggerDelay),
+                }).finished.then(() => {
+                  const devElement = document.querySelector(".about-heading-large");
+                  if (devElement) {
+                    const text = " Desarrollador Full Stack.";
+                    devElement.innerHTML = "";
+                    let index = 0;
+
+                    const typeEffect = () => {
+                      if (index < text.length) {
+                        devElement.innerHTML += text[index];
+                        index++;
+                        setTimeout(typeEffect, 50);
+                      } else {
+                        anime({
+                          targets: ".about-paragraph",
+                          opacity: [0, 1],
+                          translateX: [-50, 0],
+                          easing: "easeInOutQuad",
+                          duration: animationDuration,
+                          delay: 200,
+                        }).finished.then(() => {
+                          anime({
+                            targets: ".back-link",
+                            opacity: [0, 1],
+                            translateX: [-50, 0],
+                            easing: "easeInOutQuad",
+                            duration: animationDuration,
+                          }).finished.then(() => {
+                            anime({
+                              targets: ".download-cv-link",
+                              opacity: [0, 1],
+                              translateX: [-50, 0],
+                              easing: "easeInOutQuad",
+                              duration: animationDuration,
+                            }).finished.then(() => {
+                              setAnimationState((prev) => ({ ...prev, about: false }));
+                            });
+                          });
+                        });
+                      }
+                    };
+                    typeEffect();
+                  }
+                });
+              });
+            }, 500);
           });
         });
       });
@@ -89,7 +125,7 @@ export const AboutMe = () => {
           <h1 className="about-title-text" style={{ opacity: animationState.about ? 0 : 1 }}>Sobre mí</h1>
         </div>
 
-        <div className="info-container">
+        <div className="info-container" ref={infoContainerRef}>
           <div className="about-description-container">
             <h5 className="about-heading-poppins" style={{ opacity: animationState.about ? 0 : 1 }}>¡Hola! Mi nombre es</h5>
             <h4 className="about-title" style={{ opacity: animationState.about ? 0 : 1 }}>Nelson Valero</h4>
@@ -108,7 +144,7 @@ export const AboutMe = () => {
             </p>
           </div>
 
-          <div className="card-container" onClick={handleCardClick} style={{ opacity: animationState.about ? 0 : 1 }}>
+          <div className="card-container" ref={cardContainerRef} onClick={handleCardClick} style={{ opacity: animationState.about ? 0 : 1 }}>
             <div className={`card ${isFlipped ? 'flipped' : ''}`}>
               <div className="card-inner">
                 <div className="card-front">
@@ -122,8 +158,20 @@ export const AboutMe = () => {
           </div>
         </div>
 
-        <div className="back-link" style={{ opacity: animationState.about ? 0 : 1 }}>
-          <Link to="/">Volver</Link>
+        <div className="link-container">
+          <a 
+            href="/CV Nelson FS.pdf" 
+            download="Nelson_Valero_CV" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="download-cv-link"
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
+            Descargar CV
+          </a>
+          <div className="back-link" style={{ opacity: animationState.about ? 0 : 1 }}>
+            <Link to="/">Volver</Link>
+          </div>
         </div>
       </div>
     </div>

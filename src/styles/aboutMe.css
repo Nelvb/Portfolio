@@ -80,7 +80,6 @@
 /* Contenedor para la descripción, tarjeta y botón */
 .info-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 20px;
@@ -98,40 +97,32 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
 }
 
 /* Estilos para los encabezados y párrafos en la sección "Sobre mí" */
-.about-heading-poppins {
+.about-heading-poppins, .about-title, h5 {
   font-family: 'Poppins', sans-serif;
+  color: #d1d1d1;
 }
 
 .about-title {
-  font-family: 'Poppins', sans-serif;
   font-size: 3rem;
-  color: #d1d1d1;
-  text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.7),  /* Sombra de borde */
-    4px 4px 8px rgba(0, 0, 0, 0.6),  /* Sombra secundaria */
-    6px 6px 12px rgba(0, 0, 0, 0.5); /* Sombra más profunda para el relieve */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
+               4px 4px 8px rgba(0, 0, 0, 0.6),
+               6px 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .about-heading-large {
-  font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
-  color: #d1d1d1;
-  text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.7),  /* Sombra de borde */
-    4px 4px 8px rgba(0, 0, 0, 0.6),  /* Sombra secundaria */
-    6px 6px 12px rgba(0, 0, 0, 0.5); /* Sombra más profunda para el relieve */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
+               4px 4px 8px rgba(0, 0, 0, 0.6),
+               6px 6px 12px rgba(0, 0, 0, 0.5);
 }
-
 
 h5 {
-  font-family: 'Poppins', sans-serif;
   font-size: 2rem;
-  color: #d1d1d1;
 }
-
 
 .about-paragraph {
   font-family: 'Oooh Baby', cursive;
@@ -152,6 +143,7 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
   padding-left: 2rem;
 }
 
@@ -163,15 +155,14 @@ h5 {
 }
 
 .card-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.6s; /* Asegúrate de que esta línea esté aquí */
+  transition: transform 0.6s;
 }
 
-.card-front,
-.card-back {
+.card-front, .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -197,29 +188,31 @@ h5 {
   background-color: transparent;
 }
 
-/* Imagen personal */
 .about-image {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Enlace "Volver" */
-.back-link {
+/* Enlace "Volver" y "Descargar CV" */
+.link-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-self: flex-start;
+  padding-left: 5rem;
+  margin-top: 1.5rem;
+}
+
+.download-cv-link, .back-link a {
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: white;
-  align-self: flex-start;
-  padding-left: 5rem;
-}
-
-.back-link a {
   text-decoration: none;
-  color: white;
   transition: color 0.3s ease-in-out;
 }
 
-.back-link a:hover {
+.download-cv-link:hover, .back-link a:hover {
   color: #c0c0c0;
   font-size: 1.6rem;
 }
@@ -228,7 +221,6 @@ h5 {
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
-
 
 /* MEDIAS QUERIES */
 
@@ -301,8 +293,10 @@ h5 {
     padding-left: 0;
   }
 
-  .back-link {
-    align-self: center;
+  .link-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     padding-left: 0;
   }
 }
@@ -337,15 +331,23 @@ h5 {
   .card-container {
     margin-top: 1rem;
   }
+
   .about-container {
-    height: auto; /* Permite que el contenedor principal crezca con el contenido */
-    overflow-y: auto; /* Agrega scroll si el contenido supera la pantalla */
+    height: auto;
+    overflow-y: auto;
   }
 
   .about-inner-frame {
-    height: auto; /* Permite que el inner-frame del about crezca con el contenido */
-    min-height: unset; /* Quita cualquier altura mínima */
-    margin-top: 5vh; /* Ajusta el margen superior si es necesario */
+    height: auto;
+    min-height: unset;
+    margin-top: 5vh;
+  }
+
+  .link-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-left: 0;
   }
 }
 
@@ -373,6 +375,12 @@ h5 {
   .info-container {
     padding: 0.3rem 0.2rem;
   }
+
+  .link-container {
+    justify-content: center;
+    gap: 1rem;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 440px) {
@@ -399,6 +407,12 @@ h5 {
   .info-container {
     padding: 0.3rem 0.1rem;
   }
+
+  .link-container {
+    justify-content: center;
+    gap: 1rem;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 340px) {
@@ -424,5 +438,11 @@ h5 {
 
   .info-container {
     padding: 0.2rem 0.1rem;
+  }
+
+  .link-container {
+    justify-content: center;
+    gap: 1rem;
+    padding-left: 0;
   }
 }
