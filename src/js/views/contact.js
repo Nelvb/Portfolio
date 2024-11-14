@@ -55,7 +55,7 @@ export const Contact = () => {
 
         <div className="contact-contain-container">
           {/* Parte Izquierda: Detalles de contacto y redes sociales */}
-          <div className="social-icons-container">
+          <div className="contact-icons-container">
             <div className="contact-item">
               <FaEnvelope className="contact-icon" /> <a href="mailto:nelsonvbarcelona@gmail.com">nelsonvbarcelona@gmail.com</a>
             </div>
@@ -65,7 +65,7 @@ export const Contact = () => {
             <div className="contact-item">
               <FaMapMarkerAlt className="contact-icon" /> Las Rozas de Madrid
             </div>
-            <div className="social-icons">
+            <div className="contact-social-icons">
               <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className="contact-icon" />
               </a>
