@@ -1,4 +1,3 @@
-// src/js/views/AboutMe.js
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import logoNel from "../../img/logosinfondo_5.png";
@@ -17,6 +16,8 @@ export const AboutMe = () => {
   const staggerDelay = animationState.about ? 200 : 0;
 
   useEffect(() => {
+    const isSmallScreen = window.matchMedia("(max-width: 1025px)").matches;
+
     if (animationState.about) {
       anime({
         targets: ".about-title-text",
@@ -26,96 +27,147 @@ export const AboutMe = () => {
         duration: animationDuration,
         delay: 2000,
       }).finished.then(() => {
-        const infoContainer = infoContainerRef.current.getBoundingClientRect();
-        const cardContainer = cardContainerRef.current.getBoundingClientRect();
-        
-        const translateXToCenter = (infoContainer.width - cardContainer.width) / 2 - cardContainer.x + infoContainer.x;
+        if (isSmallScreen) {
+          animateSmallScreen();
+        } else {
+          animateLargeScreen();
+        }
+      });
+    }
+  }, [animationState.about, setAnimationState, animationDuration, staggerDelay]);
 
-        // Movimiento inicial al centro sin visibilidad
-        anime({
-          targets: cardContainerRef.current,
-          translateX: translateXToCenter,
-          opacity: 0,
-          easing: "easeInOutQuad",
-          duration: animationDuration,
-        }).finished.then(() => {
-          anime({
-            targets: cardContainerRef.current,
-            opacity: [0, 1],
-            easing: "easeInOutQuad",
-            duration: 1000,
-          }).finished.then(() => {
-            setTimeout(() => {
-              setIsFlipped(true);
+  const animateSmallScreen = () => {
+    const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
+    anime({
+      targets: headings,
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      easing: "easeInOutQuad",
+      duration: animationDuration,
+      delay: anime.stagger(staggerDelay),
+    }).finished.then(() => {
+      const devElement = document.querySelector(".about-heading-large");
+      if (devElement) {
+        const text = " Desarrollador Full Stack.";
+        devElement.innerHTML = "";
+        let index = 0;
+
+        const typeEffect = () => {
+          if (index < text.length) {
+            devElement.innerHTML += text[index];
+            index++;
+            setTimeout(typeEffect, 50);
+          } else {
+            anime({
+              targets: ".about-paragraph",
+              opacity: [0, 1],
+              translateX: [-50, 0],
+              easing: "easeInOutQuad",
+              duration: animationDuration,
+            }).finished.then(() => {
               anime({
                 targets: cardContainerRef.current,
-                translateX: 0,
+                opacity: [0, 1],
                 easing: "easeInOutQuad",
-                duration: animationDuration,
+                duration: 1000,
               }).finished.then(() => {
-                setIsFlipped(false);
-
-                const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
                 anime({
-                  targets: headings,
+                  targets: ".nav-link",
                   opacity: [0, 1],
                   translateX: [-50, 0],
                   easing: "easeInOutQuad",
                   duration: animationDuration,
                   delay: anime.stagger(staggerDelay),
                 }).finished.then(() => {
-                  const devElement = document.querySelector(".about-heading-large");
-                  if (devElement) {
-                    const text = " Desarrollador Full Stack.";
-                    devElement.innerHTML = "";
-                    let index = 0;
-
-                    const typeEffect = () => {
-                      if (index < text.length) {
-                        devElement.innerHTML += text[index];
-                        index++;
-                        setTimeout(typeEffect, 50);
-                      } else {
-                        anime({
-                          targets: ".about-paragraph",
-                          opacity: [0, 1],
-                          translateX: [-50, 0],
-                          easing: "easeInOutQuad",
-                          duration: animationDuration,
-                          delay: 200,
-                        }).finished.then(() => {
-                          // Animación para "Ver CV" tras el párrafo
-                          anime({
-                            targets: ".download-cv-link",
-                            opacity: [0, 1],
-                            translateX: [-50, 0],
-                            easing: "easeInOutQuad",
-                            duration: animationDuration,
-                          }).finished.then(() => {
-                            // Animación para "Volver" después de "Ver CV"
-                            anime({
-                              targets: ".back-link",
-                              opacity: [0, 1],
-                              translateX: [-50, 0],
-                              easing: "easeInOutQuad",
-                              duration: animationDuration,
-                            }).finished.then(() => {
-                              setAnimationState((prev) => ({ ...prev, about: false }));
-                            });
-                          });
-                        });
-                      }
-                    };
-                    typeEffect();
-                  }
+                  setAnimationState((prev) => ({ ...prev, about: false }));
                 });
               });
-            }, 500);
+            });
+          }
+        };
+        typeEffect();
+      }
+    });
+  };
+
+  const animateLargeScreen = () => {
+    const infoContainer = infoContainerRef.current.getBoundingClientRect();
+    const cardContainer = cardContainerRef.current.getBoundingClientRect();
+    const translateXToCenter = (infoContainer.width - cardContainer.width) / 2 - cardContainer.x + infoContainer.x;
+
+    anime({
+      targets: cardContainerRef.current,
+      translateX: translateXToCenter,
+      opacity: 0,
+      easing: "easeInOutQuad",
+      duration: animationDuration,
+    }).finished.then(() => {
+      anime({
+        targets: cardContainerRef.current,
+        opacity: [0, 1],
+        easing: "easeInOutQuad",
+        duration: 1000,
+      }).finished.then(() => {
+        setTimeout(() => {
+          setIsFlipped(true);
+          anime({
+            targets: cardContainerRef.current,
+            translateX: 0,
+            easing: "easeInOutQuad",
+            duration: animationDuration,
+          }).finished.then(() => {
+            setIsFlipped(false);
+
+            const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
+            anime({
+              targets: headings,
+              opacity: [0, 1],
+              translateX: [-50, 0],
+              easing: "easeInOutQuad",
+              duration: animationDuration,
+              delay: anime.stagger(staggerDelay),
+            }).finished.then(() => {
+              const devElement = document.querySelector(".about-heading-large");
+              if (devElement) {
+                const text = " Desarrollador Full Stack.";
+                devElement.innerHTML = "";
+                let index = 0;
+
+                const typeEffect = () => {
+                  if (index < text.length) {
+                    devElement.innerHTML += text[index];
+                    index++;
+                    setTimeout(typeEffect, 50);
+                  } else {
+                    anime({
+                      targets: ".about-paragraph",
+                      opacity: [0, 1],
+                      translateX: [-50, 0],
+                      easing: "easeInOutQuad",
+                      duration: animationDuration,
+                      delay: 200,
+                    }).finished.then(() => {
+                      anime({
+                        targets: ".nav-link",
+                        opacity: [0, 1],
+                        translateX: [-50, 0],
+                        easing: "easeInOutQuad",
+                        duration: animationDuration,
+                        delay: anime.stagger(staggerDelay),
+                      }).finished.then(() => {
+                        setAnimationState((prev) => ({ ...prev, about: false }));
+                      });
+                    });
+                  }
+                };
+                typeEffect();
+              }
+            });
           });
-        });
+        }, 500);
       });
-    }
-  }, [animationState.about, setAnimationState, animationDuration, staggerDelay]);
+    });
+  };
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
@@ -166,14 +218,15 @@ export const AboutMe = () => {
             href="/NelsonValeroCV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="download-cv-link" // Oculto inicialmente y animado
-            style={{ opacity: 0 }}
+            className="nav-link"
+            style={{ opacity: animationState.about ? 0 : 1 }}
           >
             Ver CV
           </a>
-          <div className="back-link" style={{ opacity: animationState.about ? 0 : 1 }}>
-            <Link to="/">Volver</Link>
-          </div>
+          <Link to="/" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Inicio</Link>
+          <Link to="/skills" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Habilidades</Link>
+          <Link to="/projects" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Proyectos</Link>
+          <Link to="/contact" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Contacto</Link>
         </div>
       </div>
     </div>

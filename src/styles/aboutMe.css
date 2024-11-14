@@ -39,16 +39,14 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(
-      to right,
+  background: linear-gradient(to right,
       #b3b3b3 5%,
       rgba(179, 179, 179, 0.5) 25%,
       rgba(179, 179, 179, 0.1) 30%,
       transparent 50%,
       rgba(9, 9, 9, 0.1) 70%,
       rgba(9, 9, 9, 0.5) 85%,
-      #090909 95%
-    );
+      #090909 95%);
   z-index: 1;
   transition: background 0.3s ease;
 }
@@ -86,6 +84,7 @@
   box-sizing: border-box;
   padding-left: 5rem;
   padding-right: 5rem;
+  margin-top: 2rem;
 }
 
 /* Contenedor de la descripción a la izquierda */
@@ -101,7 +100,9 @@
 }
 
 /* Estilos para los encabezados y párrafos en la sección "Sobre mí" */
-.about-heading-poppins, .about-title, h5 {
+.about-heading-poppins,
+.about-title,
+h5 {
   font-family: 'Poppins', sans-serif;
   color: #d1d1d1;
 }
@@ -109,15 +110,15 @@
 .about-title {
   font-size: 3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
-               4px 4px 8px rgba(0, 0, 0, 0.6),
-               6px 6px 12px rgba(0, 0, 0, 0.5);
+    4px 4px 8px rgba(0, 0, 0, 0.6),
+    6px 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .about-heading-large {
   font-size: 2.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
-               4px 4px 8px rgba(0, 0, 0, 0.6),
-               6px 6px 12px rgba(0, 0, 0, 0.5);
+    4px 4px 8px rgba(0, 0, 0, 0.6),
+    6px 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 h5 {
@@ -162,12 +163,14 @@ h5 {
   transition: transform 0.6s;
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border: 2px solid rgba(255, 255, 255, 0.7);
+  cursor: pointer;
 }
 
 .card-front {
@@ -194,27 +197,36 @@ h5 {
   object-fit: cover;
 }
 
-/* Enlace "Volver" y "Descargar CV" */
+/* Contenedor y estilo para enlaces de navegación */
 .link-container {
   display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  align-self: flex-start;
-  padding-left: 5rem;
-  margin-top: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.download-cv-link, .back-link a {
+/* Estilo para el enlace "Ver CV" y enlaces de navegación */
+.download-cv-link,
+.nav-link {
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: white;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+  opacity: 0;
 }
 
-.download-cv-link:hover, .back-link a:hover {
+.nav-link:hover,
+.download-cv-link:hover {
   color: #c0c0c0;
   font-size: 1.6rem;
+}
+
+.nav-link {
+  padding: 0 !important;
+  text-align: left !important;
 }
 
 /* Efecto de rotación al hacer clic */
@@ -243,6 +255,24 @@ h5 {
   }
 }
 
+@media screen and (min-width: 1550px) {
+  .about-title {
+    font-size: 2.8rem;
+  }
+
+  .about-heading-large {
+    font-size: 2.3rem;
+  }
+
+  h5 {
+    font-size: 1.8rem;
+  }
+
+  .about-paragraph {
+    font-size: 1.3rem;
+  }
+}
+
 @media screen and (min-width: 1600px) {
   .about-title-text {
     font-size: 6.5rem;
@@ -255,8 +285,126 @@ h5 {
   }
 }
 
-/* Media Queries para pantallas pequeñas */
+@media (max-width: 1400px) {
+  .about-container {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .about-title {
+    font-size: 2.6rem;
+  }
+
+  .about-heading-large {
+    font-size: 2.1rem;
+  }
+
+  h5 {
+    font-size: 1.6rem;
+  }
+
+  .about-paragraph {
+    font-size: 1.2rem;
+  }
+}
+
+/* Media Query para 1250px */
+@media (max-width: 1250px) {
+  .about-title {
+    font-size: 2.6rem;
+  }
+
+  .about-heading-large {
+    font-size: 2.1rem;
+  }
+
+  h5 {
+    font-size: 1.6rem;
+  }
+
+  .about-paragraph {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1025px) {
+  .about-container {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .about-title-text {
+    font-size: 6.5rem;
+  }
+
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    margin: 1rem 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .about-description-container {
+    width: 100%;
+  }
+
+  .about-paragraph {
+    font-size: 1.2rem;
+  }
+
+  .about-title {
+    font-size: 2.3rem;
+  }
+
+  .about-heading-large {
+    font-size: 1.9rem;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: auto;
+    padding-left: 0;
+    margin-bottom: 2rem;
+  }
+}
+
 @media (max-width: 1000px) {
+  .about-container {
+    height: auto;
+    overflow-y: auto;
+  }
+
   .about-title-text {
     font-size: 4.5rem;
   }
@@ -273,29 +421,34 @@ h5 {
   }
 
   .about-paragraph {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .about-title {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 
   .about-heading-large {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   h5 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .card-container {
-    margin-top: 1rem;
-    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 0;
+    width: 100%;
   }
 
   .link-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     padding-left: 0;
   }
@@ -319,7 +472,7 @@ h5 {
   }
 
   .about-paragraph {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .info-container {
@@ -335,12 +488,6 @@ h5 {
   .about-container {
     height: auto;
     overflow-y: auto;
-  }
-
-  .about-inner-frame {
-    height: auto;
-    min-height: unset;
-    margin-top: 5vh;
   }
 
   .link-container {
@@ -369,7 +516,7 @@ h5 {
   }
 
   .about-paragraph {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   .info-container {
@@ -380,38 +527,7 @@ h5 {
     justify-content: center;
     gap: 1rem;
     padding-left: 0;
-  }
-}
-
-@media (max-width: 440px) {
-  .about-title-text {
-    font-size: 2.2rem;
-  }
-
-  .about-title {
-    font-size: 1.6rem;
-  }
-
-  .about-heading-large {
-    font-size: 1.3rem;
-  }
-
-  h5 {
-    font-size: 1rem;
-  }
-
-  .about-paragraph {
-    font-size: 0.8rem;
-  }
-
-  .info-container {
-    padding: 0.3rem 0.1rem;
-  }
-
-  .link-container {
-    justify-content: center;
-    gap: 1rem;
-    padding-left: 0;
+    flex-direction: column;
   }
 }
 
@@ -433,7 +549,7 @@ h5 {
   }
 
   .about-paragraph {
-    font-size: 0.7rem;
+    font-size: 1.1rem;
   }
 
   .info-container {
