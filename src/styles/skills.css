@@ -168,7 +168,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: linear-gradient(to right, #b3b3b3, #b3b3b3);
+  background-color: #b3b3b3;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
