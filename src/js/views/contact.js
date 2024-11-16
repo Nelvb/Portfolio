@@ -13,15 +13,16 @@ export const Contact = () => {
   const [alertType, setAlertType] = useState("success");
 
   useEffect(() => {
-    // Configuración inicial de animaciones
+    // Configuración inicial: todo invisible
     document
       .querySelectorAll(
-        ".contact-title-text, .contact-info-container, .social-icons-container, .link-item"
+        ".contact-title-text, .contact-contain-container, .contact-item, .contact-social-icons a, .contact-info-container, .contact-form input, .contact-form textarea, .link-item"
       )
       .forEach((el) => {
         el.style.opacity = 0;
       });
-
+  
+    // Animación del título
     anime({
       targets: ".contact-title-text",
       opacity: [0, 1],
@@ -30,49 +31,81 @@ export const Contact = () => {
       duration: 2000,
       delay: 500,
       complete: () => {
+        // Animación del contenedor principal
         anime({
-          targets: ".social-icons-container",
+          targets: ".contact-contain-container",
           opacity: [0, 1],
           easing: "easeInOutQuad",
           duration: 1500,
-          delay: 500,
-        });
-
-        anime({
-          targets: ".contact-info-container",
-          opacity: [0, 1],
-          translateX: [-50, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
-        });
-
-        anime({
-          targets: ".link-item",
-          opacity: [0, 1],
-          translateX: [-50, 0],
-          easing: "easeInOutQuad",
-          duration: 1000,
-          delay: anime.stagger(200, { start: 2000 }),
+          complete: () => {
+            // Animación simultánea de .contact-item y .contact-info-container
+            anime
+              .timeline()
+              .add({
+                targets: ".contact-item",
+                opacity: [0, 1],
+                translateX: [-50, 0],
+                easing: "easeInOutQuad",
+                duration: 1000,
+                delay: anime.stagger(200),
+              })
+              .add(
+                {
+                  targets: ".contact-info-container",
+                  opacity: [0, 1],
+                  easing: "easeInOutQuad",
+                  duration: 1000,
+                },
+                0 // Empieza al mismo tiempo que la anterior
+              )
+              .add(
+                // Animación simultánea de .contact-social-icons y los inputs del formulario
+                {
+                  targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
+                  opacity: [0, 1],
+                  translateX: (el) =>
+                    el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0], // Inputs desde la derecha
+                  easing: "easeInOutQuad",
+                  duration: 1000,
+                  delay: anime.stagger(200),
+                },
+                "+=500" // Un breve retraso tras la animación anterior
+              )
+              .add(
+                // Animación de enlaces al final
+                {
+                  targets: ".link-item",
+                  opacity: [0, 1],
+                  translateX: [-50, 0],
+                  easing: "easeInOutQuad",
+                  duration: 1000,
+                  delay: anime.stagger(200),
+                },
+                "+=500" // Tras el resto de animaciones
+              );
+          },
         });
       },
     });
   }, []);
-
+  
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const validateEmail = async (email) => {
     try {
-      const response = await fetch("https://crispy-funicular-976pq94pg4xvhx64j-5000.app.github.dev/verify-email", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/verify-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
 
       const data = await response.json();
+      console.log("Respuesta del backend:", data); // <-- Para verificar la respuesta
+
       if (data.status === "success") {
         return true;
       } else {
-        setAlertMessage(data.message || "El correo no es válido.");
+        setAlertMessage("El correo no es válido."); // Mensaje fijo en lugar del mensaje del backend
         setAlertType("error");
         setShowAlert(true);
         return false;
@@ -83,7 +116,8 @@ export const Contact = () => {
       setShowAlert(true);
       return false;
     }
-  };
+};
+
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -96,12 +130,12 @@ export const Contact = () => {
     emailjs.init("4MpzEzT4yDBHZ5tgC");
     emailjs
       .sendForm("service_f14u26i", "template_5y4b3td", e.target)
-      .then((result) => {
+      .then(() => {
         setAlertMessage("Mensaje enviado con éxito.");
         setAlertType("success");
         setShowAlert(true);
       })
-      .catch((error) => {
+      .catch(() => {
         setAlertMessage("Error al enviar el mensaje, intenta de nuevo.");
         setAlertType("error");
         setShowAlert(true);
@@ -113,12 +147,15 @@ export const Contact = () => {
   return (
     <div className="contact-container">
       <div className="contact-inner-frame">
+        {/* Título */}
         <div className="contact-title-container">
           <h1 className="contact-title-text">Contacto</h1>
         </div>
 
+        {/* Contenedor principal */}
         <div className="contact-contain-container">
           <div className="contact-icons-container">
+            {/* Ítems de contacto */}
             <div className="contact-item">
               <a href="mailto:nelsonvbarcelona@gmail.com">
                 <FaEnvelope className="contact-icon" /> nelsonvbarcelona@gmail.com
@@ -135,15 +172,22 @@ export const Contact = () => {
                 </>
               )}
             </div>
-
             <div className="contact-item">
               <FaMapMarkerAlt className="contact-icon" /> Las Rozas de Madrid
             </div>
             <div className="contact-social-icons">
-              <a href="https://www.linkedin.com/in/nelvb" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/nelvb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin className="contact-icon" />
               </a>
-              <a href="https://github.com/Nelvb" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/Nelvb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub className="contact-icon" />
               </a>
               <a href="mailto:nelsonvbarcelona@gmail.com">
@@ -152,6 +196,7 @@ export const Contact = () => {
             </div>
           </div>
 
+          {/* Formulario */}
           <div className="contact-info-container">
             <div className="contact-form">
               <form onSubmit={sendEmail}>
@@ -165,6 +210,7 @@ export const Contact = () => {
           </div>
         </div>
 
+        {/* Enlaces */}
         <div className="link-row">
           <Link to="/" className="link-item">Inicio</Link>
           <Link to="/about" className="link-item">Sobre mí</Link>
@@ -173,6 +219,7 @@ export const Contact = () => {
         </div>
       </div>
 
+      {/* Alerta personalizada */}
       {showAlert && (
         <CustomAlert
           message={alertMessage}

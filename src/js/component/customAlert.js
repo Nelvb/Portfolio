@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/customAlert.css'; // Ruta correcta al archivo CSS
+import '../../styles/customAlert.css';
 
 const CustomAlert = ({ message, type = "success", onClose }) => {
     return (
@@ -12,4 +12,4 @@ const CustomAlert = ({ message, type = "success", onClose }) => {
     );
 };
 
-export default CustomAlert; // Asegúrate de exportar por defecto
+export default CustomAlert;

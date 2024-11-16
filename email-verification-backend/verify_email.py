@@ -3,7 +3,7 @@ from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
-CORS(app)  # Permitir todas las solicitudes CORS de cualquier origen
+CORS(app)  # Permitir solicitudes CORS de cualquier origen
 
 # Ruta para verificar el correo electrónico
 @app.route('/verify-email', methods=['POST'])
@@ -29,8 +29,6 @@ def verify_email():
             return jsonify({
                 "status": "error",
                 "message": "Correo no válido",
-                "reason": data.get("reason"),
-                "domain": data.get("domain")
             }), 400
     except Exception as e:
         return jsonify({"status": "error", "message": f"Error verificando el correo: {str(e)}"}), 500

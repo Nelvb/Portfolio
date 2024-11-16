@@ -168,7 +168,7 @@
 
 /* Botón de enviar */
 .contact-form button {
-    width: 40%;
+    width: 100%;
     height: auto;
     border: none;
     border-top: 1px solid #9c9c9c;
