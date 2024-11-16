@@ -6,7 +6,8 @@ export const AnimationProvider = ({ children }) => {
   const [animationState, setAnimationState] = useState({
     home: true,
     about: true,
-    // Añadir otros estados de animación para otras páginas si es necesario
+    contact: true, // Nueva página añadida
+    projects: true, // Otra nueva página añadida
   });
 
   return (

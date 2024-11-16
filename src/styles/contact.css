@@ -248,7 +248,6 @@
   }
 }
 
-/* Pantallas pequeñas */
 @media (max-width: 1025px) {
   .contact-container {
     height: auto;
@@ -263,15 +262,35 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    padding-bottom: 40px;
   }
 
-  .contact-icons-container,
   .contact-info-container {
     width: 100%;
     max-width: 400px;
-    margin: 10px 0;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+  }
+  .contact-icons-container{
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .contact-item {
+    text-align: center; /* Centra el texto dentro de cada ítem */
+    margin: 10px 0; /* Espaciado vertical entre los ítems */
+  }
+
+  .contact-icon {
+    margin-right: 8px; /* Espaciado entre el ícono y el texto */
   }
 }
+
 
 @media (max-width: 768px) {
   .contact-title-text {
@@ -293,15 +312,49 @@
   }
 }
 
+
+@media (max-width: 520px) {
+  .link-row {
+    display: flex;
+    flex-direction: column; /* Pasa los enlaces a columna */
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* Espaciado entre los enlaces */
+    margin-top: 2rem; /* Margen superior */
+  }
+}
+
+
 @media (max-width: 480px) {
-  .contact-title-text {
-    font-size: 3rem;
+  .contact-item {
+    text-align: left; /* Mantiene el texto alineado con el ícono */
+    margin: 5px 0; /* Reduce el espacio vertical entre ítems */
+    display: flex; /* Asegura que el ícono y el texto estén en la misma línea */
+    align-items: center; /* Centra el ícono con el texto verticalmente */
+    font-size: 1.2rem; /* Reduce el tamaño del texto */
   }
 
-  .link-row {
-    flex-direction: column;
-    gap: 1rem;
+  
+
+  .contact-icons-container {
+    align-items: center; /* Centra el contenedor completo */
+    justify-content: center; /* Centra los ítems dentro del contenedor */
+    flex-direction: column; /* Asegura que los ítems estén en columna */
   }
+}
+
+@media (max-width: 380px) {
+  .contact-item {
+    font-size: 1.1rem; /* Reduce el tamaño del texto */
+  }
+  
+}
+
+@media (max-width: 345px) {
+  .contact-item {
+    font-size: 1rem; /* Reduce el tamaño del texto */
+  }
+  
 }
 
 @media (max-width: 340px) {

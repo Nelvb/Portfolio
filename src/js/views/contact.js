@@ -1,19 +1,23 @@
-// src/js/views/Contact.js
 import React, { useState, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import emailjs from "emailjs-com";
 import { Link } from "react-router-dom";
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import CustomAlert from "../component/customAlert"; // Ruta correcta a `CustomAlert.js`
+import CustomAlert from "../component/customAlert";
+import { useAnimation } from "../component/animationContext";
 import "../../styles/contact.css";
 
 export const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("success");
+  const { animationState, setAnimationState } = useAnimation();
 
   useEffect(() => {
-    // Configuración inicial: todo invisible
+    // Evitamos reejecuciones si la animación ya ocurrió
+    if (!animationState.contact) return;
+
+    // Configuración inicial: elementos invisibles
     document
       .querySelectorAll(
         ".contact-title-text, .contact-contain-container, .contact-item, .contact-social-icons a, .contact-info-container, .contact-form input, .contact-form textarea, .link-item"
@@ -21,7 +25,7 @@ export const Contact = () => {
       .forEach((el) => {
         el.style.opacity = 0;
       });
-  
+
     // Animación del título
     anime({
       targets: ".contact-title-text",
@@ -38,7 +42,7 @@ export const Contact = () => {
           easing: "easeInOutQuad",
           duration: 1500,
           complete: () => {
-            // Animación simultánea de .contact-item y .contact-info-container
+            // Animación simultánea de ítems y contenedor de información
             anime
               .timeline()
               .add({
@@ -56,10 +60,9 @@ export const Contact = () => {
                   easing: "easeInOutQuad",
                   duration: 1000,
                 },
-                0 // Empieza al mismo tiempo que la anterior
+                0 // Empieza al mismo tiempo
               )
               .add(
-                // Animación simultánea de .contact-social-icons y los inputs del formulario
                 {
                   targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
                   opacity: [0, 1],
@@ -69,10 +72,9 @@ export const Contact = () => {
                   duration: 1000,
                   delay: anime.stagger(200),
                 },
-                "+=500" // Un breve retraso tras la animación anterior
+                "+=500" // Breve retraso
               )
               .add(
-                // Animación de enlaces al final
                 {
                   targets: ".link-item",
                   opacity: [0, 1],
@@ -81,14 +83,18 @@ export const Contact = () => {
                   duration: 1000,
                   delay: anime.stagger(200),
                 },
-                "+=500" // Tras el resto de animaciones
-              );
+                "+=500"
+              )
+              .finished.then(() => {
+                // Marcar la animación como completada
+                setAnimationState((prev) => ({ ...prev, contact: false }));
+              });
           },
         });
       },
     });
-  }, []);
-  
+  }, [animationState.contact, setAnimationState]);
+
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const validateEmail = async (email) => {
@@ -100,12 +106,10 @@ export const Contact = () => {
       });
 
       const data = await response.json();
-      console.log("Respuesta del backend:", data); // <-- Para verificar la respuesta
-
       if (data.status === "success") {
         return true;
       } else {
-        setAlertMessage("El correo no es válido."); // Mensaje fijo en lugar del mensaje del backend
+        setAlertMessage("El correo no es válido.");
         setAlertType("error");
         setShowAlert(true);
         return false;
@@ -116,8 +120,7 @@ export const Contact = () => {
       setShowAlert(true);
       return false;
     }
-};
-
+  };
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -149,7 +152,12 @@ export const Contact = () => {
       <div className="contact-inner-frame">
         {/* Título */}
         <div className="contact-title-container">
-          <h1 className="contact-title-text">Contacto</h1>
+          <h1
+            className="contact-title-text"
+            style={{ opacity: animationState.contact ? 0 : 1 }}
+          >
+            Contacto
+          </h1>
         </div>
 
         {/* Contenedor principal */}
