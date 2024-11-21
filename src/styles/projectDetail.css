@@ -1,0 +1,314 @@
+/* Contenedor principal */
+.project-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #090909, #b3b3b3);
+  position: relative;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Marco interno */
+.project-detail-inner-frame {
+  width: calc(100% - 2rem);
+  height: calc(100% - 6vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 10vh;
+  margin-bottom: 6vh;
+  position: relative;
+}
+
+.project-detail-inner-frame:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,
+      #b3b3b3 5%,
+      rgba(179, 179, 179, 0.5) 25%,
+      rgba(179, 179, 179, 0.1) 30%,
+      transparent 50%,
+      rgba(9, 9, 9, 0.1) 70%,
+      rgba(9, 9, 9, 0.5) 85%,
+      #090909 95%);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+/* Título */
+.project-detail-title-container {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  color: white;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.project-detail-title-text {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+/* Contenedor de descripción y slider */
+.project-contain-description {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  text-align: justify;
+  color: white;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 40px 20px 20px;
+  background: linear-gradient(to left, #090909, #b3b3b3);
+  border-radius: 15px;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+/* Descripción */
+.project-description-tools {
+  flex: 1;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.project-full-description-text {
+  padding: 0.5rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.project-technologies-text {
+  padding: 0.5rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Slider */
+.project-gallery-slider {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #b3b3b3;
+  color: #424242;
+  box-shadow: -6px 6px 6px 0px rgba(50, 50, 50, 0.65);
+  border-radius: 18px;
+}
+
+.container-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  background-color: #e0e0e0;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+  border-radius: 15px;
+  overflow: hidden;
+
+}
+
+.carruseles {
+  display: flex;
+  transition: transform 0.6s ease;
+  height: 100%;
+}
+
+.slider-section {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.slider-section img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Flechas del slider */
+.btn-left,
+.btn-right {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff81;
+  text-shadow: 1px 1px 1px #FFFAFB; /* Sombra ligera */
+  transform: translate(0, -50%);
+  transition: 0.5s ease;
+  user-select: none;
+}
+
+.btn-left {
+  left: 10px;
+}
+
+.btn-right {
+  right: 10px;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+  background-color: #333333d4;
+  color: #fff;
+}
+
+/* Borde simulado para las flechas */
+.btn-left i,
+.btn-right i {
+  text-shadow: 
+    -1px -1px 0 #000, /* Sombra arriba-izquierda */
+    1px -1px 0 #000,  /* Sombra arriba-derecha */
+    -1px 1px 0 #000,  /* Sombra abajo-izquierda */
+    1px 1px 0 #000;   /* Sombra abajo-derecha */
+  color: #ffffff;      /* Color de la flecha */
+  font-size: 2rem;     /* Tamaño de la flecha */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto en hover para resaltar el borde */
+.btn-left:hover i,
+.btn-right:hover i {
+  text-shadow: 
+    -2px -2px 0 #000, 
+    2px -2px 0 #000,  
+    -2px 2px 0 #000,  
+    2px 2px 0 #000;   /* Aumenta la sombra en hover */
+  color: #ffffff;      /* Mantén el color de la flecha */
+}
+
+
+/* Puntos de navegación */
+.slider-dots {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espaciado entre puntos */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 40px; /* Aseguramos altura adecuada */
+  background-color: transparent; /* Fondo transparente para mejor estética */
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffffff81; /* Color inicial */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+.dot:hover {
+  background-color: #fff; /* Cambia a blanco al pasar el cursor */
+  transform: scale(1.3); /* Aumenta ligeramente el tamaño */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Añade un efecto de resplandor */
+}
+
+.dot.active {
+  background-color: #ffffff; /* Color para el punto activo */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9); /* Resplandor para el punto activo */
+  transform: scale(1.2); /* Tamaño ligeramente mayor para el punto activo */
+}
+
+
+/* Herramientas */
+.tools-section {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.tool-item {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  margin: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25), 
+              0px 6px 20px rgba(0, 0, 0, 0.15); /* Sombra uniforme elegante */
+color: whitesmoke;
+}
+
+
+/* Footer del slider */
+.slider-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 10px;
+}
+
+.project-btn {
+  font-family: 'Poppins', sans-serif;
+  flex: 1;
+  width: 120px;
+  background-color: #0909099c;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25), 
+  0px 6px 20px rgba(0, 0, 0, 0.15);
+  color: whitesmoke;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+.project-btn:hover {
+  background: linear-gradient(to right, #495057, #212529); /* Degradado más oscuro */
+  color: #ffffff; /* Mantiene el texto blanco */
+  transform: scale(1.05); /* Efecto de aumento ligero */
+}
+
+.link-item-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; font-family: 'Oooh Baby', cursive;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    margin-top: 1rem;
+  }

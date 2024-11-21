@@ -1,111 +1,97 @@
 import React, { useEffect, useRef } from "react";
 import "../../styles/projects.css";
 import { Link } from "react-router-dom";
+import { ProjectsSection } from "../component/projectsSection";
+import anime from "animejs/lib/anime.es.js";
+import { useAnimation } from "../component/animationContext";
 
 export const Projects = () => {
-  // Referencias para los botones y el slider
   const slideRef = useRef();
 
-  // Función para manejar el siguiente elemento
-  const handleNext = () => {
-    if (slideRef.current) {
-      const items = slideRef.current.querySelectorAll(".item");
-      slideRef.current.appendChild(items[0]);
-    }
-  };
+  // Contexto de animación
+  const { animationState, setAnimationState } = useAnimation();
 
-  // Función para manejar el elemento anterior
-  const handlePrev = () => {
-    if (slideRef.current) {
-      const items = slideRef.current.querySelectorAll(".item");
-      slideRef.current.prepend(items[items.length - 1]);
-    }
-  };
+  useEffect(() => {
+    // Evitamos reejecuciones si la animación ya ocurrió
+    if (!animationState.projects) return;
+
+    // Configuración inicial: elementos invisibles
+    document.querySelectorAll(
+      ".projects-title-text, .projects-contain-container, .link-item"
+    ).forEach((el) => {
+      el.style.opacity = 0;
+    });
+
+    // Animación del título
+    anime({
+      targets: ".projects-title-text",
+      opacity: [0, 1],
+      translateY: [-20, 0],
+      easing: "easeInOutQuad",
+      duration: 2000,
+      delay: 500,
+      complete: () => {
+        // Animación del contenedor de proyectos
+        anime({
+          targets: ".projects-contain-container",
+          opacity: [0, 1],
+          translateX: [50, 0],
+          easing: "easeInOutQuad",
+          duration: 1500,
+          complete: () => {
+            // Animación de los enlaces
+            anime({
+              targets: ".link-item",
+              opacity: [0, 1],
+              translateX: [-50, 0],
+              easing: "easeInOutQuad",
+              duration: 1000,
+              delay: anime.stagger(200),
+            }).finished.then(() => {
+              // Marcar la animación como completada
+              setAnimationState((prev) => ({ ...prev, projects: false }));
+            });
+          },
+        });
+      },
+    });
+  }, [animationState.projects, setAnimationState]);
 
   return (
     <div className="projects-container">
       <div className="projects-inner-frame">
+        {/* Título */}
         <div className="projects-title-container">
-          <h1 className="projects-title-text">Proyectos</h1>
+          <h1
+            className="projects-title-text"
+            style={{ opacity: animationState.projects ? 0 : 1 }}
+          >
+            Proyectos
+          </h1>
         </div>
 
-        <div className="projects-contain-container">
-          <div className="projects-section">
-            <div className="container">
-              <div className="slide" ref={slideRef}>
-                <div
-                  className="item"
-                  style={{
-                    backgroundImage: "url(https://i.ibb.co/qCkd9jS/img1.jpg)",
-                  }}
-                >
-                  <div className="content">
-                    <div className="name">Switzerland</div>
-                    <div className="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Ab, eum!
-                    </div>
-                    <button>See More</button>
-                  </div>
-                </div>
-                <div
-                  className="item"
-                  style={{
-                    backgroundImage: "url(https://i.ibb.co/jrRb11q/img2.jpg)",
-                  }}
-                >
-                  <div className="content">
-                    <div className="name">Finland</div>
-                    <div className="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Ab, eum!
-                    </div>
-                    <button>See More</button>
-                  </div>
-                </div>
-                <div
-                  className="item"
-                  style={{
-                    backgroundImage: "url(https://i.ibb.co/NSwVv8D/img3.jpg)",
-                  }}
-                >
-                  <div className="content">
-                    <div className="name">Iceland</div>
-                    <div className="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Ab, eum!
-                    </div>
-                    <button>See More</button>
-                  </div>
-                </div>
-                {/* Agrega los demás elementos aquí */}
-              </div>
+        {/* Contenedor principal */}
+        <div
+          className="projects-contain-container"
+          style={{ opacity: animationState.projects ? 0 : 1 }}
+        >
+          <ProjectsSection slideRef={slideRef} />
+        </div>
 
-              <div className="button">
-                <button className="prev" onClick={handlePrev}>
-                  <i className="fa-solid fa-arrow-left"></i>
-                </button>
-                <button className="next" onClick={handleNext}>
-                  <i className="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="link-row">
-            <Link to="/" className="link-item">
-              Inicio
-            </Link>
-            <Link to="/about" className="link-item">
-              Sobre mí
-            </Link>
-            <Link to="/skills" className="link-item">
-              Habilidades
-            </Link>
-            <Link to="/contact" className="link-item">
-              Contacto
-            </Link>
-          </div>
+        {/* Enlaces */}
+        <div className="link-row">
+          <Link to="/" className="link-item">
+            Inicio
+          </Link>
+          <Link to="/about" className="link-item">
+            Sobre mí
+          </Link>
+          <Link to="/skills" className="link-item">
+            Habilidades
+          </Link>
+          <Link to="/contact" className="link-item">
+            Contacto
+          </Link>
         </div>
       </div>
     </div>

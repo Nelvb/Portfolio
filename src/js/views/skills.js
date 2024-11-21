@@ -3,11 +3,17 @@ import anime from 'animejs/lib/anime.es.js';
 import minimalDevicesImage from "../../img/responsive.png";
 import "../../styles/skills.css";
 import { Link } from "react-router-dom";
+import { useAnimation } from "../component/animationContext";
 
 export const Skills = () => {
+  const { animationState, setAnimationState } = useAnimation();
+
   useEffect(() => {
-    // Establecer todo como invisible al principio
-    document.querySelectorAll(".skills-title-text, .devices-image, .skills-description, .skills-section-title, .skill-card, .link-item, .skills-info-container").forEach(el => {
+    // Evitamos reejecuciones si la animación ya ocurrió
+    if (!animationState.skills) return;
+
+    // Configuración inicial: elementos invisibles
+    document.querySelectorAll(".skills-title-text, .devices-image, .skills-description, .skills-section-title, .skill-card, .link-item-skills, .skills-info-container").forEach(el => {
       el.style.opacity = 0;
     });
 
@@ -68,12 +74,15 @@ export const Skills = () => {
 
                     // Animación de los enlaces de navegación, solo después de que las tarjetas se hayan cargado
                     anime({
-                      targets: ".link-item",
+                      targets: ".link-item-skills",
                       opacity: [0, 1],
                       translateX: [-50, 0],
                       easing: "easeInOutQuad",
                       duration: 1000,
                       delay: anime.stagger(200, { start: 2000 }),
+                    }).finished.then(() => {
+                      // Marcar la animación como completada
+                      setAnimationState((prev) => ({ ...prev, skills: false }));
                     });
                   }
                 });
@@ -83,7 +92,7 @@ export const Skills = () => {
         });
       }
     });
-  }, []);
+  }, [animationState.skills, setAnimationState]);
 
   const skills = {
     frontend: [
@@ -184,11 +193,11 @@ export const Skills = () => {
             </section>
           </div>
 
-          <div className="link-row">
-            <Link to="/" className="link-item">Inicio</Link>
-            <Link to="/about" className="link-item">Sobre mí</Link>
-            <Link to="/projects" className="link-item">Proyectos</Link>
-            <Link to="/contact" className="link-item">Contacto</Link>
+          <div className="link-row-skills">
+            <Link to="/" className="link-item-skills">Inicio</Link>
+            <Link to="/about" className="link-item-skills">Sobre mí</Link>
+            <Link to="/projects" className="link-item-skills">Proyectos</Link>
+            <Link to="/contact" className="link-item-skills">Contacto</Link>
           </div>
         </div>
       </div>

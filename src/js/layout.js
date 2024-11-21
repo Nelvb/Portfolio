@@ -5,8 +5,9 @@ import { AnimationProvider } from "./component/animationContext";
 import { Home } from "./views/home";
 import { AboutMe } from "./views/aboutMe";
 import { Skills } from "./views/skills"; 
-import { Contact } from "./views/contact";  {/* Importamos la vista de contacto */}
-import { Projects } from "./views/projects"; {/* Importamos la vista de proyectos */}
+import { Contact } from "./views/contact";
+import { Projects } from "./views/projects";
+import { ProjectDetail } from "./views/projectDetail"; // Importamos la vista de detalle de proyecto
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 
@@ -22,8 +23,9 @@ const Layout = () => {
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<AboutMe />} />
                             <Route path="/skills" element={<Skills />} />
-                            <Route path="/contact" element={<Contact />} /> {/* Nueva ruta */}
-                            <Route path="/projects" element={<Projects />} /> {/* Nueva ruta */}
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/projects" element={<Projects />} />
+                            <Route path="/project/:id" element={<ProjectDetail />} /> {/* Nueva ruta */}
                             <Route path="*" element={<h1>Not found!</h1>} />
                         </Routes>
                         <Footer />

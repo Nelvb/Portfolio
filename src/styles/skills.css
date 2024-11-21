@@ -90,8 +90,8 @@
   background: linear-gradient(to left, #090909, #b3b3b3);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  max-width: 100%;
-  margin-top: 4rem;
+  max-width: 95%;
+  margin-top: 3.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -191,17 +191,17 @@
 }
 
 /* Fila de enlaces debajo de las habilidades */
-.link-row {
+.link-row-skills {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
-.link-item {
+.link-item-skills {
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: white;
@@ -209,7 +209,7 @@
   transition: color 0.3s ease-in-out;
 }
 
-.link-item:hover {
+.link-item-skills:hover {
   color: #c0c0c0;
   font-size: 1.6rem;
 }
@@ -259,7 +259,7 @@
     overflow-y: auto;
   }
 
-  .link-row {
+  .link-row-skills {
     justify-content: center;
     align-items: center;
     gap: 3rem;
@@ -330,7 +330,7 @@
     font-size: 1.1rem;
   }
 
-  .link-row {
+  .link-row-skills {
     justify-content: center;
     align-items: center;
     gap: 1rem;

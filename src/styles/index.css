@@ -1,3 +1,15 @@
-/* 
-    General Styles
-*/
+a {
+    text-decoration: none;
+    color: white; /* Blanco por defecto */
+    transition: color 0.3s ease-in-out;
+    cursor: pointer; /* Asegura que el cursor sea puntero */
+  }
+  
+  a:hover, a:visited:hover {
+    color: #c0c0c0 !important; /* Gris oscuro al pasar el ratón, incluso en visitados */
+  }
+  
+  a:visited {
+    color: white !important; /* Blanco para enlaces visitados */
+  }
+  
