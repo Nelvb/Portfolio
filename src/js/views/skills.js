@@ -13,13 +13,13 @@ export const Skills = () => {
     if (!animationState.skills) return;
 
     // Configuración inicial: elementos invisibles
-    document.querySelectorAll(".skills-title-text, .devices-image, .skills-description, .skills-section-title, .skill-card, .link-item-skills, .skills-info-container").forEach(el => {
+    document.querySelectorAll(".title-text, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link, .skills-info-container").forEach(el => {
       el.style.opacity = 0;
     });
 
     // Animación inicial del título
     anime({
-      targets: ".skills-title-text",
+      targets: ".title-text",
       opacity: [0, 1],
       translateY: [-20, 0],
       easing: "easeInOutQuad",
@@ -74,7 +74,7 @@ export const Skills = () => {
 
                     // Animación de los enlaces de navegación, solo después de que las tarjetas se hayan cargado
                     anime({
-                      targets: ".link-item-skills",
+                      targets: ".nav-link",
                       opacity: [0, 1],
                       translateX: [-50, 0],
                       easing: "easeInOutQuad",
@@ -123,18 +123,18 @@ export const Skills = () => {
   };
 
   return (
-    <div className="skills-container">
-      <div className="skills-inner-frame">
-        <div className="skills-title-container">
-          <h1 className="skills-title-text">Habilidades</h1>
+    <div className="main-container">
+      <div className="inner-frame">
+        <div className="title-container">
+          <h1 className="title-text">Habilidades</h1>
         </div>
 
         <div className="skills-contain-container">
           <div className="skills-info-container">
-            <img src={minimalDevicesImage} alt="Minimalist devices illustration" className="devices-image" />
             <p className="skills-description">
               Desarrollador Full Stack con capacidades en frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React, Python, SQL y Flask. Creo interfaces atractivas con Bootstrap y gestiono el control de versiones con Git y GitHub. Para bases de datos, utilizo PostgreSQL y SQLAlchemy, con autenticación mediante JWT. Me gusta llevar cada proyecto desde la planificación hasta la implementación, asegurando que sea seguro, eficiente y adaptado a cualquier dispositivo.
             </p>
+            <img src={minimalDevicesImage} alt="Minimalist devices illustration" className="devices-image" />
           </div>
 
           <div className="skills-sections">
@@ -192,13 +192,13 @@ export const Skills = () => {
               </div>
             </section>
           </div>
+        </div>
 
-          <div className="link-row-skills">
-            <Link to="/" className="link-item-skills">Inicio</Link>
-            <Link to="/about" className="link-item-skills">Sobre mí</Link>
-            <Link to="/projects" className="link-item-skills">Proyectos</Link>
-            <Link to="/contact" className="link-item-skills">Contacto</Link>
-          </div>
+        <div className="navigation-links">
+          <Link to="/" className="nav-link">Inicio</Link>
+          <Link to="/about" className="nav-link">Sobre mí</Link>
+          <Link to="/projects" className="nav-link">Proyectos</Link>
+          <Link to="/contact" className="nav-link">Contacto</Link>
         </div>
       </div>
     </div>

@@ -45,13 +45,13 @@ export const ProjectDetail = () => {
   }, [images.length]);
 
   return (
-    <div className="project-detail-container">
-      <div className="project-detail-inner-frame">
-        <div className="project-detail-title-container">
-          <h1 className="project-detail-title-text">{name}</h1>
+    <div className="main-container">
+      <div className="inner-frame">
+        <div className="title-container">
+          <h1 className="title-text">{name}</h1>
         </div>
 
-        <div className="project-contain-description">
+        <div className="project-contain-detail">
           {/* Izquierda: Descripción y Tecnologías */}
           <div className="project-description-tools">
             <h3 className="project-full-description-title">Detalles del Proyecto</h3>
@@ -113,8 +113,8 @@ export const ProjectDetail = () => {
 
 
         {/* Link para volver */}
-        <div className="link-row-details">
-          <Link to="/projects" className="link-item-details">
+        <div className="navigation-links">
+          <Link to="/projects" className="nav-link">
             Volver a proyectos
           </Link>
         </div>

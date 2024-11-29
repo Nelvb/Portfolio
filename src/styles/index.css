@@ -1,15 +1,239 @@
+/* Elimina márgenes y scroll durante el preloader */
+body.no-scroll, html.no-scroll {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Deshabilita el scroll */
+}
+
+/* Contenedor principal del loader */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #090909; /* Fondo sólido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Siempre encima */
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+/* Spinner animado */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.2); 
+  border-top: 4px solid #b3b3b3; /* Color de animación */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+}
+
+/* Keyframes para la animación del spinner */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+      border-top-color: #b3b3b3;
+  }
+  50% {
+      border-top-color: #575757;
+  }
+  100% {
+      transform: rotate(360deg);
+      border-top-color: #b3b3b3;
+  }
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #090909, #b3b3b3);
+  position: relative;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Marco interno con borde degradado */
+.inner-frame {
+  width: calc(100% - 2rem);
+  height: calc(100% - 6vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 10vh;
+  margin-bottom: 6vh;
+  position: relative;
+  flex-direction: column;
+}
+
+/* Línea superior con degradado en el centro */
+.inner-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,
+      #b3b3b3 5%,
+      rgba(179, 179, 179, 0.5) 25%,
+      rgba(179, 179, 179, 0.1) 30%,
+      transparent 50%,
+      rgba(9, 9, 9, 0.1) 70%,
+      rgba(9, 9, 9, 0.5) 85%,
+      #090909 95%);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+/* Contenedor del título superpuesto sobre la línea */
+.title-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+}
+
+/* Texto "Sobre Mí" */
+.title-text {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+/* Contenedor y estilo para enlaces de navegación */
+.navigation-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+
+/* Enlaces */
+/* Estilo para el enlace "Ver CV" y enlaces de navegación */
+.nav-link {
+  font-family: 'Oooh Baby', cursive;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover{
+  color: #c0c0c0;
+  font-size: 1.6rem;
+}
+
 a {
-    text-decoration: none;
-    color: white; /* Blanco por defecto */
-    transition: color 0.3s ease-in-out;
-    cursor: pointer; /* Asegura que el cursor sea puntero */
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+a:hover, a:visited:hover {
+  color: #c0c0c0 !important; /* Gris oscuro al pasar el ratón */
+}
+
+a:visited {
+  color: white !important;
+}
+
+
+@media screen and (min-width: 1000px) {
+  .title-text {
+    font-size: 5.6rem;
   }
-  
-  a:hover, a:visited:hover {
-    color: #c0c0c0 !important; /* Gris oscuro al pasar el ratón, incluso en visitados */
+}
+
+
+@media screen and (min-width: 1200px) {
+  .title-text {
+    font-size: 5.8rem;
   }
-  
-  a:visited {
-    color: white !important; /* Blanco para enlaces visitados */
+}
+
+
+@media screen and (min-width: 1400px) {
+  .title-text {
+    font-size: 6rem;
   }
-  
+}
+
+@media screen and (min-width: 1600px) {
+  .title-text {
+    font-size: 6.5rem;
+  }
+}
+
+
+@media screen and (min-width: 2000px) {
+  .title-text {
+    font-size: 7.5rem;
+  }
+}
+
+/* Media Query para pantallas de menor altura y responsive para barras de desplazamiento */
+
+@media screen and (max-height: 700px), (max-width: 1400px) {
+  .main-container {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .title-text {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title-text {
+    font-size: 4.5rem;
+  }
+  .main-container {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .title-text {
+    font-size: 3.5rem;
+  }
+
+  .nav-link {
+    gap: 1rem;
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 340px) {
+  .title-text {
+    font-size: 2.5rem;
+  }
+}

@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAnimation } from "./animationContext"; // Importar el contexto
 
 export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
   const navigate = useNavigate();
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const { animationState, setAnimationState } = useAnimation(); // Acceder al estado del contexto
+  const [isFirstLoad, setIsFirstLoad] = useState(animationState.projects);
 
   useEffect(() => {
-    // Aplica un retardo inicial solo en la primera carga
     if (isFirstLoad) {
-      const timer = setTimeout(() => setIsFirstLoad(false), 4000); // Retardo de 500ms
-      return () => clearTimeout(timer); // Limpia el temporizador al desmontar
+      const timer = setTimeout(() => {
+        setIsFirstLoad(false);
+        setAnimationState((prev) => ({ ...prev, projects: false })); // Actualizar el estado en el contexto
+      }, 4000);
+      return () => clearTimeout(timer); // Limpieza al desmontar
     }
-  }, [isFirstLoad]);
+  }, [isFirstLoad, setAnimationState]);
 
   return (
     <div

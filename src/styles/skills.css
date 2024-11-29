@@ -1,71 +1,3 @@
-/* Contenedor principal */
-.skills-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to right, #090909, #b3b3b3);
-  padding: 2vh 2vw;
-  box-sizing: border-box;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* Marco interno con borde degradado */
-.skills-inner-frame {
-  width: calc(100% - 2rem);
-  height: calc(100% - 6vh);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
-  box-sizing: border-box;
-  padding: 20px;
-  margin-top: 10vh;
-  margin-bottom: 6vh;
-  position: relative;
-  flex-direction: column;
-}
-
-/* Línea superior con degradado en el centro */
-.skills-inner-frame::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right,
-      #b3b3b3 5%,
-      rgba(179, 179, 179, 0.5) 25%,
-      rgba(179, 179, 179, 0.1) 30%,
-      transparent 50%,
-      rgba(9, 9, 9, 0.1) 70%,
-      rgba(9, 9, 9, 0.5) 85%,
-      #090909 95%);
-  z-index: 1;
-}
-
-.skills-title-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 100%;
-}
-
-.skills-title-text {
-  font-family: 'Oooh Baby', cursive;
-  font-size: clamp(2.5rem, 5vw, 6rem);
-  color: white;
-  text-align: center;
-  margin: 0;
-}
-
 /* Contenedor principal de habilidades */
 .skills-contain-container {
   width: 100%;
@@ -73,27 +5,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px;
   box-sizing: border-box;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 18px;
+  max-width: 95%;
+  margin-top: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 /* Contenedor de información de habilidades */
 .skills-info-container {
   display: flex;
   align-items: center;
-  padding: 20px;
+  justify-content: space-between;
+  gap: 5rem;
   box-sizing: border-box;
-  color: white;
+  color: whitesmoke;
   text-align: justify;
   line-height: 1.6;
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(1.2rem, 2vw, 1.4rem);
-  background: linear-gradient(to left, #090909, #b3b3b3);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  max-width: 95%;
-  margin-top: 3.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .skills-info-container img {
@@ -126,7 +61,6 @@
 .skills-section-title {
   font-size: 1.8rem;
   font-family: 'Oooh Baby', cursive;
-  opacity: 0;
   text-align: center;
   color: white;
 }
@@ -190,100 +124,31 @@
   background: linear-gradient(to left, #090909, #090909);
 }
 
-/* Fila de enlaces debajo de las habilidades */
-.link-row-skills {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  width: 100%;
-}
-
-.link-item-skills {
-  font-family: 'Oooh Baby', cursive;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-.link-item-skills:hover {
-  color: #c0c0c0;
-  font-size: 1.6rem;
-}
-
-/* Media Queries para alinear con about */
-@media (min-width: 1000px) {
-  .skills-title-text {
-    font-size: 5.6rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .skills-title-text {
-    font-size: 5.8rem;
-  }
-}
-
-@media (min-width: 1400px) {
-  .skills-title-text {
-    font-size: 6rem;
-  }
-}
-
-@media (min-width: 1550px) {
-  .skills-section-title,
-  .skills-description {
-    font-size: 1.3rem;
-  }
-}
-
-@media (min-width: 1600px) {
-  .skills-title-text {
-    font-size: 6.5rem;
-  }
-}
-
-@media (min-width: 2000px) {
-  .skills-title-text {
-    font-size: 7.5rem;
-  }
-}
-
 /* Media Query para pantallas de menor altura y responsive para barras de desplazamiento */
-@media (max-height: 700px), (max-width: 1400px) {
+
+@media screen and (max-height: 700px), (max-width: 1400px) {
   .skills-container {
     height: auto;
     overflow-y: auto;
   }
-
-  .link-row-skills {
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-  }
 }
 
 /* Media Query para 1250px */
-@media (max-width: 1250px) {
+
+@media screen and (max-width: 1250px) {
   .skills-section-title,
   .skills-description {
     font-size: 1.2rem;
   }
 }
 
-@media (max-width: 1025px) {
+
+@media screen and (max-width: 1025px) {
   .skills-container {
     height: auto;
     overflow-y: auto;
   }
-
-  .skills-title-text {
-    font-size: 6.5rem;
-  }
-
+  
   .skills-sections {
     flex-direction: column;
     gap: 1rem;
@@ -294,11 +159,12 @@
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .skills-info-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 2rem;
   }
 
   .skills-info-container img {
@@ -311,38 +177,21 @@
   }
 }
 
-@media (max-width: 768px) {
-  .skills-title-text {
-    font-size: 3.5rem;
-  }
 
+@media screen and (max-width: 768px) {
   .skills-description {
     font-size: 1.1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .skills-title-text {
-    font-size: 3rem;
-  }
 
+@media screen and (max-width: 480px) {
   .skills-description {
     font-size: 1.1rem;
   }
-
-  .link-row-skills {
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-direction: column;
-  }
 }
 
-@media (max-width: 340px) {
-  .skills-title-text {
-    font-size: 2rem;
-  }
-
+@media screen and (max-width: 340px) {
   .skills-description {
     font-size: 1.1rem;
   }

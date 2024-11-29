@@ -20,7 +20,7 @@ export const Contact = () => {
     // Configuración inicial: elementos invisibles
     document
       .querySelectorAll(
-        ".contact-title-text, .contact-contain-container, .contact-item, .contact-social-icons a, .contact-info-container, .contact-form input, .contact-form textarea, .link-item"
+        ".contact-title-text, .contact-contain-container, .contact-item, .contact-social-icons a, .contact-info-container, .contact-form input, .contact-form textarea, .nav-link"
       )
       .forEach((el) => {
         el.style.opacity = 0;
@@ -28,7 +28,7 @@ export const Contact = () => {
 
     // Animación del título
     anime({
-      targets: ".contact-title-text",
+      targets: ".title-text",
       opacity: [0, 1],
       translateY: [-20, 0],
       easing: "easeInOutQuad",
@@ -76,7 +76,7 @@ export const Contact = () => {
               )
               .add(
                 {
-                  targets: ".link-item",
+                  targets: ".nav-link",
                   opacity: [0, 1],
                   translateX: [-50, 0],
                   easing: "easeInOutQuad",
@@ -148,12 +148,12 @@ export const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
-      <div className="contact-inner-frame">
+    <div className="main-container">
+      <div className="inner-frame">
         {/* Título */}
-        <div className="contact-title-container">
+        <div className="title-container">
           <h1
-            className="contact-title-text"
+            className="title-text"
             style={{ opacity: animationState.contact ? 0 : 1 }}
           >
             Contacto
@@ -219,11 +219,11 @@ export const Contact = () => {
         </div>
 
         {/* Enlaces */}
-        <div className="link-row">
-          <Link to="/" className="link-item">Inicio</Link>
-          <Link to="/about" className="link-item">Sobre mí</Link>
-          <Link to="/skills" className="link-item">Habilidades</Link>
-          <Link to="/projects" className="link-item">Proyectos</Link>
+        <div className="navigation-links">
+          <Link to="/" className="nav-link">Inicio</Link>
+          <Link to="/about" className="nav-link">Sobre mí</Link>
+          <Link to="/skills" className="nav-link">Habilidades</Link>
+          <Link to="/projects" className="nav-link">Proyectos</Link>
         </div>
       </div>
 

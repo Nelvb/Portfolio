@@ -20,7 +20,7 @@ export const AboutMe = () => {
 
     if (animationState.about) {
       anime({
-        targets: ".about-title-text",
+        targets: ".title-text",
         opacity: [0, 1],
         translateY: [-20, 0],
         easing: "easeInOutQuad",
@@ -174,13 +174,13 @@ export const AboutMe = () => {
   };
 
   return (
-    <div className="about-container">
+    <div className="main-container">
       <div className="inner-frame">
         <div className="title-container">
-          <h1 className="about-title-text" style={{ opacity: animationState.about ? 0 : 1 }}>Sobre mí</h1>
+          <h1 className="title-text" style={{ opacity: animationState.about ? 0 : 1 }}>Sobre mí</h1>
         </div>
 
-        <div className="info-container" ref={infoContainerRef}>
+        <div className="about-contain-container" ref={infoContainerRef}>
           <div className="about-description-container">
             <h5 className="about-heading-poppins" style={{ opacity: animationState.about ? 0 : 1 }}>¡Hola! Mi nombre es</h5>
             <h4 className="about-title" style={{ opacity: animationState.about ? 0 : 1 }}>Nelson Valero</h4>
@@ -213,8 +213,8 @@ export const AboutMe = () => {
           </div>
         </div>
 
-        <div className="link-container">
-          <a 
+        <div className="navigation-links">
+          <a
             href="/NelsonValeroCV.pdf"
             target="_blank"
             rel="noopener noreferrer"

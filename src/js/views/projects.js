@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "../../styles/projects.css";
 import { Link } from "react-router-dom";
 import { ProjectsSection } from "../component/projectsSection";
@@ -6,25 +6,23 @@ import anime from "animejs/lib/anime.es.js";
 import { useAnimation } from "../component/animationContext";
 
 export const Projects = () => {
-  const slideRef = useRef();
-
-  // Contexto de animación
   const { animationState, setAnimationState } = useAnimation();
 
+  // Animaciones iniciales
   useEffect(() => {
     // Evitamos reejecuciones si la animación ya ocurrió
     if (!animationState.projects) return;
 
     // Configuración inicial: elementos invisibles
     document.querySelectorAll(
-      ".projects-title-text, .projects-contain-container, .link-item"
+      ".title-text, .projects-contain-container, .nav-link"
     ).forEach((el) => {
       el.style.opacity = 0;
     });
 
     // Animación del título
     anime({
-      targets: ".projects-title-text",
+      targets: ".title-text",
       opacity: [0, 1],
       translateY: [-20, 0],
       easing: "easeInOutQuad",
@@ -41,7 +39,7 @@ export const Projects = () => {
           complete: () => {
             // Animación de los enlaces
             anime({
-              targets: ".link-item",
+              targets: ".nav-link",
               opacity: [0, 1],
               translateX: [-50, 0],
               easing: "easeInOutQuad",
@@ -58,12 +56,12 @@ export const Projects = () => {
   }, [animationState.projects, setAnimationState]);
 
   return (
-    <div className="projects-container">
-      <div className="projects-inner-frame">
+    <div className="main-container">
+      <div className="inner-frame">
         {/* Título */}
-        <div className="projects-title-container">
+        <div className="title-container">
           <h1
-            className="projects-title-text"
+            className="title-text"
             style={{ opacity: animationState.projects ? 0 : 1 }}
           >
             Proyectos
@@ -75,21 +73,21 @@ export const Projects = () => {
           className="projects-contain-container"
           style={{ opacity: animationState.projects ? 0 : 1 }}
         >
-          <ProjectsSection slideRef={slideRef} />
+          <ProjectsSection />
         </div>
 
         {/* Enlaces */}
-        <div className="link-row">
-          <Link to="/" className="link-item">
+        <div className="navigation-links">
+          <Link to="/" className="nav-link">
             Inicio
           </Link>
-          <Link to="/about" className="link-item">
+          <Link to="/about" className="nav-link">
             Sobre mí
           </Link>
-          <Link to="/skills" className="link-item">
+          <Link to="/skills" className="nav-link">
             Habilidades
           </Link>
-          <Link to="/contact" className="link-item">
+          <Link to="/contact" className="nav-link">
             Contacto
           </Link>
         </div>

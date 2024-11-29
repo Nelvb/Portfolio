@@ -1,90 +1,20 @@
-/* Contenedor principal */
-.about-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to right, #090909, #b3b3b3);
-  position: relative;
-  padding: 2vh 2vw;
-  box-sizing: border-box;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* Marco interno con borde degradado */
-.inner-frame {
-  width: calc(100% - 2rem);
-  height: calc(100% - 6vh);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to right, #b3b3b3, #090909) 1;
-  box-sizing: border-box;
-  padding: 20px;
-  margin-top: 10vh;
-  margin-bottom: 6vh;
-  position: relative;
-  flex-direction: column;
-}
-
-/* Línea superior con degradado en el centro */
-.inner-frame::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right,
-      #b3b3b3 5%,
-      rgba(179, 179, 179, 0.5) 25%,
-      rgba(179, 179, 179, 0.1) 30%,
-      transparent 50%,
-      rgba(9, 9, 9, 0.1) 70%,
-      rgba(9, 9, 9, 0.5) 85%,
-      #090909 95%);
-  z-index: 1;
-  transition: background 0.3s ease;
-}
-
-/* Contenedor del título superpuesto sobre la línea */
-.title-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  padding: 0;
-  background: transparent;
-  width: 100%;
-}
-
-/* Texto "Sobre Mí" */
-.about-title-text {
-  font-family: 'Oooh Baby', cursive;
-  font-size: clamp(2.5rem, 5vw, 6rem);
-  color: white;
-  text-align: center;
-  line-height: 1;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-}
-
 /* Contenedor para la descripción, tarjeta y botón */
-.info-container {
+.about-contain-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
   width: 100%;
-  padding: 20px;
+  padding: 40px;
   box-sizing: border-box;
   padding-left: 5rem;
   padding-right: 5rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  max-width: 95%;
 }
 
 /* Contenedor de la descripción a la izquierda */
@@ -197,63 +127,13 @@ h5 {
   object-fit: cover;
 }
 
-/* Contenedor y estilo para enlaces de navegación */
-.link-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Estilo para el enlace "Ver CV" y enlaces de navegación */
-.download-cv-link,
-.nav-link {
-  font-family: 'Oooh Baby', cursive;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  opacity: 0;
-}
-
-.nav-link:hover,
-.download-cv-link:hover {
-  color: #c0c0c0;
-  font-size: 1.6rem;
-}
-
-.nav-link {
-  padding: 0 !important;
-  text-align: left !important;
-}
-
 /* Efecto de rotación al hacer clic */
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
+
 /* MEDIAS QUERIES */
-
-/* Media Queries para tamaños grandes */
-@media screen and (min-width: 1000px) {
-  .about-title-text {
-    font-size: 5.6rem;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .about-title-text {
-    font-size: 5.8rem;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .about-title-text {
-    font-size: 6rem;
-  }
-}
 
 @media screen and (min-width: 1550px) {
   .about-title {
@@ -273,24 +153,7 @@ h5 {
   }
 }
 
-@media screen and (min-width: 1600px) {
-  .about-title-text {
-    font-size: 6.5rem;
-  }
-}
-
-@media screen and (min-width: 2000px) {
-  .about-title-text {
-    font-size: 7.5rem;
-  }
-}
-
-@media (max-width: 1400px) {
-  .about-container {
-    height: auto;
-    overflow-y: auto;
-  }
-
+@media screen and (max-width: 1400px) {
   .about-title {
     font-size: 2.6rem;
   }
@@ -309,7 +172,7 @@ h5 {
 }
 
 /* Media Query para 1250px */
-@media (max-width: 1250px) {
+@media screen and (max-width: 1250px) {
   .about-title {
     font-size: 2.6rem;
   }
@@ -327,17 +190,13 @@ h5 {
   }
 }
 
-@media (max-width: 1025px) {
+@media screen and (max-width: 1025px) {
   .about-container {
     height: auto;
     overflow-y: auto;
   }
 
-  .about-title-text {
-    font-size: 6.5rem;
-  }
-
-  .info-container {
+  .about-contain-container {
     flex-direction: column;
     align-items: center;
     padding: 1rem 0.5rem;
@@ -387,29 +246,15 @@ h5 {
     height: 100%;
     object-fit: cover;
   }
-
-  .link-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin: auto;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
 }
 
-@media (max-width: 1000px) {
-  .about-container {
+@media screen and (max-width: 1000px) {
+  .main-container {
     height: auto;
     overflow-y: auto;
   }
 
-  .about-title-text {
-    font-size: 4.5rem;
-  }
-
-  .info-container {
+  .about-contain-container {
     flex-direction: column;
     align-items: center;
     padding: 1rem 0.5rem;
@@ -444,21 +289,9 @@ h5 {
     padding: 0;
     width: 100%;
   }
-
-  .link-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding-left: 0;
-  }
 }
 
-@media (max-width: 768px) {
-  .about-title-text {
-    font-size: 3.5rem;
-  }
-
+@media screen and (max-width: 768px) {
   .about-title {
     font-size: 2.2rem;
   }
@@ -475,7 +308,7 @@ h5 {
     font-size: 1.1rem;
   }
 
-  .info-container {
+  .about-contain-container {
     flex-direction: column;
     padding: 0.5rem 0.3rem;
     align-items: center;
@@ -490,19 +323,16 @@ h5 {
     overflow-y: auto;
   }
 
-  .link-container {
-    display: flex;
+  .navigation-links {
     justify-content: center;
     gap: 1rem;
     padding-left: 0;
+    flex-direction: column;
   }
+
 }
 
-@media (max-width: 480px) {
-  .about-title-text {
-    font-size: 3rem;
-  }
-
+@media screen and (max-width: 480px) {
   .about-title {
     font-size: 1.8rem;
   }
@@ -519,23 +349,12 @@ h5 {
     font-size: 1.1rem;
   }
 
-  .info-container {
+  .about-contain-container {
     padding: 0.3rem 0.2rem;
-  }
-
-  .link-container {
-    justify-content: center;
-    gap: 1rem;
-    padding-left: 0;
-    flex-direction: column;
   }
 }
 
-@media (max-width: 340px) {
-  .about-title-text {
-    font-size: 2rem;
-  }
-
+@media screen and (max-width: 340px) {
   .about-title {
     font-size: 1.4rem;
   }
@@ -552,13 +371,7 @@ h5 {
     font-size: 1.1rem;
   }
 
-  .info-container {
+  .about-contain-container {
     padding: 0.2rem 0.1rem;
-  }
-
-  .link-container {
-    justify-content: center;
-    gap: 1rem;
-    padding-left: 0;
   }
 }

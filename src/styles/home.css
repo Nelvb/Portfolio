@@ -5,22 +5,19 @@
   align-items: center;
   height: 100vh;
   background: linear-gradient(to right, #090909, #b3b3b3);
-  position: relative;
   padding: 2vh 2vw;
   box-sizing: border-box;
   flex-direction: column;
   overflow: hidden;
 }
 
-
 /* Marco interno con borde degradado */
-.inner-frame {
+.home-inner-frame {
   width: calc(100% - 2rem);
   height: calc(100% - 6vh);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   border-left: 2px solid transparent;
   border-right: 2px solid transparent;
   border-bottom: 2px solid transparent;
@@ -30,10 +27,12 @@
   margin-top: 10vh;
   margin-bottom: 6vh;
   position: relative;
+  flex-direction: column;
 }
 
+
 /* Línea superior con degradado en el centro */
-.inner-frame::before {
+.home-inner-frame::before {
   content: '';
   position: absolute;
   top: 0;
@@ -49,11 +48,10 @@
       rgba(9, 9, 9, 0.5) 85%,
       #090909 95%);
   z-index: 1;
-  transition: background 0.3s ease;
 }
 
 /* Efecto de brillo para el borde con sombra */
-.inner-frame.glow-effect {
+.home-inner-frame.glow-effect {
   animation: borderGlowShadow 5s ease-in-out forwards; /* Aumenta la duración para suavidad */
 }
 
@@ -70,84 +68,64 @@
   }
 }
 
-/* Configuración inicial para animaciones */
-.logo-image,
-.title-text,
-.navigation-links li {
-  opacity: 0; /* Oculta el logo, título y enlaces */
-}
-
 /* Contenedor del título superpuesto sobre la línea */
-.title-container {
+.home-title-container {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  padding: 0;
-  background: transparent;
   width: 100%;
 }
 
 /* Texto "Full Stack Developer" */
-.title-text {
+.home-title-text {
   font-family: 'Oooh Baby', cursive;
   font-size: clamp(2.5rem, 5vw, 6rem);
   color: white;
   text-align: center;
-  line-height: 1;
-  white-space: nowrap;
   margin: 0;
-  padding: 0;
 }
 
-/* Enlaces de navegación */
-.navigation-links {
-  font-family: 'Oooh Baby', cursive;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: white;
-  text-align: left;
-  position: absolute;
-  top: 20vh;
-  left: -1vw;
-  z-index: 2;
-}
-
-.navigation-links ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1vh;
-}
-
-.navigation-links a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s ease-in-out;
-}
-
-.navigation-links a:hover {
-  color: #c0c0c0;
-  font-size: 1.6rem;
-}
-
-/* Contenedor del logo */
-.logo-container {
+.home-contain-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 20px 0;
-  margin-bottom: 2vh;
+  height: auto;
+  transform: translateY(-30%); /* Ajusta el porcentaje según lo que necesites */
+}
+
+/* Contenedor de los enlaces */
+.home-navigation-links {
   position: absolute;
-  top: 9vh;
-  z-index: 2;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Estilo de los enlaces */
+.home-nav-link {
+  font-family: "Oooh Baby", cursive;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  text-decoration: none;
+  color: white;
+  opacity: 0; /* Oculto por defecto */
+  transition: color 0.3s ease-in-out;
+}
+
+.home-nav-link:hover {
+  color: #c0c0c0;
+  font-size: 1.6rem;
 }
 
 /* Imagen del logo */
 .logo-image {
-  width: 100%;
   height: auto;
   max-width: 240px;
 }
@@ -157,7 +135,7 @@
   .logo-image {
     max-width: 300px;
   }
-  .title-text {
+  .home-title-text {
     font-size: 5.6rem;
   }
 }
@@ -166,13 +144,13 @@
   .logo-image {
     max-width: 300px;
   }
-  .title-text {
+  .home-title-text {
     font-size: 5.8rem;
   }
 }
 
 @media screen and (min-width: 1400px) {
-  .title-text {
+  .home-title-text {
     font-size: 6rem;
   }
 }
@@ -181,13 +159,13 @@
   .logo-image {
     max-width: 400px;
   }
-  .title-text {
+  .home-title-text {
     font-size: 6.5rem;
   }
 }
 
 @media screen and (min-width: 2000px) {
-  .title-text {
+  .home-title-text {
     font-size: 7.5rem;
   }
   .logo-image {
@@ -195,79 +173,62 @@
   }
 }
 
-/* Media Queries para reorganizar los elementos en pantallas pequeñas */
+@media (max-height: 700px), (max-width: 1400px) {
+  .skills-container {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
 @media screen and (max-width: 1000px) {
-  .title-text {
-    font-size: 4.5rem;
-    text-align: center;
+  .home-title-text {
+    font-size: 5rem;
   }
-  .logo-container {
-    margin-top: 5vh;
-  }
-  .navigation-links {
-    position: static;
-    text-align: center;
-    margin-top: 40vh;
-    order: 3;
-  }
-  .navigation-links ul {
-    flex-direction: column;
+  /* Logo arriba */
+  .home-contain-container {
+    position: relative;
+    margin-top: 0;
+    transform: translateY(0);
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    order: -1;
+    margin-bottom: 2rem;
   }
-  .inner-frame::before {
-    background: linear-gradient(to right,
-        #b3b3b3 5%,
-        rgba(179, 179, 179, 0.5) 10%,
-        rgba(179, 179, 179, 0.1) 20%,
-        transparent 50%,
-        rgba(9, 9, 9, 0.1) 80%,
-        rgba(9, 9, 9, 0.5) 90%,
-        #090909 95%);
-    z-index: 1;
-    transition: background 0.3s ease;
-  }
-}
 
-@media screen and (max-width: 840px) {
-  .title-text {
-    font-size: 3rem;
-    max-width: 100vw;
-    line-height: 1.2;
-    white-space: nowrap;
+  /* Enlaces abajo */
+  .home-navigation-links {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto; /* Centra los enlaces horizontalmente */
+    margin-top: 0; /* Ajusta el espacio encima de los enlaces */
+    padding: 0;
+    align-items: center;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaciado entre los enlaces */
+    order: 1; /* Asegura que los enlaces estén abajo */
   }
 }
 
-@media screen and (max-width: 500px) {
-  .title-text {
-    font-size: 2.5rem;
-    max-width: 100vw;
-    line-height: 1.2;
-    white-space: nowrap;
-  }
-  .inner-frame::before {
-    background: linear-gradient(to right,
-        #b3b3b3 2%,
-        rgba(179, 179, 179, 0.5) 5%,
-        rgba(179, 179, 179, 0.1) 15%,
-        transparent 50%,
-        rgba(9, 9, 9, 0.1) 85%,
-        rgba(9, 9, 9, 0.5) 95%,
-        #090909 98%);
-    z-index: 1;
-    transition: background 0.3s ease;
+@media screen and (max-width: 768px) {
+  .home-title-text {
+    font-size: 4.5rem;
   }
 }
 
-/* Ajustes de tamaño de fuente para pantallas de hasta 440px */
-@media screen and (max-width: 440px) {
-  .title-text {
-    font-size: 2.2rem;
+@media screen and (max-width: 480px) {
+  .home-title-text {
+    font-size: 3.5rem;
   }
 }
 
 @media screen and (max-width: 340px) {
-  .title-text {
-    font-size: 2rem;
+  .home-title-text {
+    font-size: 2.5rem;
   }
 }

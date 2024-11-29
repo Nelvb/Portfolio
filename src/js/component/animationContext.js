@@ -9,6 +9,7 @@ export const AnimationProvider = ({ children }) => {
     contact: true,
     projects: true,
     skills: true,
+    projectsCard: true,
   });
 
   return (

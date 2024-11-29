@@ -1,15 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "../../styles/projects.css";
 import { ProjectsCard } from "./projectsCard";
 import { ProjectsData } from "./projectsData";
 import 'boxicons/css/boxicons.min.css';
 
-
 export const ProjectsSection = () => {
   const slideRef = useRef();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const numberOfProjects = ProjectsData.length;
 
   // Función para manejar el siguiente elemento
   const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % numberOfProjects);
     if (slideRef.current) {
       const items = slideRef.current.querySelectorAll(".project-card");
       slideRef.current.appendChild(items[0]);
@@ -18,9 +20,22 @@ export const ProjectsSection = () => {
 
   // Función para manejar el elemento anterior
   const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? numberOfProjects - 1 : prevIndex - 1
+    );
     if (slideRef.current) {
       const items = slideRef.current.querySelectorAll(".project-card");
       slideRef.current.prepend(items[items.length - 1]);
+    }
+  };
+
+  // Manejar los dots
+  const handleDotClick = (index) => {
+    const diff = index - currentIndex;
+    if (diff > 0) {
+      for (let i = 0; i < diff; i++) handleNext();
+    } else if (diff < 0) {
+      for (let i = 0; i < -diff; i++) handlePrev();
     }
   };
 
@@ -40,12 +55,21 @@ export const ProjectsSection = () => {
         </div>
         <div className="button">
           <button className="prev" onClick={handlePrev}>
-          <i className="bx bx-chevron-left"></i>
+            <i className="bx bx-chevron-left"></i>
           </button>
           <button className="next" onClick={handleNext}>
-          <i className="bx bx-chevron-right"></i>
+            <i className="bx bx-chevron-right"></i>
           </button>
         </div>
+      </div>
+      <div className="slider-dots">
+        {ProjectsData.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentIndex ? "active" : ""}`}
+            onClick={() => handleDotClick(index)}
+          ></span>
+        ))}
       </div>
     </div>
   );
