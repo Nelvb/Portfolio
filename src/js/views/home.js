@@ -21,16 +21,16 @@ export const Home = () => {
 
   const runAnimations = () => {
     anime({
-      targets: ".logo-image",
+      targets: ".home-title-text",
       opacity: [0, 1],
+      translateY: [-20, 0],
       ...animationConfig,
       delay: 500,
     });
 
     anime({
-      targets: ".home-title-text",
+      targets: ".logo-image",
       opacity: [0, 1],
-      translateY: [-20, 0],
       ...animationConfig,
       delay: 2000,
     });
@@ -67,7 +67,11 @@ export const Home = () => {
       <div className="home-inner-frame">
         {/* Título */}
         <div className="home-title-container">
-          <h1 className="home-title-text">Full Stack Developer</h1>
+          <h1 className="home-title-text">
+            <span>Full Stack</span>
+            <span> Developer</span>
+          </h1>
+
         </div>
 
         {/* Logo y Enlaces */}

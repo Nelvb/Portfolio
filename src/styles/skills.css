@@ -1,4 +1,5 @@
-/* Contenedor principal de habilidades */
+
+ /* Contenedor principal de habilidades */
 .skills-contain-container {
   width: 100%;
   height: 100%;
@@ -39,17 +40,10 @@
   object-fit: contain;
 }
 
-.skills-description {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-bottom: 0 !important;
-}
-
 /* Sección de tarjetas de habilidades */
 .skills-sections {
   display: flex;
-  gap: 2rem;
-  padding-top: 2rem;
+  gap: 5rem;
 }
 
 .skills-column {
@@ -70,7 +64,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 500px;
+  width: 100%; /* Permite que use todo el espacio disponible */
+  max-width: 360px; 
 }
 
 .skill-card {
@@ -124,16 +119,31 @@
   background: linear-gradient(to left, #090909, #090909);
 }
 
-/* Media Query para pantallas de menor altura y responsive para barras de desplazamiento */
-
-@media screen and (max-height: 700px), (max-width: 1400px) {
-  .skills-container {
-    height: auto;
-    overflow-y: auto;
+@media screen and (max-width: 1600px) {
+  .skills-sections {
+    gap: 1rem;
   }
 }
 
-/* Media Query para 1250px */
+@media screen and (max-width: 1320px) {
+  .skills-info-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .skills-sections {
+    gap: 3rem;
+    padding-top: 0;
+}
+
+.skills-section-title {
+  font-size: 1.7rem;
+}
+
+}
+
 
 @media screen and (max-width: 1250px) {
   .skills-section-title,
