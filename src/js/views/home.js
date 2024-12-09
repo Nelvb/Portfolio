@@ -82,7 +82,7 @@ export const Home = () => {
             <Link to="/projects" className="home-nav-link">Proyectos</Link>
             <Link to="/contact" className="home-nav-link">Contacto</Link>
           </div>
-          <img src={logoNel} alt="Logo Nelson Valero" className="logo-image" />
+          <img src={logoNel} alt="Logo Nelson Valero" className="logo-image" loading="eager" />
         </div>
       </div>
     </div>

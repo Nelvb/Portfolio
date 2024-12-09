@@ -221,7 +221,7 @@ export const AboutMe = () => {
                   <img src={logoNel} alt="Logo Nelson Valero" className="card-logo" />
                 </div>
                 <div className="card-back">
-                  <img src={nelAnimation} alt="Nelson Valero" className="about-image" />
+                  <img src={nelAnimation} alt="Nelson Valero" className="about-image" loading="eager" />
                 </div>
               </div>
             </div>

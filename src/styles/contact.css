@@ -34,12 +34,19 @@
 .contact-item a {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .contact-item a:hover {
   color: #c0c0c0;
-  transition: color 0.3s ease-in-out;
+  transform: scale(1.1);
 }
+
+.contact-item {
+  cursor: default;
+}
+
+
 
 /* Iconos de redes sociales */
 .contact-social-icons {

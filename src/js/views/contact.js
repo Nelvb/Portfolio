@@ -67,7 +67,7 @@ export const Contact = () => {
                   targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
                   opacity: [0, 1],
                   translateX: (el) =>
-                    el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0], 
+                    el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0],
                   easing: "easeInOutQuad",
                   duration: 1000,
                   delay: anime.stagger(200),
@@ -170,17 +170,19 @@ export const Contact = () => {
                   <FaEnvelope className="contact-icon" /> nelsonvbarcelona@gmail.com
                 </a>
               </div>
+              
               <div className="contact-item">
                 {isMobile ? (
                   <a href="tel:+34622428891">
                     <FaPhone className="contact-icon" /> +34 622 428 891
                   </a>
                 ) : (
-                  <>
+                  <span>
                     <FaPhone className="contact-icon" /> +34 622 428 891
-                  </>
+                  </span>
                 )}
               </div>
+
               <div className="contact-item">
                 <FaMapMarkerAlt className="contact-icon" /> Las Rozas de Madrid
               </div>

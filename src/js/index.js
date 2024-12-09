@@ -1,19 +1,33 @@
-//import react into the bundle
-import React from 'react'
-import { createRoot } from 'react-dom/client'
+// import react into the bundle
+import React, { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
-//include your index.scss file into the bundle
-import "../styles/index.css";
+// include your index.scss file into the bundle
+import "../styles/index.css"; // Tus estilos globales
+import "../styles/loader.css"; // Estilos del loader
 import 'boxicons/css/boxicons.min.css';
 
+// import your own components
+import Layout from './layout.js';
+import Loader from './component/loader'; // Asegúrate de que esta ruta sea correcta
 
-//import your own components
-import Layout from './layout.js'
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
-//
-const root = createRoot(document.querySelector("#app"))
+  useEffect(() => {
+    // Simula la carga inicial de recursos
+    const timer = setTimeout(() => setIsLoading(false), 2000); // Cambia el tiempo según tus necesidades
+    return () => clearTimeout(timer);
+  }, []);
 
-//render your react application
-root.render(
+  return isLoading ? (
+    <Loader type="global" backgroundColor="#090909" />
+  ) : (
     <Layout />
-);
+  );
+};
+
+const root = createRoot(document.querySelector("#app"));
+
+// render your react application
+root.render(<App />);

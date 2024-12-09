@@ -228,8 +228,7 @@ ul {
 @media (max-width: 1279px) {
   .project-contain-detail {
     flex-direction: column;
-    gap: 2rem;
-    padding: 15px;
+    gap: 4rem;
   }
 }
 
@@ -252,8 +251,7 @@ ul {
 
   .project-contain-detail {
     flex-direction: column;
-    gap: 2rem;
-    padding: 20px;
+    gap: 4rem;
   }
 
   .project-description-tools {
@@ -288,10 +286,14 @@ ul {
 
 /* 768px */
 @media (max-width: 768px) {
-.project-full-description-title, .project-technologies-title {
-text-align: center;
-padding-top: 3rem;
-}
+  .project-full-description-title {
+    text-align: center;
+  }
+
+  .project-technologies-title {
+    text-align: center;
+    padding-top: 2rem;
+  }
 
   .project-gallery-slider {
     max-width: 90%;
@@ -309,12 +311,21 @@ padding-top: 3rem;
   }
 
   .project-contain-detail {
+    margin-top: 3rem;
     flex-direction: column;
     gap: 3rem;
-    padding: 20px;
-    margin-top: 8rem;
-    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+
+  .project-contain-detail.long-title {
+    margin-top: 8rem;
+    /* Para títulos largos */
+  }
+
+  .project-full-description-text, .project-technologies-text {
+    padding-left: 0px;
+}
 
   .project-description-tools {
     font-size: 1rem;
@@ -345,18 +356,24 @@ padding-top: 3rem;
     padding: 3px 6px;
   }
 
-  .title-text {
+  .project-detail-title.long {
     font-size: 4.5rem;
-    margin-top: 5rem; /* Mantén el margen superior */
+    margin-top: 5rem;
+    /* Mantén el margen superior */
     display: flex;
-    flex-direction: column; /* Obliga a que las palabras estén en diferentes líneas */
-    text-align: center; /* Centra el texto */
-    white-space: normal; /* Permite saltos de línea */
-    line-height: 1.2; /* Espaciado entre las líneas */
-    word-break: break-word; /* Divide palabras largas si es necesario */
-    overflow-wrap: break-word; /* Asegura que las palabras largas no se salgan del contenedor */
-    max-width: 400px; /* Ajusta el ancho máximo */
-    margin-left: auto; /* Centra horizontalmente */
+    flex-direction: column;
+    /* Obliga a que las palabras estén en diferentes líneas */
+    text-align: center;
+    white-space: normal;
+    /* Permite saltos de línea */
+    line-height: 1.2;
+    /* Espaciado entre las líneas */
+    word-break: break-word;
+    /* Divide palabras largas si es necesario */
+    overflow-wrap: break-word;
+    /* Asegura que las palabras largas no se salgan del contenedor */
+    max-width: 400px;
+    margin-left: auto;
     margin-right: auto;
   }
 }
@@ -381,7 +398,6 @@ padding-top: 3rem;
   .project-contain-detail {
     flex-direction: column;
     gap: 1rem;
-    padding: 10px;
   }
 
   .project-description-tools {
@@ -419,7 +435,6 @@ padding-top: 3rem;
   .project-contain-detail {
     flex-direction: column;
     gap: 0.8rem;
-    padding: 8px;
   }
 
   .project-description-tools {
@@ -461,7 +476,6 @@ padding-top: 3rem;
   .project-contain-detail {
     flex-direction: column;
     gap: 0.5rem;
-    padding: 5px;
   }
 
   .project-description-tools {

@@ -139,7 +139,7 @@ export const ProjectsData = [
     id: 5,
     backgroundImage:
       "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019786/subidaCloudinary_hsoqqt.png",
-    name: "Hoy No Cocino",
+    name: "ToDo list",
     description: "Plataforma para simplificar la gestión de reservas en restaurantes.",
     details: {
       fullDescription:

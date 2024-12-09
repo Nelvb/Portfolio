@@ -143,7 +143,12 @@ export const Skills = () => {
             <p className="skills-description">
               Desarrollador Full Stack con capacidades en frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React, Python, SQL y Flask. Creo interfaces atractivas con Bootstrap y gestiono el control de versiones con Git y GitHub. Para bases de datos, utilizo PostgreSQL y SQLAlchemy, con autenticación mediante JWT. Me gusta llevar cada proyecto desde la planificación hasta la implementación, asegurando que sea seguro, eficiente y adaptado a cualquier dispositivo.
             </p>
-            <img src={minimalDevicesImage} alt="Minimalist devices illustration" className="devices-image" />
+            <img
+              src={minimalDevicesImage}
+              alt="Minimalist devices illustration"
+              className="devices-image"
+              loading="eager"
+            />
           </div>
 
           <div className="skills-sections">

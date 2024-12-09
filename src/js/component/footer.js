@@ -1,6 +1,6 @@
 import React from "react";
 import '../../styles/footer.css';
-import { FaLinkedin, FaGithub } from "react-icons/fa";  // Usamos react-icons para los iconos
+import { FaLinkedin, FaGithub,FaEnvelope } from "react-icons/fa";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear(); // Obtener el año actual
@@ -13,6 +13,9 @@ export const Footer = () => {
         </a>
         <a href="https://github.com/Nelvb" target="_blank" rel="noopener noreferrer">
           <FaGithub className="icon github-icon" />
+        </a>
+        <a href="mailto:nelsonvbarcelona@gmail.com" target="_blank" rel="noopener noreferrer">
+          <FaEnvelope className="icon email-icon" />
         </a>
       </div>
       <p className="footer-text">

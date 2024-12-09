@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/loader.css";
+import "../../styles/loader.css";
 
 const Loader = ({ type = "global", backgroundColor, size = "50px" }) => {
   return (

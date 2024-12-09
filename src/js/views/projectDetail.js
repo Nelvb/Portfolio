@@ -4,7 +4,12 @@ import { ProjectsData } from "../component/projectsData";
 import { useAnimation } from "../component/animationContext";
 import anime from "animejs/lib/anime.es.js";
 import "../../styles/projectDetail.css";
-import 'boxicons/css/boxicons.min.css';
+import "boxicons/css/boxicons.min.css";
+
+// Función para determinar si un título es largo
+const isLongTitle = (title) => {
+  return title.split(" ").length > 2 || title.length > 15;
+};
 
 export const ProjectDetail = () => {
   const { id } = useParams();
@@ -19,6 +24,8 @@ export const ProjectDetail = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { animationState, setAnimationState } = useAnimation();
+
+  const isLong = isLongTitle(name); // Determinar si el título es largo
 
   // Auto-slide para el carrusel
   useEffect(() => {
@@ -89,14 +96,16 @@ export const ProjectDetail = () => {
             duration: 1500,
             delay: anime.stagger(200),
           })
-          .add({
-            targets: [".container-carousel", ".btn-left", ".btn-right"],
-            opacity: [0, 1],
-            translateX: [50, 0],
-            easing: "easeInOutQuad",
-            duration: 1000,
-          }, "-=1500")
-        
+          .add(
+            {
+              targets: [".container-carousel", ".btn-left", ".btn-right"],
+              opacity: [0, 1],
+              translateX: [50, 0],
+              easing: "easeInOutQuad",
+              duration: 1000,
+            },
+            "-=1500"
+          )
           .add({
             targets: ".slider-dots span",
             opacity: [0, 1],
@@ -104,7 +113,7 @@ export const ProjectDetail = () => {
             easing: "easeInOutQuad",
             duration: 800,
             delay: anime.stagger(100),
-          }, "-=400")
+          })
           .add({
             targets: ".tools-section",
             opacity: [0, 1],
@@ -158,11 +167,13 @@ export const ProjectDetail = () => {
     <div className="main-container">
       <div className="inner-frame">
         <div className="title-container">
-          <h1 className="title-text">{name}</h1>
+          <h1 className={`title-text project-detail-title ${isLong ? "long" : ""}`}>
+            {name}
+          </h1>
         </div>
 
-        <div className="project-contain-detail">
-          <div className="project-description-tools">
+        <div className={`project-contain-detail ${isLong ? "long-title" : "short-title"}`}>
+        <div className="project-description-tools">
             <h3 className="project-full-description-title">Detalles del Proyecto</h3>
             <p className="project-full-description-text">{fullDescription}</p>
             <h3 className="project-technologies-title">Tecnologías Aplicadas</h3>
@@ -204,7 +215,9 @@ export const ProjectDetail = () => {
             <div className="tools-section">
               <ul className="tools-list">
                 {tools.map((tool, index) => (
-                  <li key={index} className="tool-item">{tool}</li>
+                  <li key={index} className="tool-item">
+                    {tool}
+                  </li>
                 ))}
               </ul>
             </div>
