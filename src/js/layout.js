@@ -12,7 +12,7 @@ import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 
 const Layout = () => {
-    const basename = process.env.BASENAME || "";
+    const basename = "/Nelvb-portfolio";
 
     return (
         <div>
