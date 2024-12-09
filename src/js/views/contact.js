@@ -67,7 +67,7 @@ export const Contact = () => {
                   targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
                   opacity: [0, 1],
                   translateX: (el) =>
-                    el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0], // Inputs desde la derecha
+                    el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0], 
                   easing: "easeInOutQuad",
                   duration: 1000,
                   delay: anime.stagger(200),
@@ -162,58 +162,60 @@ export const Contact = () => {
 
         {/* Contenedor principal */}
         <div className="contact-contain-container">
-          <div className="contact-icons-container">
-            {/* Ítems de contacto */}
-            <div className="contact-item">
-              <a href="mailto:nelsonvbarcelona@gmail.com">
-                <FaEnvelope className="contact-icon" /> nelsonvbarcelona@gmail.com
-              </a>
-            </div>
-            <div className="contact-item">
-              {isMobile ? (
-                <a href="tel:+34622428891">
-                  <FaPhone className="contact-icon" /> +34 622 428 891
+          <div className='contact-params-container'>
+            <div className="contact-icons-container">
+              {/* Ítems de contacto */}
+              <div className="contact-item">
+                <a href="mailto:nelsonvbarcelona@gmail.com">
+                  <FaEnvelope className="contact-icon" /> nelsonvbarcelona@gmail.com
                 </a>
-              ) : (
-                <>
-                  <FaPhone className="contact-icon" /> +34 622 428 891
-                </>
-              )}
+              </div>
+              <div className="contact-item">
+                {isMobile ? (
+                  <a href="tel:+34622428891">
+                    <FaPhone className="contact-icon" /> +34 622 428 891
+                  </a>
+                ) : (
+                  <>
+                    <FaPhone className="contact-icon" /> +34 622 428 891
+                  </>
+                )}
+              </div>
+              <div className="contact-item">
+                <FaMapMarkerAlt className="contact-icon" /> Las Rozas de Madrid
+              </div>
+              <div className="contact-social-icons">
+                <a
+                  href="https://www.linkedin.com/in/nelvb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="contact-icon" />
+                </a>
+                <a
+                  href="https://github.com/Nelvb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub className="contact-icon" />
+                </a>
+                <a href="mailto:nelsonvbarcelona@gmail.com">
+                  <FaEnvelope className="contact-icon" />
+                </a>
+              </div>
             </div>
-            <div className="contact-item">
-              <FaMapMarkerAlt className="contact-icon" /> Las Rozas de Madrid
-            </div>
-            <div className="contact-social-icons">
-              <a
-                href="https://www.linkedin.com/in/nelvb"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="contact-icon" />
-              </a>
-              <a
-                href="https://github.com/Nelvb"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="contact-icon" />
-              </a>
-              <a href="mailto:nelsonvbarcelona@gmail.com">
-                <FaEnvelope className="contact-icon" />
-              </a>
-            </div>
-          </div>
 
-          {/* Formulario */}
-          <div className="contact-info-container">
-            <div className="contact-form">
-              <form onSubmit={sendEmail}>
-                <input type="text" id="name" name="from_name" placeholder="Tu nombre" required />
-                <input type="email" id="email" name="reply_to" placeholder="Tu email" required />
-                <input type="text" id="subject" name="subject" placeholder="Asunto" required />
-                <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
-                <button type="submit">Enviar</button>
-              </form>
+            {/* Formulario */}
+            <div className="contact-info-container">
+              <div className="contact-form">
+                <form onSubmit={sendEmail}>
+                  <input type="text" id="name" name="from_name" placeholder="Tu nombre" required />
+                  <input type="email" id="email" name="reply_to" placeholder="Tu email" required />
+                  <input type="text" id="subject" name="subject" placeholder="Asunto" required />
+                  <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+                  <button type="submit">Enviar</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

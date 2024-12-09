@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { ProjectsData } from "../component/projectsData";
+import { useAnimation } from "../component/animationContext";
+import anime from "animejs/lib/anime.es.js";
 import "../../styles/projectDetail.css";
 import 'boxicons/css/boxicons.min.css';
-import { Link } from "react-router-dom";
 
 export const ProjectDetail = () => {
   const { id } = useParams();
@@ -17,6 +18,125 @@ export const ProjectDetail = () => {
   const { fullDescription, tecnologiasUsadas, tools, images } = details;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { animationState, setAnimationState } = useAnimation();
+
+  // Auto-slide para el carrusel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Animaciones iniciales
+  useEffect(() => {
+    if (!animationState.projectDetail) return;
+
+    // Ocultar elementos al inicio
+    document
+      .querySelectorAll(
+        ".title-text, .project-contain-detail, .project-full-description-title, .project-technologies-title, .project-full-description-text, .project-technologies-text, .project-gallery-slider, .container-carousel, .btn-left, .btn-right, .slider-dots span, .tools-section, .slider-footer button, .nav-link"
+      )
+      .forEach((el) => {
+        el.style.opacity = 0;
+      });
+
+    // Animación del título
+    anime({
+      targets: ".title-text",
+      opacity: [0, 1],
+      translateY: [-20, 0],
+      easing: "easeInOutQuad",
+      duration: 2000,
+      delay: 500,
+    }).finished.then(() => {
+      // Animación del contenedor principal
+      anime({
+        targets: ".project-contain-detail",
+        opacity: [0, 1],
+        easing: "easeInOutQuad",
+        duration: 1500,
+        delay: 500,
+      }).finished.then(() => {
+        // Animaciones separadas para cada bloque
+        anime
+          .timeline()
+          .add({
+            targets: [".project-full-description-title", ".project-technologies-title"],
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: "easeInOutQuad",
+            duration: 1500,
+            delay: anime.stagger(200),
+          })
+          .add(
+            {
+              targets: ".project-gallery-slider",
+              opacity: [0, 1],
+              translateX: [50, 0],
+              easing: "easeInOutQuad",
+              duration: 1500,
+            },
+            0
+          )
+          .add({
+            targets: [".project-full-description-text", ".project-technologies-text"],
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: "easeInOutQuad",
+            duration: 1500,
+            delay: anime.stagger(200),
+          })
+          .add({
+            targets: [".container-carousel", ".btn-left", ".btn-right"],
+            opacity: [0, 1],
+            translateX: [50, 0],
+            easing: "easeInOutQuad",
+            duration: 1000,
+          }, "-=1500")
+        
+          .add({
+            targets: ".slider-dots span",
+            opacity: [0, 1],
+            scale: [0.8, 1],
+            easing: "easeInOutQuad",
+            duration: 800,
+            delay: anime.stagger(100),
+          }, "-=400")
+          .add({
+            targets: ".tools-section",
+            opacity: [0, 1],
+            translateX: [60, 0],
+            easing: "easeOutCubic",
+            duration: 1000,
+            delay: anime.stagger(200),
+          })
+          .add({
+            targets: ".slider-footer button",
+            opacity: [0, 1],
+            translateX: [50, 0],
+            easing: "easeOutCubic",
+            duration: 1000,
+            delay: anime.stagger(200),
+          })
+          .add({
+            targets: ".nav-link",
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: "easeInOutQuad",
+            duration: 1000,
+          })
+          .finished.then(() => {
+            setAnimationState((prev) => ({
+              ...prev,
+              projectDetail: false,
+            }));
+          });
+      });
+    });
+  }, [animationState.projectDetail, setAnimationState]);
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -34,16 +154,6 @@ export const ProjectDetail = () => {
     setCurrentImageIndex(index);
   };
 
-  // Auto-slide cada 3 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [images.length]);
-
   return (
     <div className="main-container">
       <div className="inner-frame">
@@ -52,7 +162,6 @@ export const ProjectDetail = () => {
         </div>
 
         <div className="project-contain-detail">
-          {/* Izquierda: Descripción y Tecnologías */}
           <div className="project-description-tools">
             <h3 className="project-full-description-title">Detalles del Proyecto</h3>
             <p className="project-full-description-text">{fullDescription}</p>
@@ -60,7 +169,6 @@ export const ProjectDetail = () => {
             <p className="project-technologies-text">{tecnologiasUsadas}</p>
           </div>
 
-          {/* Derecha: Carrusel con slider */}
           <div className="project-gallery-slider">
             <div className="container-carousel">
               <div
@@ -83,7 +191,6 @@ export const ProjectDetail = () => {
               </div>
             </div>
 
-            {/* Navegación por puntos */}
             <div className="slider-dots">
               {images.map((_, index) => (
                 <span
@@ -94,7 +201,6 @@ export const ProjectDetail = () => {
               ))}
             </div>
 
-
             <div className="tools-section">
               <ul className="tools-list">
                 {tools.map((tool, index) => (
@@ -103,7 +209,6 @@ export const ProjectDetail = () => {
               </ul>
             </div>
 
-            {/* Botones */}
             <div className="slider-footer">
               <button className="project-btn">Ver Web</button>
               <button className="project-btn">Ver Código</button>
@@ -111,8 +216,6 @@ export const ProjectDetail = () => {
           </div>
         </div>
 
-
-        {/* Link para volver */}
         <div className="navigation-links">
           <Link to="/projects" className="nav-link">
             Volver a proyectos

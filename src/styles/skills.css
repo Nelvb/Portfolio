@@ -1,21 +1,15 @@
-
  /* Contenedor principal de habilidades */
 .skills-contain-container {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   padding: 40px;
   box-sizing: border-box;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  margin-top: 4rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 18px;
   max-width: 95%;
-  margin-top: 4rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 /* Contenedor de información de habilidades */
@@ -64,13 +58,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%; /* Permite que use todo el espacio disponible */
+  width: 100%; 
   max-width: 360px; 
 }
 
 .skill-card {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   perspective: 1000px;
   margin: 10px;
 }
@@ -129,7 +123,6 @@
   .skills-info-container {
     flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 0.5rem;
   }
 
@@ -148,7 +141,7 @@
 @media screen and (max-width: 1250px) {
   .skills-section-title,
   .skills-description {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -161,48 +154,40 @@
   
   .skills-sections {
     flex-direction: column;
-    gap: 1rem;
-  }
-
-  .skills-description {
-    font-size: 1.2rem;
+    gap: 1.5rem;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .skills-info-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-  }
-
   .skills-info-container img {
     margin-right: 0;
   }
 
   .skills-description {
-    margin-top: -1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0rem;
   }
 }
 
 
-@media screen and (max-width: 768px) {
-  .skills-description {
-    font-size: 1.1rem;
+@media (max-width: 768px) {
+  .skills-contain-container {
+    margin-top: 3rem;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 
 @media screen and (max-width: 480px) {
-  .skills-description {
-    font-size: 1.1rem;
+ .inner-frame{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .skills-contain-container {
+    margin-top: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
-@media screen and (max-width: 340px) {
-  .skills-description {
-    font-size: 1.1rem;
-  }
-}

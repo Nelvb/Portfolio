@@ -7,7 +7,7 @@ const Loader = ({ type = "global", backgroundColor, size = "50px" }) => {
     <div
       className={`loader-container ${type}`}
       style={{
-        backgroundColor: backgroundColor || "transparent", // Usa color solo si se pasa
+        backgroundColor: backgroundColor || "transparent",
         height: type === "global" ? "100vh" : "auto",
         width: "100%",
       }}
@@ -18,9 +18,9 @@ const Loader = ({ type = "global", backgroundColor, size = "50px" }) => {
 };
 
 Loader.propTypes = {
-  type: PropTypes.oneOf(["global", "local"]), // Tipos de loader
-  backgroundColor: PropTypes.string, // Color de fondo opcional
-  size: PropTypes.string, // Tamaño del spinner
+  type: PropTypes.oneOf(["global", "local"]),
+  backgroundColor: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default Loader;

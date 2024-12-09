@@ -3,10 +3,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Se fija en la pantalla */
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 9999; /* Asegura que esté encima de todo */
+    z-index: 9999;
     overflow: hidden;
 }
 

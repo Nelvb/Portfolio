@@ -17,7 +17,6 @@
 .about-description-container {
   width: 70%;
   color: #dcdcdc;
-  text-align: justify;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -54,8 +53,10 @@ h5 {
 .about-paragraph {
   font-family: 'Oooh Baby', cursive;
   font-size: 1.3rem;
+  text-align: justify;
   color: whitesmoke;
   margin-top: 1.5rem;
+  margin-bottom: 0;
 }
 
 .highlight {
@@ -176,11 +177,6 @@ h5 {
 }
 
 @media screen and (max-width: 1025px) {
-  .about-container {
-    height: auto;
-    overflow-y: auto;
-  }
-
   .about-contain-container {
     flex-direction: column;
     align-items: center;
@@ -204,9 +200,6 @@ h5 {
   }
 
   .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: auto;
     padding: 0;
     width: 100%;
@@ -228,15 +221,6 @@ h5 {
 }
 
 @media screen and (max-width: 1000px) {
-  .main-container {
-    height: auto;
-    overflow-y: auto;
-  }
-
-  .about-description-container {
-    width: 100%;
-  }
-
   .about-title {
     font-size: 2.3rem;
   }
@@ -247,15 +231,6 @@ h5 {
 
   h5 {
     font-size: 1.5rem;
-  }
-
-  .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding: 0;
-    width: 100%;
   }
 }
 
@@ -272,16 +247,11 @@ h5 {
     font-size: 1.4rem;
   }
 
-  .about-paragraph {
-    font-size: 1.3rem;
-  }
-
   .about-contain-container {
     margin-top: 3rem;
     padding-left: 20px;
     padding-right: 20px;
-    gap: 2rem;
-   
+    gap: 3rem;
   }
 
   .about-container {
@@ -320,7 +290,6 @@ h5 {
     margin-top: 2rem;
     padding-left: 10px;
     padding-right: 10px;
-    gap: 1.5rem;
   }
 }
 

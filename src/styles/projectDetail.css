@@ -1,25 +1,17 @@
-/* Contenedor de descripción y slider */
+/* Contenedor principal detalles*/
 .project-contain-detail {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  text-align: justify;
-  color: white;
-  width: 100%;
-  /* max-width: 1400px; */
   display: flex;
-  flex-direction: row;
   align-items: center;
-  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 5rem;
+  width: 100%;
   padding: 40px;
-  padding-left: 70px;
-  padding-right: 70px;
-  border-radius: 15px;
-  gap: clamp(2rem, 5vw, 8rem);
-  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-direction: row;
   margin-top: 4rem;
+  flex-wrap: wrap;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 18px;
-  margin-left: 1rem;
-  margin-right: 1rem;
   max-width: 95%;
 }
 
@@ -28,22 +20,19 @@
   font-family: 'Oooh Baby', cursive;
   flex: 1;
   color: whitesmoke;
-  font-size: 1.2rem;
-  margin-top: 2rem;
 }
 
-.project-full-description-text {
-  padding: 0.5rem;
-  padding-left: 1rem;
-  line-height: 1.6;
-  text-align: justify;
+.project-full-description-title,
+.project-technologies-title {
+  font-size: 1.6rem;
 }
 
+.project-full-description-text,
 .project-technologies-text {
-  padding: 0.5rem;
   padding-left: 1rem;
   line-height: 1.6;
   text-align: justify;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
 /* Slider */
@@ -52,9 +41,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
-  max-height: 500px;
-  margin: 0 auto;
+  max-width: 450px;
+  max-height: 450px;
   padding: 20px;
   background-color: #b3b3b3;
   color: #424242;
@@ -90,7 +78,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 18px;
 }
 
 /* Flechas del slider */
@@ -99,15 +87,15 @@
   display: flex;
   position: absolute;
   top: 50%;
-  font-size: 0.9rem;
-  background-color: transparent;
+  font-size: 1.2rem;
+  background-color: rgba(51, 51, 51, 0.6);
+  /* Fondo semitransparente */
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
-  color: #ffffff81;
-  text-shadow: 1px 1px 1px #FFFAFB; /* Sombra ligera */
+  color: whitesmoke;
   transform: translate(0, -50%);
-  transition: 0.5s ease;
+  transition: 0.3s ease;
   user-select: none;
 }
 
@@ -121,34 +109,9 @@
 
 .btn-left:hover,
 .btn-right:hover {
-  background-color: #333333d4;
-  color: #fff;
+  background-color: #33333311;
+  transform: scale(1.1);
 }
-
-/* Borde simulado para las flechas */
-.btn-left i,
-.btn-right i {
-  text-shadow: 
-    -1px -1px 0 #000, /* Sombra arriba-izquierda */
-    1px -1px 0 #000,  /* Sombra arriba-derecha */
-    -1px 1px 0 #000,  /* Sombra abajo-izquierda */
-    1px 1px 0 #000;   /* Sombra abajo-derecha */
-  color: #ffffff;      /* Color de la flecha */
-  font-size: 1.8rem;     /* Tamaño de la flecha */
-  transition: all 0.3s ease-in-out;
-}
-
-/* Efecto en hover para resaltar el borde */
-.btn-left:hover i,
-.btn-right:hover i {
-  text-shadow: 
-    -2px -2px 0 #000, 
-    2px -2px 0 #000,  
-    -2px 2px 0 #000,  
-    2px 2px 0 #000;   /* Aumenta la sombra en hover */
-  color: whitesmoke;      /* Mantén el color de la flecha */
-}
-
 
 /* Puntos de navegación */
 .slider-dots {
@@ -156,10 +119,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; /* Espaciado entre puntos */
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  height: 40px; /* Aseguramos altura adecuada */
-  background-color: transparent; /* Fondo transparente para mejor estética */
+  gap: 15px;
+  /* Espaciado entre puntos */
+  width: 100%;
+  /* Ocupa todo el ancho del contenedor */
+  height: 40px;
+  /* Aseguramos altura adecuada */
+  background-color: transparent;
+  /* Fondo transparente para mejor estética */
   margin-top: 20px;
 }
 
@@ -167,21 +134,28 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #ffffff81; /* Color inicial */
+  background-color: #ffffff81;
+  /* Color inicial */
   cursor: pointer;
-  transition: all 0.3s ease-in-out; /* Transiciones suaves */
+  transition: all 0.3s ease-in-out;
+  /* Transiciones suaves */
 }
 
 .dot:hover {
-  background-color: whitesmoke; /* Cambia a blanco al pasar el cursor */
-  transform: scale(1.3); /* Aumenta ligeramente el tamaño */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Añade un efecto de resplandor */
+  background-color: whitesmoke;
+  /* Cambia a blanco al pasar el cursor */
+  transform: scale(1.3);
+  /* Aumenta ligeramente el tamaño */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  /* Añade un efecto de resplandor */
 }
 
 .dot.active {
-  background-color: #ffffff; /* Color para el punto activo */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9); /* Resplandor para el punto activo */
-  transform: scale(1.2); /* Tamaño ligeramente mayor para el punto activo */
+  background-color: #ffffff;
+  /* Color para el punto activo */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  /* Resplandor para el punto activo */
+  transform: scale(1.2);
 }
 
 
@@ -192,7 +166,9 @@
   text-align: center;
 }
 
-.dl, ol, ul {
+.dl,
+ol,
+ul {
   padding-left: 1rem !important;
   padding-right: 1rem !important;
 }
@@ -204,9 +180,10 @@
   padding: 5px 10px;
   display: inline-block;
   border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25), 
-              0px 6px 20px rgba(0, 0, 0, 0.15); /* Sombra uniforme elegante */
-color: whitesmoke;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25),
+    0px 6px 20px rgba(0, 0, 0, 0.15);
+  /* Sombra uniforme elegante */
+  color: whitesmoke;
 }
 
 
@@ -223,8 +200,8 @@ color: whitesmoke;
   flex: 1;
   width: 120px;
   background-color: #0909099c;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25), 
-  0px 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25),
+    0px 6px 20px rgba(0, 0, 0, 0.15);
   color: whitesmoke;
   padding: 0.5rem;
   border: none;
@@ -232,13 +209,17 @@ color: whitesmoke;
   cursor: pointer;
   text-align: center;
   font-size: 0.9rem;
-  transition: background 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+  transition: background 0.3s ease, transform 0.2s ease;
+  /* Transiciones suaves */
 }
 
 .project-btn:hover {
-  background: linear-gradient(to right, #495057, #212529); /* Degradado más oscuro */
-  color: #ffffff; /* Mantiene el texto blanco */
-  transform: scale(1.05); /* Efecto de aumento ligero */
+  background: linear-gradient(to right, #495057, #212529);
+  /* Degradado más oscuro */
+  color: #ffffff;
+  /* Mantiene el texto blanco */
+  transform: scale(1.05);
+  /* Efecto de aumento ligero */
 }
 
 /* Media Queries */
@@ -257,7 +238,8 @@ color: whitesmoke;
   .project-gallery-slider {
     padding: 20px;
     border-radius: 18px;
-    max-height: 500px; /* Mantener altura suficiente */
+    max-height: 500px;
+    /* Mantener altura suficiente */
   }
 
   .container-carousel {
@@ -284,8 +266,8 @@ color: whitesmoke;
   }
 
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
   }
 
   .project-btn {
@@ -306,6 +288,11 @@ color: whitesmoke;
 
 /* 768px */
 @media (max-width: 768px) {
+.project-full-description-title, .project-technologies-title {
+text-align: center;
+padding-top: 3rem;
+}
+
   .project-gallery-slider {
     max-width: 90%;
     max-height: 450px;
@@ -323,8 +310,10 @@ color: whitesmoke;
 
   .project-contain-detail {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 15px;
+    gap: 3rem;
+    padding: 20px;
+    margin-top: 8rem;
+    padding-bottom: 40px;
   }
 
   .project-description-tools {
@@ -337,8 +326,8 @@ color: whitesmoke;
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   .project-btn {
@@ -354,6 +343,21 @@ color: whitesmoke;
   .tool-item {
     font-size: 0.7rem;
     padding: 3px 6px;
+  }
+
+  .title-text {
+    font-size: 4.5rem;
+    margin-top: 5rem; /* Mantén el margen superior */
+    display: flex;
+    flex-direction: column; /* Obliga a que las palabras estén en diferentes líneas */
+    text-align: center; /* Centra el texto */
+    white-space: normal; /* Permite saltos de línea */
+    line-height: 1.2; /* Espaciado entre las líneas */
+    word-break: break-word; /* Divide palabras largas si es necesario */
+    overflow-wrap: break-word; /* Asegura que las palabras largas no se salgan del contenedor */
+    max-width: 400px; /* Ajusta el ancho máximo */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto;
   }
 }
 
@@ -384,16 +388,6 @@ color: whitesmoke;
     font-size: 0.9rem;
   }
 
-  .slider-dots {
-    gap: 8px;
-    height: 25px;
-  }
-
-  .dot {
-    width: 7px;
-    height: 7px;
-  }
-
   .project-btn {
     width: 90px;
     padding: 0.2rem;
@@ -402,11 +396,6 @@ color: whitesmoke;
 
   .tools-section {
     padding: 5px;
-  }
-
-  .tool-item {
-    font-size: 0.65rem;
-    padding: 3px 5px;
   }
 }
 
@@ -437,16 +426,6 @@ color: whitesmoke;
     font-size: 0.8rem;
   }
 
-  .slider-dots {
-    gap: 6px;
-    height: 20px;
-  }
-
-  .dot {
-    width: 6px;
-    height: 6px;
-  }
-
   .project-btn {
     width: 80px;
     padding: 0.15rem;
@@ -457,21 +436,20 @@ color: whitesmoke;
     padding: 4px;
   }
 
-  .tool-item {
-    font-size: 0.6rem;
-    padding: 2px 4px;
+  .inner-frame {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .project-contain-detail {
+    margin-top: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
 /* 400px */
 @media (max-width: 400px) {
-  .project-gallery-slider {
-    max-width: 100%;
-    max-height: 300px;
-    padding: 5px;
-    border-radius: 18px;
-  }
-
   .container-carousel {
     height: 200px;
   }
@@ -489,32 +467,4 @@ color: whitesmoke;
   .project-description-tools {
     font-size: 0.7rem;
   }
-
-  .slider-dots {
-    gap: 5px;
-    height: 18px;
-  }
-
-  .dot {
-    width: 5px;
-    height: 5px;
-  }
-
-  .project-btn {
-    width: 70px;
-    padding: 0.1rem;
-    font-size: 0.6rem;
-  }
-
-  .tools-section {
-    padding: 3px;
-  }
-
-  .tool-item {
-    font-size: 0.5rem;
-    padding: 1px 3px;
-  }
 }
-
-
-

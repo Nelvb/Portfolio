@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import logoNel from "../../img/logosinfondo_5.png";
+import logoNel from "../../img/logo_nel-sin-fondo.webp";
 import nelAnimation from "../../img/imagen Nel_animation.gif";
-import anime from 'animejs/lib/anime.es.js';
+import anime from "animejs/lib/anime.es.js";
 import { useAnimation } from "../component/animationContext";
 import "../../styles/aboutMe.css";
 
@@ -12,29 +12,45 @@ export const AboutMe = () => {
   const infoContainerRef = useRef(null);
   const cardContainerRef = useRef(null);
 
-  const animationDuration = animationState.about ? 2000 : 0;
-  const staggerDelay = animationState.about ? 200 : 0;
-
   useEffect(() => {
+    // Configuración inicial: oculta el contenedor principal
+    const containContainer = document.querySelector(".about-contain-container");
+    if (animationState.about) {
+      containContainer.style.opacity = 0;
+    } else {
+      containContainer.style.opacity = 1; // Mantiene visible al volver
+    }
+
     const isSmallScreen = window.matchMedia("(max-width: 1025px)").matches;
 
     if (animationState.about) {
+      // Animar el título primero
       anime({
         targets: ".title-text",
         opacity: [0, 1],
         translateY: [-20, 0],
         easing: "easeInOutQuad",
-        duration: animationDuration,
-        delay: 2000,
+        duration: 2000,
+        delay: 500,
       }).finished.then(() => {
-        if (isSmallScreen) {
-          animateSmallScreen();
-        } else {
-          animateLargeScreen();
-        }
+        // Animar el contenedor principal
+        anime({
+          targets: containContainer,
+          opacity: [0, 1],
+          easing: "easeInOutQuad",
+          duration: 1500,
+          delay: 500,
+        }).finished.then(() => {
+          // Continuar con las animaciones internas
+          if (isSmallScreen) {
+            animateSmallScreen();
+          } else {
+            animateLargeScreen();
+          }
+        });
       });
     }
-  }, [animationState.about, setAnimationState, animationDuration, staggerDelay]);
+  }, [animationState.about]);
 
   const animateSmallScreen = () => {
     const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
@@ -43,8 +59,8 @@ export const AboutMe = () => {
       opacity: [0, 1],
       translateX: [-50, 0],
       easing: "easeInOutQuad",
-      duration: animationDuration,
-      delay: anime.stagger(staggerDelay),
+      duration: 2000,
+      delay: anime.stagger(200),
     }).finished.then(() => {
       const devElement = document.querySelector(".about-heading-large");
       if (devElement) {
@@ -63,7 +79,7 @@ export const AboutMe = () => {
               opacity: [0, 1],
               translateX: [-50, 0],
               easing: "easeInOutQuad",
-              duration: animationDuration,
+              duration: 2000,
             }).finished.then(() => {
               anime({
                 targets: cardContainerRef.current,
@@ -76,8 +92,8 @@ export const AboutMe = () => {
                   opacity: [0, 1],
                   translateX: [-50, 0],
                   easing: "easeInOutQuad",
-                  duration: animationDuration,
-                  delay: anime.stagger(staggerDelay),
+                  duration: 2000,
+                  delay: anime.stagger(200),
                 }).finished.then(() => {
                   setAnimationState((prev) => ({ ...prev, about: false }));
                 });
@@ -100,7 +116,7 @@ export const AboutMe = () => {
       translateX: translateXToCenter,
       opacity: 0,
       easing: "easeInOutQuad",
-      duration: animationDuration,
+      duration: 2000,
     }).finished.then(() => {
       anime({
         targets: cardContainerRef.current,
@@ -114,7 +130,7 @@ export const AboutMe = () => {
             targets: cardContainerRef.current,
             translateX: 0,
             easing: "easeInOutQuad",
-            duration: animationDuration,
+            duration: 2000,
           }).finished.then(() => {
             setIsFlipped(false);
 
@@ -124,8 +140,8 @@ export const AboutMe = () => {
               opacity: [0, 1],
               translateX: [-50, 0],
               easing: "easeInOutQuad",
-              duration: animationDuration,
-              delay: anime.stagger(staggerDelay),
+              duration: 2000,
+              delay: anime.stagger(200),
             }).finished.then(() => {
               const devElement = document.querySelector(".about-heading-large");
               if (devElement) {
@@ -144,7 +160,7 @@ export const AboutMe = () => {
                       opacity: [0, 1],
                       translateX: [-50, 0],
                       easing: "easeInOutQuad",
-                      duration: animationDuration,
+                      duration: 2000,
                       delay: 200,
                     }).finished.then(() => {
                       anime({
@@ -152,8 +168,8 @@ export const AboutMe = () => {
                         opacity: [0, 1],
                         translateX: [-50, 0],
                         easing: "easeInOutQuad",
-                        duration: animationDuration,
-                        delay: anime.stagger(staggerDelay),
+                        duration: 2000,
+                        delay: anime.stagger(200),
                       }).finished.then(() => {
                         setAnimationState((prev) => ({ ...prev, about: false }));
                       });
@@ -183,7 +199,7 @@ export const AboutMe = () => {
         <div className="about-contain-container" ref={infoContainerRef}>
           <div className="about-description-container">
             <h5 className="about-heading-poppins" style={{ opacity: animationState.about ? 0 : 1 }}>¡Hola! Mi nombre es</h5>
-            <h4 className="about-title" style={{ opacity: animationState.about ? 0 : 1 }}>Nelson Valero</h4>
+            <h4 className="about-title" style={{ opacity: animationState.about ? 0 : 1 }}>Nelson Valero Barcelona</h4>
             <h5 className="about-heading" style={{ display: 'inline', opacity: animationState.about ? 0 : 1 }}>
               <span className="about-heading-poppins">y soy</span>
               <span className="about-heading-large">
@@ -193,8 +209,7 @@ export const AboutMe = () => {
             <p className="about-paragraph" style={{ opacity: animationState.about ? 0 : 1 }}>
               Os doy la bienvenida a mi portfolio para que podáis saber más sobre mí.<br />
               Disfruto trabajando con tecnologías como <span className="highlight">JavaScript</span>, <span className="highlight">Python</span> y <span className="highlight">React</span>. También aplico mis
-              conocimientos en optimización de procesos y en la gestión de bases de datos
-              relacionales entre otras habilidades.<br />
+              conocimientos en optimización de procesos y en la gestión de bases de datos relacionales entre otras habilidades.<br />
               Estoy comprometido con el aprendizaje continuo para aplicarlo en equipos de desarrollo, así puedo seguir creciendo dentro del sector tecnológico.
             </p>
           </div>

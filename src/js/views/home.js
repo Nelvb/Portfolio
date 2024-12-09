@@ -55,7 +55,7 @@ export const Home = () => {
       runAnimations();
     }
     else {
-      // Asegurarse de que los elementos sean visibles si la animación no se ejecuta
+      // Se asegura de que los elementos sean visibles si la animación no se ejecuta
       document.querySelectorAll(".logo-image, .home-title-text, .home-nav-link").forEach((el) => {
         el.style.opacity = 1;
       });

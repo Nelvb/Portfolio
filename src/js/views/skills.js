@@ -13,7 +13,7 @@ export const Skills = () => {
     if (!animationState.skills) return;
 
     // Configuración inicial: elementos invisibles
-    document.querySelectorAll(".title-text, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link, .skills-info-container").forEach(el => {
+    document.querySelectorAll(".title-text, .skills-contain-container, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link, .skills-info-container").forEach(el => {
       el.style.opacity = 0;
     });
 
@@ -26,63 +26,72 @@ export const Skills = () => {
       duration: 2000,
       delay: 500,
       complete: () => {
-        // Animación del contenedor de información (imagen y descripción)
         anime({
-          targets: ".skills-info-container",
+          targets: ".skills-contain-container",
           opacity: [0, 1],
           easing: "easeInOutQuad",
           duration: 1500,
           delay: 500,
           complete: () => {
+            // Animación del contenedor de información (imagen y descripción)
             anime({
-              targets: ".devices-image",
+              targets: ".skills-info-container",
               opacity: [0, 1],
-              translateX: [-50, 0],
               easing: "easeInOutQuad",
               duration: 1500,
-            });
-
-            anime({
-              targets: ".skills-description",
-              opacity: [0, 1],
-              translateX: [50, 0],
-              easing: "easeInOutQuad",
-              duration: 1500,
-              delay: 200,
+              delay: 500,
               complete: () => {
-                // Animación de los títulos de las secciones
                 anime({
-                  targets: ".skills-section-title",
+                  targets: ".devices-image",
                   opacity: [0, 1],
-                  translateY: [20, 0],
+                  translateX: [-50, 0],
                   easing: "easeInOutQuad",
                   duration: 1500,
-                  delay: anime.stagger(300),
-                  complete: () => {
-                    // Animación de las tarjetas de habilidades en filas
-                    const skillCards = document.querySelectorAll(".skill-card");
-                    skillCards.forEach((card, index) => {
-                      anime({
-                        targets: card,
-                        opacity: [0, 1],
-                        translateY: [20, 0],
-                        easing: "easeInOutQuad",
-                        duration: 1200,
-                        delay: 100 * Math.floor(index / 3), // Asegura que las tarjetas se animen en filas
-                      });
-                    });
+                });
 
-                    // Animación de los enlaces de navegación, solo después de que las tarjetas se hayan cargado
+                anime({
+                  targets: ".skills-description",
+                  opacity: [0, 1],
+                  translateX: [50, 0],
+                  easing: "easeInOutQuad",
+                  duration: 1500,
+                  delay: 200,
+                  complete: () => {
+                    // Animación de los títulos de las secciones
                     anime({
-                      targets: ".nav-link",
+                      targets: ".skills-section-title",
                       opacity: [0, 1],
-                      translateX: [-50, 0],
+                      translateY: [20, 0],
                       easing: "easeInOutQuad",
-                      duration: 1000,
-                      delay: anime.stagger(200, { start: 2000 }),
-                    }).finished.then(() => {
-                      // Marcar la animación como completada
-                      setAnimationState((prev) => ({ ...prev, skills: false }));
+                      duration: 1500,
+                      delay: anime.stagger(300),
+                      complete: () => {
+                        // Animación de las tarjetas de habilidades en filas
+                        const skillCards = document.querySelectorAll(".skill-card");
+                        skillCards.forEach((card, index) => {
+                          anime({
+                            targets: card,
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            easing: "easeInOutQuad",
+                            duration: 1200,
+                            delay: 100 * Math.floor(index / 3), // Asegura que las tarjetas se animen en filas
+                          });
+                        });
+
+                        // Animación de los enlaces de navegación, solo después de que las tarjetas se hayan cargado
+                        anime({
+                          targets: ".nav-link",
+                          opacity: [0, 1],
+                          translateX: [-50, 0],
+                          easing: "easeInOutQuad",
+                          duration: 1000,
+                          delay: anime.stagger(200, { start: 2000 }),
+                        }).finished.then(() => {
+                          // Marcar la animación como completada
+                          setAnimationState((prev) => ({ ...prev, skills: false }));
+                        });
+                      }
                     });
                   }
                 });

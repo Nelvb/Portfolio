@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAnimation } from "./animationContext"; // Importar el contexto
+import { useAnimation } from "./animationContext";
 
 export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
   const navigate = useNavigate();
-  const { animationState, setAnimationState } = useAnimation(); // Acceder al estado del contexto
+  const { animationState, setAnimationState } = useAnimation();
   const [isFirstLoad, setIsFirstLoad] = useState(animationState.projects);
 
   useEffect(() => {

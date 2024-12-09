@@ -1,23 +1,23 @@
 /* Contenedor principal con diseño responsive */
 .contact-contain-container {
   display: flex;
-  flex-direction: row;
-  /* Elementos en fila por defecto */
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(2rem, 5vw, 8rem);
+  justify-content: center;
   width: 100%;
   padding: 40px;
-  padding-left: 70px;
-  padding-right: 70px;
-  max-width: 95%;
   box-sizing: border-box;
   flex-wrap: wrap;
   margin-top: 4rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 18px;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  max-width: 95%;
+}
+
+.contact-params-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
 }
 
 /* Elementos individuales de contacto */
@@ -65,7 +65,6 @@
 /* Contenedores internos */
 .contact-icons-container {
   flex: 1;
-  padding: 20px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -131,39 +130,15 @@
 
 /* Media Queries */
 
-@media (max-width: 1085px) {
-  .contact-item {
-    font-size: 1.3rem;
-    /* Ajusta con una unidad válida */
-  }
+@media (max-width: 1155px) {
 
-  .contact-contain-container {
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 1025px) {
-  .main-container {
-    height: auto;
-    overflow-y: auto;
-  }
-
-  .contact-contain-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    padding-bottom: 40px;
-    margin-top: 2rem;
-  }
-
-  .contact-info-container {
-    width: 100%;
+  .contact-params-container {
     max-width: 400px;
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 4rem;
   }
+
 
   .contact-icons-container {
     width: 100%;
@@ -179,70 +154,55 @@
 
   .contact-item {
     text-align: center;
-    /* Centra el texto dentro de cada ítem */
     margin: 10px 0;
-    /* Espaciado vertical entre los ítems */
   }
 
   .contact-icon {
     margin-right: 8px;
-    /* Espaciado entre el ícono y el texto */
   }
+
 }
 
 @media (max-width: 768px) {
   .contact-contain-container {
-    flex-direction: column;
-    align-items: center;
+    margin-top: 3rem;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .contact-params-container {
+    gap: 3rem;
   }
 }
 
 @media (max-width: 480px) {
   .contact-item {
     text-align: left;
-    /* Mantiene el texto alineado con el ícono */
     margin: 5px 0;
-    /* Reduce el espacio vertical entre ítems */
     display: flex;
-    /* Asegura que el ícono y el texto estén en la misma línea */
     align-items: center;
-    /* Centra el ícono con el texto verticalmente */
     font-size: 1.2rem;
-    /* Reduce el tamaño del texto */
   }
 
   .contact-icons-container {
     align-items: center;
     justify-content: center;
   }
+
+  .inner-frame{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .contact-contain-container {
+    margin-top: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
   .contact-item {
     font-size: 1.1rem;
-    /* Reduce el tamaño del texto */
-  }
-
-}
-
-@media (max-width: 377px) {
-  .contact-item {
-    font-size: 1rem;
-    /* Reduce el tamaño del texto */
-  }
-}
-
-@media (max-width: 357px) {
-  .contact-item {
-    font-size: 0.9rem;
-    /* Reduce el tamaño del texto */
-  }
-
-}
-
-@media (max-width: 340px) {
-  .contact-item {
-    font-size: 0.8rem;
-    /* Reduce el tamaño del texto */
   }
 }

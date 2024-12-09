@@ -15,7 +15,7 @@ export const Projects = () => {
 
     // Configuración inicial: elementos invisibles
     document.querySelectorAll(
-      ".title-text, .projects-contain-container, .nav-link"
+      ".title-text, .projects-contain-container, .projects-section, .nav-link"
     ).forEach((el) => {
       el.style.opacity = 0;
     });
@@ -33,21 +33,32 @@ export const Projects = () => {
         anime({
           targets: ".projects-contain-container",
           opacity: [0, 1],
-          translateX: [50, 0],
           easing: "easeInOutQuad",
           duration: 1500,
+          delay: 500,
           complete: () => {
-            // Animación de los enlaces
+          
+          // Animacion de projects-section
             anime({
-              targets: ".nav-link",
+              targets: ".projects-section",
               opacity: [0, 1],
-              translateX: [-50, 0],
+              translateX: [50, 0],
               easing: "easeInOutQuad",
-              duration: 1000,
-              delay: anime.stagger(200),
-            }).finished.then(() => {
-              // Marcar la animación como completada
-              setAnimationState((prev) => ({ ...prev, projects: false }));
+              duration: 1500,
+              complete: () => {
+                // Animación de los enlaces
+                anime({
+                  targets: ".nav-link",
+                  opacity: [0, 1],
+                  translateX: [-50, 0],
+                  easing: "easeInOutQuad",
+                  duration: 1000,
+                  delay: anime.stagger(200),
+                }).finished.then(() => {
+                  // Marcar la animación como completada
+                  setAnimationState((prev) => ({ ...prev, projects: false }));
+                });
+              },
             });
           },
         });

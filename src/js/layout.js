@@ -7,7 +7,7 @@ import { AboutMe } from "./views/aboutMe";
 import { Skills } from "./views/skills"; 
 import { Contact } from "./views/contact";
 import { Projects } from "./views/projects";
-import { ProjectDetail } from "./views/projectDetail"; // Importamos la vista de detalle de proyecto
+import { ProjectDetail } from "./views/projectDetail";
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 
