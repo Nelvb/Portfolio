@@ -1,4 +1,4 @@
-# 🌟 Portafolio Personal de Nelson V. 🌟
+# 🌟 Portafolio Personal de Nelson Valero 🌟
 
 ¡Bienvenido a mi portafolio personal!  
 Aquí encontrarás una recopilación de mis proyectos, habilidades y experiencia como desarrollador Full Stack. 🚀
@@ -42,9 +42,6 @@ El portafolio está desplegado en **GitHub Pages**.
    ```bash
    git clone https://github.com/Nelvb/Nelvb-portfolio.git
    cd Nelvb-portfolio
-
----
-
 Configurar el entorno:
 Asegúrate de tener Node.js (16.x) y Pipenv instalados.
 
