@@ -47,8 +47,8 @@ El portafolio está desplegado en **GitHub Pages**.
    git clone https://github.com/Nelvb/Nelvb-portfolio.git
    cd Nelvb-portfolio
 
-2. **Configurar el entorno:    
-Asegúrate de tener Node.js (16.x) y Pipenv instalados.**      
+2. **Configurar el entorno:**    
+Asegúrate de tener Node.js (16.x) y Pipenv instalados.     
 
 3. **Instalar las dependencias del frontend:**     
    ```bash
@@ -58,8 +58,8 @@ Asegúrate de tener Node.js (16.x) y Pipenv instalados.**
    ```bash
    npm run start    
 
-5. **Configurar el backend:    
-Instalar dependencias de Python:**    
+5. **Configurar el backend:**      
+Instalar dependencias de Python:    
    ```bash
    pipenv install      
 
