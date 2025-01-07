@@ -104,32 +104,31 @@ export const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-
+  
       const data = await response.json();
       if (data.status === "success") {
+        setAlertMessage("Correo válido.");
+        setAlertType("success");
+        setShowAlert(true);
         return true;
       } else {
-        setAlertMessage("El correo no es válido.");
+        setAlertMessage(data.message || "El correo no es válido.");
         setAlertType("error");
         setShowAlert(true);
         return false;
       }
     } catch (error) {
+      console.error("Error al validar el correo:", error);
       setAlertMessage("Error al validar el correo electrónico.");
       setAlertType("error");
       setShowAlert(true);
       return false;
     }
   };
+  
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    const email = e.target.reply_to.value;
-
-    if (!(await validateEmail(email))) {
-      return;
-    }
-
     emailjs.init("4MpzEzT4yDBHZ5tgC");
     emailjs
       .sendForm("service_f14u26i", "template_5y4b3td", e.target)
@@ -138,14 +137,16 @@ export const Contact = () => {
         setAlertType("success");
         setShowAlert(true);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Error al enviar el mensaje:", error);
         setAlertMessage("Error al enviar el mensaje, intenta de nuevo.");
         setAlertType("error");
         setShowAlert(true);
       });
-
+  
     e.target.reset();
   };
+  
 
   return (
     <div className="main-container">

@@ -198,10 +198,10 @@ export const AboutMe = () => {
 
         <div className="about-contain-container" ref={infoContainerRef}>
           <div className="about-description-container">
-            <h5 className="about-heading-poppins" style={{ opacity: animationState.about ? 0 : 1 }}>¡Hola! Mi nombre es</h5>
+            <h5 className="about-heading-garamond" style={{ opacity: animationState.about ? 0 : 1 }}>¡Hola! Mi nombre es</h5>
             <h4 className="about-title" style={{ opacity: animationState.about ? 0 : 1 }}>Nelson Valero Barcelona</h4>
             <h5 className="about-heading" style={{ display: 'inline', opacity: animationState.about ? 0 : 1 }}>
-              <span className="about-heading-poppins">y soy</span>
+              <span className="about-heading-garamond">y soy</span>
               <span className="about-heading-large">
                 {animationState.about ? "" : " Desarrollador Full Stack."}
               </span>
@@ -230,7 +230,11 @@ export const AboutMe = () => {
 
         <div className="navigation-links">
           <a
-            href="/NelsonValeroCV.pdf"
+            href={`${window.location.hostname === "localhost" ||
+                window.location.hostname.includes("dev")
+                ? "/NelsonValeroCV.pdf"
+                : "/Nelvb-portfolio/NelsonValeroCV.pdf"
+              }`}
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link"
@@ -238,6 +242,7 @@ export const AboutMe = () => {
           >
             Ver CV
           </a>
+
           <Link to="/" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Inicio</Link>
           <Link to="/skills" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Habilidades</Link>
           <Link to="/projects" className="nav-link" style={{ opacity: animationState.about ? 0 : 1 }}>Proyectos</Link>

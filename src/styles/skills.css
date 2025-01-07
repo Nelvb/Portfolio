@@ -34,8 +34,13 @@
   object-fit: contain;
 }
 
+.skills-description {
+  font-family: 'EB Garamond', serif;
+}
+
 /* Sección de tarjetas de habilidades */
 .skills-sections {
+  margin-top: 3rem;
   display: flex;
   gap: 5rem;
 }
@@ -103,14 +108,21 @@
 }
 
 .skill-card-back {
+  border: 1px solid #b3b3b3;
   transform: rotateY(180deg);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(to left, #090909, #090909);
+  background-color: #090909;
+}
+
+.skill-card-back p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 @media screen and (max-width: 1600px) {

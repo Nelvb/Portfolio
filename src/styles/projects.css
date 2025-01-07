@@ -100,7 +100,7 @@
   width: 240px;
   height: 100%;
   color: #eee;
-  font-family: system-ui;
+  font-family: 'EB Garamond', serif;
   padding-left: 30px;
   padding-top: 50px;
   box-sizing: border-box;
@@ -135,6 +135,7 @@
 }
 
 .content-card button {
+  font-size: 1rem;
   padding: 8px 16px;
   border: none;
   cursor: pointer;

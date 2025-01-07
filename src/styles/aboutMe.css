@@ -25,14 +25,15 @@
 }
 
 /* Estilos para los encabezados y párrafos en la sección "Sobre mí" */
-.about-heading-poppins,
+.about-heading-garamond,
 .about-title,
 h5 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'EB Garamond', serif;
   color: #d1d1d1;
 }
 
 .about-title {
+  
   font-size: 3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
     4px 4px 8px rgba(0, 0, 0, 0.6),
@@ -40,6 +41,7 @@ h5 {
 }
 
 .about-heading-large {
+  font-family: 'EB Garamond', serif;
   font-size: 2.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
     4px 4px 8px rgba(0, 0, 0, 0.6),
@@ -51,13 +53,14 @@ h5 {
 }
 
 .about-paragraph {
-  font-family: 'Oooh Baby', cursive;
+  font-family: 'EB Garamond', serif;
   font-size: 1.3rem;
   text-align: justify;
   color: whitesmoke;
   margin-top: 1.5rem;
   margin-bottom: 0;
 }
+
 
 .highlight {
   color: #b8bdbf;
@@ -97,7 +100,7 @@ h5 {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid #b3b3b3;
   cursor: pointer;
 }
 

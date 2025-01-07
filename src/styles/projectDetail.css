@@ -17,14 +17,14 @@
 
 /* Descripción */
 .project-description-tools {
-  font-family: 'Oooh Baby', cursive;
+  font-family: 'EB Garamond', serif;
   flex: 1;
   color: whitesmoke;
 }
 
 .project-full-description-title,
 .project-technologies-title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .project-full-description-text,
@@ -174,8 +174,8 @@ ul {
 }
 
 .tool-item {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
   margin: 5px;
   padding: 5px 10px;
   display: inline-block;
@@ -196,7 +196,7 @@ ul {
 }
 
 .project-btn {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'EB Garamond', serif;
   flex: 1;
   width: 120px;
   background-color: #0909099c;
@@ -208,23 +208,18 @@ ul {
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: background 0.3s ease, transform 0.2s ease;
-  /* Transiciones suaves */
 }
 
 .project-btn:hover {
-  background: linear-gradient(to right, #495057, #212529);
-  /* Degradado más oscuro */
+  background: #ababab;
   color: #ffffff;
-  /* Mantiene el texto blanco */
   transform: scale(1.05);
-  /* Efecto de aumento ligero */
 }
 
 /* Media Queries */
 
-/* 1279px */
 @media (max-width: 1279px) {
   .project-contain-detail {
     flex-direction: column;

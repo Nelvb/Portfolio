@@ -14,4 +14,5 @@ requests = "*"
 [dev-packages]
 
 [scripts]
-start = "flask run"
+start = "python email-verification-backend/verify_email.py"
+

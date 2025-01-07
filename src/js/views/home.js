@@ -14,9 +14,13 @@ export const Home = () => {
   };
 
   const initAnimation = () => {
-    document.querySelectorAll(".logo-image, .home-title-text, .home-nav-link").forEach((el) => {
-      el.style.opacity = 0;
-    });
+    document
+      .querySelectorAll(
+        ".home-title-text, .decorated-container, .logo-image, .home-nav-link"
+      )
+      .forEach((el) => {
+        el.style.opacity = 0;
+      });
   };
 
   const runAnimations = () => {
@@ -26,6 +30,14 @@ export const Home = () => {
       translateY: [-20, 0],
       ...animationConfig,
       delay: 500,
+    });
+
+    anime({
+      targets: ".decorated-container",
+      opacity: [0, 1],
+      easing: "easeInOutQuad",
+      duration: 1500,
+      delay: 1000,...animationConfig,
     });
 
     anime({
@@ -53,12 +65,15 @@ export const Home = () => {
     if (animationState.home) {
       initAnimation();
       runAnimations();
-    }
-    else {
+    } else {
       // Se asegura de que los elementos sean visibles si la animación no se ejecuta
-      document.querySelectorAll(".logo-image, .home-title-text, .home-nav-link").forEach((el) => {
-        el.style.opacity = 1;
-      });
+      document
+        .querySelectorAll(
+          ".home-title-text, .decorated-container, .logo-image, .home-nav-link"
+        )
+        .forEach((el) => {
+          el.style.opacity = 1;
+        });
     }
   }, [animationState.home, setAnimationState]);
 
@@ -71,18 +86,33 @@ export const Home = () => {
             <span>Full Stack</span>
             <span> Developer</span>
           </h1>
-
         </div>
 
-        {/* Logo y Enlaces */}
-        <div className="home-contain-container">
-          <div className="home-navigation-links">
-            <Link to="/about" className="home-nav-link">Sobre mí</Link>
-            <Link to="/skills" className="home-nav-link">Habilidades</Link>
-            <Link to="/projects" className="home-nav-link">Proyectos</Link>
-            <Link to="/contact" className="home-nav-link">Contacto</Link>
+        {/* Contenedor decorado */}
+        <div className="decorated-container">
+          {/* Logo y Enlaces */}
+          <div className="home-contain-container">
+            <div className="home-navigation-links">
+              <Link to="/about" className="home-nav-link">
+                Sobre mí
+              </Link>
+              <Link to="/skills" className="home-nav-link">
+                Habilidades
+              </Link>
+              <Link to="/projects" className="home-nav-link">
+                Proyectos
+              </Link>
+              <Link to="/contact" className="home-nav-link">
+                Contacto
+              </Link>
+            </div>
+            <img
+              src={logoNel}
+              alt="Logo Nelson Valero"
+              className="logo-image"
+              loading="eager"
+            />
           </div>
-          <img src={logoNel} alt="Logo Nelson Valero" className="logo-image" loading="eager" />
         </div>
       </div>
     </div>

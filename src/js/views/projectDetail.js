@@ -19,7 +19,7 @@ export const ProjectDetail = () => {
     return <div className="project-not-found">Project not found</div>;
   }
 
-  const { name, details } = project;
+  const { name, details, projectUrl, repoUrl } = project;
   const { fullDescription, tecnologiasUsadas, tools, images } = details;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -173,7 +173,7 @@ export const ProjectDetail = () => {
         </div>
 
         <div className={`project-contain-detail ${isLong ? "long-title" : "short-title"}`}>
-        <div className="project-description-tools">
+          <div className="project-description-tools">
             <h3 className="project-full-description-title">Detalles del Proyecto</h3>
             <p className="project-full-description-text">{fullDescription}</p>
             <h3 className="project-technologies-title">Tecnologías Aplicadas</h3>
@@ -223,8 +223,18 @@ export const ProjectDetail = () => {
             </div>
 
             <div className="slider-footer">
-              <button className="project-btn">Ver Web</button>
-              <button className="project-btn">Ver Código</button>
+              <button
+                className="project-btn"
+                onClick={() => window.open(projectUrl, '_blank')}
+              >
+                Ver Web
+              </button>
+              <button
+                className='project-btn'
+                onClick={() => window.open(repoUrl, '_blank')}
+              >
+                Ver código
+              </button>
             </div>
           </div>
         </div>
