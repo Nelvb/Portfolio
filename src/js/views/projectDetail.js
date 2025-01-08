@@ -57,7 +57,6 @@ export const ProjectDetail = () => {
       translateY: [-20, 0],
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: 500,
     }).finished.then(() => {
       // Animación del contenedor principal
       anime({

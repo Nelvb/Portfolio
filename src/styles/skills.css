@@ -1,5 +1,5 @@
  /* Contenedor principal de habilidades */
-.skills-contain-container {
+ .skills-contain-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,10 +7,19 @@
   padding: 40px;
   box-sizing: border-box;
   margin-top: 4rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 18px;
+  /* border-radius: 18px; */
   max-width: 95%;
+  
+  /* Nuevo efecto */
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px); /* Compatibilidad con navegadores basados en WebKit */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde translúcido para efecto de vidrio */
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.4), /* Sombra oscura */
+    -10px -10px 20px rgba(255, 255, 255, 0.2); /* Sombra clara */
+  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
 }
+
 
 /* Contenedor de información de habilidades */
 .skills-info-container {
@@ -40,7 +49,7 @@
 
 /* Sección de tarjetas de habilidades */
 .skills-sections {
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: flex;
   gap: 5rem;
 }
@@ -139,6 +148,7 @@
   }
 
   .skills-sections {
+    margin-top: none;
     gap: 3rem;
     padding-top: 0;
 }

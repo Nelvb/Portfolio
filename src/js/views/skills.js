@@ -8,98 +8,86 @@ import { useAnimation } from "../component/animationContext";
 export const Skills = () => {
   const { animationState, setAnimationState } = useAnimation();
 
+  const animationConfig = {
+    easing: "easeInOutQuad",
+    duration: 2000,
+  };
+
   useEffect(() => {
-    // Evitamos reejecuciones si la animación ya ocurrió
     if (!animationState.skills) return;
 
     // Configuración inicial: elementos invisibles
-    document.querySelectorAll(".title-text, .skills-contain-container, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link, .skills-info-container").forEach(el => {
-      el.style.opacity = 0;
-    });
+    document
+      .querySelectorAll(
+        ".title-text, .skills-contain-container, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link"
+      )
+      .forEach((el) => {
+        el.style.opacity = 0;
+      });
 
     // Animación inicial del título
     anime({
       targets: ".title-text",
       opacity: [0, 1],
       translateY: [-20, 0],
+      ...animationConfig,
+    });
+
+    // Animación del contenedor principal
+    anime({
+      targets: ".skills-contain-container",
+      opacity: [0, 1],
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: 500,
+    });
+
+    // Animación de la imagen y descripción
+    anime({
+      targets: ".devices-image",
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      ...animationConfig,
+      delay: 2000,
+    });
+
+    anime({
+      targets: ".skills-description",
+      opacity: [0, 1],
+      translateX: [50, 0],
+      ...animationConfig,
+      delay: 2000,
+    });
+
+    // Animación de los títulos de las secciones
+    anime({
+      targets: ".skills-section-title",
+      opacity: [0, 1],
+      translateY: [20, 0],
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 3000 }),
+    });
+
+    // Animación de las tarjetas de habilidades
+    anime({
+      targets: ".skill-card",
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 1200,
+      easing: "easeInOutQuad",
+      delay: anime.stagger(100, { start: 4000 }),
+    });
+
+    // Animación de los enlaces de navegación
+    anime({
+      targets: ".nav-link",
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      duration: 1000,
+      easing: "easeInOutQuad",
+      delay: anime.stagger(200, { start: 6000 }),
       complete: () => {
-        anime({
-          targets: ".skills-contain-container",
-          opacity: [0, 1],
-          easing: "easeInOutQuad",
-          duration: 1500,
-          delay: 500,
-          complete: () => {
-            // Animación del contenedor de información (imagen y descripción)
-            anime({
-              targets: ".skills-info-container",
-              opacity: [0, 1],
-              easing: "easeInOutQuad",
-              duration: 1500,
-              delay: 500,
-              complete: () => {
-                anime({
-                  targets: ".devices-image",
-                  opacity: [0, 1],
-                  translateX: [-50, 0],
-                  easing: "easeInOutQuad",
-                  duration: 1500,
-                });
-
-                anime({
-                  targets: ".skills-description",
-                  opacity: [0, 1],
-                  translateX: [50, 0],
-                  easing: "easeInOutQuad",
-                  duration: 1500,
-                  delay: 200,
-                  complete: () => {
-                    // Animación de los títulos de las secciones
-                    anime({
-                      targets: ".skills-section-title",
-                      opacity: [0, 1],
-                      translateY: [20, 0],
-                      easing: "easeInOutQuad",
-                      duration: 1500,
-                      delay: anime.stagger(300),
-                      complete: () => {
-                        // Animación de las tarjetas de habilidades en filas
-                        const skillCards = document.querySelectorAll(".skill-card");
-                        skillCards.forEach((card, index) => {
-                          anime({
-                            targets: card,
-                            opacity: [0, 1],
-                            translateY: [20, 0],
-                            easing: "easeInOutQuad",
-                            duration: 1200,
-                            delay: 100 * Math.floor(index / 3), // Asegura que las tarjetas se animen en filas
-                          });
-                        });
-
-                        // Animación de los enlaces de navegación, solo después de que las tarjetas se hayan cargado
-                        anime({
-                          targets: ".nav-link",
-                          opacity: [0, 1],
-                          translateX: [-50, 0],
-                          easing: "easeInOutQuad",
-                          duration: 1000,
-                          delay: anime.stagger(200, { start: 2000 }),
-                        }).finished.then(() => {
-                          // Marcar la animación como completada
-                          setAnimationState((prev) => ({ ...prev, skills: false }));
-                        });
-                      }
-                    });
-                  }
-                });
-              }
-            });
-          }
-        });
-      }
+        setAnimationState((prev) => ({ ...prev, skills: false }));
+      },
     });
   }, [animationState.skills, setAnimationState]);
 
@@ -109,7 +97,7 @@ export const Skills = () => {
       { img: "https://i.postimg.cc/3WzyRjyj/css3.png", name: "CSS3" },
       { img: "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png", name: "JavaScript" },
       { img: "https://i.ibb.co/ZGX4pcH/react.png", name: "React" },
-      { img: "https://i.ibb.co/TBrhsGj/bootstrap.png", name: "Bootstrap" }
+      { img: "https://i.ibb.co/TBrhsGj/bootstrap.png", name: "Bootstrap" },
     ],
     backend: [
       { img: "https://i.ibb.co/g7xk09Q/python.png", name: "Python" },
@@ -119,7 +107,7 @@ export const Skills = () => {
       { img: "https://i.ibb.co/61r8Xyz/sqlalchemy.png", name: "SQLAlchemy" },
       { img: "https://i.ibb.co/nwh7LxK/jwt.png", name: "JWT" },
       { img: "https://i.ibb.co/txY283N/flask.png", name: "Flask" },
-      { img: "https://i.ibb.co/F3RGPmG/nodejs.png", name: "Node.js" }
+      { img: "https://i.ibb.co/F3RGPmG/nodejs.png", name: "Node.js" },
     ],
     tools: [
       { img: "https://i.ibb.co/b3dWBmR/git.png", name: "Git" },
@@ -127,8 +115,8 @@ export const Skills = () => {
       { img: "https://i.ibb.co/sKjVJPp/vsc.png", name: "Visual Studio Code" },
       { img: "https://i.ibb.co/LnCNcTJ/cloudinary.png", name: "Cloudinary" },
       { img: "https://i.ibb.co/7k78zmg/jest.png", name: "Jest" },
-      { img: "https://i.ibb.co/P9pr8fz/github-codespaces.png", name: "GitHub Codespaces" }
-    ]
+      { img: "https://i.ibb.co/P9pr8fz/github-codespaces.png", name: "GitHub Codespaces" },
+    ],
   };
 
   return (
@@ -159,7 +147,7 @@ export const Skills = () => {
                   <div className="skill-card" key={index}>
                     <div className="skill-card-inner">
                       <div className="skill-card-front">
-                        <img src={skill.img} alt={skill.name} className="skill-icon" />
+                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='lazy' />
                       </div>
                       <div className="skill-card-back">
                         <p>{skill.name}</p>

@@ -33,7 +33,6 @@ export const Contact = () => {
       translateY: [-20, 0],
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: 500,
       complete: () => {
         // Animación del contenedor principal
         anime({

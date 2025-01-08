@@ -29,15 +29,14 @@ export const Home = () => {
       opacity: [0, 1],
       translateY: [-20, 0],
       ...animationConfig,
-      delay: 500,
     });
 
     anime({
       targets: ".decorated-container",
       opacity: [0, 1],
       easing: "easeInOutQuad",
-      duration: 1500,
-      delay: 1000,...animationConfig,
+      duration: 2000,
+      ...animationConfig,
     });
 
     anime({
@@ -53,7 +52,7 @@ export const Home = () => {
       translateX: [-50, 0],
       ...animationConfig,
       duration: 1000,
-      delay: anime.stagger(200, { start: 4000 }),
+      delay: anime.stagger(200, { start: 3000 }),
       complete: () => {
         document.querySelector(".home-inner-frame").classList.add("glow-effect");
         setAnimationState((prev) => ({ ...prev, home: false }));
@@ -110,7 +109,7 @@ export const Home = () => {
               src={logoNel}
               alt="Logo Nelson Valero"
               className="logo-image"
-              loading="eager"
+              loading="eager" // El logo se carga inmediatamente
             />
           </div>
         </div>

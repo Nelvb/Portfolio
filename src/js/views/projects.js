@@ -27,7 +27,6 @@ export const Projects = () => {
       translateY: [-20, 0],
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: 500,
       complete: () => {
         // Animación del contenedor de proyectos
         anime({

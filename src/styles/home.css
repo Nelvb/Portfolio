@@ -91,7 +91,7 @@
   white-space: nowrap;
 }
 
-/* Nuevo contenedor decorado */
+/* Contenedor decorado */
 .decorated-container {
   display: flex;
   flex-direction: column;
@@ -100,15 +100,24 @@
   width: 100%; /* Ocupa todo el ancho disponible */
   height: 100%; /* Ocupa todo el alto disponible */
   padding: 40px;
-  padding-top: 80px;
+  padding-top: 140px;
   margin-top: 4rem;
   margin-bottom: 3rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 18px;
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
+  /* border-radius: 18px; */
   max-width: 95%;
+  
+  /* Nuevo efecto */
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px); /* Compatibilidad con navegadores basados en WebKit */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde translúcido para efecto de vidrio */
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.4), /* Sombra oscura */
+    -10px -10px 20px rgba(255, 255, 255, 0.2); /* Sombra clara */
+  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+  transition: all 0.3s ease-in-out; /* Transiciones suaves para transformaciones */
+  opacity: 0; /* Mantén la opacidad inicial */
 }
+
 
 
 .home-contain-container {

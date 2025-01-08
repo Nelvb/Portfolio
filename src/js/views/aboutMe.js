@@ -31,24 +31,20 @@ export const AboutMe = () => {
         translateY: [-20, 0],
         easing: "easeInOutQuad",
         duration: 2000,
-        delay: 500,
-      }).finished.then(() => {
+      });
         // Animar el contenedor principal
         anime({
           targets: containContainer,
           opacity: [0, 1],
           easing: "easeInOutQuad",
-          duration: 1500,
-          delay: 500,
-        }).finished.then(() => {
+          duration: 2000,
+        });
           // Continuar con las animaciones internas
           if (isSmallScreen) {
             animateSmallScreen();
           } else {
             animateLargeScreen();
           }
-        });
-      });
     }
   }, [animationState.about]);
 
@@ -61,7 +57,7 @@ export const AboutMe = () => {
       easing: "easeInOutQuad",
       duration: 2000,
       delay: anime.stagger(200),
-    }).finished.then(() => {
+    });
       const devElement = document.querySelector(".about-heading-large");
       if (devElement) {
         const text = " Desarrollador Full Stack.";
@@ -72,7 +68,7 @@ export const AboutMe = () => {
           if (index < text.length) {
             devElement.innerHTML += text[index];
             index++;
-            setTimeout(typeEffect, 50);
+            setTimeout(typeEffect, 70);
           } else {
             anime({
               targets: ".about-paragraph",
@@ -85,8 +81,8 @@ export const AboutMe = () => {
                 targets: cardContainerRef.current,
                 opacity: [0, 1],
                 easing: "easeInOutQuad",
-                duration: 1000,
-              }).finished.then(() => {
+                duration: 2000,
+              })
                 anime({
                   targets: ".nav-link",
                   opacity: [0, 1],
@@ -94,16 +90,13 @@ export const AboutMe = () => {
                   easing: "easeInOutQuad",
                   duration: 2000,
                   delay: anime.stagger(200),
-                }).finished.then(() => {
-                  setAnimationState((prev) => ({ ...prev, about: false }));
                 });
-              });
+                  setAnimationState((prev) => ({ ...prev, about: false }));
             });
           }
         };
         typeEffect();
       }
-    });
   };
 
   const animateLargeScreen = () => {
@@ -117,12 +110,13 @@ export const AboutMe = () => {
       opacity: 0,
       easing: "easeInOutQuad",
       duration: 2000,
+      delay: 500,
     }).finished.then(() => {
       anime({
         targets: cardContainerRef.current,
         opacity: [0, 1],
         easing: "easeInOutQuad",
-        duration: 1000,
+        duration: 2000,
       }).finished.then(() => {
         setTimeout(() => {
           setIsFlipped(true);
@@ -162,18 +156,17 @@ export const AboutMe = () => {
                       easing: "easeInOutQuad",
                       duration: 2000,
                       delay: 200,
-                    }).finished.then(() => {
+                    });
                       anime({
                         targets: ".nav-link",
                         opacity: [0, 1],
                         translateX: [-50, 0],
                         easing: "easeInOutQuad",
                         duration: 2000,
-                        delay: anime.stagger(200),
+                        delay: anime.stagger(200, {start: 2000 }),
                       }).finished.then(() => {
                         setAnimationState((prev) => ({ ...prev, about: false }));
                       });
-                    });
                   }
                 };
                 typeEffect();
