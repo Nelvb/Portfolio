@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import logoNel from "../../img/logo_nel-sin-fondo.webp";
 import nelAnimation from "../../img/imagen Nel_animation.gif";
 import anime from "animejs/lib/anime.es.js";
 import { useAnimation } from "../component/animationContext";
@@ -32,19 +31,19 @@ export const AboutMe = () => {
         easing: "easeInOutQuad",
         duration: 2000,
       });
-        // Animar el contenedor principal
-        anime({
-          targets: containContainer,
-          opacity: [0, 1],
-          easing: "easeInOutQuad",
-          duration: 2000,
-        });
-          // Continuar con las animaciones internas
-          if (isSmallScreen) {
-            animateSmallScreen();
-          } else {
-            animateLargeScreen();
-          }
+      // Animar el contenedor principal
+      anime({
+        targets: containContainer,
+        opacity: [0, 1],
+        easing: "easeInOutQuad",
+        duration: 2000,
+      });
+      // Continuar con las animaciones internas
+      if (isSmallScreen) {
+        animateSmallScreen();
+      } else {
+        animateLargeScreen();
+      }
     }
   }, [animationState.about]);
 
@@ -58,45 +57,45 @@ export const AboutMe = () => {
       duration: 2000,
       delay: anime.stagger(200),
     });
-      const devElement = document.querySelector(".about-heading-large");
-      if (devElement) {
-        const text = " Desarrollador Full Stack.";
-        devElement.innerHTML = "";
-        let index = 0;
+    const devElement = document.querySelector(".about-heading-large");
+    if (devElement) {
+      const text = " Desarrollador Full Stack.";
+      devElement.innerHTML = "";
+      let index = 0;
 
-        const typeEffect = () => {
-          if (index < text.length) {
-            devElement.innerHTML += text[index];
-            index++;
-            setTimeout(typeEffect, 70);
-          } else {
+      const typeEffect = () => {
+        if (index < text.length) {
+          devElement.innerHTML += text[index];
+          index++;
+          setTimeout(typeEffect, 70);
+        } else {
+          anime({
+            targets: ".about-paragraph",
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: "easeInOutQuad",
+            duration: 2000,
+          }).finished.then(() => {
             anime({
-              targets: ".about-paragraph",
+              targets: cardContainerRef.current,
+              opacity: [0, 1],
+              easing: "easeInOutQuad",
+              duration: 2000,
+            })
+            anime({
+              targets: ".nav-link",
               opacity: [0, 1],
               translateX: [-50, 0],
               easing: "easeInOutQuad",
-              duration: 2000,
-            }).finished.then(() => {
-              anime({
-                targets: cardContainerRef.current,
-                opacity: [0, 1],
-                easing: "easeInOutQuad",
-                duration: 2000,
-              })
-                anime({
-                  targets: ".nav-link",
-                  opacity: [0, 1],
-                  translateX: [-50, 0],
-                  easing: "easeInOutQuad",
-                  duration: 2000,
-                  delay: anime.stagger(200),
-                });
-                  setAnimationState((prev) => ({ ...prev, about: false }));
+              duration: 1000,
+              delay: anime.stagger(200, { start: 1000 }),
             });
-          }
-        };
-        typeEffect();
-      }
+            setAnimationState((prev) => ({ ...prev, about: false }));
+          });
+        }
+      };
+      typeEffect();
+    }
   };
 
   const animateLargeScreen = () => {
@@ -110,13 +109,13 @@ export const AboutMe = () => {
       opacity: 0,
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: 500,
+      delay: 1000,
     }).finished.then(() => {
       anime({
         targets: cardContainerRef.current,
         opacity: [0, 1],
         easing: "easeInOutQuad",
-        duration: 2000,
+        duration: 1000,
       }).finished.then(() => {
         setTimeout(() => {
           setIsFlipped(true);
@@ -157,16 +156,16 @@ export const AboutMe = () => {
                       duration: 2000,
                       delay: 200,
                     });
-                      anime({
-                        targets: ".nav-link",
-                        opacity: [0, 1],
-                        translateX: [-50, 0],
-                        easing: "easeInOutQuad",
-                        duration: 2000,
-                        delay: anime.stagger(200, {start: 2000 }),
-                      }).finished.then(() => {
-                        setAnimationState((prev) => ({ ...prev, about: false }));
-                      });
+                    anime({
+                      targets: ".nav-link",
+                      opacity: [0, 1],
+                      translateX: [-50, 0],
+                      easing: "easeInOutQuad",
+                      duration: 2000,
+                      delay: anime.stagger(200, { start: 2000 }),
+                    }).finished.then(() => {
+                      setAnimationState((prev) => ({ ...prev, about: false }));
+                    });
                   }
                 };
                 typeEffect();
@@ -211,7 +210,12 @@ export const AboutMe = () => {
             <div className={`card ${isFlipped ? 'flipped' : ''}`}>
               <div className="card-inner">
                 <div className="card-front">
-                  <img src={logoNel} alt="Logo Nelson Valero" className="card-logo" />
+                  <img
+                    src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp"
+                    alt="Logo Nelson Valero"
+                    className="logo-image"
+                    loading="eager"
+                  />
                 </div>
                 <div className="card-back">
                   <img src={nelAnimation} alt="Nelson Valero" className="about-image" loading="eager" />
@@ -224,9 +228,9 @@ export const AboutMe = () => {
         <div className="navigation-links">
           <a
             href={`${window.location.hostname === "localhost" ||
-                window.location.hostname.includes("dev")
-                ? "/NelsonValeroCV.pdf"
-                : "/Nelvb-portfolio/NelsonValeroCV.pdf"
+              window.location.hostname.includes("dev")
+              ? "/NelsonValeroCV.pdf"
+              : "/Nelvb-portfolio/NelsonValeroCV.pdf"
               }`}
             target="_blank"
             rel="noopener noreferrer"

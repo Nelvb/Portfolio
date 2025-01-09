@@ -33,63 +33,63 @@ export const Contact = () => {
       translateY: [-20, 0],
       easing: "easeInOutQuad",
       duration: 2000,
+    });
+
+    // Animación del contenedor principal
+    anime({
+      targets: ".contact-contain-container",
+      opacity: [0, 1],
+      easing: "easeInOutQuad",
+      duration: 2000,
       complete: () => {
-        // Animación del contenedor principal
-        anime({
-          targets: ".contact-contain-container",
-          opacity: [0, 1],
-          easing: "easeInOutQuad",
-          duration: 1500,
-          complete: () => {
-            // Animación simultánea de ítems y contenedor de información
-            anime
-              .timeline()
-              .add({
-                targets: ".contact-item",
-                opacity: [0, 1],
-                translateX: [-50, 0],
-                easing: "easeInOutQuad",
-                duration: 1000,
-                delay: anime.stagger(200),
-              })
-              .add(
-                {
-                  targets: ".contact-info-container",
-                  opacity: [0, 1],
-                  easing: "easeInOutQuad",
-                  duration: 1000,
-                },
-                0 // Empieza al mismo tiempo
-              )
-              .add(
-                {
-                  targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
-                  opacity: [0, 1],
-                  translateX: (el) =>
-                    el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0],
-                  easing: "easeInOutQuad",
-                  duration: 1000,
-                  delay: anime.stagger(200),
-                },
-                "+=500" // Breve retraso
-              )
-              .add(
-                {
-                  targets: ".nav-link",
-                  opacity: [0, 1],
-                  translateX: [-50, 0],
-                  easing: "easeInOutQuad",
-                  duration: 1000,
-                  delay: anime.stagger(200),
-                },
-                "+=500"
-              )
-              .finished.then(() => {
-                // Marcar la animación como completada
-                setAnimationState((prev) => ({ ...prev, contact: false }));
-              });
-          },
-        });
+        // Animación simultánea de ítems y contenedor de información
+        anime
+          .timeline()
+          .add({
+            targets: ".contact-item",
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: "easeInOutQuad",
+            duration: 2000,
+            delay: anime.stagger(200),
+          }, "+=2000"
+          )
+          .add(
+            {
+              targets: ".contact-info-container",
+              opacity: [0, 1],
+              translateX: [50, 0],
+              easing: "easeInOutQuad",
+              duration: 2000,
+            },
+            0 // Empieza al mismo tiempo
+          )
+          .add(
+            {
+              targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
+              opacity: [0, 1],
+              translateX: (el) =>
+                el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0],
+              easing: "easeInOutQuad",
+              duration: 1000,
+              delay: anime.stagger(200),
+            },
+            "+=500" // Breve retraso
+          )
+          .add(
+            {
+              targets: ".nav-link",
+              opacity: [0, 1],
+              translateX: [-50, 0],
+              easing: "easeInOutQuad",
+              duration: 1000,
+              delay: anime.stagger(200, { start: 2000 }),
+            },
+          )
+          .finished.then(() => {
+            // Marcar la animación como completada
+            setAnimationState((prev) => ({ ...prev, contact: false }));
+          });
       },
     });
   }, [animationState.contact, setAnimationState]);
@@ -103,7 +103,7 @@ export const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-  
+
       const data = await response.json();
       if (data.status === "success") {
         setAlertMessage("Correo válido.");
@@ -124,7 +124,7 @@ export const Contact = () => {
       return false;
     }
   };
-  
+
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -142,10 +142,10 @@ export const Contact = () => {
         setAlertType("error");
         setShowAlert(true);
       });
-  
+
     e.target.reset();
   };
-  
+
 
   return (
     <div className="main-container">
@@ -170,7 +170,7 @@ export const Contact = () => {
                   <FaEnvelope className="contact-icon" /> nelsonvbarcelona@gmail.com
                 </a>
               </div>
-              
+
               <div className="contact-item">
                 {isMobile ? (
                   <a href="tel:+34622428891">

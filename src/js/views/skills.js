@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import minimalDevicesImage from "../../img/responsive.png";
 import "../../styles/skills.css";
 import { Link } from "react-router-dom";
 import { useAnimation } from "../component/animationContext";
@@ -132,7 +131,7 @@ export const Skills = () => {
               Desarrollador Full Stack con capacidades en frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React, Python, SQL y Flask. Creo interfaces atractivas con Bootstrap y gestiono el control de versiones con Git y GitHub. Para bases de datos, utilizo PostgreSQL y SQLAlchemy, con autenticación mediante JWT. Me gusta llevar cada proyecto desde la planificación hasta la implementación, asegurando que sea seguro, eficiente y adaptado a cualquier dispositivo.
             </p>
             <img
-              src={minimalDevicesImage}
+              src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png"
               alt="Minimalist devices illustration"
               className="devices-image"
               loading="eager"
@@ -147,7 +146,7 @@ export const Skills = () => {
                   <div className="skill-card" key={index}>
                     <div className="skill-card-inner">
                       <div className="skill-card-front">
-                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='lazy' />
+                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager' />
                       </div>
                       <div className="skill-card-back">
                         <p>{skill.name}</p>
@@ -157,7 +156,6 @@ export const Skills = () => {
                 ))}
               </div>
             </section>
-
             <section className="skills-column">
               <h2 className="skills-section-title">Backend</h2>
               <div className="skills-cards-container">
@@ -165,7 +163,7 @@ export const Skills = () => {
                   <div className="skill-card" key={index}>
                     <div className="skill-card-inner">
                       <div className="skill-card-front">
-                        <img src={skill.img} alt={skill.name} className="skill-icon" />
+                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager'/>
                       </div>
                       <div className="skill-card-back">
                         <p>{skill.name}</p>
@@ -183,7 +181,7 @@ export const Skills = () => {
                   <div className="skill-card" key={index}>
                     <div className="skill-card-inner">
                       <div className="skill-card-front">
-                        <img src={skill.img} alt={skill.name} className="skill-icon" />
+                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager'/>
                       </div>
                       <div className="skill-card-back">
                         <p>{skill.name}</p>

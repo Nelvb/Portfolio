@@ -18,6 +18,9 @@ export const Projects = () => {
       ".title-text, .projects-contain-container, .projects-section, .nav-link"
     ).forEach((el) => {
       el.style.opacity = 0;
+      if (el.classList.contains("projects-section")) {
+        el.style.transform = "translateX(50px)"; // Comienza desplazada hacia la derecha
+      }
     });
 
     // Animación del título
@@ -27,37 +30,36 @@ export const Projects = () => {
       translateY: [-20, 0],
       easing: "easeInOutQuad",
       duration: 2000,
+    });
+
+    // Animación del contenedor de proyectos
+    anime({
+      targets: ".projects-contain-container",
+      opacity: [0, 1],
+      easing: "easeInOutQuad",
+      duration: 2000,
+      delay: 2000, // Inicia después del título
       complete: () => {
-        // Animación del contenedor de proyectos
+        // Animación de .projects-section
         anime({
-          targets: ".projects-contain-container",
+          targets: ".projects-section",
           opacity: [0, 1],
+          translateX: [50, 0],
           easing: "easeInOutQuad",
-          duration: 1500,
-          delay: 500,
+          duration: 2000,
+          delay: 2000, // Intervalo consistente con las otras vistas
           complete: () => {
-          
-          // Animacion de projects-section
+            // Animación de los enlaces
             anime({
-              targets: ".projects-section",
+              targets: ".nav-link",
               opacity: [0, 1],
-              translateX: [50, 0],
+              translateX: [-50, 0],
               easing: "easeInOutQuad",
-              duration: 1500,
-              complete: () => {
-                // Animación de los enlaces
-                anime({
-                  targets: ".nav-link",
-                  opacity: [0, 1],
-                  translateX: [-50, 0],
-                  easing: "easeInOutQuad",
-                  duration: 1000,
-                  delay: anime.stagger(200),
-                }).finished.then(() => {
-                  // Marcar la animación como completada
-                  setAnimationState((prev) => ({ ...prev, projects: false }));
-                });
-              },
+              duration: 1000,
+              delay: anime.stagger(200, { start: 2000 }),
+            }).finished.then(() => {
+              // Marcar la animación como completada
+              setAnimationState((prev) => ({ ...prev, projects: false }));
             });
           },
         });

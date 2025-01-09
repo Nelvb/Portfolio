@@ -11,6 +11,7 @@
   margin-top: 4rem;
   flex-wrap: wrap;
   max-width: 95%;
+  opacity: 0;
   
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);

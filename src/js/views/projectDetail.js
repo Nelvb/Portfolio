@@ -57,14 +57,13 @@ export const ProjectDetail = () => {
       translateY: [-20, 0],
       easing: "easeInOutQuad",
       duration: 2000,
-    }).finished.then(() => {
+    })
       // Animación del contenedor principal
       anime({
         targets: ".project-contain-detail",
         opacity: [0, 1],
         easing: "easeInOutQuad",
-        duration: 1500,
-        delay: 500,
+        duration: 2000,
       }).finished.then(() => {
         // Animaciones separadas para cada bloque
         anime
@@ -143,7 +142,6 @@ export const ProjectDetail = () => {
             }));
           });
       });
-    });
   }, [animationState.projectDetail, setAnimationState]);
 
   const handlePrevImage = () => {

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs";
-import logoNel from "../../img/logo_nel-sin-fondo.webp";
 import { useAnimation } from "../component/animationContext";
 import "../../styles/home.css";
 
@@ -52,7 +51,7 @@ export const Home = () => {
       translateX: [-50, 0],
       ...animationConfig,
       duration: 1000,
-      delay: anime.stagger(200, { start: 3000 }),
+      delay: anime.stagger(200, { start: 4000 }),
       complete: () => {
         document.querySelector(".home-inner-frame").classList.add("glow-effect");
         setAnimationState((prev) => ({ ...prev, home: false }));
@@ -106,10 +105,10 @@ export const Home = () => {
               </Link>
             </div>
             <img
-              src={logoNel}
+              src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp"
               alt="Logo Nelson Valero"
               className="logo-image"
-              loading="eager" // El logo se carga inmediatamente
+              loading="eager"
             />
           </div>
         </div>

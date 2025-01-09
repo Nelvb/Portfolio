@@ -105,17 +105,17 @@
   margin-bottom: 3rem;
   /* border-radius: 18px; */
   max-width: 95%;
-  
-  /* Nuevo efecto */
+
+  /* Efecto contenedor principal */
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px); /* Compatibilidad con navegadores basados en WebKit */
   border: 2px solid rgba(255, 255, 255, 0.3); /* Borde translúcido para efecto de vidrio */
   box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.4), /* Sombra oscura */
-    -10px -10px 20px rgba(255, 255, 255, 0.2); /* Sombra clara */
+    10px 10px 20px rgba(0, 0, 0, 0.4), 
+    -10px -10px 20px rgba(255, 255, 255, 0.2); 
   background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
-  transition: all 0.3s ease-in-out; /* Transiciones suaves para transformaciones */
-  opacity: 0; /* Mantén la opacidad inicial */
+  transition: all 0.3s ease-in-out; 
+  opacity: 0;
 }
 
 
