@@ -130,13 +130,16 @@ export const Skills = () => {
             <p className="skills-description">
               Desarrollador Full Stack con capacidades en frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React, Python, SQL y Flask. Creo interfaces atractivas con Bootstrap y gestiono el control de versiones con Git y GitHub. Para bases de datos, utilizo PostgreSQL y SQLAlchemy, con autenticación mediante JWT. Me gusta llevar cada proyecto desde la planificación hasta la implementación, asegurando que sea seguro, eficiente y adaptado a cualquier dispositivo.
             </p>
-            <img
-              src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png"
-              alt="Minimalist devices illustration"
-              className="devices-image"
-              loading="eager"
-            />
+            <div className="devices-image-wrapper">
+              <img
+                src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png"
+                alt="Minimalist devices illustration"
+                className="devices-image"
+                loading="eager"
+              />
+            </div>
           </div>
+
 
           <div className="skills-sections">
             <section className="skills-column">
@@ -163,7 +166,7 @@ export const Skills = () => {
                   <div className="skill-card" key={index}>
                     <div className="skill-card-inner">
                       <div className="skill-card-front">
-                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager'/>
+                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager' />
                       </div>
                       <div className="skill-card-back">
                         <p>{skill.name}</p>
@@ -181,7 +184,7 @@ export const Skills = () => {
                   <div className="skill-card" key={index}>
                     <div className="skill-card-inner">
                       <div className="skill-card-front">
-                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager'/>
+                        <img src={skill.img} alt={skill.name} className="skill-icon" loading='eager' />
                       </div>
                       <div className="skill-card-back">
                         <p>{skill.name}</p>

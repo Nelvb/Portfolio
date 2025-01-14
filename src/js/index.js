@@ -9,7 +9,8 @@ import 'boxicons/css/boxicons.min.css';
 
 // import your own components
 import Layout from './layout.js';
-import Loader from './component/loader'; // Asegúrate de que esta ruta sea correcta
+import Loader from './component/loader';
+import ThemeProvider from "../context/themeProvider";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +24,9 @@ const App = () => {
   return isLoading ? (
     <Loader type="global" backgroundColor="#090909" />
   ) : (
-    <Layout />
+    <ThemeProvider>
+      <Layout />
+    </ThemeProvider>
   );
 };
 

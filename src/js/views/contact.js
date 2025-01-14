@@ -52,7 +52,7 @@ export const Contact = () => {
             easing: "easeInOutQuad",
             duration: 2000,
             delay: anime.stagger(200),
-          }, "+=2000"
+          }
           )
           .add(
             {
@@ -69,13 +69,14 @@ export const Contact = () => {
               targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
               opacity: [0, 1],
               translateX: (el) =>
-                el.tagName === "INPUT" || el.tagName === "TEXTAREA" ? [50, 0] : [0, 0],
+                el.tagName === "A" ? [-50, 0] : [50, 0], // Enlaces desde la izquierda, inputs y textareas desde la derecha
               easing: "easeInOutQuad",
-              duration: 1000,
+              duration: 2000,
               delay: anime.stagger(200),
             },
-            "+=500" // Breve retraso
+            "+=500"
           )
+          
           .add(
             {
               targets: ".nav-link",
@@ -83,7 +84,7 @@ export const Contact = () => {
               translateX: [-50, 0],
               easing: "easeInOutQuad",
               duration: 1000,
-              delay: anime.stagger(200, { start: 2000 }),
+              delay: anime.stagger(200),
             },
           )
           .finished.then(() => {

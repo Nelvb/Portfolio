@@ -58,90 +58,90 @@ export const ProjectDetail = () => {
       easing: "easeInOutQuad",
       duration: 2000,
     })
-      // Animación del contenedor principal
-      anime({
-        targets: ".project-contain-detail",
-        opacity: [0, 1],
-        easing: "easeInOutQuad",
-        duration: 2000,
-      }).finished.then(() => {
-        // Animaciones separadas para cada bloque
-        anime
-          .timeline()
-          .add({
-            targets: [".project-full-description-title", ".project-technologies-title"],
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            easing: "easeInOutQuad",
-            duration: 1500,
-            delay: anime.stagger(200),
-          })
-          .add(
-            {
-              targets: ".project-gallery-slider",
-              opacity: [0, 1],
-              translateX: [50, 0],
-              easing: "easeInOutQuad",
-              duration: 1500,
-            },
-            0
-          )
-          .add({
-            targets: [".project-full-description-text", ".project-technologies-text"],
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            easing: "easeInOutQuad",
-            duration: 1500,
-            delay: anime.stagger(200),
-          })
-          .add(
-            {
-              targets: [".container-carousel", ".btn-left", ".btn-right"],
-              opacity: [0, 1],
-              translateX: [50, 0],
-              easing: "easeInOutQuad",
-              duration: 1000,
-            },
-            "-=1500"
-          )
-          .add({
-            targets: ".slider-dots span",
-            opacity: [0, 1],
-            scale: [0.8, 1],
-            easing: "easeInOutQuad",
-            duration: 800,
-            delay: anime.stagger(100),
-          })
-          .add({
-            targets: ".tools-section",
-            opacity: [0, 1],
-            translateX: [60, 0],
-            easing: "easeOutCubic",
-            duration: 1000,
-            delay: anime.stagger(200),
-          })
-          .add({
-            targets: ".slider-footer button",
+    // Animación del contenedor principal
+    anime({
+      targets: ".project-contain-detail",
+      opacity: [0, 1],
+      easing: "easeInOutQuad",
+      duration: 2000,
+    }).finished.then(() => {
+      // Animaciones separadas para cada bloque
+      anime
+        .timeline()
+        .add({
+          targets: [".project-full-description-title", ".project-technologies-title"],
+          opacity: [0, 1],
+          translateX: [-50, 0],
+          easing: "easeInOutQuad",
+          duration: 1500,
+          delay: anime.stagger(200),
+        })
+        .add(
+          {
+            targets: ".project-gallery-slider",
             opacity: [0, 1],
             translateX: [50, 0],
-            easing: "easeOutCubic",
-            duration: 1000,
-            delay: anime.stagger(200),
-          })
-          .add({
-            targets: ".nav-link",
+            easing: "easeInOutQuad",
+            duration: 1500,
+          },
+          0
+        )
+        .add({
+          targets: [".project-full-description-text", ".project-technologies-text"],
+          opacity: [0, 1],
+          translateX: [-50, 0],
+          easing: "easeInOutQuad",
+          duration: 1500,
+          delay: anime.stagger(200),
+        })
+        .add(
+          {
+            targets: [".container-carousel", ".btn-left", ".btn-right"],
             opacity: [0, 1],
-            translateX: [-50, 0],
+            translateX: [50, 0],
             easing: "easeInOutQuad",
             duration: 1000,
-          })
-          .finished.then(() => {
-            setAnimationState((prev) => ({
-              ...prev,
-              projectDetail: false,
-            }));
-          });
-      });
+          },
+          "-=1500"
+        )
+        .add({
+          targets: ".slider-dots span",
+          opacity: [0, 1],
+          scale: [0.8, 1],
+          easing: "easeInOutQuad",
+          duration: 800,
+          delay: anime.stagger(100),
+        })
+        .add({
+          targets: ".tools-section",
+          opacity: [0, 1],
+          translateX: [60, 0],
+          easing: "easeOutCubic",
+          duration: 1000,
+          delay: anime.stagger(200),
+        })
+        .add({
+          targets: ".slider-footer button",
+          opacity: [0, 1],
+          translateX: [50, 0],
+          easing: "easeOutCubic",
+          duration: 1000,
+          delay: anime.stagger(200),
+        })
+        .add({
+          targets: ".nav-link",
+          opacity: [0, 1],
+          translateX: [-50, 0],
+          easing: "easeInOutQuad",
+          duration: 1000,
+        })
+        .finished.then(() => {
+          setAnimationState((prev) => ({
+            ...prev,
+            projectDetail: false,
+          }));
+        });
+    });
   }, [animationState.projectDetail, setAnimationState]);
 
   const handlePrevImage = () => {
@@ -170,6 +170,8 @@ export const ProjectDetail = () => {
         </div>
 
         <div className={`project-contain-detail ${isLong ? "long-title" : "short-title"}`}>
+        <div className="project-wrapper">
+
           <div className="project-description-tools">
             <h3 className="project-full-description-title">Detalles del Proyecto</h3>
             <p className="project-full-description-text">{fullDescription}</p>
@@ -209,16 +211,6 @@ export const ProjectDetail = () => {
               ))}
             </div>
 
-            <div className="tools-section">
-              <ul className="tools-list">
-                {tools.map((tool, index) => (
-                  <li key={index} className="tool-item">
-                    {tool}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div className="slider-footer">
               <button
                 className="project-btn"
@@ -233,6 +225,17 @@ export const ProjectDetail = () => {
                 Ver código
               </button>
             </div>
+          </div>
+          </div>
+
+            <div className="tools-section">
+              <ul className="tools-list">
+                {tools.map((tool, index) => (
+                  <li key={index} className="tool-item">
+                    {tool}
+                  </li>
+                ))}
+              </ul>
           </div>
         </div>
 

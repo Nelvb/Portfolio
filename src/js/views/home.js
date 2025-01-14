@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs";
 import { useAnimation } from "../component/animationContext";
+import SettingsMenu from "../component/settingsMenu";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -15,7 +16,7 @@ export const Home = () => {
   const initAnimation = () => {
     document
       .querySelectorAll(
-        ".home-title-text, .decorated-container, .logo-image, .home-nav-link"
+        ".home-title-text, .decorated-container, .logo-image.home-logo, .home-nav-link"
       )
       .forEach((el) => {
         el.style.opacity = 0;
@@ -39,7 +40,7 @@ export const Home = () => {
     });
 
     anime({
-      targets: ".logo-image",
+      targets: ".logo-image.home-logo",
       opacity: [0, 1],
       ...animationConfig,
       delay: 2000,
@@ -67,7 +68,7 @@ export const Home = () => {
       // Se asegura de que los elementos sean visibles si la animación no se ejecuta
       document
         .querySelectorAll(
-          ".home-title-text, .decorated-container, .logo-image, .home-nav-link"
+          ".home-title-text, .decorated-container, .logo-image.home-logo, .home-nav-link"
         )
         .forEach((el) => {
           el.style.opacity = 1;
@@ -77,6 +78,9 @@ export const Home = () => {
 
   return (
     <div className="home-container">
+      {/* Menú hamburguesa para configuraciones */}
+      <SettingsMenu />
+
       <div className="home-inner-frame">
         {/* Título */}
         <div className="home-title-container">
@@ -107,7 +111,7 @@ export const Home = () => {
             <img
               src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp"
               alt="Logo Nelson Valero"
-              className="logo-image"
+              className="logo-image home-logo"
               loading="eager"
             />
           </div>

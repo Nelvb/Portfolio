@@ -11,6 +11,7 @@ import { ProjectDetail } from "./views/projectDetail";
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 
+
 const Layout = () => {
     const basename = process.env.BASENAME || "";
 
@@ -26,6 +27,8 @@ const Layout = () => {
     useEffect(() => {
         preloadImages([
             "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp",
+            "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png",
+           "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp",
             "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png",
             "https://i.postimg.cc/30kDqnkN/html5.png", // HTML5
             "https://i.postimg.cc/3WzyRjyj/css3.png", // CSS3
@@ -45,7 +48,7 @@ const Layout = () => {
             "https://i.ibb.co/sKjVJPp/vsc.png", // Visual Studio Code
             "https://i.ibb.co/LnCNcTJ/cloudinary.png", // Cloudinary
             "https://i.ibb.co/7k78zmg/jest.png", // Jest
-            "https://i.ibb.co/P9pr8fz/github-codespaces.png", // GitHub Codespaces
+            "https://i.ibb.co/P9pr8fz/github-codespaces.png", // GitHub Codespaces 
         ]);
     }, []);
 
@@ -54,15 +57,19 @@ const Layout = () => {
             <AnimationProvider>
                 <BrowserRouter basename={basename}>
                     <ScrollToTop>
+                       
+                        {/* Rutas de la aplicación */}
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<AboutMe />} />
                             <Route path="/skills" element={<Skills />} />
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/projects" element={<Projects />} />
-                            <Route path="/project/:id" element={<ProjectDetail />} /> {/* Nueva ruta */}
+                            <Route path="/project/:id" element={<ProjectDetail />} />
                             <Route path="*" element={<h1>Not found!</h1>} />
                         </Routes>
+
+                        {/* Pie de página */}
                         <Footer />
                     </ScrollToTop>
                 </BrowserRouter>

@@ -142,6 +142,26 @@ h5 {
   transform: rotateY(180deg);
 }
 
+/* Estilos específicos para el enlace del CV */
+.cv-link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.cv-link:hover {
+  color: #c0c0c0; /* Gris oscuro al pasar el ratón */
+}
+
+.cv-link:visited {
+  color: white; /* Color blanco al visitarlo */
+}
+
+.cv-link:visited:hover {
+  color: #c0c0c0 !important; /* Gris oscuro al pasar el ratón */
+}
+
+
 
 /* MEDIAS QUERIES */
 

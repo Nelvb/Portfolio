@@ -234,7 +234,7 @@ export const AboutMe = () => {
               }`}
             target="_blank"
             rel="noopener noreferrer"
-            className="nav-link"
+            className="nav-link cv-link"
             style={{ opacity: animationState.about ? 0 : 1 }}
           >
             Ver CV
