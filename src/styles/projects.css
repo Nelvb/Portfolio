@@ -15,7 +15,7 @@
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
+  box-shadow:
     10px 10px 20px rgba(0, 0, 0, 0.4),
     -10px -10px 20px rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
@@ -116,26 +116,24 @@
   box-sizing: border-box;
 }
 
-
-
 .slide .project-card:nth-child(2) .content-card {
   display: block;
 }
-
 
 .content-card .name {
   font-size: 32px;
   text-transform: uppercase;
   font-weight: bold;
+  margin-bottom: 10px;
   -webkit-text-stroke: 0.3px #000;
   opacity: 0;
+  line-height: 1.2;
   animation: animate 1s ease-in-out 1 forwards;
 }
 
 .content-card .des {
   font-size: 17px;
   color: white;
-  margin-top: 7px;
   margin-bottom: 18px;
   font-weight: bold;
   -webkit-text-stroke: 0.2px #000;
@@ -144,14 +142,15 @@
 }
 
 .content-card button {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
   opacity: 0;
   animation: animate 1s ease-in-out 0.6s 1 forwards;
-  border-radius: 9px;
+  border-radius: 5px;
   border: 1px solid #000;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .content-card button:hover {
@@ -190,7 +189,8 @@
 .button button {
   width: 40px;
   height: 40px;
-  font-size: 1.5rem; /* Aumenta el tamaño del ícono de la flecha */
+  font-size: 1.5rem;
+  /* Aumenta el tamaño del ícono de la flecha */
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -273,17 +273,6 @@
   .slide .project-card:nth-child(5) {
     left: calc(50% + 390px);
   }
-
-  .content-card .des {
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-  .content-card button {
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 1600px) {
@@ -318,14 +307,8 @@
 
   .content-card .des {
     font-size: 17px;
-    margin-top: 9px;
     margin-bottom: 18px;
   }
-
-  .content-card button {
-    padding: 9px 18px;
-  }
-
 }
 
 @media (max-width: 1300px) {
@@ -375,17 +358,7 @@
 
   .content-card .des {
     font-size: 15px;
-    /* Ajustado proporcionalmente */
-    margin-top: 7px;
     margin-bottom: 14px;
-  }
-
-  .content-card button {
-    padding: 7px 14px;
-    /* Ajustado proporcionalmente */
-    font-size: 0.85rem;
-    /* Ajustado proporcionalmente */
-    border-radius: 8px;
   }
 
   .button button {
@@ -440,17 +413,6 @@
   .slide .project-card:nth-child(5) {
     left: calc(50% + 340px);
   }
-
-  .content-card .des {
-    font-size: 16px;
-    margin-top: 8px;
-    margin-bottom: 16px;
-  }
-
-  .content-card button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 1200px) {
@@ -482,21 +444,6 @@
   .slide .project-card:nth-child(5) {
     left: calc(50% + 310px);
   }
-
-  .content-card .name {
-    font-size: 28px;
-  }
-
-  .content-card .des {
-    font-size: 15px;
-    margin-top: 7px;
-    margin-bottom: 14px;
-  }
-
-  .content-card button {
-    padding: 7px 14px;
-    font-size: 0.85rem;
-  }
 }
 
 @media (max-width: 1100px) {
@@ -527,21 +474,6 @@
 
   .slide .project-card:nth-child(5) {
     left: calc(50% + 280px);
-  }
-
-  .content-card .name {
-    font-size: 26px;
-  }
-
-  .content-card .des {
-    font-size: 14px;
-    margin-top: 6px;
-    margin-bottom: 12px;
-  }
-
-  .content-card button {
-    padding: 6px 12px;
-    font-size: 0.8rem;
   }
 }
 
@@ -587,26 +519,6 @@
     padding: 8px;
     padding-left: 20px;
     padding-top: 30px;
-  }
-
-  .content-card .name {
-    font-size: 25px;
-    /* Ajustado proporcionalmente */
-  }
-
-  .content-card .des {
-    font-size: 14px;
-    /* Ajustado proporcionalmente */
-    margin-top: 6px;
-    /* Espaciado reducido */
-    margin-bottom: 12px;
-  }
-
-  .content-card button {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    /* Reducido proporcionalmente */
-    border-radius: 8px;
   }
 
   .slider-dots {
@@ -705,12 +617,9 @@
     margin: 10px 0;
     line-height: 1.4;
   }
-
-  /* Botón */
+  
   .content-card button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 8px;
+    margin-top: 1rem;
   }
 
   .button button {
@@ -739,29 +648,6 @@
   /* Nombre del proyecto */
   .content-card .name {
     font-size: 2.2rem;
-    /* Ajustamos el tamaño */
-    margin-bottom: 0.8rem;
-    /* Espaciado más reducido */
-  }
-
-  /* Descripción del proyecto */
-  .content-card .des {
-    font-size: 1rem;
-    /* Tamaño reducido */
-    margin: 8px 0;
-    /* Espaciado más compacto */
-    line-height: 1.3;
-    /* Ajustamos la altura de línea */
-  }
-
-  /* Botón */
-  .content-card button {
-    padding: 8px 16px;
-    /* Ajustamos el padding */
-    font-size: 1rem;
-    /* Reducimos ligeramente el tamaño del texto */
-    border-radius: 6px;
-    /* Bordes más redondeados */
   }
 }
 
@@ -782,27 +668,11 @@
   /* Nombre del proyecto */
   .content-card .name {
     font-size: 2rem;
-    /* Reducimos el tamaño */
-    margin-bottom: 0.7rem;
-    /* Espaciado más reducido */
   }
 
-  /* Descripción del proyecto */
   .content-card .des {
-    font-size: 0.9rem;
-    /* Tamaño del texto más pequeño */
+    font-size: 1.2rem;
     margin: 6px 0;
-    /* Espaciado más compacto */
-  }
-
-  /* Botón */
-  .content-card button {
-    padding: 6px 14px;
-    /* Padding más pequeño */
-    font-size: 0.9rem;
-    /* Reducimos el tamaño del texto */
-    border-radius: 5px;
-    /* Bordes más redondeados */
   }
 }
 
@@ -818,29 +688,6 @@
   .slide .project-card:nth-child(2) .content-card {
     padding: 8vh 3vw 3vh;
     /* Menor espacio en pantallas pequeñas */
-  }
-
-  /* Nombre del proyecto */
-  .content-card .name {
-    font-size: 1.8rem;
-    /* Reducimos el tamaño */
-    margin-bottom: 0.6rem;
-    /* Espaciado más reducido */
-  }
-
-  /* Descripción del proyecto */
-  .content-card .des {
-    font-size: 0.8rem;
-    margin: 5px 0;
-    line-height: 1.2;
-    /* Ajustamos la altura de línea */
-  }
-
-  /* Botón */
-  .content-card button {
-    padding: 5px 12px;
-    font-size: 0.8rem;
-    border-radius: 4px;
   }
 }
 
@@ -867,26 +714,6 @@
   .slide .project-card:nth-child(2) .content-card {
     padding: 7vh 2vw 2vh;
   }
-
-  /* Nombre del proyecto */
-  .content-card .name {
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Descripción del proyecto */
-  .content-card .des {
-    font-size: 0.7rem;
-    margin: 4px 0;
-    line-height: 1.1;
-  }
-
-  /* Botón */
-  .content-card button {
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    border-radius: 4px;
-  }
 }
 
 @media (max-width: 380px) {
@@ -900,25 +727,5 @@
   /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
     padding: 5vh 2vw 2vh;
-  }
-
-  /* Nombre del proyecto */
-  .content-card .name {
-    font-size: 1.4rem;
-    margin-bottom: 0.3rem;
-  }
-
-  /* Descripción del proyecto */
-  .content-card .des {
-    font-size: 0.6rem;
-    margin: 2px 0;
-    line-height: 1;
-  }
-
-  /* Botón */
-  .content-card button {
-    padding: 3px 8px;
-    font-size: 0.6rem;
-    border-radius: 3px;
   }
 }

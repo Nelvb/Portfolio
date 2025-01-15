@@ -49,25 +49,25 @@ export const AboutMe = () => {
 
   const animateSmallScreen = () => {
     const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
+    const devElement = document.querySelector(".about-heading-large");
+    const text = " Desarrollador Full Stack.";
+    devElement.innerHTML = ""; // Reiniciar contenido del efecto escritura
+  
     anime({
       targets: headings,
       opacity: [0, 1],
       translateX: [-50, 0],
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: anime.stagger(200),
-    });
-    const devElement = document.querySelector(".about-heading-large");
-    if (devElement) {
-      const text = " Desarrollador Full Stack.";
-      devElement.innerHTML = "";
+      delay: anime.stagger(200, { start: 3000 }),
+    }).finished.then(() => {
+      // Efecto escritura
       let index = 0;
-
       const typeEffect = () => {
         if (index < text.length) {
           devElement.innerHTML += text[index];
           index++;
-          setTimeout(typeEffect, 70);
+          setTimeout(typeEffect, 50); // Tiempo igual que en `animateLargeScreen`
         } else {
           anime({
             targets: ".about-paragraph",
@@ -81,22 +81,25 @@ export const AboutMe = () => {
               opacity: [0, 1],
               easing: "easeInOutQuad",
               duration: 2000,
-            })
-            anime({
-              targets: ".nav-link",
-              opacity: [0, 1],
-              translateX: [-50, 0],
-              easing: "easeInOutQuad",
-              duration: 1000,
-              delay: anime.stagger(200, { start: 1000 }),
+            }).finished.then(() => {
+              anime({
+                targets: ".nav-link",
+                opacity: [0, 1],
+                translateX: [-50, 0],
+                easing: "easeInOutQuad",
+                duration: 1000,
+                delay: anime.stagger(200),
+              }).finished.then(() => {
+                setAnimationState((prev) => ({ ...prev, about: false }));
+              });
             });
-            setAnimationState((prev) => ({ ...prev, about: false }));
           });
         }
       };
       typeEffect();
-    }
+    });
   };
+  
 
   const animateLargeScreen = () => {
     const infoContainer = infoContainerRef.current.getBoundingClientRect();

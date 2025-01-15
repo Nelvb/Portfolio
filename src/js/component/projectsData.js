@@ -64,7 +64,7 @@ export const ProjectsData = [
     id: 3,
     backgroundImage:
       "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019815/Registro_principal_tchatv.png",
-    name: "E-commerce Store",
+    name: "E-commerce",
     description: "Tienda online con carrito de compras y pasarela de pago.",
     details: {
       fullDescription:

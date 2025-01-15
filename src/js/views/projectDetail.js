@@ -39,9 +39,20 @@ export const ProjectDetail = () => {
 
   // Animaciones iniciales
   useEffect(() => {
-    if (!animationState.projectDetail) return;
-
-    // Ocultar elementos al inicio
+    if (!animationState.projectDetail) {
+      // Estilos finales cuando la animación ya ocurrió
+      document
+        .querySelectorAll(
+          ".title-text, .project-contain-detail, .project-full-description-title, .project-technologies-title, .project-full-description-text, .project-technologies-text, .project-gallery-slider, .container-carousel, .btn-left, .btn-right, .slider-dots span, .tools-section, .slider-footer button, .nav-link"
+        )
+        .forEach((el) => {
+          el.style.opacity = 1;
+          el.style.transform = "translateX(0)";
+        });
+      return;
+    }
+  
+    // Configuración inicial
     document
       .querySelectorAll(
         ".title-text, .project-contain-detail, .project-full-description-title, .project-technologies-title, .project-full-description-text, .project-technologies-text, .project-gallery-slider, .container-carousel, .btn-left, .btn-right, .slider-dots span, .tools-section, .slider-footer button, .nav-link"
@@ -49,7 +60,7 @@ export const ProjectDetail = () => {
       .forEach((el) => {
         el.style.opacity = 0;
       });
-
+  
     // Animación del título
     anime({
       targets: ".title-text",
@@ -113,20 +124,20 @@ export const ProjectDetail = () => {
           delay: anime.stagger(100),
         })
         .add({
-          targets: ".tools-section",
-          opacity: [0, 1],
-          translateX: [60, 0],
-          easing: "easeOutCubic",
-          duration: 1000,
-          delay: anime.stagger(200),
-        })
-        .add({
           targets: ".slider-footer button",
           opacity: [0, 1],
           translateX: [50, 0],
           easing: "easeOutCubic",
           duration: 1000,
           delay: anime.stagger(200),
+        })
+        .add({
+          targets: ".tools-section",
+          opacity: [0, 1],
+          translateY: [20, 0],
+          easing: "easeInOutQuad",
+          duration: 1000,
+          delay: anime.stagger(100),
         })
         .add({
           targets: ".nav-link",

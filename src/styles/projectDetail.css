@@ -25,12 +25,6 @@
 .project-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 95%;
   gap: 5rem;
 }
 
@@ -41,9 +35,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 40px;
 }
-
 
 
 
@@ -57,6 +50,10 @@
 .project-full-description-title,
 .project-technologies-title {
   font-size: 1.8rem;
+}
+
+.project-technologies-title {
+  margin-top: 2rem;
 }
 
 .project-full-description-text,
@@ -115,20 +112,20 @@
 /* Flechas del slider */
 .btn-left,
 .btn-right {
-  display: flex;
   position: absolute;
   top: 50%;
-  font-size: 1.2rem;
-  background-color: rgba(51, 51, 51, 0.6);
-  /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: rgba(51, 51, 51, 0.6); /* Fondo semitransparente */
   border-radius: 50%;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
   color: whitesmoke;
-  transform: translate(0, -50%);
-  transition: 0.3s ease;
   user-select: none;
 }
+
 
 .btn-left {
   left: 10px;
@@ -159,6 +156,7 @@
   background-color: transparent;
   /* Fondo transparente para mejor estética */
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .dot {
@@ -166,27 +164,25 @@
   height: 12px;
   border-radius: 50%;
   background-color: #ffffff81;
-  /* Color inicial */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  /* Transiciones suaves */
 }
 
 .dot:hover {
   background-color: whitesmoke;
-  /* Cambia a blanco al pasar el cursor */
   transform: scale(1.3);
-  /* Aumenta ligeramente el tamaño */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-  /* Añade un efecto de resplandor */
 }
 
 .dot.active {
   background-color: #ffffff;
-  /* Color para el punto activo */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-  /* Resplandor para el punto activo */
   transform: scale(1.2);
+}
+
+.tools-list {
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .tool-item {
@@ -244,19 +240,12 @@
   }
   .project-wrapper {
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
   }
 }
 
 /* 1000px */
 @media (max-width: 1000px) {
-  .project-gallery-slider {
-    padding: 20px;
-    border-radius: 18px;
-    max-height: 500px;
-    /* Mantener altura suficiente */
-  }
-
   .container-carousel {
     height: 400px;
   }
@@ -274,19 +263,11 @@
     width: 11px;
     height: 11px;
   }
-
-  .project-btn {
-    width: 110px;
-    padding: 0.4rem;
-    font-size: 0.85rem;
-  }
-
 }
 
 /* 768px */
 @media (max-width: 768px) {
   .project-gallery-slider {
-    max-width: 90%;
     max-height: 450px;
     padding: 15px;
     border-radius: 18px;
@@ -329,21 +310,6 @@
     height: 10px;
   }
 
-  .project-btn {
-    width: 100px;
-    padding: 0.3rem;
-    font-size: 0.8rem;
-  }
-
-  .tools-section {
-    padding: 5px;
-  }
-
-  .tool-item {
-    font-size: 0.7rem;
-    padding: 3px 6px;
-  }
-
   .project-detail-title.long {
     font-size: 4.5rem;
     margin-top: 5rem;
@@ -369,10 +335,7 @@
 /* 520px */
 @media (max-width: 520px) {
   .project-gallery-slider {
-    max-width: 95%;
     max-height: 400px;
-    padding: 8px;
-    border-radius: 18px;
   }
 
   .container-carousel {
@@ -392,24 +355,15 @@
     font-size: 0.9rem;
   }
 
-  .project-btn {
-    width: 90px;
-    padding: 0.2rem;
-    font-size: 0.75rem;
-  }
-
   .tools-section {
-    padding: 5px;
+    margin-top: 20px;
   }
 }
 
 /* 480px */
 @media (max-width: 480px) {
   .project-gallery-slider {
-    max-width: 100%;
     max-height: 350px;
-    padding: 5px;
-    border-radius: 18px;
   }
 
   .container-carousel {
@@ -427,12 +381,6 @@
 
   .project-description-tools {
     font-size: 0.8rem;
-  }
-
-  .project-btn {
-    width: 80px;
-    padding: 0.15rem;
-    font-size: 0.7rem;
   }
 
   .tools-section {

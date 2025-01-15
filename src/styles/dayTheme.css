@@ -287,6 +287,16 @@
   background-color: #e8dfd3;
 
 }
+ 
+.project-btn {
+  background-color: rgb(40, 8, 8);
+  color: #ebe6de;
+}
+
+.project-btn:hover {
+background: #d0c4b5;
+color: #ebe6de;
+}
 
 .tool-item {
   color: rgb(40, 8, 8);
