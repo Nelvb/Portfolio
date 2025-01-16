@@ -158,14 +158,6 @@
 }
 
 
-@media screen and (max-width: 1250px) {
-  .skills-section-title,
-  .skills-description {
-    font-size: 1.3rem;
-  }
-}
-
-
 @media screen and (max-width: 1025px) {
   .skills-container {
     height: auto;

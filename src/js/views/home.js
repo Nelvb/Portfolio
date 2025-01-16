@@ -51,7 +51,7 @@ export const Home = () => {
       opacity: [0, 1],
       translateX: [-50, 0],
       ...animationConfig,
-      duration: 1000,
+      duration: 2000,
       delay: anime.stagger(200, { start: 4000 }),
       complete: () => {
         document.querySelector(".home-inner-frame").classList.add("glow-effect");

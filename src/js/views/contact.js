@@ -74,7 +74,6 @@ export const Contact = () => {
               duration: 2000,
               delay: anime.stagger(200),
             },
-            "+=500"
           )
           
           .add(
@@ -83,7 +82,7 @@ export const Contact = () => {
               opacity: [0, 1],
               translateX: [-50, 0],
               easing: "easeInOutQuad",
-              duration: 1000,
+              duration: 2000,
               delay: anime.stagger(200),
             },
           )

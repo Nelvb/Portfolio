@@ -38,16 +38,15 @@ export const Projects = () => {
       opacity: [0, 1],
       easing: "easeInOutQuad",
       duration: 2000,
-      delay: 2000, // Inicia después del título
       complete: () => {
         // Animación de .projects-section
         anime({
           targets: ".projects-section",
           opacity: [0, 1],
-          translateX: [50, 0],
+          translateX: [150, 0],
           easing: "easeInOutQuad",
           duration: 2000,
-          delay: 2000, // Intervalo consistente con las otras vistas
+          delay: 1000,
           complete: () => {
             // Animación de los enlaces
             anime({
@@ -55,8 +54,8 @@ export const Projects = () => {
               opacity: [0, 1],
               translateX: [-50, 0],
               easing: "easeInOutQuad",
-              duration: 1000,
-              delay: anime.stagger(200, { start: 2000 }),
+              duration: 2000,
+              delay: anime.stagger(200, { start: 500 }),
             }).finished.then(() => {
               // Marcar la animación como completada
               setAnimationState((prev) => ({ ...prev, projects: false }));

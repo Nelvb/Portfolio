@@ -207,7 +207,7 @@ h4, h5, p {
   .about-contain-container {
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
   }
 
   .about-description-container {
@@ -287,5 +287,11 @@ h4, h5, p {
     margin-top: 2rem;
     padding-left: 10px;
     padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-logo {
+    max-height: 220px;
   }
 }

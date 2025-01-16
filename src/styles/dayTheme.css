@@ -65,6 +65,9 @@
   color: #7d7464;
 }
 
+
+/* ABOUT ME */
+
 .about-title {
   color: #ebe6de;
 }
@@ -214,6 +217,7 @@
 .contact-social-icons .contact-icon:hover {
   color: rgb(40, 8, 8);
 }
+
 
 .contact-contain-container .contact-info-container {
   background-color: #e8dfd3;
