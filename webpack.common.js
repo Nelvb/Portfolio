@@ -46,6 +46,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'public/NelsonValeroCV.pdf', to: 'NelsonValeroCV.pdf' },
+        { from: 'src/styles/dayTheme.css', to: 'styles/dayTheme.css' },
       ],
     }),
     new webpack.DefinePlugin({

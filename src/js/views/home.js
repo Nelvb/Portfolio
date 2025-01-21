@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs";
 import { useAnimation } from "../component/animationContext";
-import SettingsMenu from "../component/settingsMenu";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -78,9 +77,6 @@ export const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Menú hamburguesa para configuraciones */}
-      <SettingsMenu />
-
       <div className="home-inner-frame">
         {/* Título */}
         <div className="home-title-container">

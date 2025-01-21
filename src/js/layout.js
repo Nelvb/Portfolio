@@ -10,7 +10,7 @@ import { Projects } from "./views/projects";
 import { ProjectDetail } from "./views/projectDetail";
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
-
+import SettingsMenu from "./component/settingsMenu"; // Importamos el SettingsMenu
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
@@ -28,8 +28,6 @@ const Layout = () => {
         preloadImages([
             "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp",
             "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png",
-           "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp",
-            "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png",
             "https://i.postimg.cc/30kDqnkN/html5.png", // HTML5
             "https://i.postimg.cc/3WzyRjyj/css3.png", // CSS3
             "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png", // JavaScript
@@ -46,9 +44,6 @@ const Layout = () => {
             "https://i.ibb.co/b3dWBmR/git.png", // Git
             "https://i.ibb.co/hRMqd8J/github.png", // GitHub
             "https://i.ibb.co/sKjVJPp/vsc.png", // Visual Studio Code
-            "https://i.ibb.co/LnCNcTJ/cloudinary.png", // Cloudinary
-            "https://i.ibb.co/7k78zmg/jest.png", // Jest
-            "https://i.ibb.co/P9pr8fz/github-codespaces.png", // GitHub Codespaces 
         ]);
     }, []);
 
@@ -57,7 +52,9 @@ const Layout = () => {
             <AnimationProvider>
                 <BrowserRouter basename={basename}>
                     <ScrollToTop>
-                       
+                        {/* Configuración global disponible en todas las páginas */}
+                        <SettingsMenu />
+
                         {/* Rutas de la aplicación */}
                         <Routes>
                             <Route path="/" element={<Home />} />

@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
         as="style" onload="this.rel='stylesheet'">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link id="day-theme-stylesheet" rel="stylesheet" href="/src/styles/dayTheme.css" disabled />
 </head>
 
 <body class="h-100 no-scroll" style="background-color: #090909; margin: 0; padding: 0; height: 100%;">
@@ -40,9 +41,20 @@
                 preloader.style.display = 'none';
                 document.body.classList.remove('no-scroll');
             }, 300);
-
         });
     </script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const baseUrl = document.querySelector('base')?.getAttribute('href') || '';
+        const themeStylesheet = document.getElementById('day-theme-stylesheet');
+    
+        if (themeStylesheet) {
+            const href = baseUrl.endsWith('/') ? `${baseUrl}styles/dayTheme.css` : `${baseUrl}/styles/dayTheme.css`;
+            console.log("Setting stylesheet href to:", href);
+            themeStylesheet.setAttribute('href', href);
+        }
+    });
+    
+
 </body>
 
 </html>
