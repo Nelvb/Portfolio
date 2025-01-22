@@ -2,11 +2,16 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs";
 import { useAnimation } from "../component/animationContext";
+import { useLanguage } from "../layout";
 import "../../styles/home.css";
 
 export const Home = () => {
   const { animationState, setAnimationState } = useAnimation();
 
+  // Obtener idioma actual del atributo `lang`
+  const { language, translations } = useLanguage(); // Usa el contexto del idioma
+  const t = translations[language].home; // Traducciones dinámicas
+  
   const animationConfig = {
     easing: "easeInOutQuad",
     duration: 2000,
@@ -53,7 +58,9 @@ export const Home = () => {
       duration: 2000,
       delay: anime.stagger(200, { start: 4000 }),
       complete: () => {
-        document.querySelector(".home-inner-frame").classList.add("glow-effect");
+        document
+          .querySelector(".home-inner-frame")
+          .classList.add("glow-effect");
         setAnimationState((prev) => ({ ...prev, home: false }));
       },
     });
@@ -92,16 +99,16 @@ export const Home = () => {
           <div className="home-contain-container">
             <div className="home-navigation-links">
               <Link to="/about" className="home-nav-link">
-                Sobre mí
+              {t.links.about}
               </Link>
               <Link to="/skills" className="home-nav-link">
-                Habilidades
+              {t.links.skills}
               </Link>
               <Link to="/projects" className="home-nav-link">
-                Proyectos
+              {t.links.projects}
               </Link>
               <Link to="/contact" className="home-nav-link">
-                Contacto
+              {t.links.contact}
               </Link>
             </div>
             <img

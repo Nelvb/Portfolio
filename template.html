@@ -8,12 +8,11 @@
     <base href="/Nelvb-portfolio/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="icon" href="../src/img/Icono N portfolio 204623.png" type="image/png">
-    <link rel="preload"
+        <link rel="icon" href="/favicon.png" type="image/png">
+        <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
         as="style" onload="this.rel='stylesheet'">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link id="day-theme-stylesheet" rel="stylesheet" href="/src/styles/dayTheme.css" disabled />
 </head>
 
 <body class="h-100 no-scroll" style="background-color: #090909; margin: 0; padding: 0; height: 100%;">
@@ -43,17 +42,6 @@
             }, 300);
         });
     </script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const baseUrl = document.querySelector('base')?.getAttribute('href') || '';
-        const themeStylesheet = document.getElementById('day-theme-stylesheet');
-    
-        if (themeStylesheet) {
-            const href = baseUrl.endsWith('/') ? `${baseUrl}styles/dayTheme.css` : `${baseUrl}/styles/dayTheme.css`;
-            console.log("Setting stylesheet href to:", href);
-            themeStylesheet.setAttribute('href', href);
-        }
-    });
-    
 
 </body>
 

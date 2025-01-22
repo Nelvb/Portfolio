@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/themeToggle.css"; // Estilos del botón
+import "../../styles/themeToggle.css"; // Importar estilos del botón
+import "../../styles/dayTheme.css"; // Importar los estilos del tema día
 
 const ThemeToggle = () => {
   const [isDayMode, setIsDayMode] = useState(() => {
@@ -17,7 +18,7 @@ const ThemeToggle = () => {
   };
 
   useEffect(() => {
-    // Asegurarse de que el botón refleje el estado actual al cargar la página
+    // Asegurarse de que el estado refleje la clase actual al cargar la página
     if (document.body.classList.contains("day-mode")) {
       setIsDayMode(true);
     } else {

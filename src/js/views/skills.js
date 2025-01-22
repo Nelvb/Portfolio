@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
-import anime from 'animejs/lib/anime.es.js';
+import React, { useEffect } from "react";
+import anime from "animejs/lib/anime.es.js";
 import "../../styles/skills.css";
 import { Link } from "react-router-dom";
 import { useAnimation } from "../component/animationContext";
+import { useLanguage } from "../layout";
 
 export const Skills = () => {
   const { animationState, setAnimationState } = useAnimation();
+  const { language, translations } = useLanguage();
+  const t = translations[language].skills;
 
   const animationConfig = {
     easing: "easeInOutQuad",
@@ -180,7 +183,10 @@ export const Skills = () => {
     frontend: [
       { img: "https://i.postimg.cc/30kDqnkN/html5.png", name: "HTML5" },
       { img: "https://i.postimg.cc/3WzyRjyj/css3.png", name: "CSS3" },
-      { img: "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png", name: "JavaScript" },
+      {
+        img: "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png",
+        name: "JavaScript",
+      },
       { img: "https://i.ibb.co/ZGX4pcH/react.png", name: "React" },
       { img: "https://i.ibb.co/TBrhsGj/bootstrap.png", name: "Bootstrap" },
     ],
@@ -200,7 +206,10 @@ export const Skills = () => {
       { img: "https://i.ibb.co/sKjVJPp/vsc.png", name: "Visual Studio Code" },
       { img: "https://i.ibb.co/LnCNcTJ/cloudinary.png", name: "Cloudinary" },
       { img: "https://i.ibb.co/7k78zmg/jest.png", name: "Jest" },
-      { img: "https://i.ibb.co/P9pr8fz/github-codespaces.png", name: "GitHub Codespaces" },
+      {
+        img: "https://i.ibb.co/P9pr8fz/github-codespaces.png",
+        name: "GitHub Codespaces",
+      },
     ],
   };
 
@@ -208,13 +217,13 @@ export const Skills = () => {
     <div className="main-container">
       <div className="inner-frame">
         <div className="title-container">
-          <h1 className="title-text animate-on-scroll">Habilidades</h1>
+          <h1 className="title-text animate-on-scroll">{t.title}</h1>
         </div>
-
+  
         <div className="skills-contain-container animate-on-scroll">
           <div className="skills-info-container">
             <p className="skills-description animate-on-scroll">
-            Desarrollador Full Stack con capacidades en frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React, Python, SQL y Flask. Creo interfaces atractivas con Bootstrap y gestiono el control de versiones con Git y GitHub. Para bases de datos, utilizo PostgreSQL y SQLAlchemy, con autenticación mediante JWT. Me gusta llevar cada proyecto desde la planificación hasta la implementación, asegurando que sea seguro, eficiente y adaptado a cualquier dispositivo.
+              {t.description}
             </p>
             <div className="devices-image-wrapper animate-on-scroll">
               <img
@@ -225,19 +234,24 @@ export const Skills = () => {
               />
             </div>
           </div>
-
+  
           <div className="skills-sections">
             {Object.entries(skills).map(([section, skillsList]) => (
               <section className="skills-column" key={section}>
                 <h2 className="skills-section-title animate-on-scroll">
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {t[section]}
                 </h2>
                 <div className="skills-cards-container">
                   {skillsList.map((skill, index) => (
                     <div className="skill-card animate-on-scroll" key={index}>
                       <div className="skill-card-inner">
                         <div className="skill-card-front">
-                          <img src={skill.img} alt={skill.name} className="skill-icon" loading="eager" />
+                          <img
+                            src={skill.img}
+                            alt={skill.name}
+                            className="skill-icon"
+                            loading="eager"
+                          />
                         </div>
                         <div className="skill-card-back">
                           <p>{skill.name}</p>
@@ -250,14 +264,22 @@ export const Skills = () => {
             ))}
           </div>
         </div>
-
+  
         <div className="navigation-links">
-          <Link to="/" className="nav-link animate-on-scroll">Inicio</Link>
-          <Link to="/about" className="nav-link animate-on-scroll">Sobre mí</Link>
-          <Link to="/projects" className="nav-link animate-on-scroll">Proyectos</Link>
-          <Link to="/contact" className="nav-link animate-on-scroll">Contacto</Link>
+          <Link to="/" className="nav-link animate-on-scroll">
+            {t.navigation.home}
+          </Link>
+          <Link to="/about" className="nav-link animate-on-scroll">
+            {t.navigation.about}
+          </Link>
+          <Link to="/projects" className="nav-link animate-on-scroll">
+            {t.navigation.projects}
+          </Link>
+          <Link to="/contact" className="nav-link animate-on-scroll">
+            {t.navigation.contact}
+          </Link>
         </div>
       </div>
     </div>
   );
-};
+}
