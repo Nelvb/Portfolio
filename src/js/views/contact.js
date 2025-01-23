@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import CustomAlert from "../component/customAlert";
 import { useAnimation } from "../component/animationContext";
+import { useLanguage } from "../layout";
 import "../../styles/contact.css";
 
 export const Contact = () => {
@@ -18,6 +19,9 @@ export const Contact = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("success");
   const { animationState, setAnimationState } = useAnimation();
+
+  const { language, translations } = useLanguage();
+  const t = translations[language].contact;
 
   useEffect(() => {
     // Evitamos reejecuciones si la animación ya ocurrió
@@ -301,7 +305,7 @@ export const Contact = () => {
       <div className="inner-frame">
         {/* Título */}
         <div className="title-container">
-          <h1 className="title-text animate-on-scroll">Contacto</h1>
+          <h1 className="title-text animate-on-scroll">{t.title}</h1>
         </div>
 
         {/* Contenedor principal */}
@@ -310,25 +314,25 @@ export const Contact = () => {
             <div className="contact-icons-container animate-on-scroll ">
               {/* Ítems de contacto */}
               <div className="contact-item animate-on-scroll">
-                <a href="mailto:nelsonvbarcelona@gmail.com">
-                  <FaEnvelope className="contact-icon animate-on-scroll" /> nelsonvbarcelona@gmail.com
+                <a href={`mailto:${t.info.email}`}>
+                  <FaEnvelope className="contact-icon animate-on-scroll" /> {t.info.email}
                 </a>
               </div>
 
               <div className="contact-item animate-on-scroll">
                 {isMobile ? (
-                  <a href="tel:+34622428891">
-                    <FaPhone className="contact-icon animate-on-scroll" /> +34 622 428 891
+                  <a href={`tel:${t.info.phone.replace(/\s/g, '')}`}>
+                    <FaPhone className="contact-icon animate-on-scroll" /> {t.info.phone}
                   </a>
                 ) : (
                   <span>
-                    <FaPhone className="contact-icon animate-on-scroll" /> +34 622 428 891
+                    <FaPhone className="contact-icon animate-on-scroll" /> {t.info.phone}
                   </span>
                 )}
               </div>
 
               <div className="contact-item animate-on-scroll">
-                <FaMapMarkerAlt className="contact-icon animate-on-scroll" /> Las Rozas de Madrid
+                <FaMapMarkerAlt className="contact-icon animate-on-scroll" /> {t.info.location}
               </div>
               <div className="contact-social-icons animate-on-scroll">
                 <a
@@ -336,6 +340,7 @@ export const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon animate-on-scroll"
+                  aria-label={t.info.linkedin}
                 >
                   <FaLinkedin />
                 </a>
@@ -344,10 +349,15 @@ export const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon animate-on-scroll"
+                  aria-label={t.info.github}
                 >
                   <FaGithub />
                 </a>
-                <a href="mailto:nelsonvbarcelona@gmail.com" className="social-icon animate-on-scroll">
+                <a
+                  href={`mailto:${t.info.email}`}
+                  className="social-icon animate-on-scroll"
+                  aria-label={t.info.email}
+                >
                   <FaEnvelope />
                 </a>
               </div>
@@ -362,7 +372,7 @@ export const Contact = () => {
                     type="text"
                     id="name"
                     name="from_name"
-                    placeholder="Tu nombre"
+                    placeholder={t.form.name}
                     required
                     className="animate-on-scroll"
                   />
@@ -370,7 +380,7 @@ export const Contact = () => {
                     type="email"
                     id="email"
                     name="reply_to"
-                    placeholder="Tu email"
+                    placeholder={t.form.email}
                     required
                     className="animate-on-scroll"
                   />
@@ -378,7 +388,7 @@ export const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    placeholder="Asunto"
+                    placeholder={t.form.subject}
                     required
                     className="animate-on-scroll"
                   />
@@ -386,11 +396,11 @@ export const Contact = () => {
                     id="message"
                     name="message"
                     rows="4"
-                    placeholder="Escribe tu mensaje..."
+                    placeholder={t.form.message}
                     required
                     className="animate-on-scroll"
                   ></textarea>
-                  <button type="submit">Enviar</button>
+                  <button type="submit">{t.form.submit}</button>
                 </form>
               </div>
             </div>
@@ -400,16 +410,16 @@ export const Contact = () => {
         {/* Enlaces */}
         <div className="navigation-links">
           <Link to="/" className="nav-link animate-on-scroll">
-            Inicio
+            {t.navigation.home}
           </Link>
           <Link to="/about" className="nav-link animate-on-scroll">
-            Sobre mí
+            {t.navigation.about}
           </Link>
           <Link to="/skills" className="nav-link animate-on-scroll">
-            Habilidades
+            {t.navigation.skills}
           </Link>
           <Link to="/projects" className="nav-link animate-on-scroll">
-            Proyectos
+            {t.navigation.projects}
           </Link>
         </div>
       </div>

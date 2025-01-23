@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import nelAnimation from "../../img/imagen Nel_animation.gif";
 import anime from "animejs/lib/anime.es.js";
 import { useAnimation } from "../component/animationContext";
+import { useLanguage } from "../layout";
 import "../../styles/aboutMe.css";
 
 export const AboutMe = () => {
@@ -10,6 +11,11 @@ export const AboutMe = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const infoContainerRef = useRef(null);
   const cardContainerRef = useRef(null);
+
+  const { language, translations } = useLanguage();
+  const t = translations[language].about;
+
+
 
   useEffect(() => {
     // Configuración inicial: oculta el contenedor principal
@@ -53,7 +59,7 @@ export const AboutMe = () => {
 
   const animateVerySmallScreen = () => {
     const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
-  
+    const text = t.role;
     // Configuración del IntersectionObserver
     const observer = new IntersectionObserver(
       (entries) => {
@@ -69,10 +75,10 @@ export const AboutMe = () => {
       },
       { threshold: 0.1 } // Detecta cuando el 10% del elemento es visible
     );
-    
-  
+
+
     elementsToAnimate.forEach((el) => observer.observe(el));
-  
+
     const animateElement = (element) => {
       if (element.classList.contains("title-text")) {
         anime({
@@ -107,32 +113,32 @@ export const AboutMe = () => {
           duration: 1500,
         });
       } else if (element.classList.contains("about-heading-large")) {
-        const text = " Desarrollador Full Stack.";
+        const text = t.role; // Esto se actualiza dinámicamente según el idioma
         let index = 0; // Índice inicial para el efecto de escritura
         element.innerHTML = ""; // Reiniciar el contenido del texto antes de empezar
-    
+
         const typeEffect = () => {
-            // Evitar sobrescritura del contenido al iniciar de nuevo
-            if (index < text.length) {
-                element.innerHTML += text[index];
-                index++;
-                setTimeout(typeEffect, 70); // Controla la velocidad del efecto
-            }
+          // Evitar sobrescritura del contenido al iniciar de nuevo
+          if (index < text.length) {
+            element.innerHTML += text[index];
+            index++;
+            setTimeout(typeEffect, 70); // Controla la velocidad del efecto
+          }
         };
-    
+
         anime({
-            targets: element,
-            opacity: [0, 1],
-            translateX: [-30, 0],
-            easing: "easeInOutQuad",
-            duration: 1500,
+          targets: element,
+          opacity: [0, 1],
+          translateX: [-30, 0],
+          easing: "easeInOutQuad",
+          duration: 1500,
         }).finished.then(() => {
-            // Inicia el efecto de escritura después de la animación de entrada
-            if (element.innerHTML === "") {
-                typeEffect();
-            }
+          // Inicia el efecto de escritura después de la animación de entrada
+          if (element.innerHTML === "") {
+            typeEffect();
+          }
         });
-    
+
       } else if (element.classList.contains("about-paragraph")) {
         anime({
           targets: element,
@@ -141,24 +147,24 @@ export const AboutMe = () => {
           easing: "easeInOutQuad",
           duration: 1500,
         });
-      }else if (element.classList.contains("card-container")) {
+      } else if (element.classList.contains("card-container")) {
         // Asegúrate de reiniciar la visibilidad
         element.style.opacity = 0; // Siempre invisible al salir
-    
+
         anime({
-            targets: element,
-            opacity: [0, 1], // Aparece con la animación
-            translateY: [30, 0], // Desplazamiento inicial para la animación
-            easing: "easeInOutQuad",
-            duration: 1500,
+          targets: element,
+          opacity: [0, 1], // Aparece con la animación
+          translateY: [30, 0], // Desplazamiento inicial para la animación
+          easing: "easeInOutQuad",
+          duration: 1500,
         }).finished.then(() => {
-            // Acción secundaria después de aparecer (por ejemplo, voltear)
+          // Acción secundaria después de aparecer (por ejemplo, voltear)
+          setTimeout(() => {
+            setIsFlipped(true); // Mostrar el reverso
             setTimeout(() => {
-                setIsFlipped(true); // Mostrar el reverso
-                setTimeout(() => {
-                    setIsFlipped(false); // Regresar al frente
-                }, 1500); // Tiempo que la tarjeta permanece volteada
-            }, 800); // Tiempo antes de iniciar el giro
+              setIsFlipped(false); // Regresar al frente
+            }, 1500); // Tiempo que la tarjeta permanece volteada
+          }, 800); // Tiempo antes de iniciar el giro
         });
       } else if (element.classList.contains("nav-link")) {
         anime({
@@ -178,7 +184,7 @@ export const AboutMe = () => {
   const animateSmallScreen = () => {
     const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
     const devElement = document.querySelector(".about-heading-large");
-    const text = " Desarrollador Full Stack.";
+    const text = t.role; // Esto se actualiza dinámicamente según el idioma
     devElement.innerHTML = ""; // Reiniciar contenido del efecto escritura
 
     anime({
@@ -277,7 +283,7 @@ export const AboutMe = () => {
             }).finished.then(() => {
               const devElement = document.querySelector(".about-heading-large");
               if (devElement) {
-                const text = " Desarrollador Full Stack.";
+                const text = t.role; // Esto se actualiza dinámicamente según el idioma
                 devElement.innerHTML = "";
                 let index = 0;
 
@@ -324,29 +330,37 @@ export const AboutMe = () => {
     <div className="main-container">
       <div className="inner-frame">
         <div className="title-container">
-          <h1 className="title-text animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>Sobre mí</h1>
+          <h1 className="title-text animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            {t.title}
+          </h1>
         </div>
-
+  
         <div className="about-contain-container animate-on-scroll" ref={infoContainerRef}>
           <div className="about-description-container">
-            <h5 className="about-heading-garamond animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>¡Hola! Mi nombre es</h5>
-            <h4 className="about-title animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>Nelson Valero Barcelona</h4>
-            <h5 className="about-heading animate-on-scroll" style={{ display: 'inline', opacity: animationState.about ? 0 : 1 }}>
-              <span className="about-heading-garamond animate-on-scroll">y soy</span>
+            <h5 className="about-heading-garamond animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+              {t.greeting}
+            </h5>
+            <h4 className="about-title animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+              Nelson Valero Barcelona
+            </h4>
+            <h5 className="about-heading animate-on-scroll" style={{ display: "inline", opacity: animationState.about ? 0 : 1 }}>
+              <span className="about-heading-garamond animate-on-scroll">{t.rolePrefix}</span>
               <span className="about-heading-large animate-on-scroll">
-                {animationState.about ? "" : " Desarrollador Full Stack."}
+                {animationState.about ? "" : t.role}
               </span>
             </h5>
             <p className="about-paragraph animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
-              Os doy la bienvenida a mi portfolio para que podáis saber más sobre mí.<br />
-              Disfruto trabajando con tecnologías como <span className="highlight">JavaScript</span>, <span className="highlight">Python</span> y <span className="highlight">React</span>. También aplico mis
-              conocimientos en optimización de procesos y en la gestión de bases de datos relacionales entre otras habilidades.<br />
-              Estoy comprometido con el aprendizaje continuo para aplicarlo en equipos de desarrollo, así puedo seguir creciendo dentro del sector tecnológico.
+              {t.description}
             </p>
           </div>
-
-          <div className="card-container animate-on-scroll" ref={cardContainerRef} onClick={handleCardClick} style={{ opacity: animationState.about ? 0 : 1 }}>
-            <div className={`card ${isFlipped ? 'flipped' : ''}`}>
+  
+          <div
+            className="card-container animate-on-scroll"
+            ref={cardContainerRef}
+            onClick={handleCardClick}
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
+            <div className={`card ${isFlipped ? "flipped" : ""}`}>
               <div className="card-inner">
                 <div className="card-front">
                   <img
@@ -363,26 +377,35 @@ export const AboutMe = () => {
             </div>
           </div>
         </div>
-
+  
         <div className="navigation-links">
           <a
-            href={`${window.location.hostname === "localhost" ||
+            href={`${
+              window.location.hostname === "localhost" ||
               window.location.hostname.includes("dev")
-              ? "/NelsonValeroCV.pdf"
-              : "/Nelvb-portfolio/NelsonValeroCV.pdf"
-              }`}
+                ? "/NelsonValeroCV.pdf"
+                : "/Nelvb-portfolio/NelsonValeroCV.pdf"
+            }`}
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link cv-link animate-on-scroll"
             style={{ opacity: animationState.about ? 0 : 1 }}
           >
-            Ver CV
+            {t.links.cv}
           </a>
-
-          <Link to="/" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>Inicio</Link>
-          <Link to="/skills" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>Habilidades</Link>
-          <Link to="/projects" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>Proyectos</Link>
-          <Link to="/contact" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>Contacto</Link>
+  
+          <Link to="/" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            {t.links.home}
+          </Link>
+          <Link to="/skills" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            {t.links.skills}
+          </Link>
+          <Link to="/projects" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            {t.links.projects}
+          </Link>
+          <Link to="/contact" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            {t.links.contact}
+          </Link>
         </div>
       </div>
     </div>

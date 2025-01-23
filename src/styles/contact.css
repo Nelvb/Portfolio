@@ -60,7 +60,6 @@
 .contact-social-icons {
   display: flex;
   gap: 20px;
-  margin-top: 20px;
   justify-content: start;
   width: 100%;
 }
