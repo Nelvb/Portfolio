@@ -16,12 +16,22 @@ export const Skills = () => {
   };
 
   useEffect(() => {
+    if (!animationState.contact) return;
+
     const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
 
+    document
+    .querySelectorAll(
+      ".title-text, .devices-image-wrapper, .skills-contain-container, .skills-description, .skills-section-title, .skill-card, .nav-link"
+    )
+    .forEach((el) => {
+      el.style.opacity = 0;
+    });
+  
     if (isSmallScreen) {
       // Animaciones para pantallas pequeñas (scroll)
       const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
-
+  
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -36,15 +46,28 @@ export const Skills = () => {
         },
         { threshold: 0.1 } // Detecta cuando el 10% del elemento es visible
       );
-
+  
       elementsToAnimate.forEach((el) => observer.observe(el));
-
       return () => observer.disconnect();
     } else {
-      // Animaciones originales para pantallas grandes
-      runDesktopAnimations();
+      // Pantallas grandes
+      if (!animationState.skills) {
+        // Si ya se cargó previamente, deja todo montado
+        document
+          .querySelectorAll(
+            ".title-text, .devices-image-wrapper, .skills-contain-container, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link"
+          )
+          .forEach((el) => {
+            el.style.opacity = 1;
+            el.style.transform = "none"; // Resetea transformaciones
+          });
+      } else {
+        // Primera vez en pantallas grandes: ejecuta las animaciones
+        runDesktopAnimations();
+      }
     }
-  }, []);
+  }, [animationState.skills, setAnimationState]);
+  
 
   const runDesktopAnimations = () => {
     anime({
@@ -65,8 +88,7 @@ export const Skills = () => {
     anime({
       targets: ".skills-contain-container",
       opacity: [0, 1],
-      easing: "easeInOutQuad",
-      duration: 2000,
+      ...animationConfig,
     });
 
     // Animación de la imagen y descripción
@@ -75,7 +97,7 @@ export const Skills = () => {
       opacity: [0, 1],
       translateX: [-50, 0],
       ...animationConfig,
-      delay: 2000,
+      delay: 1000,
     });
 
     anime({
@@ -83,7 +105,7 @@ export const Skills = () => {
       opacity: [0, 1],
       translateX: [50, 0],
       ...animationConfig,
-      delay: 2000,
+      delay: 1000,
     });
 
     // Animación de los títulos de las secciones
@@ -92,7 +114,7 @@ export const Skills = () => {
       opacity: [0, 1],
       translateY: [20, 0],
       ...animationConfig,
-      delay: anime.stagger(200, { start: 3000 }),
+      delay: anime.stagger(200, { start: 2000 }),
     });
 
     // Animación de las tarjetas de habilidades
@@ -102,7 +124,7 @@ export const Skills = () => {
       translateY: [20, 0],
       duration: 1200,
       easing: "easeInOutQuad",
-      delay: anime.stagger(100, { start: 4000 }),
+      delay: anime.stagger(100, { start: 3000 }),
     });
 
     // Animación de los enlaces de navegación
@@ -110,9 +132,8 @@ export const Skills = () => {
       targets: ".nav-link",
       opacity: [0, 1],
       translateX: [-50, 0],
-      duration: 2000,
-      easing: "easeInOutQuad",
-      delay: anime.stagger(200, { start: 6000 }),
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 5000 }),
       complete: () => {
         setAnimationState((prev) => ({ ...prev, skills: false }));
       },
@@ -125,56 +146,56 @@ export const Skills = () => {
         targets: element,
         opacity: [0, 1],
         translateY: [-20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
+      });
+    } else if (element.classList.contains("skills-contain-container")) {
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        ...animationConfig,
       });
     } else if (element.classList.contains("devices-image-wrapper")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("devices-image")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("skills-description")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("skills-section-title")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("skill-card")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 1200,
+        ...animationConfig,
       });
     } else if (element.classList.contains("nav-link")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 1000,
+        ...animationConfig,
+        delay: anime.stagger(800),
       });
     }
   };
@@ -264,13 +285,13 @@ export const Skills = () => {
             ))}
           </div>
         </div>
-  
+        
         <div className="navigation-links">
           <Link to="/" className="nav-link animate-on-scroll">
             {t.navigation.home}
           </Link>
           <Link to="/about" className="nav-link animate-on-scroll">
-            {t.navigation.about}
+          {t.navigation.about}
           </Link>
           <Link to="/projects" className="nav-link animate-on-scroll">
             {t.navigation.projects}
@@ -282,4 +303,4 @@ export const Skills = () => {
       </div>
     </div>
   );
-}
+};

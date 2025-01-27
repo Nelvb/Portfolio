@@ -143,7 +143,7 @@ html.no-scroll {
 
 .nav-link:hover {
   color: #c0c0c0;
-  font-size: 1.6rem;
+  transform: scale(1.2) !important;
 }
 
 
@@ -204,6 +204,11 @@ html.no-scroll {
 @media screen and (max-width: 768px) {
   .title-text {
     font-size: 4.5rem;
+  }
+
+  .inner-frame{
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .main-container {

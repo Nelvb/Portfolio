@@ -34,11 +34,6 @@ Estoy comprometido con el aprendizaje continuo para aplicarlo en equipos de desa
                 message: "Escribe tu mensaje...",
                 submit: "Enviar",
             },
-            info: {
-                email: "nelsonvbarcelona@gmail.com",
-                phone: "+34 622 428 891",
-                location: "Las Rozas de Madrid",
-            },
             navigation: {
                 home: "Inicio",
                 about: "Sobre mí",
@@ -60,6 +55,25 @@ Estoy comprometido con el aprendizaje continuo para aplicarlo en equipos de desa
                 contact: "Contacto",
             },
         },
+        projects: {
+            title: "Proyectos",
+            navigation: {
+                home: "Inicio",
+                about: "Sobre mí",
+                skills: "Habilidades",
+                contact: "Contacto",
+            },
+        },
+        projectsCard: {
+            buttonCard: "Ver más",
+        },
+        projectDetail: {
+            descriptionTitle: "Detalles del Proyecto",
+            technologiesTitle: 'Tecnologías Aplicadas',
+            buttonWeb: 'Ver web',
+            buttonCode: 'Ver código',
+            linkProjects: 'Volver a proyectos',
+        },
     },
     en: {
         home: {
@@ -73,7 +87,7 @@ Estoy comprometido con el aprendizaje continuo para aplicarlo en equipos de desa
         about: {
             title: "About Me",
             greeting: "Hello! My name is",
-            rolePrefix: "and I am ",
+            rolePrefix: "and I am a ",
             role: "Full Stack Developer.",
             description: `Welcome to my portfolio, where you can learn more about me.
 I enjoy working with technologies such as JavaScript, Python, and React. I also apply my
@@ -96,11 +110,6 @@ I am committed to continuous learning to apply it to development teams, so I can
                 message: "Write your message...",
                 submit: "Send",
             },
-            info: {
-                email: "nelsonvbarcelona@gmail.com",
-                phone: "+34 622 428 891",
-                location: "Las Rozas de Madrid",
-            },
             navigation: {
                 home: "Home",
                 about: "About me",
@@ -121,6 +130,34 @@ I am committed to continuous learning to apply it to development teams, so I can
                 projects: "Projects",
                 contact: "Contact",
             },
+        },
+        projects: {
+            title: "Projects",
+            navigation: {
+                home: "Home",
+                about: "About me",
+                skills: "Skills",
+                contact: "Contact",
+            },
+        },
+         projects: {
+            title: "Projects",
+            navigation: {
+                home: "Home",
+                about: "About me",
+                skills: "Skills",
+                contact: "Contact",
+            },
+        },
+        projectsCard: {
+            buttonCard: "View more",
+        },
+        projectDetail: {
+            descriptionTitle: "Project Details",
+            technologiesTitle: 'Applied Technologies',
+            buttonWeb: 'View web',
+            buttonCode: 'View code',
+            linkProjects: 'Back to projects',
         },
     },
 };

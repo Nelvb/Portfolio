@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react";
 import "../../styles/projects.css";
 import { ProjectsCard } from "./projectsCard";
 import { ProjectsData } from "./projectsData";
-import 'boxicons/css/boxicons.min.css';
+import "boxicons/css/boxicons.min.css";
+import { useLanguage } from "../layout";
 
 export const ProjectsSection = () => {
   const slideRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const numberOfProjects = ProjectsData.length;
+
+  const { language } = useLanguage(); // Obtiene el idioma actual
 
   // Función para manejar el siguiente elemento
   const handleNext = () => {
@@ -48,8 +51,8 @@ export const ProjectsSection = () => {
               key={index}
               id={project.id}
               backgroundImage={project.backgroundImage}
-              name={project.name}
-              description={project.description}
+              name={project.name} // El nombre permanece igual
+              description={project.description[language]} // Traducción dinámica según idioma
             />
           ))}
         </div>

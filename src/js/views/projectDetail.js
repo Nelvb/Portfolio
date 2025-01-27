@@ -5,6 +5,8 @@ import { useAnimation } from "../component/animationContext";
 import anime from "animejs/lib/anime.es.js";
 import "../../styles/projectDetail.css";
 import "boxicons/css/boxicons.min.css";
+import { useLanguage } from "../layout";
+
 
 // Función para determinar si un título es largo
 const isLongTitle = (title) => {
@@ -14,6 +16,10 @@ const isLongTitle = (title) => {
 export const ProjectDetail = () => {
   const { id } = useParams();
   const project = ProjectsData.find((proj) => proj.id === parseInt(id));
+
+    const { language, translations } = useLanguage();
+    const t = translations[language].projectDetail;
+  
 
   if (!project) {
     return <div className="project-not-found">Project not found</div>;
@@ -209,10 +215,10 @@ export const ProjectDetail = () => {
         <div className="project-wrapper">
 
           <div className="project-description-tools animate-on-scroll">
-            <h3 className="project-full-description-title animate-on-scroll">Detalles del Proyecto</h3>
-            <p className="project-full-description-text animate-on-scroll">{fullDescription}</p>
-            <h3 className="project-technologies-title animate-on-scroll">Tecnologías Aplicadas</h3>
-            <p className="project-technologies-text animate-on-scroll">{tecnologiasUsadas}</p>
+            <h3 className="project-full-description-title animate-on-scroll">{t.descriptionTitle}</h3>
+            <p className="project-full-description-text animate-on-scroll">{fullDescription[language]}</p>
+            <h3 className="project-technologies-title animate-on-scroll">{t.technologiesTitle}</h3>
+            <p className="project-technologies-text animate-on-scroll">{tecnologiasUsadas[language]}</p>
           </div>
 
           <div className="project-gallery-slider animate-on-scroll">
@@ -252,13 +258,13 @@ export const ProjectDetail = () => {
                 className="project-btn animate-on-scroll"
                 onClick={() => window.open(projectUrl, '_blank')}
               >
-                Ver Web
+                {t.buttonWeb}
               </button>
               <button
                 className='project-btn animate-on-scroll'
                 onClick={() => window.open(repoUrl, '_blank')}
               >
-                Ver código
+                {t.buttonCode}
               </button>
             </div>
           </div>
@@ -277,7 +283,7 @@ export const ProjectDetail = () => {
 
         <div className="navigation-links animate-on-scroll">
           <Link to="/projects" className="nav-link animate-on-scroll">
-            Volver a proyectos
+            {t.linkProjects}
           </Link>
         </div>
       </div>

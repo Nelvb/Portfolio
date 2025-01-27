@@ -4,9 +4,17 @@ import "../../styles/projects.css";
 import { Link } from "react-router-dom";
 import { ProjectsSection } from "../component/projectsSection";
 import { useAnimation } from "../component/animationContext";
+import { useLanguage } from "../layout";
 
 export const Projects = () => {
   const { animationState, setAnimationState } = useAnimation();
+  const { language, translations } = useLanguage();
+  const t = translations[language].projects;
+
+  const animationConfig = {
+    easing: "easeInOutQuad",
+    duration: 2000,
+  };
 
   useEffect(() => {
     const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
@@ -37,63 +45,64 @@ export const Projects = () => {
       // Animaciones originales para pantallas grandes
       runDesktopAnimations();
     }
-  }, [animationState.projects, setAnimationState]);
+  }, []);
 
   const runDesktopAnimations = () => {
-    if (!animationState.projects) return;
-
+    if (!animationState.projects) {
+      // Asegurar visibilidad del contenedor al volver
+      document.querySelector(".projects-contain-container").style.opacity = 1;
+      document.querySelector(".projects-contain-container").style.transform = "none";
+      document.querySelector(".projects-section").style.opacity = 1;
+      document.querySelector(".projects-section").style.transform = "none";
+      return;
+    }
+  
     // Configuración inicial: elementos invisibles
     document.querySelectorAll(
       ".title-text, .projects-contain-container, .projects-section, .nav-link"
     ).forEach((el) => {
-      el.style.opacity = 0;
-      if (el.classList.contains("projects-section")) {
-        el.style.transform = "translateX(50px)"; // Comienza desplazada hacia la derecha
-      }
+      el.style.opacity = 0; // Inicializamos con opacidad 0
     });
-
+  
     // Animación del título
     anime({
       targets: ".title-text",
       opacity: [0, 1],
       translateY: [-20, 0],
-      easing: "easeInOutQuad",
-      duration: 2000,
+      ...animationConfig,
     });
-
-    // Animación del contenedor de proyectos
+  
+    // Animación del contenedor principal
     anime({
       targets: ".projects-contain-container",
       opacity: [0, 1],
-      easing: "easeInOutQuad",
-      duration: 2000,
-      complete: () => {
-        // Animación de .projects-section
-        anime({
-          targets: ".projects-section",
-          opacity: [0, 1],
-          translateX: [150, 0],
-          easing: "easeInOutQuad",
-          duration: 2000,
-          delay: 1000,
-          complete: () => {
-            // Animación de los enlaces
-            anime({
-              targets: ".nav-link",
-              opacity: [0, 1],
-              translateX: [-50, 0],
-              easing: "easeInOutQuad",
-              duration: 2000,
-              delay: anime.stagger(200, { start: 500 }),
-            }).finished.then(() => {
-              // Marcar la animación como completada
-              setAnimationState((prev) => ({ ...prev, projects: false }));
-            });
-          },
-        });
-      },
+      ...animationConfig,
     });
+  
+    // Animación de la sección de proyectos
+    anime({
+      targets: ".projects-section",
+      opacity: [0, 1],
+      translateX: [50, 0],
+      ...animationConfig,
+      delay: 2000,
+    });
+  
+    // Animación de los enlaces de navegación
+    anime({
+      targets: ".nav-link",
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 3000 }), // Escalonado después de la sección
+    });
+  
+    // Marcar la animación como completada al final
+    setTimeout(() => {
+      setAnimationState((prev) => ({ ...prev, projects: false }));
+    }, 5000); // Tiempo total estimado para las animaciones
   };
+  
 
   const animateElement = (element) => {
     if (element.classList.contains("title-text")) {
@@ -101,32 +110,29 @@ export const Projects = () => {
         targets: element,
         opacity: [0, 1],
         translateY: [-20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("projects-contain-container")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("projects-section")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateX: [50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        translateX: [150, 0],
+        ...animationConfig,
       });
     } else if (element.classList.contains("nav-link")) {
-      anime({
-        targets: element,
-        opacity: [0, 1],
-        translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
-      });
+          anime({
+            targets: element,
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: "easeInOutQuad",
+            duration: 1000,
+          });
     }
   };
 
@@ -135,27 +141,30 @@ export const Projects = () => {
       <div className="inner-frame">
         {/* Título */}
         <div className="title-container">
-          <h1 className="title-text animate-on-scroll">Proyectos</h1>
+          <h1 className="title-text animate-on-scroll">{t.title}</h1>
         </div>
 
         {/* Contenedor principal */}
         <div className="projects-contain-container animate-on-scroll">
-          <ProjectsSection />
+          {/* Separación de sección */}
+          <div className="projects-section animate-on-scroll">
+            <ProjectsSection />
+          </div>
         </div>
 
         {/* Enlaces */}
         <div className="navigation-links">
           <Link to="/" className="nav-link animate-on-scroll">
-            Inicio
+            {t.navigation.home}
           </Link>
           <Link to="/about" className="nav-link animate-on-scroll">
-            Sobre mí
+            {t.navigation.about}
           </Link>
           <Link to="/skills" className="nav-link animate-on-scroll">
-            Habilidades
+            {t.navigation.skills}
           </Link>
           <Link to="/contact" className="nav-link animate-on-scroll">
-            Contacto
+            {t.navigation.contact}
           </Link>
         </div>
       </div>

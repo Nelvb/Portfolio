@@ -23,6 +23,11 @@ export const Contact = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].contact;
 
+  const animationConfig = {
+    easing: "easeInOutQuad",
+    duration: 2000,
+  };
+
   useEffect(() => {
     // Evitamos reejecuciones si la animación ya ocurrió
     if (!animationState.contact) return;
@@ -32,7 +37,7 @@ export const Contact = () => {
     // Configuración inicial: elementos invisibles
     document
       .querySelectorAll(
-        ".contact-title-text, .contact-contain-container, .contact-item, .contact-social-icons a, .contact-info-container, .contact-form input, .contact-form textarea, .nav-link"
+        ".contact-contain-container, .contact-item, .contact-social-icons a, .contact-info-container, .contact-form input, .contact-form textarea, .nav-link"
       )
       .forEach((el) => {
         el.style.opacity = 0;
@@ -65,183 +70,143 @@ export const Contact = () => {
   }, [animationState.contact, setAnimationState]);
 
   const runDesktopAnimations = () => {
+    // Animación del título
     anime({
       targets: ".title-text",
       opacity: [0, 1],
       translateY: [-20, 0],
-      easing: "easeInOutQuad",
-      duration: 2000,
+      ...animationConfig,
     });
-
+  
     // Animación del contenedor principal
     anime({
       targets: ".contact-contain-container",
       opacity: [0, 1],
-      easing: "easeInOutQuad",
-      duration: 2000,
-      complete: () => {
-        // Animación simultánea de ítems y contenedor de información
-        anime
-          .timeline()
-          .add({
-            targets: ".contact-item",
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            easing: "easeInOutQuad",
-            duration: 2000,
-            delay: anime.stagger(200),
-          })
-          .add(
-            {
-              targets: ".contact-info-container",
-              opacity: [0, 1],
-              translateX: [50, 0],
-              easing: "easeInOutQuad",
-              duration: 2000,
-            },
-            0 // Empieza al mismo tiempo
-          )
-          .add(
-            {
-              targets: ".contact-social-icons a, .contact-form input, .contact-form textarea",
-              opacity: [0, 1],
-              translateX: (el) =>
-                el.tagName === "A" ? [-50, 0] : [50, 0], // Enlaces desde la izquierda, inputs y textareas desde la derecha
-              easing: "easeInOutQuad",
-              duration: 2000,
-              delay: anime.stagger(200),
-            }
-          )
-          .add({
-            targets: ".nav-link",
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            easing: "easeInOutQuad",
-            duration: 2000,
-            delay: anime.stagger(200),
-          })
-          .finished.then(() => {
-            // Marcar la animación como completada
-            setAnimationState((prev) => ({ ...prev, contact: false }));
-          });
-      },
+      ...animationConfig,
     });
+  
+    // Animación de los ítems de contacto
+    anime({
+      targets: ".contact-item",
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 1000}),
+    });
+  
+    // Animación del contenedor de información
+    anime({
+      targets: ".contact-info-container",
+      opacity: [0, 1],
+      translateX: [50, 0],
+      ...animationConfig,
+      delay: 1000,
+    });
+  
+    // Animación de los iconos sociales, inputs y textarea
+    anime({
+      targets: ".social-icon, .contact-form input, .contact-form textarea",
+      opacity: [0, 1],
+      translateX: (el) => (el.tagName === "A" ? [-50, 0] : [150, 0]),
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 2000 }),
+    });
+  
+    // Animación de los enlaces de navegación
+    anime({
+      targets: ".nav-link",
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 4000 }),
+    });
+  
+    // Marcar la animación como completada
+    setAnimationState((prev) => ({ ...prev, contact: false }));
   };
-
+  
   const animateElement = (element) => {
     if (element.classList.contains("title-text")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateY: [-20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("contact-contain-container")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("contact-icons-container")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
     } else if (element.classList.contains("contact-item")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        translateX: [50, 0],
+        ...animationConfig,
       });
-
+    } else if (element.classList.contains("contact-icon")) {
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-100, 0],
+        ...animationConfig,
+      });
     } else if (element.classList.contains("contact-social-icons")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
-
+    } else if (element.classList.contains("social-icon")) {
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        ...animationConfig,
+      });
     } else if (element.classList.contains("contact-info-container")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [50, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
-    } else if (
-      element.classList.contains("contact-icon")
-    ) {
+    } else if (element.classList.contains("contact-info-container")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        translatex: [50, 0],
+        ...animationConfig,
       });
-
-    } else if (element.classList.contains("social-icon")) {
+    } else if (element.classList.contains("contact-form")) {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
-        delay: anime.stagger(200), // Animación escalonada
+        translateX: [50, 0],
+        ...animationConfig,
       });
-
-    } else if (
-      element.classList.contains("contact-info-container")
-    ) {
+    } else if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
       anime({
         targets: element,
         opacity: [0, 1],
-        translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        translateX: [50, 0],
+        ...animationConfig,
       });
-
-    } else if (
-      element.classList.contains("contact-form")
-    ) {
-      anime({
-        targets: element,
-        opacity: [0, 1],
-        translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
-      });
-
-    } else if (
-      element.tagName === "INPUT" ||
-      element.tagName === "TEXTAREA"
-    ) {
-      anime({
-        targets: element,
-        opacity: [0, 1],
-        translateY: [20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
-      });
-
-
     } else if (element.classList.contains("nav-link")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 1000,
+        ...animationConfig,
+        delay: anime.stagger(800),
       });
     }
   };
@@ -314,33 +279,38 @@ export const Contact = () => {
             <div className="contact-icons-container animate-on-scroll ">
               {/* Ítems de contacto */}
               <div className="contact-item animate-on-scroll">
-                <a href={`mailto:${t.info.email}`}>
-                  <FaEnvelope className="contact-icon animate-on-scroll" /> {t.info.email}
+                <a href="mailto:nelsonvbarcelona@gmail.com">
+                  <FaEnvelope className="contact-icon animate-on-scroll" />{" "}
+                  nelsonvbarcelona@gmail.com
                 </a>
               </div>
 
               <div className="contact-item animate-on-scroll">
                 {isMobile ? (
-                  <a href={`tel:${t.info.phone.replace(/\s/g, '')}`}>
-                    <FaPhone className="contact-icon animate-on-scroll" /> {t.info.phone}
+                  <a href="tel:+34622428891">
+                    <FaPhone className="contact-icon animate-on-scroll" /> +34
+                    622 428 891
                   </a>
                 ) : (
                   <span>
-                    <FaPhone className="contact-icon animate-on-scroll" /> {t.info.phone}
+                    <FaPhone className="contact-icon animate-on-scroll" /> +34
+                    622 428 891
                   </span>
                 )}
               </div>
 
               <div className="contact-item animate-on-scroll">
-                <FaMapMarkerAlt className="contact-icon animate-on-scroll" /> {t.info.location}
+                <FaMapMarkerAlt className="contact-icon animate-on-scroll" />{" "}
+                Las Rozas de Madrid
               </div>
+
               <div className="contact-social-icons animate-on-scroll">
                 <a
                   href="https://www.linkedin.com/in/nelvb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon animate-on-scroll"
-                  aria-label={t.info.linkedin}
+                  aria-label="LinkedIn Profile"
                 >
                   <FaLinkedin />
                 </a>
@@ -349,19 +319,18 @@ export const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon animate-on-scroll"
-                  aria-label={t.info.github}
+                  aria-label="GitHub Profile"
                 >
                   <FaGithub />
                 </a>
                 <a
-                  href={`mailto:${t.info.email}`}
+                  href="mailto:nelsonvbarcelona@gmail.com"
                   className="social-icon animate-on-scroll"
-                  aria-label={t.info.email}
+                  aria-label="Email Nelson"
                 >
                   <FaEnvelope />
                 </a>
               </div>
-
             </div>
 
             {/* Formulario */}

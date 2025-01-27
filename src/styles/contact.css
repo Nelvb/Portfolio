@@ -17,7 +17,6 @@
     10px 10px 20px rgba(0, 0, 0, 0.4),
     -10px -10px 20px rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease-in-out;
 }
 
 
@@ -67,13 +66,12 @@
 .contact-social-icons .social-icon {
   font-size: 2rem;
   color: #b3b3b3;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .contact-social-icons .social-icon:hover {
-  font-size: 2.5rem;
   color: #000000;
-  transform: scale(1.2);
+  transform: scale(1.2) !important;
 }
 
 /* Contenedores internos */
@@ -172,8 +170,9 @@
 }
 
 .contact-form button:hover {
-  color: #ccc;
-  border: none;
+  background: #ababab;
+  color: #424242;
+  transform: scale(1.05);
 }
 
 

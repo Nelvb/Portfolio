@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAnimation } from "./animationContext";
+import { useLanguage } from "../layout";
 
 export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
   const navigate = useNavigate();
   const { animationState, setAnimationState } = useAnimation();
   const [isFirstLoad, setIsFirstLoad] = useState(animationState.projects);
+  const { language, translations } = useLanguage();
+  const t = translations[language].projectsCard;
 
   useEffect(() => {
     if (isFirstLoad) {
@@ -26,13 +29,15 @@ export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
         className="content-card"
         style={{
           opacity: isFirstLoad ? 0 : 1,
-          transition: isFirstLoad ? "none" : "opacity 1s ease, transform 1s ease",
+          transition: isFirstLoad
+            ? "none"
+            : "opacity 1s ease, transform 1s ease",
           transform: isFirstLoad ? "translateY(20px)" : "translateY(0)",
         }}
       >
         <div className="name">{name}</div>
         <div className="des">{description}</div>
-        <button onClick={() => navigate(`/project/${id}`)}>Ver más</button>
+        <button onClick={() => navigate(`/project/${id}`)}>{t.buttonCard}</button>
       </div>
     </div>
   );

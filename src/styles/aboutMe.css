@@ -9,7 +9,6 @@
   box-sizing: border-box;
   margin-top: 4rem;
   max-width: 95%;
-  opacity: 0;
   
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
@@ -18,7 +17,6 @@
     10px 10px 20px rgba(0, 0, 0, 0.4),
     -10px -10px 20px rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease-in-out;
 }
 
 
@@ -88,7 +86,6 @@ h4, h5, p {
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  padding-left: 2rem;
 }
 
 .card {

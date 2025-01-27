@@ -15,7 +15,12 @@ export const AboutMe = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].about;
 
+  const roleRef = useRef(null);
 
+  const animationConfig = {
+    easing: "easeInOutQuad",
+    duration: 2000,
+  };
 
   useEffect(() => {
     // Configuración inicial: oculta el contenedor principal
@@ -35,15 +40,13 @@ export const AboutMe = () => {
         targets: ".title-text",
         opacity: [0, 1],
         translateY: [-20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
       // Animar el contenedor principal
       anime({
         targets: containContainer,
         opacity: [0, 1],
-        easing: "easeInOutQuad",
-        duration: 2000,
+        ...animationConfig,
       });
       // Continuar con las animaciones internas
       if (isVerySmallScreen) {
@@ -76,7 +79,6 @@ export const AboutMe = () => {
       { threshold: 0.1 } // Detecta cuando el 10% del elemento es visible
     );
 
-
     elementsToAnimate.forEach((el) => observer.observe(el));
 
     const animateElement = (element) => {
@@ -85,35 +87,31 @@ export const AboutMe = () => {
           targets: element,
           opacity: [0, 1],
           translateY: [-20, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
+          ...animationConfig,
         });
       } else if (element.classList.contains("about-heading-garamond")) {
         anime({
           targets: element,
           opacity: [0, 1],
-          translateX: [-30, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
+          translateX: [50, 0],
+          ...animationConfig,
         });
       } else if (element.classList.contains("about-title")) {
         anime({
           targets: element,
           opacity: [0, 1],
-          translateX: [-30, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
+          translateX: [-50, 0],
+          ...animationConfig,
         });
       } else if (element.classList.contains("about-heading")) {
         anime({
           targets: element,
           opacity: [0, 1],
-          translateX: [-30, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
+          translateX: [-50, 0],
+          ...animationConfig,
         });
       } else if (element.classList.contains("about-heading-large")) {
-        const text = t.role; // Esto se actualiza dinámicamente según el idioma
+        const text = t.role;
         let index = 0; // Índice inicial para el efecto de escritura
         element.innerHTML = ""; // Reiniciar el contenido del texto antes de empezar
 
@@ -122,7 +120,7 @@ export const AboutMe = () => {
           if (index < text.length) {
             element.innerHTML += text[index];
             index++;
-            setTimeout(typeEffect, 70); // Controla la velocidad del efecto
+            setTimeout(typeEffect, 50); // Controla la velocidad del efecto
           }
         };
 
@@ -130,22 +128,19 @@ export const AboutMe = () => {
           targets: element,
           opacity: [0, 1],
           translateX: [-30, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
+          ...animationConfig,
         }).finished.then(() => {
           // Inicia el efecto de escritura después de la animación de entrada
           if (element.innerHTML === "") {
             typeEffect();
           }
         });
-
       } else if (element.classList.contains("about-paragraph")) {
         anime({
           targets: element,
           opacity: [0, 1],
-          translateX: [-30, 0],
-          easing: "easeInOutQuad",
-          duration: 1500,
+          translateX: [50, 0],
+          ...animationConfig,
         });
       } else if (element.classList.contains("card-container")) {
         // Asegúrate de reiniciar la visibilidad
@@ -154,9 +149,8 @@ export const AboutMe = () => {
         anime({
           targets: element,
           opacity: [0, 1], // Aparece con la animación
-          translateY: [30, 0], // Desplazamiento inicial para la animación
-          easing: "easeInOutQuad",
-          duration: 1500,
+          translateY: [50, 0], // Desplazamiento inicial para la animación
+          ...animationConfig,
         }).finished.then(() => {
           // Acción secundaria después de aparecer (por ejemplo, voltear)
           setTimeout(() => {
@@ -164,25 +158,26 @@ export const AboutMe = () => {
             setTimeout(() => {
               setIsFlipped(false); // Regresar al frente
             }, 1500); // Tiempo que la tarjeta permanece volteada
-          }, 800); // Tiempo antes de iniciar el giro
+          }, 600); // Tiempo antes de iniciar el giro
         });
       } else if (element.classList.contains("nav-link")) {
         anime({
           targets: element,
           opacity: [0, 1],
-          translateX: [-30, 0],
-          easing: "easeInOutQuad",
-          duration: 1000,
-          delay: anime.stagger(150),
+          translateX: [-50, 0],
+          ...animationConfig,
+          delay: anime.stagger(800),
         }).finished.then(() => {
           setAnimationState((prev) => ({ ...prev, about: false }));
         });
       }
     };
-  }
+  };
 
   const animateSmallScreen = () => {
-    const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
+    const headings = document.querySelectorAll(
+      ".about-description-container h5, .about-description-container h4"
+    );
     const devElement = document.querySelector(".about-heading-large");
     const text = t.role; // Esto se actualiza dinámicamente según el idioma
     devElement.innerHTML = ""; // Reiniciar contenido del efecto escritura
@@ -191,9 +186,8 @@ export const AboutMe = () => {
       targets: headings,
       opacity: [0, 1],
       translateX: [-50, 0],
-      easing: "easeInOutQuad",
-      duration: 2000,
-      delay: anime.stagger(200, { start: 3000 }),
+      ...animationConfig,
+      delay: anime.stagger(200, { start: 1000 }),
     }).finished.then(() => {
       // Efecto escritura
       let index = 0;
@@ -207,15 +201,13 @@ export const AboutMe = () => {
             targets: ".about-paragraph",
             opacity: [0, 1],
             translateX: [-50, 0],
-            easing: "easeInOutQuad",
-            duration: 2000,
+            ...animationConfig,
           }).finished.then(() => {
             // Aparición de la tarjeta
             anime({
               targets: cardContainerRef.current,
               opacity: [0, 1],
-              easing: "easeInOutQuad",
-              duration: 2000,
+              ...animationConfig,
             }).finished.then(() => {
               // Voltear la tarjeta después de 1 segundo
               setTimeout(() => {
@@ -227,8 +219,7 @@ export const AboutMe = () => {
                     targets: ".nav-link",
                     opacity: [0, 1],
                     translateX: [-50, 0],
-                    easing: "easeInOutQuad",
-                    duration: 1000,
+                    ...animationConfig,
                     delay: anime.stagger(200),
                   }).finished.then(() => {
                     setAnimationState((prev) => ({ ...prev, about: false }));
@@ -246,39 +237,40 @@ export const AboutMe = () => {
   const animateLargeScreen = () => {
     const infoContainer = infoContainerRef.current.getBoundingClientRect();
     const cardContainer = cardContainerRef.current.getBoundingClientRect();
-    const translateXToCenter = (infoContainer.width - cardContainer.width) / 2 - cardContainer.x + infoContainer.x;
+    const translateXToCenter =
+      (infoContainer.width - cardContainer.width) / 2 -
+      cardContainer.x +
+      infoContainer.x;
 
     anime({
       targets: cardContainerRef.current,
       translateX: translateXToCenter,
       opacity: 0,
-      easing: "easeInOutQuad",
-      duration: 2000,
-      delay: 1000,
     }).finished.then(() => {
       anime({
         targets: cardContainerRef.current,
         opacity: [0, 1],
         easing: "easeInOutQuad",
-        duration: 1000,
+        duration: 2000,
+        delay: 500,
       }).finished.then(() => {
         setTimeout(() => {
           setIsFlipped(true);
           anime({
             targets: cardContainerRef.current,
             translateX: 0,
-            easing: "easeInOutQuad",
-            duration: 2000,
+            ...animationConfig,
           }).finished.then(() => {
             setIsFlipped(false);
 
-            const headings = document.querySelectorAll(".about-description-container h5, .about-description-container h4");
+            const headings = document.querySelectorAll(
+              ".about-description-container h5, .about-description-container h4"
+            );
             anime({
               targets: headings,
               opacity: [0, 1],
               translateX: [-50, 0],
-              easing: "easeInOutQuad",
-              duration: 2000,
+              ...animationConfig,
               delay: anime.stagger(200),
             }).finished.then(() => {
               const devElement = document.querySelector(".about-heading-large");
@@ -297,17 +289,15 @@ export const AboutMe = () => {
                       targets: ".about-paragraph",
                       opacity: [0, 1],
                       translateX: [-50, 0],
-                      easing: "easeInOutQuad",
-                      duration: 2000,
+                      ...animationConfig,
                       delay: 200,
                     });
                     anime({
                       targets: ".nav-link",
                       opacity: [0, 1],
                       translateX: [-50, 0],
-                      easing: "easeInOutQuad",
-                      duration: 2000,
-                      delay: anime.stagger(200, { start: 2000 }),
+                      ...animationConfig,
+                      delay: anime.stagger(200, { start: 1500 }),
                     }).finished.then(() => {
                       setAnimationState((prev) => ({ ...prev, about: false }));
                     });
@@ -330,30 +320,53 @@ export const AboutMe = () => {
     <div className="main-container">
       <div className="inner-frame">
         <div className="title-container">
-          <h1 className="title-text animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+          <h1
+            className="title-text animate-on-scroll"
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
             {t.title}
           </h1>
         </div>
-  
-        <div className="about-contain-container animate-on-scroll" ref={infoContainerRef}>
+
+        <div
+          className="about-contain-container animate-on-scroll"
+          ref={infoContainerRef}
+        >
           <div className="about-description-container">
-            <h5 className="about-heading-garamond animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            <h5
+              className="about-heading-garamond animate-on-scroll"
+              style={{ opacity: animationState.about ? 0 : 1 }}
+            >
               {t.greeting}
             </h5>
-            <h4 className="about-title animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            <h4
+              className="about-title animate-on-scroll"
+              style={{ opacity: animationState.about ? 0 : 1 }}
+            >
               Nelson Valero Barcelona
             </h4>
-            <h5 className="about-heading animate-on-scroll" style={{ display: "inline", opacity: animationState.about ? 0 : 1 }}>
-              <span className="about-heading-garamond animate-on-scroll">{t.rolePrefix}</span>
+            <h5
+              className="about-heading animate-on-scroll"
+              style={{
+                display: "inline",
+                opacity: animationState.about ? 0 : 1,
+              }}
+            >
+              <span className="about-heading-garamond animate-on-scroll">
+                {t.rolePrefix}
+              </span>
               <span className="about-heading-large animate-on-scroll">
                 {animationState.about ? "" : t.role}
               </span>
             </h5>
-            <p className="about-paragraph animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+            <p
+              className="about-paragraph animate-on-scroll"
+              style={{ opacity: animationState.about ? 0 : 1 }}
+            >
               {t.description}
             </p>
           </div>
-  
+
           <div
             className="card-container animate-on-scroll"
             ref={cardContainerRef}
@@ -371,13 +384,18 @@ export const AboutMe = () => {
                   />
                 </div>
                 <div className="card-back">
-                  <img src={nelAnimation} alt="Nelson Valero" className="about-image" loading="eager" />
+                  <img
+                    src={nelAnimation}
+                    alt="Nelson Valero"
+                    className="about-image"
+                    loading="eager"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-  
+
         <div className="navigation-links">
           <a
             href={`${
@@ -393,17 +411,33 @@ export const AboutMe = () => {
           >
             {t.links.cv}
           </a>
-  
-          <Link to="/" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+
+          <Link
+            to="/"
+            className="nav-link animate-on-scroll"
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
             {t.links.home}
           </Link>
-          <Link to="/skills" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+          <Link
+            to="/skills"
+            className="nav-link animate-on-scroll"
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
             {t.links.skills}
           </Link>
-          <Link to="/projects" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+          <Link
+            to="/projects"
+            className="nav-link animate-on-scroll"
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
             {t.links.projects}
           </Link>
-          <Link to="/contact" className="nav-link animate-on-scroll" style={{ opacity: animationState.about ? 0 : 1 }}>
+          <Link
+            to="/contact"
+            className="nav-link animate-on-scroll"
+            style={{ opacity: animationState.about ? 0 : 1 }}
+          >
             {t.links.contact}
           </Link>
         </div>
