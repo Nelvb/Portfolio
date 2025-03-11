@@ -1,7 +1,7 @@
 {
 	"name": "react-hello-webapp",
 	"engines": {
-		"node": "16.x"
+		"node": "18.x"
 	},
 	"version": "1.0.1",
 	"homepage": "https://4geeksacademy.github.io/Nelvb-portfolio",
@@ -70,6 +70,7 @@
 		"animejs": "^3.2.2",
 		"axios": "^1.7.7",
 		"boxicons": "^2.1.4",
+		"dotenv": "^16.4.7",
 		"emailjs-com": "^3.2.0",
 		"prop-types": "^15.7.2",
 		"react": "^19.0.0",
