@@ -247,9 +247,13 @@ export const Contact = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    emailjs.init("NMi4d5HgZzVCF8JX8");
-    emailjs
-      .sendForm("service_7q06bfg", "template_5y4b3td", e.target)
+    emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID);
+    emailjs.sendForm(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      e.target
+    )
+
       .then(() => {
         setAlertMessage("Mensaje enviado con éxito.");
         setAlertType("success");
