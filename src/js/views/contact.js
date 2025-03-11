@@ -77,23 +77,23 @@ export const Contact = () => {
       translateY: [-20, 0],
       ...animationConfig,
     });
-  
+
     // Animación del contenedor principal
     anime({
       targets: ".contact-contain-container",
       opacity: [0, 1],
       ...animationConfig,
     });
-  
+
     // Animación de los ítems de contacto
     anime({
       targets: ".contact-item",
       opacity: [0, 1],
       translateX: [-50, 0],
       ...animationConfig,
-      delay: anime.stagger(200, { start: 1000}),
+      delay: anime.stagger(200, { start: 1000 }),
     });
-  
+
     // Animación del contenedor de información
     anime({
       targets: ".contact-info-container",
@@ -102,7 +102,7 @@ export const Contact = () => {
       ...animationConfig,
       delay: 1000,
     });
-  
+
     // Animación de los iconos sociales, inputs y textarea
     anime({
       targets: ".social-icon, .contact-form input, .contact-form textarea",
@@ -111,7 +111,7 @@ export const Contact = () => {
       ...animationConfig,
       delay: anime.stagger(200, { start: 2000 }),
     });
-  
+
     // Animación de los enlaces de navegación
     anime({
       targets: ".nav-link",
@@ -120,11 +120,11 @@ export const Contact = () => {
       ...animationConfig,
       delay: anime.stagger(200, { start: 4000 }),
     });
-  
+
     // Marcar la animación como completada
     setAnimationState((prev) => ({ ...prev, contact: false }));
   };
-  
+
   const animateElement = (element) => {
     if (element.classList.contains("title-text")) {
       anime({
@@ -247,9 +247,9 @@ export const Contact = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    emailjs.init("4MpzEzT4yDBHZ5tgC");
+    emailjs.init("NMi4d5HgZzVCF8JX8");
     emailjs
-      .sendForm("service_f14u26i", "template_5y4b3td", e.target)
+      .sendForm("service_7q06bfg", "template_5y4b3td", e.target)
       .then(() => {
         setAlertMessage("Mensaje enviado con éxito.");
         setAlertType("success");
