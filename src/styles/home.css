@@ -98,8 +98,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
   padding: 40px;
   padding-top: 140px;
   margin-top: 4rem;
@@ -108,13 +108,13 @@
   max-width: 95%;
 
   /* Efecto contenedor principal */
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px); /* Compatibilidad con navegadores basados en WebKit */
-  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde translúcido para efecto de vidrio */
-  box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.4), 
-    -10px -10px 20px rgba(255, 255, 255, 0.2); 
-  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  /* Borde translúcido para efecto de vidrio */
+  box-shadow:
+    10px 10px 20px rgba(0, 0, 0, 0.4),
+    -10px -10px 20px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  /* Fondo translúcido */
 }
 
 
@@ -201,7 +201,8 @@
   }
 }
 
-@media screen and (max-height: 700px), (max-width: 1600px) {
+@media screen and (max-height: 700px),
+(max-width: 1600px) {
   .home-container {
     height: auto;
     overflow-y: auto;
@@ -220,13 +221,13 @@
     order: -1;
   }
 
-.decorated-container {
-  padding-top: 40px;
-}
+  .decorated-container {
+    padding-top: 40px;
+  }
 
   .logo-image {
     max-width: 400px;
-}
+  }
 
   /* Enlaces abajo */
   .home-navigation-links {
@@ -263,12 +264,12 @@
     margin-top: 0.5rem;
   }
 
-  .home-inner-frame{
+  .home-inner-frame {
     padding-top: 40px;
     padding-bottom: 40px;
   }
 
-  .decorated-container{
+  .decorated-container {
     margin-top: 8rem;
     padding-top: 20px;
   }
@@ -276,6 +277,7 @@
   .home-contain-container {
     margin-top: 6rem;
   }
+
   .logo-image {
     max-width: 260px;
   }
@@ -292,14 +294,16 @@
     font-size: 3.5rem;
     margin-top: 4rem;
   }
-  .home-inner-frame{
+
+  .home-inner-frame {
     padding-left: 10px;
     padding-right: 10px;
   }
+
   .decorated-container {
     margin-top: 6rem;
     padding-top: 0px;
-}
+  }
 }
 
 @media screen and (max-width: 340px) {
@@ -307,7 +311,8 @@
     font-size: 2.5rem;
     margin-top: 3rem;
   }
+
   .decorated-container {
     margin-top: 4rem;
-}
+  }
 }
