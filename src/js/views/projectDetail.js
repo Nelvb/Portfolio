@@ -17,9 +17,9 @@ export const ProjectDetail = () => {
   const { id } = useParams();
   const project = ProjectsData.find((proj) => proj.id === parseInt(id));
 
-    const { language, translations } = useLanguage();
-    const t = translations[language].projectDetail;
-  
+  const { language, translations } = useLanguage();
+  const t = translations[language].projectDetail;
+
 
   if (!project) {
     return <div className="project-not-found">Project not found</div>;
@@ -94,14 +94,14 @@ export const ProjectDetail = () => {
         el.style.opacity = 0;
       });
 
-      anime.timeline().add({
-        targets: [".title-text", ".project-contain-detail"], // Ambos targets en la misma etapa
-        opacity: [0, 1],
-        translateY: [-20, 0],
-        easing: "easeInOutQuad",
-        duration: 2000,
-      })
-      
+    anime.timeline().add({
+      targets: [".title-text", ".project-contain-detail"], // Ambos targets en la misma etapa
+      opacity: [0, 1],
+      translateY: [-20, 0],
+      easing: "easeInOutQuad",
+      duration: 2000,
+    })
+
       .add({
         targets: [".project-full-description-title", ".project-technologies-title"],
         opacity: [0, 1],
@@ -212,72 +212,74 @@ export const ProjectDetail = () => {
         </div>
 
         <div className={`project-contain-detail animate-on-scroll ${isLong ? "long-title" : "short-title"}`}>
-        <div className="project-wrapper">
+          <div className="project-wrapper">
 
-          <div className="project-description-tools animate-on-scroll">
-            <h3 className="project-full-description-title animate-on-scroll">{t.descriptionTitle}</h3>
-            <p className="project-full-description-text animate-on-scroll">{fullDescription[language]}</p>
-            <h3 className="project-technologies-title animate-on-scroll">{t.technologiesTitle}</h3>
-            <p className="project-technologies-text animate-on-scroll">{tecnologiasUsadas[language]}</p>
-          </div>
-
-          <div className="project-gallery-slider animate-on-scroll">
-            <div className="container-carousel animate-on-scroll">
-              <div
-                className="carruseles"
-                style={{
-                  transform: `translateX(-${currentImageIndex * 100}%)`,
-                }}
-              >
-                {images.map((image, index) => (
-                  <section key={index} className="slider-section">
-                    <img src={image} alt={`${name} slide ${index + 1}`} />
-                  </section>
-                ))}
-              </div>
-              <div className="btn-left" onClick={handlePrevImage}>
-                <i className="bx bx-chevron-left"></i>
-              </div>
-              <div className="btn-right" onClick={handleNextImage}>
-                <i className="bx bx-chevron-right"></i>
-              </div>
+            <div className="project-description-tools animate-on-scroll">
+              <h3 className="project-full-description-title animate-on-scroll">{t.descriptionTitle}</h3>
+              <p className="project-full-description-text animate-on-scroll">{fullDescription[language]}</p>
+              <h3 className="project-technologies-title animate-on-scroll">{t.technologiesTitle}</h3>
+              <p className="project-technologies-text animate-on-scroll">{tecnologiasUsadas[language]}</p>
             </div>
 
-            <div className="slider-dots animate-on-scroll">
-              {images.map((_, index) => (
-                <span
-                  key={index}
-                  className={`dot ${index === currentImageIndex ? "active" : ""}`}
-                  onClick={() => goToImage(index)}
-                ></span>
+            <div className="project-gallery-slider animate-on-scroll">
+              <div className="container-carousel animate-on-scroll">
+                <div
+                  className="carruseles"
+                  style={{
+                    transform: `translateX(-${currentImageIndex * 100}%)`,
+                  }}
+                >
+                  {images.map((image, index) => (
+                    <section key={index} className="slider-section">
+                      <img src={image} alt={`${name} slide ${index + 1}`} />
+                    </section>
+                  ))}
+                </div>
+                <div className="btn-left" onClick={handlePrevImage}>
+                  <i className="bx bx-chevron-left"></i>
+                </div>
+                <div className="btn-right" onClick={handleNextImage}>
+                  <i className="bx bx-chevron-right"></i>
+                </div>
+              </div>
+
+              <div className="slider-dots animate-on-scroll">
+                {images.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`dot ${index === currentImageIndex ? "active" : ""}`}
+                    onClick={() => goToImage(index)}
+                  ></span>
+                ))}
+              </div>
+
+              <div className="slider-footer animate-on-scroll">
+                {projectUrl && (
+                  <button
+                    className="project-btn animate-on-scroll"
+                    onClick={() => window.open(projectUrl, '_blank')}
+                  >
+                    {t.buttonWeb}
+                  </button>
+                )}
+                <button
+                  className='project-btn animate-on-scroll'
+                  onClick={() => window.open(repoUrl, '_blank')}
+                >
+                  {t.buttonCode}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="tools-section animate-on-scroll">
+            <ul className="tools-list animate-on-scroll">
+              {tools.map((tool, index) => (
+                <li key={index} className="tool-item animate-on-scroll">
+                  {tool}
+                </li>
               ))}
-            </div>
-
-            <div className="slider-footer animate-on-scroll">
-              <button
-                className="project-btn animate-on-scroll"
-                onClick={() => window.open(projectUrl, '_blank')}
-              >
-                {t.buttonWeb}
-              </button>
-              <button
-                className='project-btn animate-on-scroll'
-                onClick={() => window.open(repoUrl, '_blank')}
-              >
-                {t.buttonCode}
-              </button>
-            </div>
-          </div>
-          </div>
-
-            <div className="tools-section animate-on-scroll">
-              <ul className="tools-list animate-on-scroll">
-                {tools.map((tool, index) => (
-                  <li key={index} className="tool-item animate-on-scroll">
-                    {tool}
-                  </li>
-                ))}
-              </ul>
+            </ul>
           </div>
         </div>
 
