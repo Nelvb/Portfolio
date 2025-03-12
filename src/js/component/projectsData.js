@@ -161,7 +161,7 @@ export const ProjectsData = [
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815057/signup_m67u2p.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815072/Login_nohm1o.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815089/dashboard_s8jrri.webp",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741816756/modal_mobile_mrp2c0.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741818219/modal_mobile_ajznwj.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815123/readme_nlvzno.webp"
       ]
     },
