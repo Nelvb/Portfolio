@@ -88,8 +88,8 @@ export const ProjectsData = [
         es: "Portafolio personal que muestra mi trabajo y trayectoria como desarrollador. Con un selector de tema que te permite elegir entre modo oscuro y claro, adaptándose a tu preferencia visual. El sitio también ofrece selección de idioma entre inglés y español, brindando una experiencia de navegación personalizada. Encontrarás una introducción sobre mí, los puntos destacados de mis habilidades y proyectos, y una forma fácil de contactar. Construido con animaciones suaves y un diseño responsivo, el portfolio busca proporcionar una visión intuitiva y accesible de mi recorrido profesional."
       },
       tecnologiasUsadas: {
-        en: "Built with React.js for the frontend, utilizing Anime.js for smooth animations. The backend is implemented with Flask and Python. Integrated Hunter.io API for email validation. Deployed on GitHub Pages using Webpack for resource optimization.",
-        es: "Construido con React.js para el frontend, utilizando Anime.js para animaciones suaves. Backend implementado con Flask y Python. Integración de la API de Hunter.io para validación de correos. Desplegado en GitHub Pages usando Webpack para optimización de recursos."
+        en: "Built with React.js for the frontend, utilizing Anime.js for smooth animations. The backend is implemented with Flask and Python. Advanced email validation and anti-spam protection integrated to ensure secure and authentic communication. Implemented client-side and server-side validation to prevent malicious submissions and protect the contact form from potential abuse.",
+        es: "Construido con React.js para el frontend, utilizando Anime.js para animaciones suaves. Backend implementado con Flask y Python. Validación avanzada de correos electrónicos y protección contra spam integrada para garantizar una comunicación segura y auténtica. Se implementaron validaciones tanto en el lado del cliente como del servidor para prevenir envíos maliciosos y proteger el formulario de contacto de posibles abusos."
       },
       tools: [
         "React.js",

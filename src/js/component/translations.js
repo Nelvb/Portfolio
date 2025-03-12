@@ -140,7 +140,7 @@ I am committed to continuous learning to apply it to development teams, so I can
                 contact: "Contact",
             },
         },
-         projects: {
+        projects: {
             title: "Projects",
             navigation: {
                 home: "Home",
