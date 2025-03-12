@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -12,8 +13,14 @@ module.exports = merge(common, {
     },
     plugins: [
         new Dotenv({
-            safe: true,
-            systemvars: true
+            safe: false,
+            systemvars: true,
+            defaults: false
+        }),
+        new webpack.DefinePlugin({
+            'process.env.REACT_APP_EMAILJS_USER_ID': JSON.stringify(process.env.EMAILJS_USER_ID),
+            'process.env.REACT_APP_EMAILJS_SERVICE_ID': JSON.stringify(process.env.EMAILJS_SERVICE_ID),
+            'process.env.REACT_APP_EMAILJS_TEMPLATE_ID': JSON.stringify(process.env.EMAILJS_TEMPLATE_ID)
         })
     ]
 });
