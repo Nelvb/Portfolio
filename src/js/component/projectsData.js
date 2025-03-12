@@ -127,68 +127,45 @@ export const ProjectsData = [
     repoUrl: "https://github.com/Nelvb/Portfolio"
   },
   {
-    id: 4,
-    backgroundImage:
-      "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019809/principal1_xlgvvu.png",
-    name: "Weather App",
-    description: {
-      en: "Check the weather in real-time for any location.",
-      es: "Consulta el clima en tiempo real de cualquier ubicación.",
+    "id": 4,
+    "backgroundImage": "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815013/home_principal_template_qsvc2m.webp",
+    "name": "Starter Template",
+    "description": {
+      "en": "Complete template for full-stack projects with Next.js, Flask, and Docker integration.",
+      "es": "Template completo para proyectos full-stack con Next.js, Flask e integración Docker."
     },
-    details: {
-      fullDescription: {
-        en: "An application that allows users to search and check the weather of different cities in real-time using an external weather API.",
-        es: "Aplicación que permite a los usuarios buscar y consultar el clima de diferentes ciudades en tiempo real, utilizando una API de clima externa.",
+    "details": {
+      "fullDescription": {
+        "en": "A comprehensive starter template designed to accelerate full-stack development projects. Built with Next.js for the frontend and Flask for the backend, this template includes pre-configured authentication with JWT, database integration with PostgreSQL, and styling with Tailwind CSS. The project structure follows best practices for scalability and maintainability, with modular components and clear separation of concerns. Features include user authentication flows, protected routes, dark/light theme support, and responsive layouts for all devices.",
+        "es": "Un template inicial completo diseñado para acelerar proyectos de desarrollo full-stack. Construido con Next.js para el frontend y Flask para el backend, este template incluye autenticación preconfigurada con JWT, integración de base de datos con PostgreSQL y estilos con Tailwind CSS. La estructura del proyecto sigue las mejores prácticas para escalabilidad y mantenibilidad, con componentes modulares y clara separación de responsabilidades. Las características incluyen flujos de autenticación de usuarios, rutas protegidas, soporte para temas claro/oscuro y diseños responsivos para todos los dispositivos."
       },
-      tecnologiasUsadas: {
-        en: "React.js for the user interface and consumption of the OpenWeather API. Styled with Tailwind CSS.",
-        es: "React.js para la interfaz de usuario y consumo de la API de OpenWeather. Estilizado con Tailwind CSS.",
+      "tecnologiasUsadas": {
+        "en": "Frontend built with Next.js (v15.2.0) and TypeScript, using Tailwind CSS for styling and CLSX for conditional class handling. Backend implemented with Flask, SQLAlchemy ORM for database operations, and PostgreSQL as the database. JWT manages authentication between frontend and backend. The entire stack is containerized with Docker and Docker Compose for easy deployment, while GitHub Actions handle continuous integration and automated testing with Pytest.",
+        "es": "Frontend construido con Next.js (v15.2.0) y TypeScript, utilizando Tailwind CSS para estilos y CLSX para el manejo condicional de clases. Backend implementado con Flask, ORM SQLAlchemy para operaciones de base de datos y PostgreSQL como base de datos. JWT gestiona la autenticación entre frontend y backend. Todo el stack está containerizado con Docker y Docker Compose para facilitar el despliegue, mientras que GitHub Actions maneja la integración continua y pruebas automatizadas con Pytest."
       },
-      tools: [
-        "React.js",
-        "OpenWeather API",
+      "tools": [
+        "Next.js",
+        "TypeScript",
         "Tailwind CSS",
-      ],
-      images: [
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732025169/principal2_qnkdfb.png",
-      ],
-    },
-    projectUrl: "https://weatherapp.com",
-    repoUrl: "https://github.com/Nelvb/Weather-App",
-  },
-  {
-    id: 5,
-    backgroundImage:
-      "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019786/subidaCloudinary_hsoqqt.png",
-    name: "Portfolio",
-    description: {
-      en: "Personal portfolio to showcase projects and skills.",
-      es: "Portafolio personal para mostrar proyectos y habilidades.",
-    },
-    details: {
-      fullDescription: {
-        en: "Personal portfolio designed to showcase projects, skills, and professional experience in web development. This project uses an interactive and responsive design combining advanced animations, dynamic data consumption, and efficient deployment. It is designed to highlight skills in frontend, backend, and collaborative tools, providing intuitive and professional navigation.",
-        es: "Portafolio personal diseñado para mostrar proyectos, habilidades y experiencia profesional en desarrollo web. Este proyecto utiliza un diseño interactivo y responsivo que combina animaciones avanzadas, consumo dinámico de datos y un despliegue eficiente. Está pensado para destacar habilidades en frontend, backend y herramientas colaborativas, permitiendo una navegación intuitiva y profesional.",
-      },
-      tecnologiasUsadas: {
-        en: "React.js for creating an interactive interface with animations managed by Anime.js. The backend is implemented with Flask, providing a robust API including integration with the MailboxLayer API to validate emails and prevent unwanted registrations. Cloudinary is used for dynamic image management, while EmailJS enables contact form submission without the need for a mail server. The application is automatically deployed on GitHub Pages, using Webpack to optimize resources and ensure smooth performance.",
-        es: "React.js para la creación de una interfaz interactiva con animaciones gestionadas mediante Anime.js. El backend está implementado con Flask, proporcionando una API robusta que incluye integración con la API de MailboxLayer para validar correos y evitar registros no deseados. Cloudinary se utiliza para la gestión dinámica de imágenes, mientras que EmailJS permite el envío de formularios de contacto sin necesidad de un servidor de correo. La aplicación se despliega automáticamente en GitHub Pages, utilizando Webpack para optimizar los recursos y garantizar un rendimiento fluido.",
-      },
-      tools: [
-        "React.js",
-        "Anime.js",
         "Flask",
-        "EmailJS",
-        "MailboxLayer API",
-        "Cloudinary",
-        "GitHub Pages",
-        "Webpack",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "JWT",
+        "Docker",
+        "Docker Compose",
+        "GitHub Actions",
+        "Pytest"
       ],
-      images: [
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019815/Registro_principal_tchatv.png",
-      ],
+      "images": [
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815027/Home_template_xu69hl.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815057/signup_m67u2p.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815072/Login_nohm1o.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815089/dashboard_s8jrri.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741816756/modal_mobile_mrp2c0.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815123/readme_nlvzno.webp"
+      ]
     },
-    projectUrl: "https://4geeksacademy.github.io/Nelvb-portfolio/",
-    repoUrl: "https://github.com/Nelvb/Nelvb-portfolio",
+    "projectUrl": "",
+    "repoUrl": "https://github.com/Nelvb/Starter_template"
   },
 ];
