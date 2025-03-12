@@ -76,36 +76,45 @@ export const ProjectsData = [
   },
   {
     id: 3,
-    backgroundImage:
-      "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019815/Registro_principal_tchatv.png",
-    name: "E-commerce",
+    backgroundImage: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741782526/imagen_principal_5_halhze.webp",
+    name: "Portfolio",
     description: {
-      en: "Online store with shopping cart and payment gateway.",
-      es: "Tienda online con carrito de compras y pasarela de pago.",
+      en: "Personal portfolio to showcase projects and professional experience.",
+      es: "Portafolio personal para mostrar proyectos y experiencia profesional."
     },
     details: {
       fullDescription: {
-        en: "E-commerce platform that allows users to browse products, add them to their cart, and make payments. It includes inventory management and an admin panel for sellers.",
-        es: "Plataforma de comercio electrónico que permite a los usuarios explorar productos, añadirlos a su carrito y realizar pagos. Incluye gestión de inventarios y panel de administración para vendedores.",
+        en: "Personal portfolio that showcases my work and journey as a developer. Featuring a dynamic theme selector that allows you to choose between dark and light modes, adapting to your visual preference. The site also offers language selection between English and Spanish, providing a personalized browsing experience. You'll find an introduction about me, highlights of my skills and projects, and an easy way to connect. Built with smooth animations and a responsive design, the portfolio aims to provide an intuitive and accessible overview of my professional path.",
+        es: "Portafolio personal que muestra mi trabajo y trayectoria como desarrollador. Con un selector de tema que te permite elegir entre modo oscuro y claro, adaptándose a tu preferencia visual. El sitio también ofrece selección de idioma entre inglés y español, brindando una experiencia de navegación personalizada. Encontrarás una introducción sobre mí, los puntos destacados de mis habilidades y proyectos, y una forma fácil de contactar. Construido con animaciones suaves y un diseño responsivo, el portfolio busca proporcionar una visión intuitiva y accesible de mi recorrido profesional."
       },
       tecnologiasUsadas: {
-        en: "React.js for the frontend, Flask for the backend, and PostgreSQL for the database. Stripe is integrated to process payments.",
-        es: "React.js para el frontend, Flask para el backend, y PostgreSQL para la base de datos. Stripe integrado para procesar pagos.",
+        en: "Built with React.js for the frontend, utilizing Anime.js for smooth animations. The backend is implemented with Flask and Python. Integrated Hunter.io API for email validation. Deployed on GitHub Pages using Webpack for resource optimization.",
+        es: "Construido con React.js para el frontend, utilizando Anime.js para animaciones suaves. Backend implementado con Flask y Python. Integración de la API de Hunter.io para validación de correos. Desplegado en GitHub Pages usando Webpack para optimización de recursos."
       },
       tools: [
         "React.js",
+        "Anime.js",
         "Flask",
-        "PostgreSQL",
-        "Stripe",
-        "Cloudinary",
+        "Python",
+        "Hunter.io API",
+        "GitHub Pages",
+        "Webpack"
       ],
       images: [
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732025169/principal2_qnkdfb.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019733/imagen_responsive_yfy4jv.png",
-      ],
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741778389/Inicio_vkrbdm.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741787992/modal_ba2rhb.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741787720/home_modo_dia_defo7f.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741778396/About_me_qttvgc.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741778414/Habilidades_2_oveumy.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788155/Contacto_modo_dia_qcpkza.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788245/Modal_mensajes_wqshpk.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788351/Proyectos_modo_dia_slrgzg.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788792/Proyectos_modal_noche_wd33xw.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788321/Proyecto_modo_dia_f87gmv.webp"
+      ]
     },
-    projectUrl: "https://ecommerce.com",
-    repoUrl: "https://github.com/Nelvb/E-commerce-Store",
+    projectUrl: "https://portfolio-nelvbs-projects.vercel.app",
+    repoUrl: "https://github.com/Nelvb/Portfolio"
   },
   {
     id: 4,
