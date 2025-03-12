@@ -94,10 +94,11 @@ export const ProjectsData = [
       tools: [
         "React.js",
         "Anime.js",
-        "Flask",
         "Python",
-        "Hunter.io API",
-        "Webpack"
+        "MailboxLayer API",
+        "EmailJS",
+        "Webpack",
+        "Vercel"
       ],
       images: [
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741778389/Inicio_vkrbdm.webp",
