@@ -97,7 +97,6 @@ export const ProjectsData = [
         "Flask",
         "Python",
         "Hunter.io API",
-        "GitHub Pages",
         "Webpack"
       ],
       images: [
@@ -106,7 +105,7 @@ export const ProjectsData = [
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741787720/home_modo_dia_defo7f.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741778396/About_me_qttvgc.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741778414/Habilidades_2_oveumy.webp",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788155/Contacto_modo_dia_qcpkza.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741790193/Contacto_modo_dia_c9q6g0.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788245/Modal_mensajes_wqshpk.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788351/Proyectos_modo_dia_slrgzg.webp",
         "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741788792/Proyectos_modal_noche_wd33xw.webp",
