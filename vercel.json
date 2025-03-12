@@ -11,16 +11,7 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/favicon.png",
-      "dest": "/favicon.png"
-    },
-    {
-      "src": "/bundle.js",
-      "dest": "/bundle.js"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
