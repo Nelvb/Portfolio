@@ -43,36 +43,46 @@ export const ProjectsData = [
     repoUrl: "https://github.com/Nelvb/Proyecto-Hoy-No-Cocino",
   },
   {
-    id: 2,
-    backgroundImage:
-      "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019733/imagen_responsive_yfy4jv.png",
-    name: "ToDo List",
-    description: {
-      en: "Simple application to efficiently manage tasks.",
-      es: "Aplicación simple para gestionar tareas de manera eficiente.",
+    "id": 2,
+    "backgroundImage": "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800610/Home_principal_projects_uz1d3u.webp",
+    "name": "The Roas Factory",
+    "description": {
+      "en": "Digital Marketing Agency specialized in online advertising and SEO optimization.",
+      "es": "Agencia de Marketing Digital especializada en publicidad online y optimización SEO."
     },
-    details: {
-      fullDescription: {
-        en: "This application allows users to manage their daily tasks. It includes functionalities like adding, editing, and deleting tasks, with a responsive and modern design.",
-        es: "Esta aplicación permite a los usuarios gestionar sus tareas diarias. Incluye funcionalidades como añadir, editar y eliminar tareas, con un diseño responsivo y moderno.",
+    "details": {
+      "fullDescription": {
+        "en": "Web platform developed for a digital marketing agency, featuring an interactive homepage with animated carousels and SEO optimization. The project includes a comprehensive blog system with dynamically generated articles and meta tags for improved search engine visibility. Users can contact the agency through email forms with validation or direct WhatsApp integration. The site architecture follows a modular component design with Context API for state management, ensuring excellent performance across all devices with responsive layouts and optimized image loading.",
+        "es": "Plataforma web desarrollada para una agencia de marketing digital, con una página principal interactiva que incluye carruseles animados y optimización SEO. El proyecto incorpora un sistema completo de blog con artículos generados dinámicamente y meta tags para mejorar la visibilidad en motores de búsqueda. Los usuarios pueden contactar con la agencia mediante formularios de correo con validación o integración directa con WhatsApp. La arquitectura del sitio sigue un diseño modular de componentes con Context API para la gestión del estado, garantizando un rendimiento excelente en todos los dispositivos con diseños responsivos y carga optimizada de imágenes."
       },
-      tecnologiasUsadas: {
-        en: "React.js for the frontend and Node.js for the backend. Database managed with MongoDB. Authentication is performed using JWT.",
-        es: "React.js para el frontend y Node.js para el backend. Base de datos gestionada con MongoDB. La autenticación se realiza mediante JWT.",
+      "tecnologiasUsadas": {
+        "en": "Frontend built with React.js, React Router for navigation, and React Helmet for dynamic meta tags and SEO optimization. Styling implemented with CSS3 and Bootstrap, while Cloudinary handles image optimization. The deployment is managed through Vercel with continuous integration. Google Tag Manager integration for analytics and Open Graph meta tags for better social media sharing.",
+        "es": "Frontend construido con React.js, React Router para la navegación y React Helmet para meta tags dinámicos y optimización SEO. Estilos implementados con CSS3 y Bootstrap, mientras que Cloudinary gestiona la optimización de imágenes. El despliegue se administra a través de Vercel con integración continua. Integración de Google Tag Manager para análisis y meta tags de Open Graph para mejorar la compartición en redes sociales."
       },
-      tools: [
+      "tools": [
         "React.js",
-        "Node.js",
-        "MongoDB",
-        "JWT",
+        "React Helmet",
+        "CSS3",
+        "Bootstrap",
+        "Cloudinary",
+        "Vercel",
+        "Google Tag Manager",
+        "Context API"
       ],
-      images: [
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019786/subidaCloudinary_hsoqqt.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732025169/principal2_qnkdfb.png",
-      ],
+      "images": [
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800623/Home_fkran0.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800651/Home2_thopnq.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800678/Agencia_wileao.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800786/Servicios_p6qq7n.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800688/Blog_havrdh.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800696/Articulo_odehri.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800740/Contactanos_mnannd.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800752/Contactanos2_qdz83a.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800793/Modal_mobile_vlh8zm.webp"
+      ]
     },
-    projectUrl: "https://todolist.com",
-    repoUrl: "https://github.com/Nelvb/ToDo-List",
+    "projectUrl": "https://the-roas-factory.vercel.app/",
+    "repoUrl": "https://github.com/Nelvb/TheRoasFactory"
   },
   {
     id: 3,
