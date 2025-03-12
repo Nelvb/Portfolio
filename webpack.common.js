@@ -1,6 +1,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // Asegúrate de que este plugin esté instalado
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack'); // Importa Webpack
 
@@ -8,8 +8,8 @@ module.exports = {
   entry: './src/js/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/', // Puedes ajustarlo si estás en producción con GitHub Pages
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
   },
   module: {
     rules: [
