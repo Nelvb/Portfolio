@@ -10,7 +10,8 @@
 	"scripts": {
 		"start": "cross-env NODE_ENV=development BASENAME=/ webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3000",
 		"build": "cross-env NODE_ENV=production BASENAME=/Nelvb-portfolio webpack --config webpack.prod.js",
-		"deploy": "npm run build && npx gh-pages -d dist"
+		"deploy": "npm run build && npx gh-pages -d dist",
+		"vercel-build": "cross-env NODE_ENV=production BASENAME=/ webpack --config webpack.prod.js"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.16.0",
