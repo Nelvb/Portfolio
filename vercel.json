@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@now/static-build",
+      "use": "@vercel/static-build",
       "config": {
         "distDir": "build"
       }
@@ -11,24 +11,10 @@
   ],
   "routes": [
     {
-      "src": "/.*bundle.js$",
-      "headers": {
-        "cache-control": "s-maxage=31536000,immutable"
-      },
-      "dest": "/bundle.js"
-    },
-    {
-      "src": "/(.+)\\.([a-zA-Z]{2,4})$",
-      "headers": {
-        "cache-control": "s-maxage=31536000,immutable"
-      },
-      "dest": "/$1.$2"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "headers": {
-        "cache-control": "s-maxage=0"
-      },
       "dest": "/index.html"
     }
   ]
