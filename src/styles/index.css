@@ -1,3 +1,9 @@
+html {
+  font-display: swap;
+  /* Esto evita cambios bruscos de fuente */
+}
+
+
 body {
   font-family: 'EB Garamond', Georgia, serif;
 }
@@ -11,6 +17,9 @@ body {
   height: 100%;
   color: white;
   overflow-x: hidden;
+}
+
+html.loaded body {
   transition: opacity 0.3s ease-in-out;
 }
 

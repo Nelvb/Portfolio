@@ -21,17 +21,17 @@ export const Skills = () => {
     const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
 
     document
-    .querySelectorAll(
-      ".title-text, .devices-image-wrapper, .skills-contain-container, .skills-description, .skills-section-title, .skill-card, .nav-link"
-    )
-    .forEach((el) => {
-      el.style.opacity = 0;
-    });
-  
+      .querySelectorAll(
+        ".title-text, .devices-image-wrapper, .skills-contain-container, .skills-description, .skills-section-title, .skill-card, .nav-link"
+      )
+      .forEach((el) => {
+        el.style.opacity = 0;
+      });
+
     if (isSmallScreen) {
       // Animaciones para pantallas pequeñas (scroll)
       const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
-  
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -46,7 +46,7 @@ export const Skills = () => {
         },
         { threshold: 0.1 } // Detecta cuando el 10% del elemento es visible
       );
-  
+
       elementsToAnimate.forEach((el) => observer.observe(el));
       return () => observer.disconnect();
     } else {
@@ -67,7 +67,7 @@ export const Skills = () => {
       }
     }
   }, [animationState.skills, setAnimationState]);
-  
+
 
   const runDesktopAnimations = () => {
     anime({
@@ -240,7 +240,7 @@ export const Skills = () => {
         <div className="title-container">
           <h1 className="title-text animate-on-scroll">{t.title}</h1>
         </div>
-  
+
         <div className="skills-contain-container animate-on-scroll">
           <div className="skills-info-container">
             <p className="skills-description animate-on-scroll">
@@ -255,7 +255,7 @@ export const Skills = () => {
               />
             </div>
           </div>
-  
+
           <div className="skills-sections">
             {Object.entries(skills).map(([section, skillsList]) => (
               <section className="skills-column" key={section}>
@@ -285,13 +285,13 @@ export const Skills = () => {
             ))}
           </div>
         </div>
-        
+
         <div className="navigation-links">
           <Link to="/" className="nav-link animate-on-scroll">
             {t.navigation.home}
           </Link>
           <Link to="/about" className="nav-link animate-on-scroll">
-          {t.navigation.about}
+            {t.navigation.about}
           </Link>
           <Link to="/projects" className="nav-link animate-on-scroll">
             {t.navigation.projects}
