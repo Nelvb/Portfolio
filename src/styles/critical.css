@@ -1,4 +1,26 @@
-/* Contenedor principal del loader */
+/* Estilos críticos para la carga inicial */
+html,
+body {
+    background: linear-gradient(to right, #090909, #b3b3b3);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: white;
+    overflow-x: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Clase para el estado de carga - se elimina con JavaScript */
+html.is-loading {
+    overflow: hidden;
+}
+
+/* Elimina márgenes y scroll durante el preloader */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Estilos del loader */
 .loader-container {
     position: fixed;
     top: 0;
@@ -13,7 +35,7 @@
     transition: opacity 0.5s ease-out;
 }
 
-/* Estilo que ayudará con el fade out del loader */
+/* Estilo para la transición de desvanecimiento */
 .loader-container.fade-out {
     opacity: 0;
 }
@@ -28,22 +50,19 @@
     animation: spin 1.5s linear infinite;
 }
 
-/* Keyframes para animar el spinner */
+/* Animación del spinner */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
         border-top-color: #b3b3b3;
-        border-right-color: #575757;
     }
 
     50% {
         border-top-color: #575757;
-        border-right-color: #b3b3b3;
     }
 
     100% {
         transform: rotate(360deg);
         border-top-color: #b3b3b3;
-        border-right-color: #575757;
     }
 }

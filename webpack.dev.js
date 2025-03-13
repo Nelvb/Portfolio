@@ -8,14 +8,14 @@ const port = 3000;
 let publicUrl = `ws://localhost:${port}/ws`;
 
 // Configuración para Gitpod y Codespaces
-if(process.env.GITPOD_WORKSPACE_URL){
-  const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
-  publicUrl = `wss://${port}-${host}/ws`;
+if (process.env.GITPOD_WORKSPACE_URL) {
+    const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
+    publicUrl = `wss://${port}-${host}/ws`;
 }
 
 // Configuración para Codespaces
-if(process.env.CODESPACE_NAME){
-  publicUrl = `wss://${process.env.CODESPACE_NAME}-${port}.preview.app.github.dev/ws`;
+if (process.env.CODESPACE_NAME) {
+    publicUrl = `wss://${process.env.CODESPACE_NAME}-${port}.preview.app.github.dev/ws`;
 }
 
 module.exports = merge(common, {
