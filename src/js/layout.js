@@ -66,17 +66,19 @@ const Layout = () => {
                 <AnimationProvider>
                     <BrowserRouter basename={basename}>
                         <ScrollToTop>
-                            <SettingsMenu /> {/* Menú de configuración */}
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/about" element={<AboutMe />} />
-                                <Route path="/skills" element={<Skills />} />
-                                <Route path="/contact" element={<Contact />} />
-                                <Route path="/projects" element={<Projects />} />
-                                <Route path="/project/:id" element={<ProjectDetail />} />
-                                <Route path="*" element={<h1>Not found!</h1>} />
-                            </Routes>
-                            <Footer />
+                            <div className="app-container">
+                                <SettingsMenu /> {/* Menú de configuración */}
+                                <Routes>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="/about" element={<AboutMe />} />
+                                    <Route path="/skills" element={<Skills />} />
+                                    <Route path="/contact" element={<Contact />} />
+                                    <Route path="/projects" element={<Projects />} />
+                                    <Route path="/project/:id" element={<ProjectDetail />} />
+                                    <Route path="*" element={<h1>Not found!</h1>} />
+                                </Routes>
+                                <Footer />
+                            </div>
                         </ScrollToTop>
                     </BrowserRouter>
                 </AnimationProvider>
