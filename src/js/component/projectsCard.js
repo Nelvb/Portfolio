@@ -37,7 +37,14 @@ export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
       >
         <div className="name">{name}</div>
         <div className="des">{description}</div>
-        <button onClick={() => navigate(`/project/${id}`)}>{t.buttonCard}</button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/project/${id}`);
+          }}
+        >
+          {t.buttonCard}
+        </button>
       </div>
     </div>
   );
