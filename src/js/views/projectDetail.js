@@ -102,60 +102,54 @@ export const ProjectDetail = () => {
       duration: 2000,
     })
 
+      // Primer grupo: h3 y project gallery slider a la vez
       .add({
-        targets: [".project-full-description-title", ".project-technologies-title"],
+        targets: [".project-full-description-title", ".project-technologies-title", ".project-gallery-slider"],
         opacity: [0, 1],
-        translateX: [-50, 0],
+        translateX: function (el) {
+          // Mantiene la dirección original para cada elemento
+          return el.classList.contains("project-gallery-slider") ? [50, 0] : [-50, 0];
+        },
         easing: "easeInOutQuad",
         duration: 1500,
         delay: anime.stagger(200),
       })
+
+      // Segundo grupo: textos y container carousel juntos
       .add({
-        targets: ".project-gallery-slider",
+        targets: [".project-full-description-text", ".project-technologies-text", ".container-carousel", ".btn-left", ".btn-right"],
         opacity: [0, 1],
-        translateX: [50, 0],
-        easing: "easeInOutQuad",
-        duration: 1500,
-      })
-      .add({
-        targets: [".project-full-description-text", ".project-technologies-text"],
-        opacity: [0, 1],
-        translateX: [-50, 0],
+        translateX: function (el) {
+          // Mantiene la dirección original para cada elemento
+          return el.classList.contains("container-carousel") || el.classList.contains("btn-left") || el.classList.contains("btn-right") ? [50, 0] : [-50, 0];
+        },
         easing: "easeInOutQuad",
         duration: 1500,
         delay: anime.stagger(200),
       })
+
+      // Tercer grupo: dots, slider footer y tools section juntos
       .add({
-        targets: [".container-carousel", ".btn-left", ".btn-right"],
+        targets: [".slider-dots span", ".slider-footer button", ".tools-section"],
         opacity: [0, 1],
-        translateX: [50, 0],
-        easing: "easeInOutQuad",
-        duration: 1000,
-      })
-      .add({
-        targets: ".slider-dots span",
-        opacity: [0, 1],
-        scale: [0.8, 1],
-        easing: "easeInOutQuad",
-        duration: 800,
-        delay: anime.stagger(100),
-      })
-      .add({
-        targets: ".slider-footer button",
-        opacity: [0, 1],
-        translateX: [50, 0],
-        easing: "easeOutCubic",
-        duration: 1000,
-        delay: anime.stagger(200),
-      })
-      .add({
-        targets: ".tools-section",
-        opacity: [0, 1],
-        translateY: [20, 0],
+        translateX: function (el) {
+          if (el.classList.contains("slider-footer") || el.tagName === "BUTTON") return [50, 0];
+          return 0;
+        },
+        translateY: function (el) {
+          if (el.classList.contains("tools-section")) return [20, 0];
+          return 0;
+        },
+        scale: function (el) {
+          if (el.tagName === "SPAN") return [0.8, 1];
+          return 1;
+        },
         easing: "easeInOutQuad",
         duration: 1000,
         delay: anime.stagger(100),
       })
+
+      // El link de navegación al final como estaba
       .add({
         targets: ".nav-link",
         opacity: [0, 1],
