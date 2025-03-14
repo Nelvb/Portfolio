@@ -674,15 +674,26 @@
 @media (max-width: 500px) {
   .container-cards {
     width: 300px;
-    /* Más pequeño para pantallas muy pequeñas */
     height: 350px;
-    /* Ajustado proporcionalmente */
   }
 
-  /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
     padding: 8vh 3vw 3vh;
-    /* Menor espacio en pantallas pequeñas */
+  }
+
+  .projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    order: 2;
+    margin-top: 10px;
+  }
+
+  .slider-dots {
+    order: 1;
   }
 }
 
