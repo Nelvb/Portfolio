@@ -72,7 +72,12 @@ export const ProjectsSection = () => {
   };
 
   // Manejar fin de toque
-  const manejarFinToque = () => {
+  const manejarFinToque = (e) => {
+    if (e.target.tagName === 'BUTTON') {
+      return;
+    }
+
+
     if (inicioToque - finToque > 75) {
       // Deslizar a la derecha
       manejarSiguiente();
