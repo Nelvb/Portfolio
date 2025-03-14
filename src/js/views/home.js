@@ -8,6 +8,8 @@ import "../../styles/home.css";
 export const Home = () => {
   const { animationState, setAnimationState } = useAnimation();
 
+
+
   // Obtener idioma actual del atributo `lang`
   const { language, translations } = useLanguage(); // Usa el contexto del idioma
   const t = translations[language].home; // Traducciones dinámicas
