@@ -9,6 +9,10 @@ body.dark-mode {
 .theme-toggle {
   background: transparent;
   border: none;
+  width: 50px;
+  /* Ancho fijo */
+  height: 50px;
+  /* Alto fijo */
   font-size: 1.5rem;
   cursor: pointer;
   color: currentColor;
