@@ -523,45 +523,10 @@
   }
 }
 
-@media (max-width: 900px) {
-  .container-cards {
-    width: 420px;
-    /* Ajustado proporcionalmente */
-    height: 263px;
-    /* Ajustado proporcionalmente */
-  }
-
-  .container-cards .slide .project-card {
-    width: 100px;
-    /* Ajustado proporcionalmente */
-    height: 150px;
-    /* Ajustado proporcionalmente */
-    top: 50%;
-    transform: translate(0, -50%);
-  }
-
-  .slide .project-card:nth-child(1),
-  .slide .project-card:nth-child(2) {
-    top: 0;
-    left: 0;
-    transform: translate(0, 0);
-    width: 100%;
-    height: 100%;
-  }
-
-  .slide .project-card:nth-child(4) {
-    left: calc(50% + 110px);
-    /* Ajustado proporcionalmente */
-  }
-
-  .slide .project-card:nth-child(5) {
-    left: calc(50% + 220px);
-    /* Ajustado proporcionalmente */
-  }
-}
 
 
-@media (max-width: 790px) {
+
+@media (max-width: 870px) {
   .projects-contain-container {
     margin-top: 3rem;
     padding-left: 20px;

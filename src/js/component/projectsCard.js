@@ -12,10 +12,11 @@ export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
 
   useEffect(() => {
     if (isFirstLoad) {
+      const delay = window.innerWidth < 500 ? 2000 : 4000; // Ajusta el retraso según la pantalla
       const timer = setTimeout(() => {
         setIsFirstLoad(false);
         setAnimationState((prev) => ({ ...prev, projects: false })); // Actualizar el estado en el contexto
-      }, 4000);
+      }, delay);
       return () => clearTimeout(timer); // Limpieza al desmontar
     }
   }, [isFirstLoad, setAnimationState]);
