@@ -2,7 +2,7 @@ export const ProjectsData = [
   {
     id: 1,
     backgroundImage:
-      "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019809/principal1_xlgvvu.png",
+      "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741974879/PrincipalHome_i6daz1.webp",
     name: "Hoy No Cocino",
     description: {
       en: "Platform to simplify restaurant reservation management.",
@@ -28,15 +28,16 @@ export const ProjectsData = [
         "Flask-Mail",
       ],
       images: [
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732025169/principal2_qnkdfb.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019733/imagen_responsive_yfy4jv.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019815/Registro_principal_tchatv.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019746/bienvenidacliente_otjilj.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019759/Area_privada_restaurante_z3en9a.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019786/subidaCloudinary_hsoqqt.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732026550/search_restaurant_nnlp2k.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019772/reserva_oxoiff.png",
-        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1732019791/sweet_alert_mfdio5.png",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975271/home_otyoxu.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975363/presentacion_g3xxkf.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975507/restaurantes_dyto0e.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975530/restauranteElegido_nluzz1.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975312/iniciarSesion_ieugkh.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975490/areaPrivada_qzl6te.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975346/registroRequerido_sause2.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975327/registro_htn0do.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975334/registroExito_v1w9of.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741975551/datosRestaurante_lni52j.webp"
       ],
     },
     projectUrl: "https://hoynococino.es",
