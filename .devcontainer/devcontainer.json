@@ -7,16 +7,7 @@
       "version": "18"
     }
   },
-  "customizations": {
-    "vscode": {
-      "extensions": ["esbenp.prettier-vscode"],
-      "settings": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-      }
-    }
-  },
   "onCreateCommand": "npm install && cp .env.example .env",
   "postCreateCommand": "python docs/assets/greeting.py",
-  "forwardPorts": [3000],
-  "remoteUser": "codespace"
+  "forwardPorts": [3000]
 }
