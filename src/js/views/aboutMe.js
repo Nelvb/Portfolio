@@ -398,12 +398,11 @@ export const AboutMe = () => {
 
         <div className="navigation-links">
           <a
-            href={`${
-              window.location.hostname === "localhost" ||
-              window.location.hostname.includes("dev")
-                ? "/NelsonValeroCV.pdf"
-                : "/Nelvb-portfolio/NelsonValeroCV.pdf"
-            }`}
+            href={`${window.location.hostname === "localhost" ||
+                window.location.hostname.includes("dev")
+                ? "/CV_Nelson_03_25.pdf"
+                : "/Nelvb-portfolio/CV_Nelson_03_25.pdf"
+              }`}
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link cv-link animate-on-scroll"
