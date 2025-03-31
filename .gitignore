@@ -1,4 +1,4 @@
-# ignore all files starting with .
+# Ignore all files starting with .
 .*
 
 # track this file .gitignore (i.e. do NOT ignore it)
@@ -8,14 +8,14 @@
 php_errorlog
 .log
 
-# track this file .gitignore (i.e. do NOT ignore it)
+# track specific files
 !composer.json
 !webpack.config.js
 !package.json
 !webpack.production.js
 !webpack.development.js
 
-# track readme.md in the root (i.e. do NOT ignore it)
+# track README.md
 !README.md
 
 # ignore OS generated files
@@ -48,18 +48,16 @@ Thumbs.db
 *.jar
 *.rar
 *.tar
-*.zip
+*.zist
 
 # ignore node/grunt dependency directories
 node_modules/
 
-public/
-
-# Exceptuar el archivo PDF específico
+# Ignore the entire public directory but except the PDF
+public/*
 !public/CV_Nelson_03_25.pdf
 
-# ignore the dist directory were our bundle files are going to be
-!.gitkeep
+# track .devcontainer
 !.devcontainer
 !.devcontainer/*
 !.gitpod.yml
