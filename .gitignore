@@ -53,6 +53,10 @@ Thumbs.db
 # ignore node/grunt dependency directories
 node_modules/
 
+public/
+
+# Exceptuar el archivo PDF específico
+!public/CV_Nelson_03_25.pdf
 
 # ignore the dist directory were our bundle files are going to be
 !.gitkeep
