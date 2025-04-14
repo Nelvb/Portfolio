@@ -41,7 +41,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'public/CV_Nelson_03_25.pdf', to: 'CV_Nelson_03_25.pdf' },
+        { from: 'public/NelsonResume_04_25.pdf', to: 'NelsonResume_04_25.pdf' },
         { from: 'src/styles/dayTheme.css', to: 'styles/dayTheme.css' },
         { from: 'src/img/Icono N portfolio 204623.png', to: 'favicon.png' },
       ],

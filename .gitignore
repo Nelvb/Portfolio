@@ -55,7 +55,7 @@ node_modules/
 
 # Ignore the entire public directory but except the PDF
 public/*
-!public/CV_Nelson_03_25.pdf
+!public/NelsonResume_04_25.pdf
 
 # track .devcontainer
 !.devcontainer

@@ -398,7 +398,7 @@ export const AboutMe = () => {
 
         <div className="navigation-links">
           <a
-            href="/CV_Nelson_03_25.pdf"
+            href="/NelsonResume_04_25.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link cv-link animate-on-scroll"
