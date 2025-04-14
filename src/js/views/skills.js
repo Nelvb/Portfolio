@@ -204,11 +204,11 @@ export const Skills = () => {
     frontend: [
       { img: "https://i.postimg.cc/30kDqnkN/html5.png", name: "HTML5" },
       { img: "https://i.postimg.cc/3WzyRjyj/css3.png", name: "CSS3" },
-      {
-        img: "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png",
-        name: "JavaScript",
-      },
+      { img: "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png", name: "JavaScript" },
       { img: "https://i.ibb.co/ZGX4pcH/react.png", name: "React" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627225/Next.js_kar2nc.webp", name: "Next.js" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627202/typescript_ymgaph.webp", name: "TypeScript" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627214/tailwind_icon_gf2x6r.webp", name: "Tailwind CSS" },
       { img: "https://i.ibb.co/TBrhsGj/bootstrap.png", name: "Bootstrap" },
     ],
     backend: [
@@ -219,18 +219,15 @@ export const Skills = () => {
       { img: "https://i.ibb.co/61r8Xyz/sqlalchemy.png", name: "SQLAlchemy" },
       { img: "https://i.ibb.co/nwh7LxK/jwt.png", name: "JWT" },
       { img: "https://i.ibb.co/txY283N/flask.png", name: "Flask" },
-      { img: "https://i.ibb.co/F3RGPmG/nodejs.png", name: "Node.js" },
     ],
     tools: [
       { img: "https://i.ibb.co/b3dWBmR/git.png", name: "Git" },
       { img: "https://i.ibb.co/hRMqd8J/github.png", name: "GitHub" },
       { img: "https://i.ibb.co/sKjVJPp/vsc.png", name: "Visual Studio Code" },
-      { img: "https://i.ibb.co/LnCNcTJ/cloudinary.png", name: "Cloudinary" },
-      { img: "https://i.ibb.co/7k78zmg/jest.png", name: "Jest" },
-      {
-        img: "https://i.ibb.co/P9pr8fz/github-codespaces.png",
-        name: "GitHub Codespaces",
-      },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744629036/cloudinary-sin_fondowebp_go2x5j.webp", name: "Cloudinary" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744628711/jest_dvgt8s.webp", name: "Jest" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744628265/githubCodespace_yvbtqy.webp", name: "GitHub Codespaces" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627793/DockerSinFondo_gaa4zv.webp", name: "Docker" },
     ],
   };
 
