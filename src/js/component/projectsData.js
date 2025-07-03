@@ -45,6 +45,42 @@ export const ProjectsData = [
   },
   {
     id: 2,
+    backgroundImage: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751544916/home-principal-hero_crlvaf.webp",
+    name: "LHC Legal & Consulting",
+    description: {
+      en: "Legal advisory platform with content management and blog system.",
+      es: "Plataforma de asesoría legal con sistema de gestión de contenidos y blog.",
+    },
+    details: {
+      fullDescription: {
+        en: "LHC Legal & Consulting is a legal advisory platform developed from scratch with a full-stack architecture. The system includes article creation and editing for administrators, a structured blog, contact and FAQs pages, responsive layout, and Dockerized environments for production and development. The admin area is separated visually and functionally, with protected routes and a clean UI.",
+        es: "LHC Legal & Consulting es una plataforma de asesoría legal desarrollada desde cero con arquitectura full-stack. El sistema incluye creación y edición de artículos para administradores, blog estructurado, páginas de contacto y preguntas frecuentes, diseño responsive y entornos dockerizados para producción y desarrollo. El área de administración está separada visual y funcionalmente, con rutas protegidas y una interfaz clara.",
+      },
+      tecnologiasUsadas: {
+        en: "Frontend built with Next.js and TypeScript, styled with Tailwind CSS. Zustand is used for global state management. The backend is implemented in Flask with PostgreSQL, authentication via JWT, and a modular structure. Docker is used to ensure consistency across environments. Image hosting with Cloudinary. Admins can create articles using a custom HTML parser (no Quill or TipTap). Fully tested with React Testing Library and Pytest.",
+        es: "Frontend construido con Next.js y TypeScript, estilizado con Tailwind CSS. Zustand gestiona el estado global. El backend está implementado en Flask con PostgreSQL, autenticación JWT y estructura modular. Docker se utiliza para asegurar consistencia entre entornos. Las imágenes se alojan con Cloudinary. Los administradores pueden crear artículos usando un parser HTML personalizado (sin Quill ni TipTap). Testeado completamente con React Testing Library y Pytest.",
+      },
+      tools: [
+        "Next.js", "TypeScript", "Tailwind CSS", "Zustand",
+        "Flask", "SQLAlchemy", "PostgreSQL", "JWT",
+        "Cloudinary", "Docker", "Pytest", "React Testing Library"
+      ],
+      images: [
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751545137/home_2_fqjqqj.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751545281/Areas_dsgr7r.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751545527/Faq_mmqgqh.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751545936/About-us_wemezi.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751546104/Contact_nfseth.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751546288/Login-admin_u0kazf.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751546502/Panel-admin_dmusrz.webp",
+        "https://res.cloudinary.com/dy1pkrd52/image/upload/v1751546720/side-menu-movil_jdnszv.webp"
+      ],
+    },
+    projectUrl: "https://lhc-frontend.fly.dev",
+    repoUrl: "https://github.com/Nelvb/LHC-Legal-And-Consulting",
+  },
+  {
+    id: 3,
     backgroundImage:
       "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741800610/Home_principal_projects_uz1d3u.webp",
     name: "The Roas Factory",
@@ -87,7 +123,7 @@ export const ProjectsData = [
     repoUrl: "https://github.com/Nelvb/TheRoasFactory",
   },
   {
-    id: 3,
+    id: 4,
     backgroundImage:
       "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741782526/imagen_principal_5_halhze.webp",
     name: "Portfolio",
@@ -130,7 +166,7 @@ export const ProjectsData = [
     repoUrl: "https://github.com/Nelvb/Portfolio",
   },
   {
-    id: 4,
+    id: 5,
     backgroundImage:
       "https://res.cloudinary.com/dy1pkrd52/image/upload/v1741815013/home_principal_template_qsvc2m.webp",
     name: "Starter Template",
@@ -173,7 +209,7 @@ export const ProjectsData = [
     repoUrl: "https://github.com/Nelvb/Starter_template",
   },
   {
-    id: 5,
+    id: 6,
     backgroundImage: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744624169/Pagina_principal_imagen_presentacion_l6e6th.webp",
     name: "Boost A Project",
     description: {
