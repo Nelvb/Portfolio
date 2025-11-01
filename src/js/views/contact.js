@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import CustomAlert from "../component/customAlert";
 import { useAnimation } from "../component/animationContext";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 import "../../styles/contact.css";
 
 export const Contact = () => {

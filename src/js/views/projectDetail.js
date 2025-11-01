@@ -5,7 +5,7 @@ import { useAnimation } from "../component/animationContext";
 import anime from "animejs/lib/anime.es.js";
 import "../../styles/projectDetail.css";
 import "boxicons/css/boxicons.min.css";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 
 
 // Función para determinar si un título es largo

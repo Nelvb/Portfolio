@@ -1,5 +1,5 @@
 import React from "react";
-import { useLanguage } from "../layout"; // Importa el contexto
+import { useLanguage } from "../../context/languageContext"; // Importa el contexto
 import "../../styles/languageToggle.css";
 
 const LanguageToggle = () => {

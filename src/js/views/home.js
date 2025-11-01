@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs";
 import { useAnimation } from "../component/animationContext";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 import "../../styles/home.css";
 
 export const Home = () => {

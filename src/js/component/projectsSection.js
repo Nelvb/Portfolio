@@ -3,7 +3,7 @@ import "../../styles/projects.css";
 import { ProjectsCard } from "./projectsCard";
 import { ProjectsData } from "./projectsData";
 import "boxicons/css/boxicons.min.css";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 
 export const ProjectsSection = () => {
   const slideRef = useRef();

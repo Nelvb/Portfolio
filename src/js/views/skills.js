@@ -3,7 +3,7 @@ import anime from "animejs/lib/anime.es.js";
 import "../../styles/skills.css";
 import { Link } from "react-router-dom";
 import { useAnimation } from "../component/animationContext";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 
 export const Skills = () => {
   const { animationState, setAnimationState } = useAnimation();

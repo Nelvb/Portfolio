@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { AnimationProvider } from "./component/animationContext";
@@ -11,23 +11,10 @@ import { ProjectDetail } from "./views/projectDetail";
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import SettingsMenu from "./component/settingsMenu"; // Configuración global
-import { translations } from "./component/translations"; // Traducciones
-
-// Crear un contexto para el idioma
-export const LanguageContext = createContext();
-
-export const useLanguage = () => useContext(LanguageContext);
+import { LanguageProvider } from "../context/languageContext";
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
-
-    // Estado para el idioma (por defecto "es")
-    const [language, setLanguage] = useState("es");
-
-    // Función para cambiar idioma
-    const toggleLanguage = () => {
-        setLanguage((prevLanguage) => (prevLanguage === "es" ? "en" : "es"));
-    };
 
     // Precargar imágenes al montar el componente
     useEffect(() => {
@@ -61,7 +48,7 @@ const Layout = () => {
     }, []);
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage, translations }}>
+        <LanguageProvider>
             <div>
                 <AnimationProvider>
                     <BrowserRouter basename={basename}>
@@ -83,7 +70,7 @@ const Layout = () => {
                     </BrowserRouter>
                 </AnimationProvider>
             </div>
-        </LanguageContext.Provider>
+        </LanguageProvider>
     );
 };
 

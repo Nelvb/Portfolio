@@ -4,7 +4,7 @@ import "../../styles/projects.css";
 import { Link } from "react-router-dom";
 import { ProjectsSection } from "../component/projectsSection";
 import { useAnimation } from "../component/animationContext";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 
 export const Projects = () => {
   const { animationState, setAnimationState } = useAnimation();
@@ -56,14 +56,14 @@ export const Projects = () => {
       document.querySelector(".projects-section").style.transform = "none";
       return;
     }
-  
+
     // Configuración inicial: elementos invisibles
     document.querySelectorAll(
       ".title-text, .projects-contain-container, .projects-section, .nav-link"
     ).forEach((el) => {
       el.style.opacity = 0; // Inicializamos con opacidad 0
     });
-  
+
     // Animación del título
     anime({
       targets: ".title-text",
@@ -71,14 +71,14 @@ export const Projects = () => {
       translateY: [-20, 0],
       ...animationConfig,
     });
-  
+
     // Animación del contenedor principal
     anime({
       targets: ".projects-contain-container",
       opacity: [0, 1],
       ...animationConfig,
     });
-  
+
     // Animación de la sección de proyectos
     anime({
       targets: ".projects-section",
@@ -87,7 +87,7 @@ export const Projects = () => {
       ...animationConfig,
       delay: 2000,
     });
-  
+
     // Animación de los enlaces de navegación
     anime({
       targets: ".nav-link",
@@ -96,13 +96,13 @@ export const Projects = () => {
       ...animationConfig,
       delay: anime.stagger(200, { start: 3000 }), // Escalonado después de la sección
     });
-  
+
     // Marcar la animación como completada al final
     setTimeout(() => {
       setAnimationState((prev) => ({ ...prev, projects: false }));
     }, 5000); // Tiempo total estimado para las animaciones
   };
-  
+
 
   const animateElement = (element) => {
     if (element.classList.contains("title-text")) {
@@ -126,13 +126,13 @@ export const Projects = () => {
         ...animationConfig,
       });
     } else if (element.classList.contains("nav-link")) {
-          anime({
-            targets: element,
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            easing: "easeInOutQuad",
-            duration: 1000,
-          });
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        easing: "easeInOutQuad",
+        duration: 1000,
+      });
     }
   };
 

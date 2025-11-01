@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAnimation } from "./animationContext";
-import { useLanguage } from "../layout";
+import { useLanguage } from "../../context/languageContext";
 
 export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
   const navigate = useNavigate();
