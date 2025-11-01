@@ -13,6 +13,31 @@ const isLongTitle = (title) => {
   return title.split(" ").length > 2 || title.length > 15;
 };
 
+// Función para formatear el nombre con salto de línea inteligente
+const formatTitle = (title, windowWidth) => {
+  const words = title.split(' ');
+
+  // Si tiene más de 2 palabras y hay una palabra de 1 letra
+  if (words.length > 2) {
+    const hasSingleLetterWord = words.some(word => word.length === 1);
+
+    // Aplicar exactamente en 768px o menos, siempre mantener 2 líneas desde ahí hacia abajo
+    if (hasSingleLetterWord && windowWidth <= 768) {
+      // Partir después de las primeras 2 palabras
+      // Ejemplo: "Boost A Project" → "Boost A" / "Project"
+      return (
+        <>
+          {words.slice(0, 2).join(' ')}
+          <br />
+          {words.slice(2).join(' ')}
+        </>
+      );
+    }
+  }
+
+  return title;
+};
+
 export const ProjectDetail = () => {
   const { id } = useParams();
   const project = ProjectsData.find((proj) => proj.id === parseInt(id));
@@ -29,9 +54,20 @@ export const ProjectDetail = () => {
   const { fullDescription, tecnologiasUsadas, tools, images } = details;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { animationState, setAnimationState } = useAnimation();
 
   const isLong = isLongTitle(name); // Determinar si el título es largo
+
+  // Listener para el resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Auto-slide para el carrusel
   useEffect(() => {
@@ -201,7 +237,7 @@ export const ProjectDetail = () => {
       <div className="inner-frame">
         <div className="title-container">
           <h1 className={`title-text project-detail-title animate-on-scroll ${isLong ? "long" : ""}`}>
-            {name}
+            {formatTitle(name, windowWidth)}
           </h1>
         </div>
 
