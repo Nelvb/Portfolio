@@ -8,7 +8,6 @@ import { Skills } from "./views/skills";
 import { Contact } from "./views/contact";
 import { Projects } from "./views/projects";
 import { ProjectDetail } from "./views/projectDetail";
-import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import SettingsMenu from "./component/settingsMenu"; // Configuración global
 import { LanguageProvider } from "../context/languageContext";
@@ -25,25 +24,9 @@ const Layout = () => {
             });
         };
 
+        // Precargar solo el logo principal (crítico para LCP en /home)
         preloadImages([
             "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736417373/logo_nel-sin-fondo_1_gw079z.webp",
-            "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png",
-            "https://i.postimg.cc/30kDqnkN/html5.png",
-            "https://i.postimg.cc/3WzyRjyj/css3.png",
-            "https://i.postimg.cc/9DhrPWYr/new-javascript-image.png",
-            "https://i.ibb.co/ZGX4pcH/react.png",
-            "https://i.ibb.co/TBrhsGj/bootstrap.png",
-            "https://i.ibb.co/g7xk09Q/python.png",
-            "https://i.ibb.co/SNMgmK3/sql.png",
-            "https://i.ibb.co/ZTfFr8p/mysql.png",
-            "https://i.ibb.co/NC3cZ1x/postgresql.png",
-            "https://i.ibb.co/61r8Xyz/sqlalchemy.png",
-            "https://i.ibb.co/nwh7LxK/jwt.png",
-            "https://i.ibb.co/txY283N/flask.png",
-            "https://i.ibb.co/F3RGPmG/nodejs.png",
-            "https://i.ibb.co/b3dWBmR/git.png",
-            "https://i.ibb.co/hRMqd8J/github.png",
-            "https://i.ibb.co/sKjVJPp/vsc.png",
         ]);
     }, []);
 
@@ -74,4 +57,4 @@ const Layout = () => {
     );
 };
 
-export default injectContext(Layout);
+export default Layout;

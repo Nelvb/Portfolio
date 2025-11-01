@@ -23,6 +23,15 @@ export const Contact = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].contact;
 
+  // SEO: Título dinámico de la página
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Contacto - Nelson Valero';
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
+
   const animationConfig = {
     easing: "easeInOutQuad",
     duration: 2000,

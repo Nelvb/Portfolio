@@ -100,6 +100,7 @@ export const ProjectsSection = () => {
               backgroundImage={project.backgroundImage}
               name={project.name}
               description={project.description[language]}
+              index={index}
             />
           ))}
         </div>
@@ -141,6 +142,7 @@ export const ProjectsSection = () => {
               backgroundImage={project.backgroundImage}
               name={project.name}
               description={project.description[language]}
+              index={index}
             />
           ))}
         </div>

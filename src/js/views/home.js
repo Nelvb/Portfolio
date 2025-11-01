@@ -8,7 +8,14 @@ import "../../styles/home.css";
 export const Home = () => {
   const { animationState, setAnimationState } = useAnimation();
 
-
+  // SEO: Título dinámico de la página
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Home - Nelson Valero';
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
 
   // Obtener idioma actual del atributo `lang`
   const { language, translations } = useLanguage(); // Usa el contexto del idioma

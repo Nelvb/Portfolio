@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAnimation } from "./animationContext";
 import { useLanguage } from "../../context/languageContext";
 
-export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
+export const ProjectsCard = ({ id, backgroundImage, name, description, index = 0 }) => {
   const navigate = useNavigate();
   const { animationState, setAnimationState } = useAnimation();
   const [isFirstLoad, setIsFirstLoad] = useState(animationState.projects);
@@ -22,10 +22,13 @@ export const ProjectsCard = ({ id, backgroundImage, name, description }) => {
   }, [isFirstLoad, setAnimationState]);
 
   return (
-    <div
-      className="project-card"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
+    <div className="project-card">
+      <img
+        src={backgroundImage}
+        alt={name}
+        className="project-card-image"
+        loading={index === 0 ? "eager" : "lazy"}
+      />
       <div
         className="content-card"
         style={{

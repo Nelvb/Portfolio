@@ -10,6 +10,15 @@ export const Skills = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].skills;
 
+  // SEO: Título dinámico de la página
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Habilidades - Nelson Valero';
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
+
   const animationConfig = {
     easing: "easeInOutQuad",
     duration: 2000,
@@ -248,7 +257,7 @@ export const Skills = () => {
                 src="https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1736418289/responsive_qqsiux.png"
                 alt="Minimalist devices illustration"
                 className="devices-image"
-                loading="eager"
+                loading="lazy"
               />
             </div>
           </div>
@@ -268,7 +277,7 @@ export const Skills = () => {
                             src={skill.img}
                             alt={skill.name}
                             className="skill-icon"
-                            loading="eager"
+                            loading="lazy"
                           />
                         </div>
                         <div className="skill-card-back">

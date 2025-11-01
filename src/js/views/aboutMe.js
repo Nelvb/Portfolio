@@ -14,6 +14,15 @@ export const AboutMe = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].about;
 
+  // SEO: Título dinámico de la página
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Sobre Mí - Nelson Valero';
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
+
   const roleRef = useRef(null);
 
   const animationConfig = {

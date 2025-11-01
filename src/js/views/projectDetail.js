@@ -44,6 +44,18 @@ export const ProjectDetail = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].projectDetail;
 
+  // SEO: Título dinámico basado en el proyecto
+  useEffect(() => {
+    const previousTitle = document.title;
+    if (project) {
+      document.title = `${project.name} - Nelson Valero`;
+    } else {
+      document.title = 'Proyecto no encontrado - Nelson Valero';
+    }
+    return () => {
+      document.title = previousTitle;
+    };
+  }, [project]);
 
   if (!project) {
     return <div className="project-not-found">Project not found</div>;
@@ -260,7 +272,11 @@ export const ProjectDetail = () => {
                 >
                   {images.map((image, index) => (
                     <section key={index} className="slider-section">
-                      <img src={image} alt={`${name} slide ${index + 1}`} />
+                      <img
+                        src={image}
+                        alt={`${name} slide ${index + 1}`}
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
                     </section>
                   ))}
                 </div>

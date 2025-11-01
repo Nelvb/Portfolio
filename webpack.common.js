@@ -46,8 +46,14 @@ module.exports = {
         { from: 'src/img/Icono N portfolio 204623.png', to: 'favicon.png' },
       ],
     }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
-    }),
+    /**
+     * NOTA: DefinePlugin se define en webpack.prod.js para evitar conflictos.
+     * 
+     * Razón: En webpack.common.js, definir 'process.env' completo causa conflictos
+     * con las definiciones específicas en webpack.prod.js. Todas las variables de
+     * entorno necesarias se definen explícitamente en la configuración de producción.
+     * 
+     * Ver webpack.prod.js para la definición completa de variables de entorno.
+     */
   ],
 };
