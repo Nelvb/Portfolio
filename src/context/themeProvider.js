@@ -1,3 +1,10 @@
+/**
+ * themeProvider.js — Contexto global de tema (oscuro/claro).
+ * Limpieza: eliminada carga dinámica redundante de CSS.
+ * Motivo: Webpack ya inyecta el CSS mediante import y el link apuntaba a un recurso inexistente en producción.
+ * @author Nelson Valero
+ * @since v1.0.3
+ */
 import React, { useState, useEffect } from "react";
 import { ThemeContext } from "./themeContext";
 
@@ -13,23 +20,10 @@ const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     // Lógica para manejar los estilos según el tema
-    const head = document.head;
-    let dayThemeLink = document.getElementById("day-theme-stylesheet");
-
-    if (!dayThemeLink) {
-      dayThemeLink = document.createElement("link");
-      dayThemeLink.id = "day-theme-stylesheet";
-      dayThemeLink.rel = "stylesheet";
-      dayThemeLink.href = "/src/styles/dayTheme.css"; // Ajusta la ruta
-      head.appendChild(dayThemeLink);
-    }
-
     if (isDarkMode) {
-      dayThemeLink.disabled = true; // Desactivar tema claro
       document.body.classList.add("dark-mode");
       localStorage.setItem("theme", "dark");
     } else {
-      dayThemeLink.disabled = false; // Activar tema claro
       document.body.classList.remove("dark-mode");
       localStorage.setItem("theme", "light");
     }
