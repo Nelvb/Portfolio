@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import nelAnimation from "../../img/imagen Nel_animation.gif";
 import anime from "animejs/lib/anime.es.js";
 import { useAnimation } from "../component/animationContext";
 import { useLanguage } from "../../context/languageContext";
@@ -385,7 +384,7 @@ export const AboutMe = () => {
                 </div>
                 <div className="card-back">
                   <img
-                    src={nelAnimation}
+                    src="https://res.cloudinary.com/dy1pkrd52/image/upload/v1761959924/imagen_Nelson_o2pmjp.webp"
                     alt="Nelson Valero"
                     className="about-image"
                     loading="eager"

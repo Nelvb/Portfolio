@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import "../../styles/projects.css";
 import { ProjectsCard } from "./projectsCard";
 import { ProjectsData } from "./projectsData";
-import "boxicons/css/boxicons.min.css";
 import { useLanguage } from "../../context/languageContext";
 
 export const ProjectsSection = () => {

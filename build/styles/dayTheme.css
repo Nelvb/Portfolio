@@ -1,0 +1,220 @@
+body.day-mode .home-container {
+  background: linear-gradient(to right, #c5b9a6, #ebe6de);
+}
+
+/* Contenedor principal */
+body.day-mode .main-container {
+  background: linear-gradient(to right, #c5b9a6, #ebe6de);
+}
+
+body.day-mode .home-inner-frame {
+  border-image: linear-gradient(to right, #ebe6de, #c5b9a6) 1;
+}
+
+/* Línea superior con degradado en el centro */
+body.day-mode .home-inner-frame::before {
+  background: linear-gradient(to right,
+      #ebe6de 5%,
+      rgba(235, 230, 222, 0.5) 25%,
+      rgba(235, 230, 222, 0.1) 30%,
+      transparent 50%,
+      rgba(197, 185, 166, 0.1) 70%,
+      rgba(197, 185, 166, 0.5) 85%,
+      #c5b9a6 95%);
+  z-index: 1;
+}
+
+body.day-mode .inner-frame {
+  border-image: linear-gradient(to right, #ebe6de, #c5b9a6) 1;
+}
+
+/* Línea superior con degradado en el centro */
+body.day-mode .inner-frame::before {
+  background: linear-gradient(to right,
+      #ebe6de 5%,
+      rgba(235, 230, 222, 0.5) 25%,
+      rgba(235, 230, 222, 0.1) 30%,
+      transparent 50%,
+      rgba(197, 185, 166, 0.1) 70%,
+      rgba(197, 185, 166, 0.5) 85%,
+      #c5b9a6 95%);
+  z-index: 1;
+}
+
+/* Colores de texto */
+body.day-mode .home-title-text,
+body.day-mode .home-nav-link {
+  color: #7d7464;
+}
+
+body.day-mode .title-text,
+body.day-mode .nav-link {
+  color: #7d7464;
+}
+
+/* ABOUT ME */
+body.day-mode .about-title {
+  color: #ebe6de;
+}
+
+body.day-mode .about-heading-large {
+  color: #ebe6de;
+}
+
+body.day-mode .home-nav-link:hover,
+body.day-mode .nav-link:hover {
+  color: rgb(40, 8, 8);
+  transform: scale(1.1);
+}
+
+/* Estilos específicos para el enlace del CV */
+body.day-mode .cv-link {
+  color: #7d7464;
+}
+
+body.day-mode .cv-link:hover {
+  color: rgb(40, 8, 8);
+}
+
+body.day-mode .cv-link:visited {
+  color: #7d7464;
+}
+
+body.day-mode .cv-link:visited:hover {
+  color: rgb(40, 8, 8) !important;
+}
+
+/* Encabezados y párrafos en "Sobre mí" */
+body.day-mode .about-heading-garamond {
+  color: #7d7464;
+}
+
+body.day-mode .about-paragraph {
+  color: #7d7464;
+}
+
+body.day-mode .highlight {
+  color: rgba(40, 8, 8, 0.465);
+  text-shadow: none;
+}
+
+body.day-mode .card-front {
+  background: #7d7464;
+}
+
+body.day-mode .card-front,
+body.day-mode .card-back {
+  border: 2px solid #ebe6de;
+}
+
+body.day-mode .decorated-container {
+  border: 2px solid rgba(248, 244, 240, 0.3);
+  background: rgba(248, 244, 240, 0.1);
+}
+
+body.day-mode .logo-image.home-logo {
+  background-color: #7d7464;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.day-mode .hamburger-button {
+  color: #7d7464;
+}
+
+/* SKILLS */
+body.day-mode .skills-info-container,
+body.day-mode .skills-section-title {
+  color: #7d7464;
+}
+
+body.day-mode .skill-card-front {
+  background-color: #e8dfd3;
+}
+
+body.day-mode .skill-card-front img {
+  filter: sepia(90%) brightness(1) saturate(0.8);
+}
+
+body.day-mode .skill-card-back {
+  color: rgb(40, 8, 8);
+  border: 1px solid rgb(40, 8, 8);
+  background-color: #d0c4b5;
+}
+
+/* CONTACT */
+body.day-mode .contact-item a,
+body.day-mode .contact-item {
+  color: #7d7464;
+}
+
+body.day-mode .contact-item a:hover,
+body.day-mode .contact-social-icons .social-icon:hover {
+  color: rgb(40, 8, 8);
+}
+
+body.day-mode .contact-social-icons .social-icon {
+  color: #7d7464;
+}
+
+body.day-mode .contact-contain-container .contact-info-container {
+  background-color: #e8dfd3;
+}
+
+body.day-mode .contact-form input,
+body.day-mode .contact-form textarea {
+  color: rgb(40, 8, 8);
+  background-color: whitesmoke;
+}
+
+body.day-mode .contact-form button {
+  background-color: #7d7464;
+  color: #ebe6de;
+}
+
+body.day-mode .contact-form button:hover {
+  background-color: rgb(40, 8, 8);
+}
+
+/* PROJECTS */
+body.day-mode .content-card {
+  color: #ebe6de;
+}
+
+body.day-mode .content-card .des {
+  color: #ebe6de;
+}
+
+body.day-mode .content-card button {
+  background-color: #ebe6de;
+  color: rgb(40, 8, 8);
+}
+
+body.day-mode .content-card button:hover {
+  background: #d0c4b5;
+  color: #ebe6de;
+}
+
+/* PROJECT DETAIL */
+body.day-mode .project-description-tools {
+  color: rgb(40, 8, 8);
+}
+
+body.day-mode .project-gallery-slider {
+  background-color: #e8dfd3;
+}
+
+body.day-mode .project-btn {
+  background-color: rgb(40, 8, 8);
+  color: #ebe6de;
+}
+
+body.day-mode .project-btn:hover {
+  background: #d0c4b5;
+  color: #ebe6de;
+}
+
+body.day-mode .tool-item {
+  color: rgb(40, 8, 8);
+}

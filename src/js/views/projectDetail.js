@@ -4,7 +4,6 @@ import { ProjectsData } from "../component/projectsData";
 import { useAnimation } from "../component/animationContext";
 import anime from "animejs/lib/anime.es.js";
 import "../../styles/projectDetail.css";
-import "boxicons/css/boxicons.min.css";
 import { useLanguage } from "../../context/languageContext";
 
 
