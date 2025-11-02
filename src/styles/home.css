@@ -216,6 +216,11 @@
     font-size: 5rem;
   }
 
+  .home-container {
+    padding: 2vh 0;
+    /* Eliminar padding lateral */
+  }
+
   /* Logo arriba */
   .home-contain-container {
     transform: translateY(0);
@@ -267,6 +272,11 @@
     margin-top: 0.5rem;
   }
 
+  .home-container {
+    padding: 2vh 0;
+    /* Eliminar padding lateral */
+  }
+
   .home-inner-frame {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -297,6 +307,11 @@
   .home-title-text {
     font-size: 3.5rem;
     margin-top: 4rem;
+  }
+
+  .home-container {
+    padding: 2vh 0;
+    /* Eliminar padding lateral */
   }
 
   .home-inner-frame {

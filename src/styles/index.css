@@ -238,8 +238,8 @@ html.no-scroll {
   .main-container {
     height: auto;
     overflow-y: auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 2vh 0;
+    /* Eliminar padding lateral */
   }
 }
 
@@ -251,6 +251,11 @@ html.no-scroll {
 
   .nav-link {
     flex-direction: column;
+  }
+
+  .main-container {
+    padding: 2vh 0;
+    /* Eliminar padding lateral */
   }
 }
 
