@@ -44,7 +44,7 @@
 }
 
 .contact-item a:hover {
-  color: #c0c0c0;
+  color: #b3b3b3;
   transform: scale(1.1);
 }
 
@@ -93,7 +93,7 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #b3b3b3;
+  background: linear-gradient(to bottom, #090909, #b3b3b3);
   color: #424242;
   text-shadow: 1px 1px 1px #FFFAFB;
   box-shadow: -6px 6px 6px 0px rgba(50, 50, 50, 0.65);

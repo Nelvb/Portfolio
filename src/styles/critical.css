@@ -1,7 +1,7 @@
 /* Estilos críticos para la carga inicial */
 html,
 body {
-    background: linear-gradient(to right, #090909, #b3b3b3);
+    background: linear-gradient(to right, #0a0a0a, #2d2d2d);
     margin: 0;
     padding: 0;
     height: 100%;
@@ -27,7 +27,7 @@ body.no-scroll {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right, #090909, #b3b3b3);
+    background: linear-gradient(to right, #0a0a0a, #2d2d2d);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@ body.no-scroll {
 /* Spinner animado */
 .spinner {
     border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top: 4px solid #b3b3b3;
+    border-top: 4px solid #4a4a4a;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -54,7 +54,7 @@ body.no-scroll {
 @keyframes spin {
     0% {
         transform: rotate(0deg);
-        border-top-color: #b3b3b3;
+        border-top-color: #4a4a4a;
     }
 
     50% {
@@ -63,6 +63,6 @@ body.no-scroll {
 
     100% {
         transform: rotate(360deg);
-        border-top-color: #b3b3b3;
+        border-top-color: #4a4a4a;
     }
 }

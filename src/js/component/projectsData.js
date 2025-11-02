@@ -176,15 +176,15 @@ export const ProjectsData = [
   {
     id: 5,
     backgroundImage: "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto,w_1600,c_limit/v1761951684/Home_principal_xtrg3i.webp",
-    name: "LABANDA",
+    name: "Labanda",
     description: {
       en: "Corporate website for industrial services with trilingual support (French, English, Spanish) and modern design.",
       es: "Sitio corporativo de servicios industriales con soporte trilingüe (francés, inglés, español) y diseño moderno."
     },
     details: {
       fullDescription: {
-        en: "LABANDA Industrie Services is a corporate website designed for an industrial services company based in Guinea. It presents the company's values, services, and ongoing projects with a clean, professional layout. Built with Vue 3 and Tailwind CSS, it includes trilingual support (French, English, and Spanish), SEO optimization, and responsive design for all devices. The site is fully deployed on Vercel with a custom IONOS domain.",
-        es: "LABANDA Industrie Services es un sitio web corporativo desarrollado para una empresa de servicios industriales con sede en Guinea. Presenta los valores, servicios y proyectos en curso de la compañía con un diseño limpio y profesional. Desarrollado con Vue 3 y Tailwind CSS, incluye soporte trilingüe (francés, inglés y español), optimización SEO y diseño responsive para todos los dispositivos. El sitio está completamente desplegado en Vercel con dominio personalizado de IONOS."
+        en: "Labanda Industrie Services is a corporate website designed for an industrial services company based in Guinea. It presents the company's values, services, and ongoing projects with a clean, professional layout. Built with Vue 3 and Tailwind CSS, it includes trilingual support (French, English, and Spanish), SEO optimization, and responsive design for all devices. The site is fully deployed on Vercel with a custom IONOS domain.",
+        es: "Labanda Industrie Services es un sitio web corporativo desarrollado para una empresa de servicios industriales con sede en Guinea. Presenta los valores, servicios y proyectos en curso de la compañía con un diseño limpio y profesional. Desarrollado con Vue 3 y Tailwind CSS, incluye soporte trilingüe (francés, inglés y español), optimización SEO y diseño responsive para todos los dispositivos. El sitio está completamente desplegado en Vercel con dominio personalizado de IONOS."
       },
       tecnologiasUsadas: {
         en: "Frontend developed with Vue 3, Vite, and Tailwind CSS. Trilingual management (French, English, Spanish) using vue-i18n, SEO and performance optimized for Vercel deployment.",

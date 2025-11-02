@@ -1,220 +1,239 @@
 body.day-mode .home-container {
-  background: linear-gradient(to right, #c5b9a6, #ebe6de);
+  background: #ffffff;
+  background: linear-gradient(to right, #cccccc, #ffffff);
 }
 
 /* Contenedor principal */
 body.day-mode .main-container {
-  background: linear-gradient(to right, #c5b9a6, #ebe6de);
+  background: #ffffff;
+  background: linear-gradient(to right, #cccccc, #ffffff);
 }
 
 body.day-mode .home-inner-frame {
-  border-image: linear-gradient(to right, #ebe6de, #c5b9a6) 1;
+  border-image: linear-gradient(to right, #ffffff, #cccccc) 1;
 }
 
 /* Línea superior con degradado en el centro */
 body.day-mode .home-inner-frame::before {
   background: linear-gradient(to right,
-      #ebe6de 5%,
-      rgba(235, 230, 222, 0.5) 25%,
-      rgba(235, 230, 222, 0.1) 30%,
+      #ffffff 5%,
+      rgba(255, 255, 255, 0.5) 25%,
+      rgba(255, 255, 255, 0.1) 30%,
       transparent 50%,
-      rgba(197, 185, 166, 0.1) 70%,
-      rgba(197, 185, 166, 0.5) 85%,
-      #c5b9a6 95%);
+      rgba(204, 204, 204, 0.1) 70%,
+      rgba(204, 204, 204, 0.5) 85%,
+      #cccccc 95%);
   z-index: 1;
 }
 
 body.day-mode .inner-frame {
-  border-image: linear-gradient(to right, #ebe6de, #c5b9a6) 1;
+  border-image: linear-gradient(to right, #ffffff, #cccccc) 1;
 }
 
 /* Línea superior con degradado en el centro */
 body.day-mode .inner-frame::before {
   background: linear-gradient(to right,
-      #ebe6de 5%,
-      rgba(235, 230, 222, 0.5) 25%,
-      rgba(235, 230, 222, 0.1) 30%,
+      #ffffff 5%,
+      rgba(255, 255, 255, 0.5) 25%,
+      rgba(255, 255, 255, 0.1) 30%,
       transparent 50%,
-      rgba(197, 185, 166, 0.1) 70%,
-      rgba(197, 185, 166, 0.5) 85%,
-      #c5b9a6 95%);
+      rgba(204, 204, 204, 0.1) 70%,
+      rgba(204, 204, 204, 0.5) 85%,
+      #cccccc 95%);
   z-index: 1;
 }
 
 /* Colores de texto */
 body.day-mode .home-title-text,
+body.day-mode .home-title-text span,
 body.day-mode .home-nav-link {
-  color: #7d7464;
+  color: #1a1a1a;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 body.day-mode .title-text,
+body.day-mode .title-text span,
 body.day-mode .nav-link {
-  color: #7d7464;
+  color: #1a1a1a;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* ABOUT ME */
 body.day-mode .about-title {
-  color: #ebe6de;
+  color: #1a1a1a;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 body.day-mode .about-heading-large {
-  color: #ebe6de;
+  color: #1a1a1a;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 body.day-mode .home-nav-link:hover,
 body.day-mode .nav-link:hover {
-  color: rgb(40, 8, 8);
+  color: #000000;
   transform: scale(1.1);
 }
 
 /* Estilos específicos para el enlace del CV */
 body.day-mode .cv-link {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .cv-link:hover {
-  color: rgb(40, 8, 8);
+  color: #000000;
 }
 
 body.day-mode .cv-link:visited {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .cv-link:visited:hover {
-  color: rgb(40, 8, 8) !important;
+  color: #000000 !important;
 }
 
 /* Encabezados y párrafos en "Sobre mí" */
 body.day-mode .about-heading-garamond {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .about-paragraph {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .highlight {
-  color: rgba(40, 8, 8, 0.465);
+  color: rgba(42, 42, 42, 0.6);
   text-shadow: none;
 }
 
 body.day-mode .card-front {
-  background: #7d7464;
+  background: #cccccc;
 }
 
 body.day-mode .card-front,
 body.day-mode .card-back {
-  border: 2px solid #ebe6de;
+  border: 2px solid #d4d4d4;
 }
 
 body.day-mode .decorated-container {
-  border: 2px solid rgba(248, 244, 240, 0.3);
-  background: rgba(248, 244, 240, 0.1);
+  border: 2px solid rgba(212, 212, 212, 0.4);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 body.day-mode .logo-image.home-logo {
-  background-color: #7d7464;
+  background-color: #cccccc;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 body.day-mode .hamburger-button {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 /* SKILLS */
 body.day-mode .skills-info-container,
 body.day-mode .skills-section-title {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .skill-card-front {
-  background-color: #e8dfd3;
+  background: #ffffff;
+  background: linear-gradient(to right, #cccccc, #ffffff);
 }
 
 body.day-mode .skill-card-front img {
-  filter: sepia(90%) brightness(1) saturate(0.8);
+  filter: grayscale(40%) brightness(1.1) contrast(105%) saturate(0.7);
 }
 
 body.day-mode .skill-card-back {
-  color: rgb(40, 8, 8);
-  border: 1px solid rgb(40, 8, 8);
-  background-color: #d0c4b5;
+  color: #1a1a1a;
+  border: 1px solid #c8c8c8;
+  background-color: #e8e8e8;
 }
 
 /* CONTACT */
 body.day-mode .contact-item a,
 body.day-mode .contact-item {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .contact-item a:hover,
 body.day-mode .contact-social-icons .social-icon:hover {
-  color: rgb(40, 8, 8);
+  color: #000000;
 }
 
 body.day-mode .contact-social-icons .social-icon {
-  color: #7d7464;
+  color: #1a1a1a;
 }
 
 body.day-mode .contact-contain-container .contact-info-container {
-  background-color: #e8dfd3;
+  background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
 }
 
 body.day-mode .contact-form input,
 body.day-mode .contact-form textarea {
-  color: rgb(40, 8, 8);
-  background-color: whitesmoke;
+  color: #1a1a1a;
+  background-color: #ffffff;
 }
 
 body.day-mode .contact-form button {
-  background-color: #7d7464;
-  color: #ebe6de;
+  background-color: #c8c8c8;
+  color: #ffffff;
 }
 
 body.day-mode .contact-form button:hover {
-  background-color: rgb(40, 8, 8);
+  background-color: #b8b8b8;
 }
 
 /* PROJECTS */
 body.day-mode .content-card {
-  color: #ebe6de;
+  color: #eee;
 }
 
 body.day-mode .content-card .des {
-  color: #ebe6de;
+  color: white;
 }
 
 body.day-mode .content-card button {
-  background-color: #ebe6de;
-  color: rgb(40, 8, 8);
+  background-color: #e0e0e0;
+  color: #1a1a1a;
 }
 
 body.day-mode .content-card button:hover {
-  background: #d0c4b5;
-  color: #ebe6de;
+  background: #c8c8c8;
+  color: #ffffff;
+}
+
+/* Overlay para project cards en modo día - mismo que modo noche */
+body.day-mode .slide .project-card:nth-child(2)::before {
+  background: rgba(0, 0, 0, 0.4);
+  /* Fondo oscuro semitransparente (igual que modo noche) */
+  backdrop-filter: blur(1px);
+  /* Aplica desenfoque */
+  -webkit-backdrop-filter: blur(8px);
+  /* Soporte para navegadores webkit */
 }
 
 /* PROJECT DETAIL */
 body.day-mode .project-description-tools {
-  color: rgb(40, 8, 8);
+  color: #1a1a1a;
 }
 
 body.day-mode .project-gallery-slider {
-  background-color: #e8dfd3;
+  background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
 }
 
 body.day-mode .project-btn {
-  background-color: rgb(40, 8, 8);
-  color: #ebe6de;
+  background-color: #c8c8c8;
+  color: #ffffff;
 }
 
 body.day-mode .project-btn:hover {
-  background: #d0c4b5;
-  color: #ebe6de;
+  background: #b8b8b8;
+  color: #ffffff;
 }
 
 body.day-mode .tool-item {
-  color: rgb(40, 8, 8);
+  color: #1a1a1a;
 }

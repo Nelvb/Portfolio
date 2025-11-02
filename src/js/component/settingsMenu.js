@@ -1,14 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ThemeToggle from "./themeToggle";
 import LanguageToggle from "./languageToggle";
 import "../../styles/settingsMenu.css";
 
 const SettingsMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Cerrar al hacer clic fuera del modal
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && isOpen) {
+        // Verificar que el click no sea en el botón hamburguesa
+        if (!event.target.classList.contains("hamburger-button")) {
+          closeMenu();
+        }
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <div className="settings-menu">
@@ -19,16 +44,16 @@ const SettingsMenu = () => {
 
       {/* Modal flotante */}
       {isOpen && (
-        <div className="menu-modal">
+        <div className="menu-modal" ref={menuRef}>
           <div className="menu-header">
             <h3>Configuración</h3>
-            <button className="close-button" onClick={toggleMenu}>
+            <button className="close-button" onClick={closeMenu}>
               ✖
             </button>
           </div>
           <div className="menu-options">
-            <ThemeToggle />
-            <LanguageToggle />
+            <ThemeToggle onToggle={closeMenu} />
+            <LanguageToggle onToggle={closeMenu} />
           </div>
         </div>
       )}

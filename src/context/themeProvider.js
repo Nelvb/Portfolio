@@ -22,9 +22,11 @@ const ThemeProvider = ({ children }) => {
     // Lógica para manejar los estilos según el tema
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
+      document.body.classList.remove("day-mode");
       localStorage.setItem("theme", "dark");
     } else {
       document.body.classList.remove("dark-mode");
+      document.body.classList.add("day-mode");
       localStorage.setItem("theme", "light");
     }
   }, [isDarkMode]);

@@ -69,6 +69,15 @@
   width: 100%;
   height: 100%;
   border-radius: 15px;
+  overflow: hidden;
+  background: transparent;
+  /* Eliminar fondo para evitar esquinas blancas */
+}
+
+/* Asegurar que la imagen de la card marcada tenga el mismo border-radius */
+.slide .project-card:nth-child(1) .project-card-image,
+.slide .project-card:nth-child(2) .project-card-image {
+  border-radius: 15px;
 }
 
 /* Estilo específico para el pseudo-elemento ::before del segundo elemento */

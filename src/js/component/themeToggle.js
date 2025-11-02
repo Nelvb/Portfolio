@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/themeToggle.css"; // Importar estilos del botón
 import "../../styles/dayTheme.css"; // Importar los estilos del tema día
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ onToggle }) => {
   const [isDayMode, setIsDayMode] = useState(() => {
     // Inicializar el estado basado en si `body` tiene la clase `day-mode`
     return document.body.classList.contains("day-mode");
@@ -15,6 +15,11 @@ const ThemeToggle = () => {
       document.body.classList.add("day-mode"); // Añadir modo día
     }
     setIsDayMode(!isDayMode); // Actualizar el estado
+
+    // Cerrar el modal si se proporciona la función
+    if (onToggle) {
+      onToggle();
+    }
   };
 
   useEffect(() => {
