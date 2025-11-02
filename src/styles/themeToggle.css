@@ -72,11 +72,11 @@
 }
 
 .theme-toggle.day-active span:last-child {
-  filter: grayscale(100%) brightness(0.3);
+  filter: grayscale(100%) brightness(1.2) opacity(0.7);
 }
 
 .theme-toggle.night-active span:first-child {
-  filter: grayscale(100%) brightness(0.3);
+  filter: grayscale(100%) brightness(1.2) opacity(0.7);
 }
 
 .theme-toggle.night-active span:last-child {

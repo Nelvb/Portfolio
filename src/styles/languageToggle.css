@@ -75,13 +75,15 @@
 }
 
 .language-toggle.es-active span:last-child {
-  filter: grayscale(100%) brightness(0.3);
-  color: #c0c0c0;
+  filter: none;
+  color: #d4d4d4;
+  opacity: 0.8;
 }
 
 .language-toggle.en-active span:first-child {
-  filter: grayscale(100%) brightness(0.3);
-  color: #c0c0c0;
+  filter: none;
+  color: #d4d4d4;
+  opacity: 0.8;
 }
 
 .language-toggle.en-active span:last-child {
