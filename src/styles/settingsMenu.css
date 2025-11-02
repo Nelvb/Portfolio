@@ -2,6 +2,39 @@
   position: relative;
 }
 
+/* Cuando hay un home-container, hacer que el app-container use flexbox para estirar solo el fondo gris */
+.app-container:has(.home-container) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container:has(.home-container) .footer-container {
+  margin-top: auto;
+}
+
+/* Cuando hay un contact-contain-container, hacer que el footer esté abajo */
+.app-container:has(.contact-contain-container) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container:has(.contact-contain-container) .footer-container {
+  margin-top: auto;
+}
+
+/* Cuando hay un projects-contain-container, hacer que el footer esté abajo */
+.app-container:has(.projects-contain-container) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container:has(.projects-contain-container) .footer-container {
+  margin-top: auto;
+}
+
 /* Botón de hamburguesa */
 .hamburger-button {
   background: none;

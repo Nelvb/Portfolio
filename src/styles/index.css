@@ -51,6 +51,22 @@ html.no-scroll {
   height: auto;
 }
 
+/* Cuando hay un contact-contain-container, hacer que main-container se estire hacia abajo sin mover el contenido */
+.app-container:has(.contact-contain-container) .main-container {
+  flex: 1;
+  min-height: 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Cuando hay un projects-contain-container, hacer que main-container se estire hacia abajo sin mover el contenido */
+.app-container:has(.projects-contain-container) .main-container {
+  flex: 1;
+  min-height: 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 /* Marco interno con borde degradado */
 .inner-frame {
   width: calc(100% - 2rem);

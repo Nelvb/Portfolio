@@ -122,14 +122,14 @@
   position: absolute;
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 240px;
   height: 100%;
   color: #eee;
   font-family: 'EB Garamond', serif;
   padding-left: 30px;
-  padding-top: 50px;
+  padding-top: 20px;
   box-sizing: border-box;
 }
 
@@ -370,7 +370,7 @@
     /* Ajustado proporcionalmente */
     padding: 8px;
     padding-left: 28px;
-    padding-top: 45px;
+    padding-top: 15px;
   }
 
   .content-card .des {
@@ -535,7 +535,7 @@
     width: 200px;
     padding: 8px;
     padding-left: 20px;
-    padding-top: 30px;
+    padding-top: 15px;
   }
 
   .slider-dots {
@@ -547,7 +547,7 @@
 
 
 
-@media (max-width: 870px) {
+@media (max-width: 1024px) {
   .projects-contain-container {
     margin-top: 3rem;
     padding-left: 20px;
@@ -575,12 +575,12 @@
     position: absolute;
     width: 100%;
     text-align: center;
-    padding-top: 20vh;
+    padding-top: 8vh;
     padding-left: 5vw;
     padding-right: 5vw;
     padding-bottom: 2vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
   }
@@ -622,7 +622,7 @@
 
   /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
-    padding: 15vh 5vw 5vh;
+    padding: 8vh 5vw 5vh;
     /* Espaciado dinámico (arriba, lados, abajo) */
   }
 
@@ -642,7 +642,7 @@
 
   /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
-    padding: 10vh 4vw 4vh;
+    padding: 6vh 4vw 4vh;
     /* Menos espacio en pantallas pequeñas */
   }
 
@@ -667,7 +667,7 @@
 
   /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
-    padding: 8vh 3vw 3vh;
+    padding: 5vh 3vw 3vh;
     /* Menor espacio en pantallas pequeñas */
   }
 
@@ -701,7 +701,7 @@
 
   /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
-    padding: 7vh 2vw 2vh;
+    padding: 4vh 2vw 2vh;
   }
 }
 
@@ -715,6 +715,6 @@
 
   /* Ajuste para la tarjeta visible */
   .slide .project-card:nth-child(2) .content-card {
-    padding: 5vh 2vw 2vh;
+    padding: 4vh 2vw 2vh;
   }
 }
