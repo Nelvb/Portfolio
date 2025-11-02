@@ -272,12 +272,6 @@
     padding-bottom: 40px;
   }
 
-  .home-container {
-    overflow-x: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
   .decorated-container {
     margin-top: 8rem;
     padding-top: 20px;
@@ -303,12 +297,6 @@
   .home-title-text {
     font-size: 3.5rem;
     margin-top: 4rem;
-  }
-
-  .home-container {
-    overflow-x: hidden;
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
   .home-inner-frame {
