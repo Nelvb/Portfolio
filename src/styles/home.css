@@ -279,6 +279,7 @@
   }
 
   .home-inner-frame {
+    margin-top: 10vh;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -343,9 +344,9 @@
   }
 }
 
-/* Móvil horizontal - más padding arriba */
-@media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
-  .home-container {
-    padding-top: 4vh;
+/* Móvil en horizontal */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .home-inner-frame {
+    margin-top: 16vh;
   }
 }
