@@ -1,10 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-display: swap;
-  /* Esto evita cambios bruscos de fuente */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   font-family: 'EB Garamond', Georgia, serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.app-container {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Estilos base para HTML y Body - se aplican inmediatamente */
@@ -84,6 +101,7 @@ html.no-scroll {
   margin-bottom: 6vh;
   position: relative;
   flex-direction: column;
+  max-width: 100%;
 }
 
 /* Línea superior con degradado en el centro */
@@ -114,6 +132,7 @@ html.no-scroll {
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 100%;
+  max-width: 100%;
 }
 
 /* Title */
@@ -132,6 +151,7 @@ html.no-scroll {
   align-items: center;
   gap: 3rem;
   margin-top: 2rem;
+  max-width: 100%;
 }
 
 
@@ -218,6 +238,8 @@ html.no-scroll {
   .main-container {
     height: auto;
     overflow-y: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
