@@ -32,8 +32,9 @@ const ThemeToggle = ({ onToggle }) => {
   }, []);
 
   return (
-    <button className="theme-toggle" onClick={toggleTheme}>
-      {isDayMode ? "🌙" : "☀️"}
+    <button className={`theme-toggle ${isDayMode ? 'day-active' : 'night-active'}`} onClick={toggleTheme}>
+      <span className={isDayMode ? 'active' : ''}>☀️</span>
+      <span className={!isDayMode ? 'active' : ''}>🌙</span>
     </button>
   );
 };

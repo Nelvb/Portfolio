@@ -14,8 +14,9 @@ const LanguageToggle = ({ onToggle }) => {
   };
 
   return (
-    <button className="language-toggle" onClick={handleToggle}>
-      {language === "es" ? "🇬🇧" : "🇪🇸"}
+    <button className={`language-toggle ${language === 'es' ? 'es-active' : 'en-active'}`} onClick={handleToggle}>
+      <span className={language === 'es' ? 'active' : ''}>ES</span>
+      <span className={language === 'en' ? 'active' : ''}>EN</span>
     </button>
   );
 };

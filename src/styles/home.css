@@ -102,9 +102,7 @@
   align-items: center;
   width: 100%;
   min-height: 400px;
-  padding: 40px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px 40px;
   margin-top: 3rem;
   margin-bottom: 3rem;
   /* border-radius: 18px; */
@@ -128,8 +126,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: auto;
-  transform: translateY(-30%);
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Contenedor de los enlaces */

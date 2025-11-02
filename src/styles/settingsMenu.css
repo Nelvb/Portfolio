@@ -59,13 +59,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+  backdrop-filter: blur(10px);
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 30px 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
   z-index: 20;
-  min-width: 300px;
+  min-width: 320px;
   max-width: 90%;
 }
 
@@ -74,27 +76,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu-header h3 {
   margin: 0;
   font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .close-button {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: white;
+  color: #c0c0c0;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 5px;
+}
+
+.close-button:hover {
+  color: white;
+  transform: rotate(90deg);
 }
 
 /* Opciones del menú */
 .menu-options {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
   align-items: center;
 }
 
@@ -110,6 +123,16 @@
 }
 
 .menu-options button:hover {
-  background: white;
-  color: black;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Iconos del modal en blanco */
+.menu-modal .theme-toggle,
+.menu-modal .language-toggle {
+  color: white;
+}
+
+.menu-modal .theme-toggle span,
+.menu-modal .language-toggle span {
+  color: white;
 }
