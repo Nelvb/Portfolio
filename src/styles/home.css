@@ -273,6 +273,7 @@
   }
 
   .home-container {
+    overflow-x: hidden;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -305,6 +306,7 @@
   }
 
   .home-container {
+    overflow-x: hidden;
     padding-left: 8px;
     padding-right: 8px;
   }

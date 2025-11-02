@@ -218,8 +218,15 @@ html.no-scroll {
   .main-container {
     height: auto;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .app-container {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 }
 
@@ -234,8 +241,15 @@ html.no-scroll {
   }
 
   .main-container {
+    overflow-x: hidden;
     padding-left: 8px;
     padding-right: 8px;
+  }
+
+  .app-container {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 }
 
