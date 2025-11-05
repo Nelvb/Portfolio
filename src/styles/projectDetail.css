@@ -1,3 +1,20 @@
+/**
+ * src/styles/projectDetail.css
+ * Estilos de la vista de detalle individual de proyecto.
+ * Define galería de imágenes, carousel, descripción y herramientas.
+ * 
+ * Funcionalidad:
+ * - Layout de dos columnas (descripción + galería)
+ * - Carousel de imágenes con navegación por flechas y dots
+ * - Transiciones suaves entre imágenes
+ * - Sección de tecnologías con badges
+ * - Botones de enlaces externos (GitHub, Demo)
+ * - Responsive: apila columnas en mobile
+ * 
+ * Componentes: .project-gallery-slider, .container-carousel, .tools-section
+ * 
+ * @author Nelson Valero
+ */
 /* Contenedor principal detalles*/
 .project-contain-detail {
   display: flex;

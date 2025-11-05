@@ -1,3 +1,19 @@
+/**
+ * src/js/views/skills.js
+ * Vista de habilidades técnicas con cards interactivas de tecnologías.
+ * Muestra tecnologías frontend, backend y herramientas con efecto flip 3D.
+ * 
+ * Funcionalidad:
+ * - Cards de tecnología con animación flip 3D al hover (CSS transform)
+ * - Animaciones de entrada escalonadas con anime.js
+ * - Estrategia dual: desktop (secuencial) vs mobile (on-scroll)
+ * - Tres categorías: frontend, backend, tools
+ * - Actualiza título dinámico para SEO
+ * 
+ * Características: Cards con perspectiva 3D, hover flip effect, lazy loading de imágenes
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import "../../styles/skills.css";
@@ -219,6 +235,7 @@ export const Skills = () => {
       { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627202/typescript_ymgaph.webp", name: "TypeScript" },
       { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627214/tailwind_icon_gf2x6r.webp", name: "Tailwind CSS" },
       { img: "https://i.ibb.co/TBrhsGj/bootstrap.png", name: "Bootstrap" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1762377751/portfolio/skills/vuejs-original_xhhbc5.svg", name: "Vue 3" },
     ],
     backend: [
       { img: "https://i.ibb.co/g7xk09Q/python.png", name: "Python" },
@@ -237,6 +254,9 @@ export const Skills = () => {
       { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744628711/jest_dvgt8s.webp", name: "Jest" },
       { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744628265/githubCodespace_yvbtqy.webp", name: "GitHub Codespaces" },
       { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/v1744627793/DockerSinFondo_gaa4zv.webp", name: "Docker" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1762377823/portfolio/skills/logo_ytr6wq.svg", name: "Vite" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1762378072/portfolio/skills/pytest-original_ifh2gw.svg", name: "Pytest" },
+      { img: "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1762377829/portfolio/skills/logo_iafp0t.svg", name: "Vitest" },
     ],
   };
 

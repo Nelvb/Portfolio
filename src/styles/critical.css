@@ -1,3 +1,19 @@
+/**
+ * src/styles/critical.css
+ * CSS crítico para mejorar First Contentful Paint (FCP).
+ * Estilos mínimos necesarios para renderizar el preloader y fondo inicial.
+ * 
+ * Funcionalidad:
+ * - Estilos base de html y body (gradiente, overflow)
+ * - Clases de estado de carga (is-loading, no-scroll)
+ * - Estilos del loader/preloader con spinner animado
+ * - Keyframes para animación del spinner
+ * - Transiciones de fade-out del loader
+ * 
+ * Optimización: Carga primero para reducir tiempo de FCP
+ * 
+ * @author Nelson Valero
+ */
 /* Estilos críticos para la carga inicial */
 html,
 body {

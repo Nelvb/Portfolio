@@ -1,3 +1,18 @@
+/**
+ * src/js/component/translations.js
+ * Objeto de traducciones i18n para soporte multiidioma (ES/EN).
+ * Contiene todas las cadenas de texto traducidas de la aplicación.
+ * 
+ * Estructura:
+ * - es: Traducciones en español
+ * - en: Traducciones en inglés
+ * - Organizado por sección: home, about, skills, projects, contact
+ * 
+ * Uso: Importado en languageContext.js y usado por todos los componentes
+ * mediante el hook useLanguage()
+ * 
+ * @author Nelson Valero
+ */
 export const translations = {
     es: {
         home: {

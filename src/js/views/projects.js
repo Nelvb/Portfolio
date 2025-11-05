@@ -1,3 +1,19 @@
+/**
+ * src/js/views/projects.js
+ * Vista principal de proyectos con slider interactivo.
+ * Lista todos los proyectos con navegación por dots y flechas.
+ * 
+ * Funcionalidad:
+ * - Renderiza ProjectsSection con slider de proyectos
+ * - Animaciones de entrada para título y sección de proyectos
+ * - Estrategia dual: desktop (secuencial) vs mobile (on-scroll)
+ * - Links de navegación animados al final
+ * - Actualiza título dinámico para SEO
+ * 
+ * Dependencias: ProjectsSection (componente con lógica del slider)
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import "../../styles/projects.css";

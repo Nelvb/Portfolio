@@ -1,3 +1,20 @@
+/**
+ * src/styles/projects.css
+ * Estilos del slider de proyectos con cards animadas.
+ * Define el slider horizontal, cards con overlay y navegación por dots.
+ * 
+ * Funcionalidad:
+ * - Slider horizontal con transform CSS para transiciones
+ * - Cards con imagen de fondo y contenido superpuesto
+ * - Overlay con blur para mejor legibilidad
+ * - Navegación por dots y flechas con hover effects
+ * - Animaciones keyframes para contenido de cards
+ * - Responsive: oculta cards en mobile, muestra solo una
+ * 
+ * Características: Slider horizontal, overlay blur, animaciones de entrada
+ * 
+ * @author Nelson Valero
+ */
 .projects-contain-container {
   display: flex;
   align-items: center;

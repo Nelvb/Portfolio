@@ -1,3 +1,19 @@
+/**
+ * src/js/component/themeToggle.js
+ * Componente toggle para cambiar entre modo oscuro y claro.
+ * Sincroniza estado local con ThemeContext y localStorage.
+ * 
+ * Funcionalidad:
+ * - Botón toggle con iconos (luna/sol) según tema actual
+ * - Lee estado inicial desde localStorage o body.classList
+ * - Ejecuta callback onToggle al cambiar tema
+ * - Persiste preferencia en localStorage
+ * - Aplica clase day-mode/dark-mode al body
+ * 
+ * Dependencias: ThemeContext (desde themeProvider), dayTheme.css
+ * 
+ * @author Nelson Valero
+ */
 import React, { useState, useEffect } from "react";
 import "../../styles/themeToggle.css"; // Importar estilos del botón
 import "../../styles/dayTheme.css"; // Importar los estilos del tema día

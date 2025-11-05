@@ -1,3 +1,20 @@
+/**
+ * src/styles/index.css
+ * Estilos globales y base de la aplicación.
+ * Define estilos comunes, layout principal, navegación y responsive breakpoints.
+ * 
+ * Funcionalidad:
+ * - Reset CSS y estilos base (html, body, #root)
+ * - Layout principal (.main-container, .inner-frame)
+ * - Estilos de navegación (.nav-link con hover effects)
+ * - Títulos globales (.title-text)
+ * - Media queries responsive para todos los tamaños
+ * - Gradientes de fondo y bordes decorativos
+ * 
+ * Clases principales: .main-container, .inner-frame, .nav-link, .title-text
+ * 
+ * @author Nelson Valero
+ */
 * {
   box-sizing: border-box;
 }

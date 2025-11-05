@@ -1,3 +1,20 @@
+/**
+ * src/js/layout.js
+ * Layout principal de la aplicación con routing y providers.
+ * Define la estructura de rutas y componentes globales.
+ * 
+ * Funcionalidad:
+ * - Configura React Router con todas las rutas de la aplicación
+ * - Precarga imágenes críticas para mejorar LCP
+ * - Envuelve la app en providers (Language, Animation, Router)
+ * - Incluye componentes globales: SettingsMenu, Footer, ScrollToTop
+ * 
+ * Rutas:
+ * / → Home, /about → AboutMe, /skills → Skills, /projects → Projects,
+ * /project/:id → ProjectDetail, /contact → Contact
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";

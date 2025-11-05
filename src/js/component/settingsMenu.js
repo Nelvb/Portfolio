@@ -1,3 +1,19 @@
+/**
+ * src/js/component/settingsMenu.js
+ * Menú flotante de configuración global con toggles de tema e idioma.
+ * Menú hamburguesa que se muestra/oculta con animación.
+ * 
+ * Funcionalidad:
+ * - Botón hamburguesa flotante con estado abierto/cerrado
+ * - Cierra automáticamente al hacer click fuera (useRef + event listener)
+ * - Integra ThemeToggle y LanguageToggle
+ * - Animación de entrada/salida del menú
+ * - Posicionamiento fijo en pantalla
+ * 
+ * Componentes hijos: ThemeToggle, LanguageToggle
+ * 
+ * @author Nelson Valero
+ */
 import React, { useState, useEffect, useRef } from "react";
 import ThemeToggle from "./themeToggle";
 import LanguageToggle from "./languageToggle";

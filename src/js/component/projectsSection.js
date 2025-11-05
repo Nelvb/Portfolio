@@ -1,3 +1,19 @@
+/**
+ * src/js/component/projectsSection.js
+ * Componente principal del slider de proyectos.
+ * Gestiona la navegación, animaciones y renderizado de cards de proyectos.
+ * 
+ * Funcionalidad:
+ * - Slider horizontal con navegación por flechas y dots
+ * - Animación de transición entre proyectos con transform CSS
+ * - Lógica de navegación circular (siguiente/anterior)
+ * - Renderiza ProjectsCard para cada proyecto
+ * - Responsive: oculta cards adicionales en mobile
+ * 
+ * Dependencias: ProjectsData (datos), ProjectsCard (componente de card)
+ * 
+ * @author Nelson Valero
+ */
 import React, { useRef, useState, useEffect } from "react";
 import "../../styles/projects.css";
 import { ProjectsCard } from "./projectsCard";

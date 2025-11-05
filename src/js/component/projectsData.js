@@ -1,3 +1,21 @@
+/**
+ * src/js/component/projectsData.js
+ * Base de datos estática de proyectos del portfolio.
+ * Contiene toda la información de cada proyecto: imágenes, descripciones, tecnologías, enlaces.
+ * 
+ * Estructura:
+ * - id: Identificador único
+ * - backgroundImage: URL de imagen principal
+ * - name: Nombre del proyecto
+ * - description: Objeto con traducciones ES/EN
+ * - technologies: Array de tecnologías usadas
+ * - images: Array de URLs para galería
+ * - links: Objeto con enlaces (github, demo, etc.)
+ * 
+ * Uso: Importado en ProjectsSection y ProjectDetail para renderizar proyectos
+ * 
+ * @author Nelson Valero
+ */
 export const ProjectsData = [
   {
     id: 1,
@@ -127,7 +145,7 @@ export const ProjectsData = [
         "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto,w_1200,h_900,c_limit/v1751546720/side-menu-movil_jdnszv.webp"
       ],
     },
-    projectUrl: "https://lhc-frontend.fly.dev",
+    projectUrl: "https://lhc-legal-consulting.vercel.app/",
     repoUrl: "https://github.com/Nelvb/LHC-Legal-And-Consulting",
   },
   {

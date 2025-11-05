@@ -1,3 +1,19 @@
+/**
+ * src/js/views/aboutMe.js
+ * Vista "Sobre Mí" con información personal y profesional.
+ * Incluye tarjeta interactiva con efecto flip 3D.
+ * 
+ * Funcionalidad:
+ * - Animaciones adaptativas según tamaño de pantalla
+ * - Efecto de escritura typewriter en pantallas medianas
+ * - Tarjeta con flip automático (front → back → front)
+ * - Actualiza título dinámico para SEO
+ * - Links de navegación con animaciones escalonadas
+ * 
+ * Características: Card 3D flip, animaciones on-scroll en mobile
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs/lib/anime.es.js";

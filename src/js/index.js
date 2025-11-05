@@ -1,4 +1,16 @@
-// import react into the bundle
+/**
+ * src/js/index.js
+ * Punto de entrada principal de la aplicación React.
+ * Maneja el renderizado inicial, preloader y configuración de providers globales.
+ * 
+ * Funcionalidad:
+ * - Renderiza la app con createRoot (React 19+)
+ * - Gestiona la animación y eliminación del preloader HTML
+ * - Envuelve la app en ThemeProvider para gestión de temas
+ * - Carga estilos críticos primero para mejorar FCP
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 

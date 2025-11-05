@@ -1,9 +1,18 @@
 /**
- * languageContext.js — Contexto global de idioma (es/en).
- * Extraído desde layout.js para seguir la arquitectura modular de contextos.
- * Mantiene compatibilidad con el hook useLanguage usado por 9 componentes.
+ * src/context/languageContext.js
+ * Contexto global de idioma (ES/EN) para toda la aplicación.
+ * Gestiona el estado del idioma y proporciona traducciones dinámicas.
+ * 
+ * Funcionalidad:
+ * - Estado del idioma actual (es/en) con useState
+ * - Persistencia en localStorage para mantener preferencia
+ * - Función toggleLanguage() para cambiar idioma
+ * - Provider que envuelve toda la app
+ * - Hook useLanguage() para acceder desde componentes
+ * 
+ * Dependencias: translations.js (objeto de traducciones)
+ * 
  * @author Nelson Valero
- * @since v1.0.3
  */
 
 import React, { createContext, useState, useContext, useEffect } from "react";

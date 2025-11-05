@@ -1,3 +1,19 @@
+/**
+ * src/styles/loader.css
+ * Estilos del preloader/loader de la aplicación.
+ * Spinner animado que se muestra mientras carga React.
+ * 
+ * Funcionalidad:
+ * - Loader fullscreen con gradiente de fondo
+ * - Spinner circular con animación de rotación
+ * - Fade-out transition cuando React está listo
+ * - Z-index alto para estar sobre todo el contenido
+ * - Keyframes para animación suave del spinner
+ * 
+ * Uso: Se elimina automáticamente desde index.js cuando React monta
+ * 
+ * @author Nelson Valero
+ */
 /* Contenedor principal del loader */
 .loader-container {
     position: fixed;

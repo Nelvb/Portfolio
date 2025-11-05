@@ -1,3 +1,19 @@
+/**
+ * src/styles/dayTheme.css
+ * Estilos del tema claro (day mode) que sobrescriben el tema oscuro.
+ * Se aplica cuando body tiene la clase .day-mode.
+ * 
+ * Funcionalidad:
+ * - Sobrescribe colores de fondo (gradientes claros)
+ * - Cambia colores de texto a oscuros para contraste
+ * - Ajusta estilos de componentes en modo claro
+ * - Modifica hover effects y estados interactivos
+ * - Estilos específicos para: home, nav-links, skills cards, contact, projects
+ * 
+ * Selector principal: body.day-mode (aplicado por ThemeProvider)
+ * 
+ * @author Nelson Valero
+ */
 body.day-mode .home-container {
   background: #ffffff;
   background: linear-gradient(to right, #cccccc, #ffffff);

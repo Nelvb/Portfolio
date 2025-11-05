@@ -1,3 +1,20 @@
+/**
+ * src/styles/aboutMe.css
+ * Estilos de la vista "Sobre Mí" con tarjeta interactiva.
+ * Define layout, tarjeta con efecto flip 3D y tipografía.
+ * 
+ * Funcionalidad:
+ * - Layout de dos columnas (texto + tarjeta)
+ * - Tarjeta con efecto flip 3D (front/back)
+ * - Transiciones suaves para flip de tarjeta
+ * - Tipografía con sombras y efectos de texto
+ * - Enlaces de CV con hover effects
+ * - Responsive: apila elementos en mobile
+ * 
+ * Características: 3D card flip, text shadows, responsive layout
+ * 
+ * @author Nelson Valero
+ */
 /* Contenedor para la descripción, tarjeta y botón */
 .about-contain-container {
   display: flex;

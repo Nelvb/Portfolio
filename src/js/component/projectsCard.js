@@ -1,3 +1,19 @@
+/**
+ * src/js/component/projectsCard.js
+ * Componente de card individual de proyecto para el slider.
+ * Muestra imagen, nombre, descripción y botón de navegación al detalle.
+ * 
+ * Funcionalidad:
+ * - Renderiza card con imagen de fondo y contenido superpuesto
+ * - Animación de entrada con delay basado en tamaño de pantalla
+ * - Navegación a ProjectDetail al hacer click en botón
+ * - Lazy loading de imágenes (excepto primera card)
+ * - Sincroniza estado de animación con AnimationContext
+ * 
+ * Props: id, backgroundImage, name, description, index
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAnimation } from "./animationContext";

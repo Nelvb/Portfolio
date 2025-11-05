@@ -1,9 +1,18 @@
 /**
- * themeProvider.js — Contexto global de tema (oscuro/claro).
- * Limpieza: eliminada carga dinámica redundante de CSS.
- * Motivo: Webpack ya inyecta el CSS mediante import y el link apuntaba a un recurso inexistente en producción.
+ * src/context/themeProvider.js
+ * Provider del sistema de temas (dark/light mode).
+ * Gestiona el estado global del tema y aplica clases CSS al body.
+ * 
+ * Funcionalidad:
+ * - Estado del tema (isDarkMode) con persistencia en localStorage
+ * - Aplica clase day-mode o dark-mode al body según el tema
+ * - Función toggleTheme() para cambiar entre temas
+ * - Lee estado inicial desde localStorage o usa dark por defecto
+ * - Sincroniza preferencia del usuario automáticamente
+ * 
+ * Dependencias: themeContext.js (contexto base), dayTheme.css (estilos tema claro)
+ * 
  * @author Nelson Valero
- * @since v1.0.3
  */
 import React, { useState, useEffect } from "react";
 import { ThemeContext } from "./themeContext";

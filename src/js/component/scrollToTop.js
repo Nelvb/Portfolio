@@ -1,3 +1,18 @@
+/**
+ * src/js/component/scrollToTop.js
+ * Componente wrapper que ejecuta scroll al top al cambiar de ruta.
+ * Mejora la UX asegurando que cada nueva página comience desde arriba.
+ * 
+ * Funcionalidad:
+ * - Detecta cambios de ruta con useLocation hook
+ * - Ejecuta scroll suave al top cuando cambia la ruta
+ * - Limpia clases que bloquean scroll (is-loading, no-scroll)
+ * - Configura overflow correctamente (hidden en html, auto en body)
+ * 
+ * Uso: Envuelve Routes en layout.js para aplicar a todas las rutas
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 

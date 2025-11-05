@@ -1,3 +1,19 @@
+/**
+ * src/js/component/useScrollAnimation.js
+ * Custom hook para animaciones basadas en scroll usando IntersectionObserver.
+ * Optimiza performance evitando animaciones innecesarias fuera del viewport.
+ * 
+ * Funcionalidad:
+ * - Observa elementos con clase .scroll-animated
+ * - Ejecuta animación fade-in + translateY cuando elemento entra en viewport
+ * - Usa IntersectionObserver API para mejor performance
+ * - Unobserve después de animar para evitar repeticiones
+ * - Cleanup automático al desmontar componente
+ * 
+ * Uso: Importar y llamar en componentes que necesiten animación on-scroll
+ * 
+ * @author Nelson Valero
+ */
 import { useEffect } from "react";
 import anime from "animejs";
 

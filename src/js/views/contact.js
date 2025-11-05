@@ -1,3 +1,20 @@
+/**
+ * src/js/views/contact.js
+ * Vista de contacto con formulario funcional y validación.
+ * Integra EmailJS para envío de emails y validación de correos con backend Flask.
+ * 
+ * Funcionalidad:
+ * - Formulario de contacto con validación de campos
+ * - Envío de emails mediante EmailJS
+ * - Validación de email con API backend (MailboxLayer)
+ * - Animaciones de entrada para todos los elementos
+ * - Alertas personalizadas para feedback al usuario
+ * - Iconos de redes sociales con enlaces
+ * 
+ * Integraciones: EmailJS, Backend Flask (validación email), CustomAlert component
+ * 
+ * @author Nelson Valero
+ */
 import React, { useState, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import emailjs from "emailjs-com";

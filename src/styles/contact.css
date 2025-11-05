@@ -1,3 +1,20 @@
+/**
+ * src/styles/contact.css
+ * Estilos del formulario de contacto y sección de información.
+ * Define layout, formulario estilizado y efectos de hover.
+ * 
+ * Funcionalidad:
+ * - Layout de dos columnas (info contacto + formulario)
+ * - Formulario con inputs estilizados y efectos glassmorphism
+ * - Iconos de redes sociales con hover effects
+ * - Validación visual de campos (focus states)
+ * - Botón de envío con transiciones
+ * - Responsive: apila columnas en pantallas pequeñas
+ * 
+ * Componentes: .contact-form, .contact-item, .social-icon
+ * 
+ * @author Nelson Valero
+ */
 /* Contenedor principal */
 .contact-contain-container {
   display: flex;

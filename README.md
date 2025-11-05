@@ -1,143 +1,265 @@
-# 🌟 Portafolio Personal de Nelson Valero 🌟
+# 📋 Portfolio Full Stack - Nelson Valero
 
-¡Bienvenido a mi portafolio personal!  
-Aquí encontrarás una recopilación de mis proyectos, habilidades y experiencia como desarrollador Full Stack. 🚀
+Portfolio profesional desarrollado con React, implementando animaciones avanzadas, gestión de estado con Context API, routing dinámico y optimizaciones de rendimiento.
 
----
+## 🛠️ Stack Tecnológico
 
-## 🖥️ Descripción General
+### Frontend Core
+- **React 19.0.0** - Biblioteca UI con hooks y Context API
+- **React Router 7.0.2** - Enrutamiento SPA con lazy loading
+- **Anime.js 3.2.2** - Animaciones performantes y escalonadas
+- **Webpack 5.97.1** - Bundling con code splitting y optimizaciones
 
-Este portafolio está diseñado para presentar mi trabajo de manera profesional y atractiva.     
-Incluye una introducción sobre mí, mis habilidades, proyectos destacados y una forma de contactarme fácilmente.
-El portafolio está desplegado en **Vercel** para una experiencia rápida y fiable.
+### Estilos y UX
+- **CSS3** - Estilos modulares por componente
+- **Responsive Design** - Media queries adaptativos
+- **Theme System** - Modo oscuro/claro con Context API
+- **Boxicons** - Iconografía vectorial
 
----
+### Backend y Servicios
+- **Flask** - API serverless para validación de emails
+- **EmailJS 3.2.0** - Servicio de envío de formularios
+- **Axios 1.7.7** - Cliente HTTP para APIs externas
+- **MailboxLayer API** - Validación de correos electrónicos
 
-## 🛠️ Tecnologías Utilizadas
-
-- **Frontend:** HTML5, CSS3, React.js, Anime.js
-- **Backend:** Flask, Python
-- **Email Validation:** MailboxLayer API
-- **Formulario de Contacto:** EmailJS
-- **Despliegue:** Vercel
-- **Empaquetado:** Webpack
-
----
-
-## 🌟 Características
-
-- **Tema Dual:** Cambio entre modo oscuro y claro adaptado a tus preferencias
-- **Multilenguaje:** Disponible en español e inglés
-- **Animaciones Adaptativas:** Diferentes animaciones para dispositivos móviles y desktop usando **Anime.js**
-- **Diseño Completamente Responsivo:** Experiencia óptima en cualquier dispositivo
-- **Validación de Correos:** Validación segura mediante **MailboxLayer API**
-- **Secciones Organizadas:**
-  - **Inicio:** Una introducción con animaciones atractivas
-  - **Sobre Mí:** Información personal y profesional
-  - **Habilidades:** Tecnologías y competencias técnicas
-  - **Proyectos:** Trabajos destacados con detalles, imágenes y enlaces
-  - **Contacto:** Formulario para enviarme mensajes directamente con validación
+### Build y Deploy
+- **Webpack Dev Server** - Hot reload en desarrollo
+- **Babel** - Transpilación ES6+ y JSX
+- **Vercel** - Deploy con CI/CD automático
+- **GH-Pages** - Deploy alternativo
 
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto Localmente
+## 📁 Estructura del Proyecto
 
-### Frontend
-
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/Nelvb/Portfolio.git
-   cd Portfolio
-   ```
-
-2. **Instalar las dependencias:**
-   ```bash
-   npm install
-   ```
-
-3. **Configurar variables de entorno:**
-   Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
-   ```
-   REACT_APP_EMAILJS_USER_ID=tu_user_id
-   REACT_APP_EMAILJS_SERVICE_ID=tu_service_id
-   REACT_APP_EMAILJS_TEMPLATE_ID=tu_template_id
-   REACT_APP_BACKEND_URL=http://localhost:5000
-   ```
-
-4. **Iniciar el servidor de desarrollo:**
-   ```bash
-   npm start
-   ```
-
-### Backend (Servicio de Validación de Email)
-
-1. **Navegar a la carpeta del backend:**
-   ```bash
-   cd email-verification-backend
-   ```
-
-2. **Configurar el entorno virtual:**
-   ```bash
-   pip install flask flask-cors requests
-   ```
-
-3. **Configurar la API key de MailboxLayer:**
-   Crea una variable de entorno `MAILBOXLAYER_API_KEY` con tu clave de API.
-
-4. **Iniciar el servidor Flask:**
-   ```bash
-   python verify_email.py
-   ```
-
-5. **Abrir en el navegador:**
-   El proyecto estará disponible en http://localhost:3000
-
----
-
-## 🌍 Despliegue
-
-El frontend está desplegado en **Vercel** para ofrecer un servicio rápido y fiable a los visitantes. El backend para validación de correos electrónicos está implementado como una función serverless para mantener un flujo de trabajo seguro.
-
----
-
-## 📱 Características Responsivas
-
-El portafolio cuenta con un diseño adaptativo que ofrece:
-
-- **Animaciones Optimizadas:** Diferentes efectos visuales según el dispositivo para mejorar el rendimiento
-- **Navegación Adaptativa:** Menú y elementos de interfaz optimizados para pantallas pequeñas
-- **Carga Progresiva:** Elementos que se animan al entrar en el viewport en dispositivos móviles
-- **Experiencia Táctil Mejorada:** Interacciones optimizadas para dispositivos táctiles
-
----
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Si tienes ideas para mejorar el portafolio, no dudes en abrir un issue o enviar un pull request.
-
----
-
-## 📧 Contacto
-
-- **Email:** nelsonvbarcelona@gmail.com
-- **GitHub:** [github.com/Nelvb](https://github.com/Nelvb)
-- **LinkedIn:** [linkedin.com/in/nelvb](https://linkedin.com/in/nelvb)
-- **Portfolio:** [portfolio-nelvbs-projects.vercel.app](https://portfolio-nelvbs-projects.vercel.app)
-
----
-
-## 📸 Capturas de Pantalla
-
-El portafolio incluye varias secciones con diseños atractivos tanto en modo claro como oscuro:
-
-- Página de inicio con animaciones de bienvenida
-- Sección "Sobre mí" con información profesional
-- Visualización interactiva de habilidades técnicas
-- Galería de proyectos con modales detallados
-- Formulario de contacto con validación
+```
+Nelvb-portfolio/
+│
+├── build/                          # Build de producción (generado)
+│   ├── bundle.js                    # Bundle principal optimizado
+│   ├── index.html                   # HTML generado
+│   ├── styles/
+│   │   └── dayTheme.css             # Tema claro (copiado)
+│   └── Nelson_Valero_Barcelona_Resume.pdf
+│
+├── docs/                            # Documentación técnica
+│   ├── ANALISIS_SEO_DINAMICO.md
+│   ├── AUDITORIA_IMAGENES.md
+│   ├── REPORTE_LAZY_LOADING_*.md
+│   └── TECNOLOGIAS_USADAS.md
+│
+├── email-verification-backend/     # Backend Flask
+│   └── verify_email.py              # Endpoint de validación email
+│
+├── public/                          # Assets estáticos públicos
+│   └── Nelson_Valero_Barcelona_Resume.pdf
+│
+├── src/                             # Código fuente principal
+│   │
+│   ├── context/                     # Context API providers
+│   │   ├── languageContext.js       # Gestión de idiomas (ES/EN)
+│   │   ├── themeContext.js          # Estado del tema (dark/light)
+│   │   └── themeProvider.js        # Provider wrapper del tema
+│   │
+│   ├── img/                         # Imágenes y assets
+│   │   ├── logo_nel-sin-fondo.webp
+│   │   ├── imagen Nel.jpg
+│   │   └── hoyNoCocino/             # Imágenes de proyectos
+│   │
+│   ├── js/                          # Código JavaScript/React
+│   │   │
+│   │   ├── component/               # Componentes reutilizables
+│   │   │   ├── animationContext.js  # Context para estado de animaciones
+│   │   │   ├── customAlert.js       # Componente de alertas personalizadas
+│   │   │   ├── footer.js            # Footer con redes sociales
+│   │   │   ├── languageToggle.js    # Switch de idioma
+│   │   │   ├── projectsCard.js      # Card individual de proyecto
+│   │   │   ├── projectsData.js      # Datos estáticos de proyectos
+│   │   │   ├── projectsSection.js   # Sección completa de proyectos
+│   │   │   ├── scrollToTop.js       # Scroll automático al cambiar ruta
+│   │   │   ├── settingsMenu.js      # Menú de configuración global
+│   │   │   ├── themeToggle.js       # Switch de tema
+│   │   │   ├── translations.js      # Traducciones i18n
+│   │   │   └── useScrollAnimation.js # Hook para animaciones on scroll
+│   │   │
+│   │   ├── views/                   # Páginas/Vistas principales
+│   │   │   ├── home.js              # Landing page con animaciones
+│   │   │   ├── aboutMe.js           # Sección "Sobre mí"
+│   │   │   ├── skills.js            # Cards de tecnologías con flip 3D
+│   │   │   ├── projects.js          # Lista de proyectos con slider
+│   │   │   ├── projectDetail.js     # Detalle de proyecto individual
+│   │   │   └── contact.js           # Formulario con validación
+│   │   │
+│   │   ├── index.js                 # Entry point de React
+│   │   └── layout.js                # Layout principal con routing
+│   │
+│   └── styles/                      # Estilos CSS modulares
+│       ├── index.css                # Estilos globales y nav-link
+│       ├── critical.css             # CSS crítico para FCP
+│       ├── loader.css               # Preloader
+│       ├── home.css                 # Estilos específicos de Home
+│       ├── aboutMe.css              # Estilos de "Sobre mí"
+│       ├── skills.css               # Cards de tecnologías (3D flip)
+│       ├── projects.css              # Slider de proyectos
+│       ├── projectDetail.js          # Detalle de proyecto
+│       ├── contact.css               # Formulario de contacto
+│       ├── dayTheme.css              # Tema claro (sobrescribe estilos)
+│       ├── footer.css                # Footer
+│       ├── customAlert.css           # Alertas personalizadas
+│       ├── settingsMenu.css          # Menú de configuración
+│       ├── themeToggle.css           # Toggle de tema
+│       └── languageToggle.css        # Toggle de idioma
+│
+├── node_modules/                    # Dependencias npm
+│
+├── template.html                    # Template base para Webpack
+├── webpack.common.js                # Configuración común de Webpack
+├── webpack.dev.js                   # Config dev (HMR, source maps)
+├── webpack.prod.js                  # Config prod (minificación, optimización)
+├── package.json                     # Dependencias y scripts
+├── vercel.json                      # Configuración de deploy Vercel
+├── updateEnv.js                     # Script de actualización de env
+└── CHANGELOG.md                     # Historial de cambios
+```
 
 ---
 
-## 📄 Licencia
+## 🏗️ Arquitectura del Código
 
-Este proyecto está disponible como código abierto bajo la licencia MIT.
+### Punto de Entrada
+**`src/js/index.js`** - Renderiza la app React con `createRoot`, maneja el preloader HTML y envuelve la aplicación en `ThemeProvider`.
+
+### Routing
+**`src/js/layout.js`** - Define las rutas con React Router:
+- `/` → Home
+- `/about` → AboutMe
+- `/skills` → Skills
+- `/projects` → Projects
+- `/project/:id` → ProjectDetail (dinámico)
+- `/contact` → Contact
+
+Incluye providers anidados: `LanguageProvider` → `AnimationProvider` → `BrowserRouter`.
+
+### Gestión de Estado
+
+#### Context API
+- **`animationContext.js`**: Controla qué animaciones ya se ejecutaron para evitar repeticiones en navegación.
+- **`languageContext.js`**: Estado del idioma (ES/EN) con traducciones dinámicas.
+- **`themeContext.js`**: Estado del tema (dark/light) persistido.
+
+### Animaciones
+
+#### Estrategia Dual
+- **Desktop**: Animaciones secuenciales con `anime.js` al montar componente.
+- **Mobile**: Animaciones on-scroll usando `IntersectionObserver` para mejor performance.
+
+#### Archivos Clave
+- **`home.js`**: Animaciones de entrada con stagger para links.
+- **`skills.js`**: Cards de tecnología con animación de entrada + hover 3D flip.
+- **`projects.js`**: Slider animado con transiciones suaves.
+- **`useScrollAnimation.js`**: Hook para animaciones basadas en scroll.
+
+### Estilos CSS
+
+#### Estructura Modular
+Cada vista tiene su CSS asociado. Los estilos globales en `index.css` definen:
+- `.nav-link`: Transiciones y hover effects
+- `.main-container`: Layout principal
+- `.inner-frame`: Marco con borde degradado
+
+#### Tema Dual
+`dayTheme.css` sobrescribe estilos en modo claro usando `body.day-mode` como selector padre.
+
+### Componentes Reutilizables
+
+- **`projectsSection.js`**: Slider de proyectos con navegación por dots.
+- **`customAlert.js`**: Alertas personalizadas para feedback de usuario.
+- **`settingsMenu.js`**: Menú flotante con toggles de tema/idioma.
+- **`scrollToTop.js`**: Scroll automático al cambiar de ruta.
+
+---
+
+## ⚙️ Configuración de Build
+
+### Webpack
+- **Entry**: `src/js/index.js`
+- **Output**: `build/bundle.js` (minificado en producción)
+- **Loaders**: Babel (JS/JSX), CSS, File-loader (imágenes)
+- **Plugins**: CleanWebpackPlugin, HtmlWebpackPlugin, CopyWebpackPlugin
+
+### Scripts NPM
+```bash
+npm start          # Dev server (webpack-dev-server)
+npm run build      # Build de producción
+npm run deploy     # Build + deploy a GH-Pages
+npm run vercel-build  # Build para Vercel
+```
+
+### Variables de Entorno
+- `REACT_APP_EMAILJS_*` - Configuración EmailJS
+- `REACT_APP_BACKEND_URL` - URL del backend Flask
+- `BASENAME` - Base path para routing (configurado en Webpack)
+
+---
+
+## 🎨 Características Técnicas
+
+### Performance
+- **Lazy Loading**: Imágenes con `loading="lazy"`
+- **Code Splitting**: Webpack divide bundles por ruta
+- **Critical CSS**: `critical.css` carga primero para mejor FCP
+- **Image Optimization**: WebP con fallback, optimización en Cloudinary
+
+### SEO
+- Títulos dinámicos por ruta (`useEffect` en cada vista)
+- Meta tags configurables
+- URLs semánticas (`/project/:id`)
+
+### Responsive
+- Breakpoints: 768px (mobile), 1024px (tablet), 1600px+ (desktop)
+- Animaciones adaptativas según tamaño de pantalla
+- Layout flexbox/grid adaptativo
+
+---
+
+## 📦 Dependencias Principales
+
+```json
+{
+  "react": "^19.0.0",
+  "react-router-dom": "^7.0.2",
+  "animejs": "^3.2.2",
+  "axios": "^1.7.7",
+  "emailjs-com": "^3.2.0",
+  "webpack": "^5.97.1",
+  "@babel/preset-react": "^7.26.3"
+}
+```
+
+---
+
+## 🚀 Deploy
+
+### Vercel (Producción)
+- Build automático en push a `main`
+- Variables de entorno configuradas en dashboard
+- Configuración en `vercel.json`
+
+### Desarrollo Local
+```bash
+npm install
+npm start  # http://localhost:3000
+```
+
+---
+
+## 📝 Notas para Desarrolladores
+
+- **Animaciones**: Evitar animaciones en mobile para mejor performance. Usar `IntersectionObserver` en lugar de scroll listeners.
+- **Estado**: El `animationContext` previene animaciones duplicadas al navegar entre rutas.
+- **Tema**: Los estilos del tema claro están en `dayTheme.css` y se aplican con `body.day-mode`.
+- **Routing**: El `basename` se configura en Webpack para compatibilidad con subdirectorios.
+
+---
+
+**Desarrollado por Nelson Valero Barcelona** | [GitHub](https://github.com/Nelvb) | [LinkedIn](https://linkedin.com/in/nelvb)

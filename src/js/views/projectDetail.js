@@ -1,3 +1,20 @@
+/**
+ * src/js/views/projectDetail.js
+ * Vista de detalle individual de un proyecto.
+ * Muestra información completa, galería de imágenes y tecnologías usadas.
+ * 
+ * Funcionalidad:
+ * - Obtiene ID del proyecto desde URL params
+ * - Renderiza galería de imágenes con slider/carousel
+ * - Muestra descripción completa, tecnologías y enlaces
+ * - Animaciones complejas con timeline de anime.js
+ * - Navegación entre imágenes con dots y flechas
+ * - Actualiza título dinámico para SEO
+ * 
+ * Características: Carousel de imágenes, timeline de animaciones, diseño responsive
+ * 
+ * @author Nelson Valero
+ */
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ProjectsData } from "../component/projectsData";

@@ -1,3 +1,19 @@
+/**
+ * src/styles/home.css
+ * Estilos específicos de la página Home (Landing Page).
+ * Define layout, animaciones y efectos visuales de la página de inicio.
+ * 
+ * Funcionalidad:
+ * - Layout de home con contenedor decorado y logo
+ * - Navegación lateral con links animados (.home-nav-link)
+ * - Efecto glow en borde después de animaciones
+ * - Animación keyframes borderGlowShadow
+ * - Responsive: adapta layout para mobile (logo arriba, links abajo)
+ * 
+ * Componentes: .home-container, .home-inner-frame, .home-nav-link, .decorated-container
+ * 
+ * @author Nelson Valero
+ */
 /* Contenedor principal */
 .home-container {
   display: flex;

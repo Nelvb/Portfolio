@@ -1,3 +1,20 @@
+/**
+ * src/styles/skills.css
+ * Estilos de la vista de habilidades técnicas.
+ * Define cards 3D con efecto flip, layout responsive y efectos glassmorphism.
+ * 
+ * Funcionalidad:
+ * - Cards de tecnología con perspectiva 3D (.skill-card)
+ * - Efecto flip al hover (rotateY 180deg) con transition
+ * - Front y back de cards con backface-visibility hidden
+ * - Efecto glassmorphism en contenedor principal
+ * - Layout responsive: columnas en desktop, apilado en mobile
+ * - Filtros de imagen (grayscale) en cards front
+ * 
+ * Características: 3D transforms, perspective, glassmorphism effect
+ * 
+ * @author Nelson Valero
+ */
 /* Contenedor principal de habilidades */
 .skills-contain-container {
   display: flex;

@@ -1,6 +1,21 @@
+/**
+ * src/js/component/footer.js
+ * Footer global de la aplicación con enlaces a redes sociales.
+ * Se muestra en todas las páginas del portfolio.
+ * 
+ * Funcionalidad:
+ * - Renderiza iconos de redes sociales (LinkedIn, GitHub, Email)
+ * - Enlaces externos a perfiles profesionales
+ * - Copyright con año dinámico
+ * - Diseño responsive y centrado
+ * 
+ * Iconos: React Icons (FontAwesome) para consistencia visual
+ * 
+ * @author Nelson Valero
+ */
 import React from "react";
 import '../../styles/footer.css';
-import { FaLinkedin, FaGithub,FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear(); // Obtener el año actual

@@ -1,3 +1,18 @@
+/**
+ * src/js/views/home.js
+ * Vista principal (Landing Page) del portfolio.
+ * Página de inicio con animaciones de entrada, logo y navegación.
+ * 
+ * Funcionalidad:
+ * - Animaciones secuenciales con anime.js (título, logo, links de navegación)
+ * - Estrategia dual: animaciones desktop vs mobile (IntersectionObserver)
+ * - Actualiza título dinámico para SEO
+ * - Muestra logo, título y links de navegación lateral
+ * 
+ * Animaciones: Título fade-in, logo con delay, links con stagger effect
+ * 
+ * @author Nelson Valero
+ */
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import anime from "animejs";
