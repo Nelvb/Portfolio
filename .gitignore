@@ -1,38 +1,59 @@
-# Ignore all files starting with .
-.*
+########################################################
+# 🧠 PORTFOLIO NELVB — CONFIGURACIÓN .GITIGNORE
+# Proyecto React 19 + Webpack 5 + Flask (email backend)
+# Mantiene el entorno limpio y evita subir archivos generados.
+########################################################
 
-# track this file .gitignore (i.e. do NOT ignore it)
-!.gitignore
-!.github
-!.vscode
-php_errorlog
-.log
-
-# track specific files
-!composer.json
-!webpack.config.js
-!package.json
-!webpack.production.js
-!webpack.development.js
-
-# track README.md
-!README.md
-
-# ignore OS generated files
-ehthumbs.db
+# --- SISTEMA Y EDITOR ---------------------------------
+.DS_Store
 Thumbs.db
-
-# ignore Editor files
-*.sublime-project
-*.sublime-workspace
-*.komodoproject
-
-# ignore log files and databases
+ehthumbs.db
+*.stackdump
 *.log
-*.sql
-*.sqlite
+*.tmp
+*.bak
+*.swp
+*.swo
 
-# ignore compiled files
+# --- VARIABLES Y CONFIGURACIÓN -------------------------
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# --- DEPENDENCIAS -------------------------------------
+node_modules/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# --- BUILD / OUTPUT -----------------------------------
+/build/
+/dist/
+/.venv/
+/.venv*/
+/coverage/
+/.cache/
+/.terraform/
+/.vscode-test/
+
+# --- PUBLIC / STATIC FILES -----------------------------
+public/*
+!public/Nelson_Valero_Barcelona_Resume.pdf
+
+# --- ARCHIVOS TEMPORALES DE DEPLOY ---------------------
+.now
+.vercel
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json*
+Pipfile.lock
+
+# --- ARCHIVOS COMPILADOS / EJECUTABLES ----------------
 *.com
 *.class
 *.dll
@@ -40,7 +61,7 @@ Thumbs.db
 *.o
 *.so
 
-# ignore packaged files
+# --- ARCHIVOS COMPRIMIDOS ------------------------------
 *.7z
 *.dmg
 *.gz
@@ -48,24 +69,27 @@ Thumbs.db
 *.jar
 *.rar
 *.tar
-*.zist
+*.zip
 
-# ignore node/grunt dependency directories
-node_modules/
-
-# Ignore the entire public directory but except the PDF
-public/*
-!public/Nelson_Valero_Barcelona_Resume.pdf
-
-# track .devcontainer
-!.devcontainer
+# --- EXCEPCIONES (ARCHIVOS QUE DEBES SEGUIR) -----------
+!.gitignore
+!.github/
+!.vscode/
+!.eslintrc
+!.env.example
+!.devcontainer/
 !.devcontainer/*
 !.gitpod.yml
 !.htaccess
-!.eslintrc
-!.env.example
-.now
-.vercel
+!webpack.common.js
+!webpack.dev.js
+!webpack.prod.js
+!package.json
+!README.md
+!DOCUMENTACION_COMPLETA.md
+!AUDITORIA_PORTFOLIO.md
+!TECNOLOGIAS_USADAS.md
 
-# IGNORAR VARIABLES DE ENTORNO
-.env
+########################################################
+# Fin del archivo .gitignore — actualizado por Nelvb
+########################################################
