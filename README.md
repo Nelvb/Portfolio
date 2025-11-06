@@ -188,7 +188,7 @@ Cada vista tiene su CSS asociado. Los estilos globales en `index.css` definen:
 - **Plugins**: CleanWebpackPlugin, HtmlWebpackPlugin, CopyWebpackPlugin
 
 ### Scripts NPM
-```bash
+   ```bash
 npm start          # Dev server (webpack-dev-server)
 npm run build      # Build de producción
 npm run deploy     # Build + deploy a GH-Pages
