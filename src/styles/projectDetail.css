@@ -117,12 +117,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .slider-section img {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+/* Overlay oscuro para imágenes del carrusel en modo noche (igual que cards pequeñas de projects) */
+.slider-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  /* Overlay oscuro para imágenes del carrusel en modo noche */
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Flechas del slider */

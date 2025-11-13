@@ -63,9 +63,6 @@ Nelvb-portfolio/
 │   └── verify_email.py                # Servicio Flask para verificar emails con MailboxLayer API
 │
 ├── 📁 docs/                            # Documentación adicional
-│   ├── 📁 assets/
-│   │   └── greeting.py                # Script auxiliar
-│   └── deploy.png                     # Imagen de documentación
 │
 ├── 📄 cross-env                        # Script ejecutable (archivo basura - debería eliminarse)
 ├── 📄 et --hard 6715c8a               # Archivo basura - debería eliminarse

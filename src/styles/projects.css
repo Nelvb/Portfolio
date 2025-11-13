@@ -159,6 +159,18 @@
   opacity: 0;
 }
 
+/* Overlay oscuro para cards pequeñas (no la marcada) en modo noche */
+.slide .project-card:nth-child(n + 3)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  /* Overlay oscuro un poco más intenso para cards pequeñas */
+  border-radius: 20px;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .content-card {
   position: absolute;
   display: none;

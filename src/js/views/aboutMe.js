@@ -19,16 +19,47 @@ import { Link } from "react-router-dom";
 import anime from "animejs/lib/anime.es.js";
 import { useAnimation } from "../component/animationContext";
 import { useLanguage } from "../../context/languageContext";
+import { ThemeContext } from "../../context/themeContext";
 import "../../styles/aboutMe.css";
 
 export const AboutMe = () => {
   const { animationState, setAnimationState } = useAnimation();
   const [isFlipped, setIsFlipped] = useState(false);
+  const [aboutImage, setAboutImage] = useState(
+    "https://res.cloudinary.com/dy1pkrd52/image/upload/v1761959924/imagen_Nelson_o2pmjp.webp"
+  );
   const infoContainerRef = useRef(null);
   const cardContainerRef = useRef(null);
 
   const { language, translations } = useLanguage();
   const t = translations[language].about;
+
+  // Actualizar imagen cuando cambia el tema
+  useEffect(() => {
+    const updateImage = () => {
+      if (!document.body) return;
+      const isDayMode = document.body.classList.contains("day-mode");
+      setAboutImage(
+        isDayMode
+          ? "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto/v1763047896/Nelson_blanco_y_negro_ydach6.webp"
+          : "https://res.cloudinary.com/dy1pkrd52/image/upload/v1761959924/imagen_Nelson_o2pmjp.webp"
+      );
+    };
+
+    // Actualizar imagen inicial
+    updateImage();
+
+    // Observar cambios en la clase del body
+    if (document.body) {
+      const observer = new MutationObserver(updateImage);
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+
+      return () => observer.disconnect();
+    }
+  }, []);
 
   // SEO: Título dinámico de la página
   useEffect(() => {
@@ -413,7 +444,7 @@ export const AboutMe = () => {
                 </div>
                 <div className="card-back">
                   <img
-                    src="https://res.cloudinary.com/dy1pkrd52/image/upload/v1761959924/imagen_Nelson_o2pmjp.webp"
+                    src={aboutImage}
                     alt="Nelson Valero"
                     className="about-image"
                     loading="eager"
