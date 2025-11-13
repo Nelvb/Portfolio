@@ -202,6 +202,20 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  /* Prevenir parpadeo: ocultar TODOS los elementos animados desde el inicio */
+  /* Usamos visibility: hidden para que el navegador no los renderice visualmente */
+  /* El IntersectionObserver los "despertará" cuando entren en viewport */
+  .skill-card,
+  .nav-link,
+  .title-text,
+  .devices-image-wrapper,
+  .skills-contain-container,
+  .skills-description,
+  .skills-section-title {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 480px) {

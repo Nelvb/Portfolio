@@ -96,7 +96,8 @@ export const AboutMe = () => {
             animateElement(entry.target);
           } else {
             // Elemento fuera de la vista: resetea el estado
-            entry.target.style.opacity = 0; // Reinicia la visibilidad
+            entry.target.style.opacity = 0;
+            entry.target.style.visibility = 'hidden';
           }
         });
       },
@@ -106,6 +107,9 @@ export const AboutMe = () => {
     elementsToAnimate.forEach((el) => observer.observe(el));
 
     const animateElement = (element) => {
+      // PRIMERO: "Despertar" el elemento cambiando visibility a visible
+      element.style.visibility = 'visible';
+
       if (element.classList.contains("title-text")) {
         anime({
           targets: element,

@@ -123,6 +123,7 @@ export const ProjectDetail = () => {
             } else {
               // Ocultar el elemento al salir de la pantalla
               entry.target.style.opacity = 0;
+              entry.target.style.visibility = 'hidden';
             }
           });
         },
@@ -230,6 +231,9 @@ export const ProjectDetail = () => {
   };
 
   const animateElement = (element) => {
+    // PRIMERO: "Despertar" el elemento cambiando visibility a visible
+    element.style.visibility = 'visible';
+
     anime({
       targets: element,
       opacity: [0, 1],

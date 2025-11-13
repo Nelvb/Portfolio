@@ -57,6 +57,7 @@ export const Projects = () => {
             } else {
               // Ocultar el elemento al salir de la pantalla
               entry.target.style.opacity = 0;
+              entry.target.style.visibility = 'hidden';
             }
           });
         },
@@ -130,6 +131,9 @@ export const Projects = () => {
 
 
   const animateElement = (element) => {
+    // PRIMERO: "Despertar" el elemento cambiando visibility a visible
+    element.style.visibility = 'visible';
+
     if (element.classList.contains("title-text")) {
       anime({
         targets: element,

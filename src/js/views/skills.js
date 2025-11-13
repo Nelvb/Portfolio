@@ -40,42 +40,58 @@ export const Skills = () => {
     duration: 2000,
   };
 
+
   useEffect(() => {
     if (!animationState.contact) return;
 
     const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
 
-    document
-      .querySelectorAll(
-        ".title-text, .devices-image-wrapper, .skills-contain-container, .skills-description, .skills-section-title, .skill-card, .nav-link"
-      )
-      .forEach((el) => {
-        el.style.opacity = 0;
-      });
-
     if (isSmallScreen) {
-      // Animaciones para pantallas pequeñas (scroll)
+      // En mobile: CSS ya tiene visibility: hidden y opacity: 0 desde el inicio
+      // IntersectionObserver detectará cuando entren en viewport y los "despertará"
       const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
 
+      // Crear el observer
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              // Elemento entra en viewport: animarlo (lo "despierta")
               const element = entry.target;
               animateElement(element);
             } else {
-              // Si el elemento sale de la pantalla, lo ocultamos para que se vuelva a animar
+              // Elemento sale de viewport: ocultarlo para re-animación
               entry.target.style.opacity = 0;
+              entry.target.style.visibility = 'hidden';
             }
           });
         },
-        { threshold: 0.1 } // Detecta cuando el 10% del elemento es visible
+        {
+          threshold: 0.1, // Detecta cuando el 10% del elemento es visible
+          rootMargin: '0px' // Sin margen adicional
+        }
       );
 
-      elementsToAnimate.forEach((el) => observer.observe(el));
-      return () => observer.disconnect();
+      // Observar todos los elementos
+      elementsToAnimate.forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Cleanup: desconectar observer al desmontar
+      return () => {
+        observer.disconnect();
+      };
     } else {
       // Pantallas grandes
+      // Ocultar todos los elementos para animaciones desktop
+      document
+        .querySelectorAll(
+          ".title-text, .devices-image-wrapper, .skills-contain-container, .devices-image, .skills-description, .skills-section-title, .skill-card, .nav-link"
+        )
+        .forEach((el) => {
+          el.style.opacity = 0;
+        });
+
       if (!animationState.skills) {
         // Si ya se cargó previamente, deja todo montado
         document
@@ -166,6 +182,10 @@ export const Skills = () => {
   };
 
   const animateElement = (element) => {
+    // PRIMERO: "Despertar" el elemento cambiando visibility a visible (anime.js no anima visibility bien)
+    element.style.visibility = 'visible';
+
+    // DESPUÉS: Animar opacity y transform
     if (element.classList.contains("title-text")) {
       anime({
         targets: element,

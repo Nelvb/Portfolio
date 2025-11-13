@@ -89,6 +89,9 @@ export const Home = () => {
   };
 
   const animateElement = (element) => {
+    // PRIMERO: "Despertar" el elemento cambiando visibility a visible
+    element.style.visibility = 'visible';
+
     if (element.classList.contains("home-title-text")) {
       anime({
         targets: element,
@@ -155,7 +158,8 @@ export const Home = () => {
               const element = entry.target;
               animateElement(element);
             } else {
-              entry.target.style.opacity = 0; // Ocultar al salir de la vista
+              entry.target.style.opacity = 0;
+              entry.target.style.visibility = 'hidden';
             }
           });
         },

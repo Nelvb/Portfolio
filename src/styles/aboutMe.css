@@ -266,6 +266,18 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+
+  /* Prevenir parpadeo: ocultar elementos animados desde el inicio */
+  .title-text,
+  .about-heading-garamond,
+  .about-title,
+  .about-heading,
+  .about-heading-large,
+  .nav-link {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .about-title {
     font-size: 2.2rem;
   }

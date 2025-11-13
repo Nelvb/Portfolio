@@ -274,6 +274,16 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  /* Prevenir parpadeo: ocultar elementos animados desde el inicio */
+  .home-title-text,
+  .decorated-container,
+  .logo-image.home-logo,
+  .home-nav-link {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .home-title-text {
     font-size: 4.5rem;
     white-space: normal;

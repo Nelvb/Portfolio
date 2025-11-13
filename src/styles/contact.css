@@ -230,6 +230,13 @@
 }
 
 @media (max-width: 768px) {
+
+  /* Prevenir parpadeo: ocultar elementos animados desde el inicio */
+  .animate-on-scroll {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .contact-contain-container {
     margin-top: 3rem;
     padding-left: 20px;

@@ -279,6 +279,13 @@
 
 /* 768px */
 @media (max-width: 768px) {
+
+  /* Prevenir parpadeo: ocultar elementos animados desde el inicio */
+  .animate-on-scroll {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .project-gallery-slider {
     max-height: 450px;
     padding: 15px;

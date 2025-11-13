@@ -72,7 +72,10 @@ export const Contact = () => {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) animateElement(entry.target);
-            else entry.target.style.opacity = 0;
+            else {
+              entry.target.style.opacity = 0;
+              entry.target.style.visibility = 'hidden';
+            }
           });
         },
         { threshold: 0.1 }
@@ -119,6 +122,9 @@ export const Contact = () => {
   };
 
   const animateElement = (element) => {
+    // PRIMERO: "Despertar" el elemento cambiando visibility a visible
+    element.style.visibility = 'visible';
+
     anime({
       targets: element,
       opacity: [0, 1],
