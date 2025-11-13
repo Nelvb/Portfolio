@@ -16,6 +16,15 @@
  * @author Nelson Valero
  */
 
+/* Contenedor de los enlaces de navegación - igual que en otras vistas */
+.navigation-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
 /* Estilos para nav-link específico de projects (hereda de .nav-link global) */
 .projects-nav-link {
   font-family: 'Oooh Baby', cursive;
@@ -759,6 +768,17 @@
   .projects-nav-link {
     visibility: hidden;
     opacity: 0;
+  }
+
+  /* Links en columna solo en mobile - igual que otras vistas */
+  .navigation-links {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation-links {
+    flex-direction: column;
   }
 }
 

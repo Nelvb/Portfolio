@@ -74,6 +74,11 @@ body.day-mode .nav-link {
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
+body.day-mode .projects-nav-link {
+  color: #1a1a1a;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
 /* ABOUT ME */
 body.day-mode .about-title {
   color: #1a1a1a;
@@ -86,7 +91,8 @@ body.day-mode .about-heading-large {
 }
 
 body.day-mode .home-nav-link:hover,
-body.day-mode .nav-link:hover {
+body.day-mode .nav-link:hover,
+body.day-mode .projects-nav-link:hover {
   color: #000000;
   transform: scale(1.1);
 }
@@ -203,37 +209,74 @@ body.day-mode .contact-form button:hover {
 }
 
 /* PROJECTS */
-body.day-mode .content-card {
-  color: #eee;
-}
-
-body.day-mode .content-card .des {
-  color: white;
-}
-
-body.day-mode .content-card button {
-  background-color: #e0e0e0;
-  color: #1a1a1a;
-}
-
-body.day-mode .content-card button:hover {
-  background: #c8c8c8;
-  color: #ffffff;
-}
-
-/* Overlay para project cards en modo día - mismo que modo noche */
+/* Card marcada en modo claro: overlay blanco y texto negro */
 body.day-mode .slide .project-card:nth-child(2)::before {
-  background: rgba(0, 0, 0, 0.4);
-  /* Fondo oscuro semitransparente (igual que modo noche) */
+  background: rgba(255, 255, 255, 0.4);
+  /* Fondo blanco semitransparente (inverso del modo noche) */
   backdrop-filter: blur(1px);
   /* Aplica desenfoque */
   -webkit-backdrop-filter: blur(8px);
   /* Soporte para navegadores webkit */
 }
 
+body.day-mode .slide .project-card:nth-child(2) .content-card {
+  color: #1a1a1a;
+  /* Texto negro para contraste con overlay blanco */
+}
+
+body.day-mode .slide .project-card:nth-child(2) .content-card .name {
+  color: #1a1a1a;
+  -webkit-text-stroke: 0;
+  /* Sin borde para texto limpio en modo claro */
+  text-shadow: none;
+  /* Sin sombra de texto */
+}
+
+body.day-mode .slide .project-card:nth-child(2) .content-card .des {
+  color: #1a1a1a;
+  -webkit-text-stroke: 0;
+  /* Sin borde para texto limpio en modo claro */
+  text-shadow: none;
+  /* Sin sombra de texto */
+}
+
+body.day-mode .content-card button {
+  background-color: #f5f5f5;
+  /* Gris muy claro, casi blanco */
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  /* Reborde gris oscuro como en las letras */
+}
+
+body.day-mode .content-card button:hover {
+  background: #e8e8e8;
+  /* Gris un poco más oscuro al hover */
+  color: #1a1a1a;
+}
+
 /* PROJECT DETAIL */
 body.day-mode .project-description-tools {
   color: #1a1a1a;
+}
+
+/* Dots de navegación en modo día - más oscuros para mejor visibilidad */
+body.day-mode .dot {
+  background-color: #666666;
+  /* Gris medio para mejor visibilidad en modo día */
+}
+
+body.day-mode .dot:hover {
+  background-color: #555555;
+  /* Gris un poco más oscuro al hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Sombra oscura suave */
+}
+
+body.day-mode .dot.active {
+  background-color: #333333;
+  /* Gris oscuro para el dot activo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Sombra más intensa */
 }
 
 body.day-mode .project-gallery-slider {
