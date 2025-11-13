@@ -114,30 +114,13 @@ export const Home = () => {
         delay: 1000,
       });
     } else if (element.classList.contains("home-nav-link")) {
-      // Verificar si ya fue animado
-      if (!element.dataset.animated) {
-        anime({
-          targets: element,
-          opacity: [0, 1],
-          translateX: [-50, 0],
-          ...animationConfig,
-          delay: anime.stagger(800, { start: 2000 }), // Aplica el delay inicial
-          complete: () => {
-            document
-              .querySelector(".home-inner-frame")
-              .classList.add("glow-effect");
-            element.dataset.animated = true; // Marcar como animado
-            setAnimationState((prev) => ({ ...prev, home: false }));
-          },
-        });
-      } else {
-        anime({
-          targets: element,
-          opacity: [0, 1],
-          translateX: [-50, 0],
-          ...animationConfig,
-        });
-      }
+      // Animar cada link individualmente, igual que projects (sin lógica de data-animated)
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+      });
     }
 
   };
@@ -147,6 +130,7 @@ export const Home = () => {
 
     if (isSmallScreen) {
       // Animaciones para pantallas pequeñas con scroll
+      // NO limpiamos estilos inline, igual que projects (funciona perfecto)
       const elementsToAnimate = document.querySelectorAll(
         ".home-title-text, .decorated-container, .logo-image.home-logo, .home-nav-link"
       );

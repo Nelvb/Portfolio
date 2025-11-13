@@ -15,6 +15,21 @@
  * 
  * @author Nelson Valero
  */
+
+/* Estilos para nav-link específico de projects (hereda de .nav-link global) */
+.projects-nav-link {
+  font-family: 'Oooh Baby', cursive;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.projects-nav-link:hover {
+  color: #c0c0c0;
+  transform: scale(1.2) !important;
+}
+
 .projects-contain-container {
   display: flex;
   align-items: center;
@@ -739,10 +754,9 @@
 @media (max-width: 768px) {
 
   /* Prevenir parpadeo: ocultar elementos animados desde el inicio */
+  /* projects-contain-container y projects-section NO se ocultan (funcionaban bien antes) */
   .title-text,
-  .projects-contain-container,
-  .projects-section,
-  .nav-link {
+  .projects-nav-link {
     visibility: hidden;
     opacity: 0;
   }

@@ -85,7 +85,7 @@ export const Projects = () => {
 
     // Configuración inicial: elementos invisibles
     document.querySelectorAll(
-      ".title-text, .projects-contain-container, .projects-section, .nav-link"
+      ".title-text, .projects-contain-container, .projects-section, .projects-nav-link"
     ).forEach((el) => {
       el.style.opacity = 0; // Inicializamos con opacidad 0
     });
@@ -116,7 +116,7 @@ export const Projects = () => {
 
     // Animación de los enlaces de navegación
     anime({
-      targets: ".nav-link",
+      targets: ".projects-nav-link",
       opacity: [0, 1],
       translateX: [-50, 0],
       ...animationConfig,
@@ -154,13 +154,12 @@ export const Projects = () => {
         translateX: [150, 0],
         ...animationConfig,
       });
-    } else if (element.classList.contains("nav-link")) {
+    } else if (element.classList.contains("projects-nav-link")) {
       anime({
         targets: element,
         opacity: [0, 1],
         translateX: [-50, 0],
-        easing: "easeInOutQuad",
-        duration: 1000,
+        ...animationConfig, // Usar mismo tiempo que home y skills (2000ms)
       });
     }
   };
@@ -183,16 +182,16 @@ export const Projects = () => {
 
         {/* Enlaces */}
         <div className="navigation-links">
-          <Link to="/" className="nav-link animate-on-scroll">
+          <Link to="/" className="projects-nav-link animate-on-scroll">
             {t.navigation.home}
           </Link>
-          <Link to="/about" className="nav-link animate-on-scroll">
+          <Link to="/about" className="projects-nav-link animate-on-scroll">
             {t.navigation.about}
           </Link>
-          <Link to="/skills" className="nav-link animate-on-scroll">
+          <Link to="/skills" className="projects-nav-link animate-on-scroll">
             {t.navigation.skills}
           </Link>
-          <Link to="/contact" className="nav-link animate-on-scroll">
+          <Link to="/contact" className="projects-nav-link animate-on-scroll">
             {t.navigation.contact}
           </Link>
         </div>
