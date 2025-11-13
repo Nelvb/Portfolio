@@ -244,7 +244,8 @@
   }
 
   .contact-params-container {
-    gap: 3rem;
+    gap: 1.5rem;
+    /* Reducido de 3rem para acercar más los elementos en mobile */
   }
 }
 

@@ -125,12 +125,92 @@ export const Contact = () => {
     // PRIMERO: "Despertar" el elemento cambiando visibility a visible
     element.style.visibility = 'visible';
 
-    anime({
-      targets: element,
-      opacity: [0, 1],
-      translateY: [-20, 0],
-      ...animationConfig,
-    });
+    // Animar según el tipo de elemento (igual que projects)
+    if (element.classList.contains("contact-item")) {
+      // Información de contacto (email, teléfono, dirección) - desde la izquierda
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+      });
+    } else if (element.classList.contains("contact-info-container")) {
+      // Contenedor del formulario - desde la derecha
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [50, 0],
+        ...animationConfig,
+      });
+    } else if (element.classList.contains("contact-form")) {
+      // Formulario - desde la derecha
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [50, 0],
+        ...animationConfig,
+      });
+    } else if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+      // Inputs y textarea del formulario - desde la izquierda
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+      });
+    } else if (element.tagName === "BUTTON") {
+      // Botón de envío - desde la izquierda
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+      });
+    } else if (element.classList.contains("nav-link")) {
+      // Links de navegación - desde la izquierda (igual que projects y home)
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+      });
+    } else if (element.classList.contains("contact-social-icons")) {
+      // Contenedor de iconos sociales - animar el contenedor y luego los iconos dentro
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        ...animationConfig,
+      });
+      // Animar los iconos sociales dentro del contenedor
+      const socialIcons = element.querySelectorAll(".social-icon");
+      socialIcons.forEach((icon) => {
+        icon.style.visibility = 'visible'; // "Despertar" cada icono
+      });
+      anime({
+        targets: socialIcons,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+        delay: anime.stagger(200, { start: 500 }),
+      });
+    } else if (element.classList.contains("social-icon")) {
+      // Iconos sociales individuales - desde la izquierda
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateX: [-50, 0],
+        ...animationConfig,
+      });
+    } else {
+      // Otros elementos (por defecto)
+      anime({
+        targets: element,
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        ...animationConfig,
+      });
+    }
   };
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
