@@ -270,7 +270,7 @@ export const ProjectsData = [
       ],
     },
     projectUrl: "https://hoynococino.es",
-    repoUrl: "https://github.com/Nelvb/Proyecto-Hoy-No-Cocino",
+    repoUrl: "https://github.com/Nelvb/HoyNoCocino",
   },
   {
     id: 7,
@@ -360,7 +360,7 @@ export const ProjectsData = [
         "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto,w_1200,h_900,c_limit/v1763044738/MILESTONES_jkj0en.webp",
       ],
     },
-    projectUrl: "https://nexiaapp.com",
+    projectUrl: "https://nexia-frontend-phi.vercel.app/",
     repoUrl: "https://github.com/NexiaFitness",
   },
 ];
