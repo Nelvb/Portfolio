@@ -209,49 +209,50 @@ body.day-mode .contact-form button:hover {
 }
 
 /* PROJECTS */
-/* Card marcada en modo claro: overlay blanco y texto negro */
+/* Card marcada: mismo estilo que modo noche (overlay oscuro, texto blanco con efectos) */
 body.day-mode .slide .project-card:nth-child(2)::before {
-  background: rgba(255, 255, 255, 0.4);
-  /* Fondo blanco semitransparente (inverso del modo noche) */
+  background: rgba(0, 0, 0, 0.4);
+  /* Mismo overlay oscuro que modo noche */
   backdrop-filter: blur(1px);
-  /* Aplica desenfoque */
+  /* Mismo desenfoque que modo noche */
   -webkit-backdrop-filter: blur(8px);
   /* Soporte para navegadores webkit */
 }
 
 body.day-mode .slide .project-card:nth-child(2) .content-card {
-  color: #1a1a1a;
-  /* Texto negro para contraste con overlay blanco */
+  color: #eee;
+  /* Mismo color de texto que modo noche */
 }
 
 body.day-mode .slide .project-card:nth-child(2) .content-card .name {
-  color: #1a1a1a;
-  -webkit-text-stroke: 0;
-  /* Sin borde para texto limpio en modo claro */
+  color: white;
+  /* Texto blanco igual que modo noche */
+  -webkit-text-stroke: 0.3px #000;
+  /* Mismo stroke que modo noche */
   text-shadow: none;
-  /* Sin sombra de texto */
 }
 
 body.day-mode .slide .project-card:nth-child(2) .content-card .des {
-  color: #1a1a1a;
-  -webkit-text-stroke: 0;
-  /* Sin borde para texto limpio en modo claro */
+  color: white;
+  /* Texto blanco igual que modo noche */
+  -webkit-text-stroke: 0.2px #000;
+  /* Mismo stroke que modo noche */
   text-shadow: none;
-  /* Sin sombra de texto */
 }
 
 body.day-mode .content-card button {
-  background-color: #f5f5f5;
-  /* Gris muy claro, casi blanco */
+  /* Sin background definido, igual que modo noche (hereda el estilo base) */
   color: #1a1a1a;
-  border: 1px solid #1a1a1a;
-  /* Reborde gris oscuro como en las letras */
+  /* Texto gris oscuro igual que el resto de letras en modo día */
+  border: 1px solid #000;
+  /* Mismo borde que modo noche */
 }
 
 body.day-mode .content-card button:hover {
-  background: #e8e8e8;
-  /* Gris un poco más oscuro al hover */
-  color: #1a1a1a;
+  background: #ababab;
+  /* Mismo hover que modo noche */
+  color: #fff;
+  /* Mismo color de texto en hover que modo noche */
 }
 
 /* Overlay claro para cards pequeñas en modo día (inverso del modo noche) */

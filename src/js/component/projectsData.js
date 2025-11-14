@@ -231,7 +231,7 @@ export const ProjectsData = [
   {
     id: 6,
     backgroundImage:
-      "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto,w_1600,c_limit/v1741974879/PrincipalHome_i6daz1.webp",
+      "https://res.cloudinary.com/dy1pkrd52/image/upload/f_auto,q_auto,w_1600,c_limit/v1763075249/home_principal_ivikgu.webp",
     name: "Hoy No Cocino",
     description: {
       en: "Platform to simplify restaurant reservation management.",
