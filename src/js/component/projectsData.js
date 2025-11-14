@@ -361,6 +361,6 @@ export const ProjectsData = [
       ],
     },
     projectUrl: "https://nexia-frontend-phi.vercel.app/",
-    repoUrl: "https://github.com/NexiaFitness",
+    // repoUrl removido temporalmente - proyecto en proceso
   },
 ];

@@ -328,12 +328,14 @@ export const ProjectDetail = () => {
                     {t.buttonWeb}
                   </button>
                 )}
-                <button
-                  className='project-btn animate-on-scroll'
-                  onClick={() => window.open(repoUrl, '_blank')}
-                >
-                  {t.buttonCode}
-                </button>
+                {repoUrl && (
+                  <button
+                    className='project-btn animate-on-scroll'
+                    onClick={() => window.open(repoUrl, '_blank')}
+                  >
+                    {t.buttonCode}
+                  </button>
+                )}
               </div>
             </div>
           </div>
