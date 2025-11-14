@@ -41,7 +41,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'public/Nelson_Valero_Barcelona_Resume.pdf'), to: 'Nelson_Valero_Barcelona_Resume.pdf' },
         { from: path.resolve(__dirname, 'public/Cv_Nelson_Valero.pdf'), to: 'Cv_Nelson_Valero.pdf' },
         { from: path.resolve(__dirname, 'public/Cv_Nelson_english.pdf'), to: 'Cv_Nelson_english.pdf' },
         { from: 'src/styles/dayTheme.css', to: 'styles/dayTheme.css' },

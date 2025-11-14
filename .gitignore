@@ -41,7 +41,8 @@ __pycache__/
 
 # --- PUBLIC / STATIC FILES -----------------------------
 public/*
-!public/Nelson_Valero_Barcelona_Resume.pdf
+!public/Cv_Nelson_Valero.pdf
+!public/Cv_Nelson_english.pdf
 
 # --- ARCHIVOS TEMPORALES DE DEPLOY ---------------------
 .now
