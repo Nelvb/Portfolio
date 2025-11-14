@@ -457,7 +457,7 @@ export const AboutMe = () => {
 
         <div className="navigation-links">
           <a
-            href="/Nelson_Valero_Barcelona_Resume.pdf"
+            href={language === "es" ? "/Cv_Nelson_Valero.pdf" : "/Cv_Nelson_english.pdf"}
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link cv-link animate-on-scroll"

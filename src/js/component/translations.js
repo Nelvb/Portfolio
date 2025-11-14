@@ -109,7 +109,7 @@ I enjoy working with technologies such as JavaScript, Python, and React. I also 
 knowledge in process optimization and relational database management among other skills.
 I am committed to continuous learning to apply it to development teams, so I can keep growing within the tech industry.`,
             links: {
-                cv: "View CV",
+                cv: "Resume",
                 home: "Home",
                 skills: "Skills",
                 projects: "Projects",

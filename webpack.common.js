@@ -42,6 +42,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'public/Nelson_Valero_Barcelona_Resume.pdf', to: 'Nelson_Valero_Barcelona_Resume.pdf' },
+        { from: 'public/Cv_Nelson_Valero.pdf', to: 'Cv_Nelson_Valero.pdf' },
+        { from: 'public/Cv_Nelson_english.pdf', to: 'Cv_Nelson_english.pdf' },
         { from: 'src/styles/dayTheme.css', to: 'styles/dayTheme.css' },
         { from: 'src/img/Icono N portfolio 204623.png', to: 'favicon.png' },
       ],
